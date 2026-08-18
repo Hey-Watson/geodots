@@ -1,0 +1,1212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Geodots — a daily geography deduction puzzle. Unlabeled countries, real borders, one true answer.">
+<title>Geodots — Daily Geography Deduction Puzzle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Serif+4:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #1B2A38; --ground-deep: #152230;
+    --ink: #E8DFC8; --ink-dim: #A9A08C;
+    --brass: #B08D57; --brass-bright: #C9A876;
+    --verdigris: #6B8F71;
+    --danger: #B2574C;
+    --line: #3A4C5C;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--ground); color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    display: flex; justify-content: center; padding: 32px 16px;
+  }
+  .page {
+    max-width: 520px; width: 100%;
+    position: relative; z-index: 1; background: var(--ground);
+  }
+
+  /* Atmospheric star field, fixed behind everything. Only ever visible in
+     the empty margin around the card: .page carries its own opaque
+     background (above) so the card's own interior always masks it. */
+  #stars-bg {
+    position: fixed; inset: 0; width: 100vw; height: 100vh;
+    z-index: 0; pointer-events: none;
+  }
+  #stars-bg .stars { fill: var(--ink-dim); opacity: 0.35; }
+  #stars-bg .stars .bright { fill: var(--ink); }
+  #stars-bg .constellation-lines { stroke: var(--ink-dim); stroke-width: 0.7; fill: none; opacity: 0.15; }
+  #stars-bg .astrolabe { stroke: var(--brass); stroke-width: 1; opacity: 0.15; fill: none; }
+  #stars-bg .astrolabe .sightline { stroke-width: 0.7; }
+
+  /* NOTE ON FONTS: the brief restricts IBM Plex Mono to numeric data only
+     (day count / check count / timer) -- narrower than the mock's own CSS,
+     which uses Plex Mono for buttons, labels and node text too. Everywhere
+     the mock uses Plex Mono for non-numeric text, this file uses Source
+     Serif 4 instead, per that explicit instruction. Only elements with
+     class="num" (or the node label font, see renderGraph) get Plex Mono. */
+  .num { font-family: 'IBM Plex Mono', monospace; }
+
+  .eyebrow {
+    font-family: 'Source Serif 4', serif; font-size: 11px;
+    color: var(--brass-bright); letter-spacing: 0.12em; text-transform: uppercase;
+    display: flex; justify-content: space-between; margin-bottom: 6px;
+  }
+  .eyebrow em { text-transform: none; }
+  .eyebrow .sub-brand-link {
+    text-transform: none; font-style: italic; color: inherit;
+    text-decoration: none;
+  }
+  .eyebrow .sub-brand-link:hover { color: var(--ink); text-decoration: underline; }
+  .lang-toggle { margin-left: 10px; letter-spacing: 0.05em; }
+  .lang-opt {
+    background: none; border: none; padding: 0 1px; cursor: pointer;
+    font-family: 'Source Serif 4', serif; font-size: 11px; color: var(--ink-dim);
+    text-transform: uppercase;
+  }
+  .lang-opt.active { color: var(--brass-bright); font-weight: 600; cursor: default; }
+  .lang-opt:hover:not(.active) { color: var(--ink); }
+
+  .eyebrow-right { display: inline-flex; align-items: center; }
+  .info-wrap { position: relative; display: inline-flex; margin-left: 10px; }
+  .info-icon {
+    width: 15px; height: 15px; border-radius: 50%; padding: 0;
+    border: 1px solid var(--ink-dim); background: none; color: var(--ink-dim);
+    font-family: 'Source Serif 4', serif; font-style: italic; font-size: 10px;
+    text-transform: none; letter-spacing: normal; line-height: 1;
+    display: inline-flex; align-items: center; justify-content: center;
+    cursor: pointer;
+  }
+  .info-icon:hover, .info-icon.active { color: var(--brass-bright); border-color: var(--brass-bright); }
+  .popover {
+    position: absolute; top: 22px; right: 0; width: 250px; z-index: 5;
+    background: var(--ground-deep); border: 1px solid var(--brass);
+    border-radius: 2px; padding: 12px 14px;
+    font-family: 'Source Serif 4', serif; font-size: 12.5px; line-height: 1.6;
+    color: var(--ink); text-transform: none; letter-spacing: normal;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+  }
+  .popover.hidden { display: none; }
+  h1 {
+    font-family: 'Fraunces', serif; font-optical-sizing: auto;
+    font-weight: 600; font-size: 26px; margin: 0 0 4px; letter-spacing: 0.01em;
+  }
+  .sub { font-size: 13px; color: var(--ink-dim); margin: 0 0 16px; }
+  .notice { font-size: 13px; color: var(--brass-bright); margin: 0 0 16px; font-style: italic; }
+
+  .badge {
+    display: inline-block; padding: 1px 9px; margin: 0 1px;
+    border-radius: 9px; font-size: 11px; font-weight: 600; letter-spacing: 0.03em;
+  }
+  .badge-easy { background: rgba(107, 143, 113, 0.22); color: var(--verdigris); border: 1px solid rgba(107, 143, 113, 0.45); }
+  .badge-medium { background: rgba(176, 141, 87, 0.22); color: var(--brass-bright); border: 1px solid rgba(176, 141, 87, 0.45); }
+  .badge-hard { background: rgba(178, 87, 76, 0.22); color: var(--danger); border: 1px solid rgba(178, 87, 76, 0.45); }
+
+  .chart {
+    position: relative; background: var(--ground-deep);
+    border: 1px solid var(--line); border-radius: 2px; padding: 8px;
+  }
+  svg { width: 100%; height: auto; display: block; }
+
+  .clues { margin-top: 20px; }
+  .clues p.label {
+    font-family: 'Source Serif 4', serif; font-size: 11px;
+    color: var(--brass-bright); letter-spacing: 0.1em; text-transform: uppercase;
+    margin: 20px 0 10px; border-bottom: 1px solid var(--line); padding-bottom: 6px;
+  }
+  .clues p.label:first-child { margin-top: 0; }
+  .clues ul { margin: 0 0 8px; padding-left: 20px; font-size: 14.5px; line-height: 1.9; color: var(--ink); }
+  .clues li::marker { color: var(--brass); }
+
+  .tray { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .chip {
+    font-family: 'Source Serif 4', serif; font-size: 13px; padding: 6px 13px;
+    border: 1px solid var(--brass); border-radius: 2px; background: transparent;
+    color: var(--ink); cursor: pointer;
+  }
+  .chip:hover:not(:disabled) { border-color: var(--brass-bright); color: var(--brass-bright); }
+  .chip.used { opacity: 0.3; pointer-events: none; border-color: var(--line); }
+
+  #hint { color: var(--brass-bright); font-size: 12.5px; min-height: 1.2em; margin: 2px 0 10px; font-style: italic; }
+
+  .controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  button.primary {
+    font-family: 'Source Serif 4', serif; font-size: 13px; letter-spacing: 0.03em;
+    padding: 9px 18px; background: var(--brass); color: var(--ground-deep);
+    border: none; border-radius: 2px; cursor: pointer; text-transform: uppercase;
+  }
+  button.primary:hover { background: var(--brass-bright); }
+  button.secondary {
+    font-family: 'Source Serif 4', serif; font-size: 13px;
+    padding: 9px 16px; background: transparent; color: var(--ink-dim);
+    border: 1px solid var(--line); border-radius: 2px; cursor: pointer;
+  }
+  button.secondary:hover { color: var(--ink); border-color: var(--brass); }
+  .status { font-family: 'Source Serif 4', serif; font-size: 13px; color: var(--ink-dim); }
+  .status.good { color: var(--brass-bright); font-weight: 600; }
+  .status.bad { color: var(--danger); }
+
+  #share {
+    margin-top: 14px; padding: 12px 14px;
+    background: rgba(201, 168, 118, 0.22); border: 1px solid var(--brass-bright);
+    border-radius: 2px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    box-shadow: 0 0 14px rgba(201, 168, 118, 0.4);
+  }
+  #share.hidden { display: none; }
+  #shareLine { font-size: 14px; color: var(--brass-bright); font-weight: 600; }
+  #copyStatus { font-size: 12px; color: var(--ink-dim); }
+
+  .footer-link {
+    display: block; width: 100%; margin-top: 36px; padding: 4px;
+    font-family: 'Source Serif 4', serif; font-size: 12px; color: var(--ink-dim);
+    text-decoration: underline; text-align: center;
+    background: none; border: none; cursor: pointer;
+  }
+  .footer-link:hover { color: var(--brass-bright); }
+
+  .site-credit {
+    margin-top: 36px; padding: 4px;
+    font-family: 'Source Serif 4', serif; font-size: 12px; color: var(--ink-dim);
+    text-align: center;
+  }
+  .site-credit a { color: var(--ink-dim); text-decoration: underline; }
+  .site-credit a:hover { color: var(--brass-bright); }
+
+  .hidden { display: none; }
+
+  .archive-back-link {
+    display: inline-block; margin: 0 0 16px;
+    font-family: 'Source Serif 4', serif; font-size: 12.5px; color: var(--brass-bright);
+    text-decoration: underline; cursor: pointer;
+  }
+  .archive-back-link:hover { color: var(--ink); }
+
+  #archiveSection { margin-top: 20px; }
+  #archiveSection p.label { margin: 20px 0 10px; }
+
+  /* Grid of small circular markers, one per archived day -- deliberately
+     mirrors the puzzle board's own node language: outline-only = unsolved
+     (like an unplaced node), filled = solved (like a placed one). */
+  .archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .archive-dot {
+    width: 26px; height: 26px; margin: 0 auto; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace; font-size: 9px;
+    background: transparent; padding: 0; box-sizing: border-box; cursor: pointer;
+  }
+  .archive-dot.easy { border: 1.5px solid var(--verdigris); color: var(--verdigris); }
+  .archive-dot.medium { border: 1.5px solid var(--brass-bright); color: var(--brass-bright); }
+  .archive-dot.hard { border: 1.5px solid var(--danger); color: var(--danger); }
+  .archive-dot.solved { color: var(--ground-deep); font-weight: 600; }
+  .archive-dot.solved.easy { background: var(--verdigris); }
+  .archive-dot.solved.medium { background: var(--brass-bright); }
+  .archive-dot.solved.hard { background: var(--danger); }
+  .archive-dot:hover { filter: brightness(1.3); }
+</style>
+</head>
+<body>
+
+<svg id="stars-bg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <!-- Astrolabe-style watermark, anchored off a corner via the transform
+       below so most of the ring is cropped by the viewport. Coordinates
+       here are LOCAL (centered on 0,0) so the anchor point can be re-tuned
+       by editing just the translate() below, without recomputing geometry.
+       Ticks are a true evenly-spaced ring (24, 15deg apart) -- only the
+       ones that land inside the visible area actually show. The 4
+       sight-lines are deliberately irregular, not evenly spaced. -->
+  <g class="astrolabe" transform="translate(40, 850)">
+    <circle class="ring" cx="0" cy="0" r="480"/>
+    <g class="ticks">
+      <line x1="462" y1="0" x2="480" y2="0"/>
+      <line x1="446.3" y1="119.6" x2="463.6" y2="124.2"/>
+      <line x1="400.1" y1="231" x2="415.7" y2="240"/>
+      <line x1="326.7" y1="326.7" x2="339.4" y2="339.4"/>
+      <line x1="231" y1="400.1" x2="240" y2="415.7"/>
+      <line x1="119.6" y1="446.3" x2="124.2" y2="463.6"/>
+      <line x1="0" y1="462" x2="0" y2="480"/>
+      <line x1="-119.6" y1="446.3" x2="-124.2" y2="463.6"/>
+      <line x1="-231" y1="400.1" x2="-240" y2="415.7"/>
+      <line x1="-326.7" y1="326.7" x2="-339.4" y2="339.4"/>
+      <line x1="-400.1" y1="231" x2="-415.7" y2="240"/>
+      <line x1="-446.3" y1="119.6" x2="-463.6" y2="124.2"/>
+      <line x1="-462" y1="0" x2="-480" y2="0"/>
+      <line x1="-446.3" y1="-119.6" x2="-463.6" y2="-124.2"/>
+      <line x1="-400.1" y1="-231" x2="-415.7" y2="-240"/>
+      <line x1="-326.7" y1="-326.7" x2="-339.4" y2="-339.4"/>
+      <line x1="-231" y1="-400.1" x2="-240" y2="-415.7"/>
+      <line x1="-119.6" y1="-446.3" x2="-124.2" y2="-463.6"/>
+      <line x1="0" y1="-462" x2="0" y2="-480"/>
+      <line x1="119.6" y1="-446.3" x2="124.2" y2="-463.6"/>
+      <line x1="231" y1="-400.1" x2="240" y2="-415.7"/>
+      <line x1="326.7" y1="-326.7" x2="339.4" y2="-339.4"/>
+      <line x1="400.1" y1="-231" x2="415.7" y2="-240"/>
+      <line x1="446.3" y1="-119.6" x2="463.6" y2="-124.2"/>
+    </g>
+    <g class="sightline">
+      <line x1="0" y1="0" x2="0" y2="-465"/>
+      <line x1="0" y1="0" x2="298.9" y2="-356.2"/>
+      <line x1="0" y1="0" x2="437" y2="-159"/>
+      <line x1="0" y1="0" x2="463.2" y2="-40.5"/>
+    </g>
+  </g>
+  <g class="stars">
+    <circle cx="120" cy="80" r="1.4"/>
+    <circle cx="310" cy="150" r="1.0"/>
+    <circle cx="60" cy="320" r="1.6"/>
+    <circle cx="220" cy="260" r="0.9" class="bright"/>
+    <circle cx="480" cy="60" r="1.2"/>
+    <circle cx="650" cy="180" r="1.5"/>
+    <circle cx="830" cy="90" r="1.0" class="bright"/>
+    <circle cx="920" cy="260" r="1.3"/>
+    <circle cx="760" cy="340" r="0.9"/>
+    <circle cx="40" cy="560" r="1.1"/>
+    <circle cx="180" cy="620" r="1.5" class="bright"/>
+    <circle cx="90" cy="780" r="1.0"/>
+    <circle cx="300" cy="850" r="1.3"/>
+    <circle cx="450" cy="920" r="0.9"/>
+    <circle cx="600" cy="800" r="1.6"/>
+    <circle cx="850" cy="700" r="1.1" class="bright"/>
+    <circle cx="950" cy="560" r="1.4"/>
+    <circle cx="700" cy="550" r="0.8"/>
+    <circle cx="400" cy="480" r="1.0"/>
+    <circle cx="550" cy="350" r="1.2"/>
+    <circle cx="150" cy="950" r="0.9"/>
+    <circle cx="920" cy="900" r="1.2" class="bright"/>
+  </g>
+  <g class="constellation-lines">
+    <line x1="650" y1="180" x2="830" y2="90"/>
+    <line x1="830" y1="90" x2="920" y2="260"/>
+    <line x1="600" y1="800" x2="850" y2="700"/>
+  </g>
+</svg>
+
+<div class="page">
+
+  <div class="eyebrow">
+    <span id="eyebrowLeft"></span>
+    <span class="eyebrow-right">
+      <span id="eyebrowRight"></span>
+      <span class="info-wrap">
+        <button id="infoBtn" class="info-icon" type="button" aria-haspopup="true" aria-expanded="false">i</button>
+        <div id="infoPopover" class="popover hidden" role="dialog"></div>
+      </span>
+    </span>
+  </div>
+  <h1 id="title">Chart the region</h1>
+  <p class="sub" id="subtitle"></p>
+  <p class="notice" id="fallback-note"></p>
+  <p class="notice hidden" id="notReadyNote"></p>
+
+  <div id="archiveNotice" class="hidden">
+    <a href="#" id="backToTodayLink" class="archive-back-link"></a>
+  </div>
+
+  <div id="puzzleContent">
+    <div class="chart">
+      <svg id="graph" viewBox="0 0 480 300"></svg>
+    </div>
+
+    <div class="clues">
+      <p class="label" id="cluesLabel">Clues</p>
+      <ul id="clueList"></ul>
+
+      <p class="label" id="countriesLabel">Countries</p>
+      <div class="tray" id="chips"></div>
+      <div id="hint"></div>
+
+      <div class="controls">
+        <button class="primary" id="checkBtn">Check answer</button>
+        <button class="secondary" id="resetBtn">Reset</button>
+        <span class="status" id="result"></span>
+      </div>
+
+      <div id="share" class="hidden">
+        <span id="shareLine"></span>
+        <button class="secondary" id="copyBtn">Copy result</button>
+        <span id="copyStatus"></span>
+      </div>
+    </div>
+
+    <button class="footer-link" id="fullResetBtn">Replay</button>
+  </div>
+
+  <div id="archiveSection" class="hidden">
+    <p class="label" id="archiveLabel">Previous Geodots</p>
+    <div id="archiveList" class="archive-grid"></div>
+  </div>
+
+  <p class="site-credit" id="siteCredit"></p>
+
+</div>
+
+<script>
+  // Day 0 of the pack. Placeholder -- change to the real launch date later.
+  const LAUNCH_DATE = '2026-08-19';
+
+  // UI-chrome-only translations. Puzzle clues and country names are NOT
+  // translated here -- that's separate, bigger work for later. Language is
+  // a site-wide preference (one storage key), not tied to any one puzzle.
+  const LANG_KEY = 'borderPuzzleLang';
+  const STRINGS = {
+    en: {
+      pageTitle: 'Geodots — Daily Geography Deduction Puzzle',
+      subBrandPrefix: 'by ',
+      subBrandName: 'Hey Watson!',
+      heading: 'Chart the region',
+      puzzleLabel: 'Puzzle #',
+      difficultyLabel: 'Difficulty: ',
+      difficulty: { EASY: 'EASY', MEDIUM: 'MEDIUM', HARD: 'HARD' },
+      decoyNote: '  (a few offered names are decoys — they belong on no node)',
+      launchPrefix: 'The pack launches ',
+      launchMiddle: ' -- today (',
+      launchSuffix: ') is before that, so showing the first puzzle as a preview.',
+      cluesLabel: 'Clues',
+      countriesLabel: 'Places',
+      checkAnswer: 'Check answer',
+      reset: 'Reset',
+      hint: 'Tap a node on the map first, then tap a name.',
+      notSolvedYet: 'Not solved yet',
+      correctSuffix: (n, m) => ' (' + n + '/' + m + ' correct)',
+      solved: 'Solved!',
+      checkWord: n => (n === 1 ? 'check' : 'checks'),
+      copyResult: 'Copy result',
+      copied: 'Copied!',
+      copyFailed: "Couldn't copy — select and copy the text manually.",
+      replay: 'Replay',
+      confirmReset: "Reset today's puzzle? This clears your check count and solved status.",
+      infoAriaLabel: 'How to play',
+      info: "Each dot is a real place, positioned where it actually sits on the map, but its name is hidden. The lines between dots are real borders. Read the clues below, then assign each name from the list to the dot you think it belongs to. Check your answer as many times as you like. There's no penalty for guessing wrong. A new puzzle arrives every day, so come back tomorrow for the next one.",
+      notReady: "Today's puzzle is still being prepared. Come back soon.",
+      archiveLabel: 'Previous Geodots',
+      backToToday: 'Back to today',
+      archiveSolved: 'Solved',
+      archiveNotSolved: 'Not solved',
+      creditPrefix: 'By ',
+      creditSuffix: ' © 2026',
+    },
+    fr: {
+      pageTitle: 'Geodots — Devinette Géographique Quotidienne',
+      subBrandPrefix: 'par ',
+      subBrandName: 'Hey Watson !',
+      heading: 'Cartographiez la région',
+      puzzleLabel: 'Puzzle nº',
+      difficultyLabel: 'Difficulté : ',
+      difficulty: { EASY: 'FACILE', MEDIUM: 'MOYEN', HARD: 'DIFFICILE' },
+      decoyNote: '  (quelques noms proposés sont des leurres — ils ne correspondent à aucun nœud)',
+      launchPrefix: 'Le recueil démarre le ',
+      launchMiddle: ' -- aujourd’hui (',
+      launchSuffix: ') est avant cette date, donc le premier puzzle est affiché en aperçu.',
+      cluesLabel: 'Indices',
+      countriesLabel: 'Lieux',
+      checkAnswer: 'Vérifier la réponse',
+      reset: 'Réinitialiser',
+      hint: "Touchez d'abord un nœud sur la carte, puis touchez un nom.",
+      notSolvedYet: 'Pas encore résolu',
+      correctSuffix: (n, m) => ' (' + n + '/' + m + ' correctes)',
+      solved: 'Résolu !',
+      checkWord: n => (n === 1 ? 'essai' : 'essais'),
+      copyResult: 'Copier le résultat',
+      copied: 'Copié !',
+      copyFailed: 'Impossible de copier — sélectionnez et copiez le texte manuellement.',
+      replay: 'Rejouer',
+      confirmReset: "Réinitialiser le puzzle du jour ? Cela efface votre nombre d'essais et votre statut de résolution.",
+      infoAriaLabel: 'Comment jouer',
+      info: "Chaque point représente un lieu réel, positionné à son emplacement exact sur la carte, mais son nom est caché. Les lignes entre les points sont de vraies frontières. Lisez les indices ci-dessous, puis associez chaque nom de la liste au point auquel vous pensez qu'il correspond. Vérifiez votre réponse autant de fois que vous le souhaitez. Il n'y a aucune pénalité en cas d'erreur. Un nouveau puzzle est publié chaque jour. Revenez demain pour le suivant.",
+      notReady: 'Le puzzle du jour est encore en préparation. Revenez bientôt.',
+      archiveLabel: 'Geodots précédents',
+      backToToday: "Retour à aujourd'hui",
+      archiveSolved: 'Résolu',
+      archiveNotSolved: 'Non résolu',
+      creditPrefix: 'Par ',
+      creditSuffix: ' © 2026',
+    },
+  };
+
+  // Display names for the "region" field written into puzzles.json by
+  // assign_regions.py (canonical UN M49 subregion / continent names).
+  // Keyed by that canonical English value; EN mostly matches but uses more
+  // natural everyday phrasing for a few (e.g. "Southeast Asia" rather than
+  // the stiffer official "South-eastern Asia").
+  const REGION_NAMES = {
+    en: {
+      'Northern Africa': 'North Africa', 'Eastern Africa': 'East Africa',
+      'Middle Africa': 'Central Africa', 'Southern Africa': 'Southern Africa',
+      'Western Africa': 'West Africa',
+      'Caribbean': 'Caribbean', 'Central America': 'Central America',
+      'South America': 'South America', 'Northern America': 'North America',
+      'Central Asia': 'Central Asia', 'Eastern Asia': 'East Asia',
+      'South-eastern Asia': 'Southeast Asia', 'Southern Asia': 'South Asia',
+      'Western Asia': 'West Asia',
+      'Eastern Europe': 'Eastern Europe', 'Northern Europe': 'Northern Europe',
+      'Southern Europe': 'Southern Europe', 'Western Europe': 'Western Europe',
+      'Australia and New Zealand': 'Australia and New Zealand',
+      'Melanesia': 'Melanesia', 'Micronesia': 'Micronesia', 'Polynesia': 'Polynesia',
+      'Africa': 'Africa', 'Americas': 'Americas', 'Asia': 'Asia',
+      'Europe': 'Europe', 'Oceania': 'Oceania',
+      'Antarctic': 'Antarctic', 'Unknown': 'Unknown',
+    },
+    fr: {
+      'Northern Africa': 'Afrique du Nord', 'Eastern Africa': "Afrique de l'Est",
+      'Middle Africa': 'Afrique centrale', 'Southern Africa': 'Afrique australe',
+      'Western Africa': "Afrique de l'Ouest",
+      'Caribbean': 'Caraïbes', 'Central America': 'Amérique centrale',
+      'South America': 'Amérique du Sud', 'Northern America': 'Amérique du Nord',
+      'Central Asia': 'Asie centrale', 'Eastern Asia': "Asie de l'Est",
+      'South-eastern Asia': 'Asie du Sud-Est', 'Southern Asia': 'Asie du Sud',
+      'Western Asia': "Asie de l'Ouest",
+      'Eastern Europe': "Europe de l'Est", 'Northern Europe': 'Europe du Nord',
+      'Southern Europe': 'Europe du Sud', 'Western Europe': "Europe de l'Ouest",
+      'Australia and New Zealand': 'Australie et Nouvelle-Zélande',
+      'Melanesia': 'Mélanésie', 'Micronesia': 'Micronésie', 'Polynesia': 'Polynésie',
+      'Africa': 'Afrique', 'Americas': 'Amériques', 'Asia': 'Asie',
+      'Europe': 'Europe', 'Oceania': 'Océanie',
+      'Antarctic': 'Antarctique', 'Unknown': 'Inconnu',
+    },
+  };
+
+  function regionName(canonical) {
+    return (REGION_NAMES[lang] && REGION_NAMES[lang][canonical]) || canonical;
+  }
+
+  function frName(name) {
+    const g = GRAMMAR[name];
+    return (lang === 'fr' && g) ? g.french_name : name;
+  }
+
+  function loadLang() {
+    try {
+      const v = localStorage.getItem(LANG_KEY);
+      if (v === 'en' || v === 'fr') return v;
+    } catch (e) { /* storage unavailable -- default to English */ }
+    return 'en'; // default on first visit
+  }
+
+  let lang = loadLang();
+
+  function t(key) {
+    return STRINGS[lang][key];
+  }
+
+  function setLang(newLang) {
+    if (newLang === lang) return;
+    lang = newLang;
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* storage unavailable -- won't persist */ }
+    render();
+  }
+
+  function langToggle() {
+    const wrap = document.createElement('span');
+    wrap.className = 'lang-toggle';
+    ['en', 'fr'].forEach((code, i) => {
+      if (i > 0) wrap.append(' / ');
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'lang-opt' + (lang === code ? ' active' : '');
+      btn.textContent = code.toUpperCase();
+      btn.addEventListener('click', () => setLang(code));
+      wrap.appendChild(btn);
+    });
+    return wrap;
+  }
+
+  let puzzle = null;
+  let puzzleIndex = 0;  // this puzzle's position in puzzles.json (0-based)
+  let names = [];       // real countries, in true node order (node i = names[i])
+  let trayNames = [];   // real names + decoys (if any), shuffled together
+  let assignment = {};  // nodeIndex -> assigned name
+  let selectedNode = null;
+  let progress = freshProgress(); // persisted per puzzle, see loadProgress()
+  let lastCheckFailed = false; // true right after an unsuccessful "Check answer" press
+  let lastCorrectCount = 0;    // correct-so-far, recomputed on each failed check (not persisted)
+
+  // Permanent-archive model. `puzzlesData` is the full fetched array, kept
+  // globally so archive browsing doesn't refetch. `todayIndex` is the real,
+  // calendar-locked "live" day (null if there isn't one right now).
+  // `maxReachableIndex` is the hard ceiling -- nothing past it is ever
+  // reachable, by construction (see loadPuzzleAt), regardless of how much
+  // more inventory exists later in the file.
+  let puzzlesData = [];
+  let GRAMMAR = {}; // name -> {french_name, gender, article}, from french_country_grammar.json
+  let pageStatus = 'live'; // 'before-launch' | 'not-ready' | 'live'
+  let todayIndex = null;
+  let maxReachableIndex = -1;
+  let viewingArchived = false;
+
+  function freshProgress() {
+    // startedAt: epoch ms when the hidden timer began, set once and never
+    // reset by a reload -- only "Play again" clears it.
+    // elapsedSeconds: frozen at the moment of the first successful solve.
+    return { checks: 0, solved: false, startedAt: null, elapsedSeconds: null };
+  }
+
+  function storageKey(idx) {
+    return 'borderPuzzleProgress:' + idx;
+  }
+
+  function loadProgress(idx) {
+    try {
+      const raw = localStorage.getItem(storageKey(idx));
+      if (raw) return Object.assign(freshProgress(), JSON.parse(raw));
+    } catch (e) { /* corrupt or inaccessible storage -- fall back to fresh progress */ }
+    return freshProgress();
+  }
+
+  function saveProgress() {
+    try {
+      localStorage.setItem(storageKey(puzzleIndex), JSON.stringify(progress));
+    } catch (e) { /* storage unavailable (e.g. private browsing) -- progress just won't persist */ }
+  }
+
+  // Starts the hidden timer the first time this puzzle is ever loaded (or
+  // right after a "Play again" reset). A reload with startedAt already set
+  // leaves it untouched, so elapsed time keeps counting across reloads.
+  function ensureTimerStarted() {
+    if (!progress.solved && progress.startedAt == null) {
+      progress.startedAt = Date.now();
+      saveProgress();
+    }
+  }
+
+  function formatElapsed(totalSeconds) {
+    const s = totalSeconds % 60;
+    const m = Math.floor(totalSeconds / 60);
+    return m > 0 ? (m + 'm' + s + 's') : (s + 's');
+  }
+
+  // Fix for the double-period bug: only add a period if the sentence
+  // doesn't already end with one (country names like "Central African Rep."
+  // already end in a period).
+  function sentence(s) {
+    return /\.$/.test(s) ? s : s + '.';
+  }
+
+  function todayIso() {
+    const d = new Date();
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    return d.getFullYear() + '-' + mm + '-' + dd;
+  }
+
+  // Dev/preview-only override: ?simulateDate=YYYY-MM-DD in the URL
+  // substitutes for "today" everywhere day-index math happens. With no
+  // such parameter, this returns exactly todayIso() -- real behavior is
+  // 100% unchanged for anyone who doesn't deliberately add it. Not linked
+  // from anywhere in the UI, so an ordinary visitor never encounters it.
+  function effectiveTodayIso() {
+    const sim = new URLSearchParams(location.search).get('simulateDate');
+    if (sim && /^\d{4}-\d{2}-\d{2}$/.test(sim)) {
+      return sim;
+    }
+    return todayIso();
+  }
+
+  // Parse a "YYYY-MM-DD" string as a LOCAL midnight Date. Using `new
+  // Date(iso)` directly would parse it as UTC and could land on the wrong
+  // day for anyone west of UTC -- this avoids that off-by-one.
+  function localDateFromIso(iso) {
+    const [y, m, d] = iso.split('-').map(Number);
+    return new Date(y, m - 1, d);
+  }
+
+  function daysBetween(a, b) {
+    return Math.round((b - a) / 86400000);
+  }
+
+  // DISPLAY ONLY. Internal date handling (LAUNCH_DATE, puzzles.json's
+  // "date" fields, day-index math) stays in ISO YYYY-MM-DD throughout --
+  // this only formats a date for something actually shown to the user, and
+  // is never fed back into daysBetween/localDateFromIso or anywhere else
+  // date math happens.
+  const MONTH_NAMES = {
+    en: ['January', 'February', 'March', 'April', 'May', 'June', 'July',
+         'August', 'September', 'October', 'November', 'December'],
+    fr: ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet',
+         'août', 'septembre', 'octobre', 'novembre', 'décembre'],
+  };
+
+  function formatDisplayDate(iso) {
+    const [y, m, d] = iso.split('-').map(Number);
+    return d + ' ' + MONTH_NAMES[lang][m - 1] + ' ' + y;
+  }
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+
+  // A <span class="num"> text node -- the only text styled with IBM Plex
+  // Mono, reserved for numeric data (day count / check count / timer).
+  function numSpan(text) {
+    const span = document.createElement('span');
+    span.className = 'num';
+    span.textContent = text;
+    return span;
+  }
+
+  // A small color-coded pill for just the difficulty word (not the whole
+  // line). `difficulty` is the canonical English value from puzzles.json
+  // (e.g. "EASY") -- used for the CSS class regardless of language; only
+  // the displayed text is translated.
+  function difficultyBadge(difficulty) {
+    const span = document.createElement('span');
+    span.className = 'badge badge-' + difficulty.toLowerCase();
+    span.textContent = t('difficulty')[difficulty];
+    return span;
+  }
+
+  let todayIsoCached = '';
+
+  // Pure and independently testable: given how many days have passed since
+  // launch and how much inventory exists, decide what "today" means.
+  //   before-launch : LAUNCH_DATE hasn't happened yet -- show day 0 as a
+  //                   preview (unchanged behaviour from before the archive
+  //                   model).
+  //   not-ready     : launch has happened, but inventory hasn't caught up
+  //                   to today yet -- no live puzzle, no stale content.
+  //   live          : today has a real puzzle at this index.
+  // `archiveEndIndex` is always the exclusive upper bound of what counts as
+  // "strictly before today" -- i.e. the Archive list is [0, archiveEndIndex).
+  function resolveTodayIndex(daysSinceLaunch, dataLength) {
+    if (daysSinceLaunch < 0) {
+      return { status: 'before-launch', todayIndex: 0, archiveEndIndex: 0, maxReachableIndex: 0 };
+    }
+    if (daysSinceLaunch >= dataLength) {
+      return { status: 'not-ready', todayIndex: null, archiveEndIndex: dataLength, maxReachableIndex: dataLength - 1 };
+    }
+    return { status: 'live', todayIndex: daysSinceLaunch, archiveEndIndex: daysSinceLaunch, maxReachableIndex: daysSinceLaunch };
+  }
+
+  let archiveEndIndex = 0;
+
+  // Rebuilt on every render() (not just at load) so a language toggle
+  // re-translates it too.
+  function renderFallbackNote() {
+    const fallbackNote = document.getElementById('fallback-note');
+    fallbackNote.textContent = pageStatus === 'before-launch'
+      ? t('launchPrefix') + formatDisplayDate(LAUNCH_DATE) + t('launchMiddle') + formatDisplayDate(todayIsoCached) + t('launchSuffix')
+      : '';
+
+    const notReadyNote = document.getElementById('notReadyNote');
+    notReadyNote.textContent = pageStatus === 'not-ready' ? t('notReady') : '';
+    notReadyNote.classList.toggle('hidden', pageStatus !== 'not-ready');
+  }
+
+  // Loads and displays the puzzle at `index`, reusing the same rendering
+  // pipeline regardless of whether it's today's live puzzle or an archived
+  // one -- so per-puzzle progress tracking (checks/timer/solved, keyed by
+  // index) works identically either way.
+  //
+  // HARD RULE: never loads anything past maxReachableIndex, even though
+  // puzzlesData may contain more entries further down the file. This is
+  // the one gate every navigation path (today, archive rows) goes through.
+  function loadPuzzleAt(index) {
+    if (index < 0 || index > maxReachableIndex) return;
+    puzzle = puzzlesData[index];
+    puzzleIndex = index;
+    viewingArchived = pageStatus === 'live' && index !== todayIndex;
+    progress = loadProgress(puzzleIndex);
+    ensureTimerStarted();
+    names = puzzle.nodes.map(n => n.name);
+    trayNames = names.concat(puzzle.decoys || []);
+    shuffle(trayNames);
+    assignment = {};
+    selectedNode = null;
+    lastCheckFailed = false;
+    render();
+  }
+
+  function renderArchive() {
+    const section = document.getElementById('archiveSection');
+    const list = document.getElementById('archiveList');
+    document.getElementById('archiveLabel').textContent = t('archiveLabel');
+
+    if (archiveEndIndex <= 0) {
+      section.classList.add('hidden');
+      list.innerHTML = '';
+      return;
+    }
+    section.classList.remove('hidden');
+    list.innerHTML = '';
+    for (let i = 0; i < archiveEndIndex; i++) {
+      const p = puzzlesData[i];
+      const solved = loadProgress(i).solved;
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.className = 'archive-dot ' + p.difficulty.toLowerCase() + (solved ? ' solved' : '');
+      dot.textContent = String(i + 1);
+      const region = p.region ? regionName(p.region) : '';
+      const status = solved ? t('archiveSolved') : t('archiveNotSolved');
+      // Native tooltip on desktop hover; on mobile this is simply skipped
+      // in favour of tapping straight through -- see loadPuzzleAt below.
+      dot.title = '#' + (i + 1) + (region ? ' · ' + region : '') +
+        ' · ' + t('difficulty')[p.difficulty] + ' · ' + status;
+      dot.addEventListener('click', () => loadPuzzleAt(i));
+      list.appendChild(dot);
+    }
+
+    // Back-to-today notice, only meaningful when a live "today" exists.
+    const notice = document.getElementById('archiveNotice');
+    const backLink = document.getElementById('backToTodayLink');
+    const showBack = viewingArchived && pageStatus === 'live';
+    notice.classList.toggle('hidden', !showBack);
+    backLink.textContent = t('backToToday');
+    // Keyed off whether a puzzle is actually loaded, not pageStatus alone --
+    // browsing into an archived puzzle from the not-ready view must still
+    // reveal the board, even though "today" itself has nothing live.
+    document.getElementById('puzzleContent').classList.toggle('hidden', !puzzle);
+  }
+
+  document.getElementById('backToTodayLink').addEventListener('click', e => {
+    e.preventDefault();
+    if (pageStatus === 'live') loadPuzzleAt(todayIndex);
+  });
+
+  async function init() {
+    const [puzzlesRes, grammarRes] = await Promise.all([
+      fetch('puzzles.json'),
+      fetch('french_country_grammar.json'),
+    ]);
+    puzzlesData = await puzzlesRes.json();
+    GRAMMAR = await grammarRes.json();
+    const iso = effectiveTodayIso();
+    todayIsoCached = iso;
+    const daysSinceLaunch = daysBetween(localDateFromIso(LAUNCH_DATE), localDateFromIso(iso));
+
+    const resolved = resolveTodayIndex(daysSinceLaunch, puzzlesData.length);
+    pageStatus = resolved.status;
+    todayIndex = resolved.todayIndex;
+    archiveEndIndex = resolved.archiveEndIndex;
+    maxReachableIndex = resolved.maxReachableIndex;
+
+    if (pageStatus === 'not-ready') {
+      // No live puzzle to show -- just the holding message + archive.
+      viewingArchived = false;
+      render();
+      return;
+    }
+
+    loadPuzzleAt(todayIndex);
+  }
+
+  function render() {
+    document.title = t('pageTitle');
+    document.getElementById('title').textContent = t('heading');
+
+    // "Geodots" stays plain everywhere else in the page (title, meta
+    // description, share line). The header eyebrow used to additionally
+    // show the italic sub-brand, e.g. "Geodots by Hey Watson!" -- that's
+    // switched off below (kept, not deleted, in case it comes back).
+    const eyebrowLeft = document.getElementById('eyebrowLeft');
+    eyebrowLeft.textContent = '';
+    eyebrowLeft.append('Geodots');
+    // const subBrandPrefix = document.createElement('em');
+    // subBrandPrefix.textContent = t('subBrandPrefix');
+    // eyebrowLeft.append(subBrandPrefix);
+    // const subBrandLink = document.createElement('a');
+    // subBrandLink.href = 'https://hey-watson.com';
+    // subBrandLink.target = '_blank';
+    // subBrandLink.rel = 'noopener';
+    // subBrandLink.className = 'sub-brand-link';
+    // subBrandLink.textContent = t('subBrandName');
+    // eyebrowLeft.append(subBrandLink);
+
+    // `puzzle` is null in the 'not-ready' state (no live puzzle exists yet)
+    // -- everything puzzle-specific below is guarded accordingly, and the
+    // whole #puzzleContent block is hidden by renderArchive() in that case.
+    const eyebrowRight = document.getElementById('eyebrowRight');
+    eyebrowRight.textContent = '';
+    if (puzzle) {
+      eyebrowRight.append(t('puzzleLabel'));
+      eyebrowRight.append(numSpan(String(puzzleIndex + 1)));
+      if (puzzle.region) {
+        eyebrowRight.append(' · ' + regionName(puzzle.region));
+      }
+    }
+    eyebrowRight.append(langToggle());
+
+    const siteCredit = document.getElementById('siteCredit');
+    siteCredit.textContent = '';
+    siteCredit.append(t('creditPrefix'));
+    const creditLink = document.createElement('a');
+    creditLink.href = 'mailto:googdeljr@gmail.com';
+    creditLink.textContent = 'googdeljr';
+    siteCredit.append(creditLink);
+    siteCredit.append(t('creditSuffix'));
+
+    document.getElementById('infoBtn').setAttribute('aria-label', t('infoAriaLabel'));
+    document.getElementById('infoPopover').textContent = t('info');
+
+    const subtitle = document.getElementById('subtitle');
+    subtitle.textContent = '';
+    if (puzzle) {
+      subtitle.append(t('difficultyLabel'));
+      subtitle.append(difficultyBadge(puzzle.difficulty));
+      // No calendar date here, deliberately -- the puzzle number already
+      // identifies/sequences it, and the game should read as evergreen
+      // rather than dated. (The pre-launch notice is the one place a date
+      // still belongs, since it describes a specific one-time event.)
+      subtitle.append(puzzle.type === 'decoy' ? t('decoyNote') : '');
+    }
+
+    renderFallbackNote();
+    document.getElementById('cluesLabel').textContent = t('cluesLabel');
+    document.getElementById('countriesLabel').textContent = t('countriesLabel');
+    document.getElementById('checkBtn').textContent = t('checkAnswer');
+    document.getElementById('resetBtn').textContent = t('reset');
+    document.getElementById('copyBtn').textContent = t('copyResult');
+    document.getElementById('fullResetBtn').textContent = t('replay');
+
+    if (puzzle) {
+      renderGraph();
+      renderClues();
+      renderTray();
+      renderStatus();
+    }
+    renderArchive();
+  }
+
+  // Three visual states for a triangulation-mark node. Deliberately just
+  // "unassigned" / "selected" (mid-interaction, not in the mock) /
+  // "assigned" -- never correct/incorrect, per the brief.
+  const NODE_STYLE = {
+    unassigned: { r: 13, fill: 'transparent', stroke: '#B08D57', circleWidth: 1.5, crossWidth: 1.2, labelColor: '#A9A08C' },
+    selected: { r: 13, fill: 'rgba(176,141,87,0.15)', stroke: '#C9A876', circleWidth: 2.5, crossWidth: 1.8, labelColor: '#C9A876' },
+    assigned: { r: 16, fill: 'rgba(107,143,113,0.15)', stroke: '#6B8F71', circleWidth: 1.5, crossWidth: 1.2, labelColor: '#E8DFC8' },
+  };
+
+  function nodeStateFor(i) {
+    if (assignment[i] !== undefined) return 'assigned';
+    if (selectedNode === i) return 'selected';
+    return 'unassigned';
+  }
+
+  // Word order differs by language (French reads "Geodots #1 résolu en...",
+  // not a stilted word-for-word translation of the English order) -- the
+  // puzzle number, check count, and elapsed time always stay as numbers,
+  // only the surrounding words change.
+  function shareText() {
+    const n = progress.checks;
+    const timeStr = progress.elapsedSeconds != null ? formatElapsed(progress.elapsedSeconds) : null;
+    let text = lang === 'fr'
+      ? 'Geodots #' + (puzzleIndex + 1) + ' résolu en ' + n + ' ' + t('checkWord')(n)
+      : 'Solved Geodots #' + (puzzleIndex + 1) + ' in ' + n + ' ' + t('checkWord')(n);
+    if (timeStr) text += ', ' + timeStr;
+    return text;
+  }
+
+  // Same content as shareText(), but built as DOM nodes so the numeric bits
+  // (#N, check count, elapsed time) can carry the .num (Plex Mono) class.
+  function renderShareLine() {
+    const el = document.getElementById('shareLine');
+    el.textContent = '';
+    const n = progress.checks;
+    if (lang === 'fr') {
+      el.append('Geodots ');
+      el.append(numSpan('#' + (puzzleIndex + 1)));
+      el.append(' résolu en ');
+      el.append(numSpan(String(n)));
+      el.append(' ' + t('checkWord')(n));
+    } else {
+      el.append('Solved Geodots ');
+      el.append(numSpan('#' + (puzzleIndex + 1)));
+      el.append(' in ');
+      el.append(numSpan(String(n)));
+      el.append(' ' + t('checkWord')(n));
+    }
+    if (progress.elapsedSeconds != null) {
+      el.append(', ');
+      el.append(numSpan(formatElapsed(progress.elapsedSeconds)));
+    }
+  }
+
+  // Reflects `progress` (and, briefly, the outcome of the last press) in
+  // three states: nothing yet, "Not solved yet" (optionally with a
+  // correct-count once the player has tried enough times), or "Solved!".
+  // Still no per-node coloring -- the count here is a single aggregate
+  // number, not per-country feedback.
+  function renderStatus() {
+    const resultEl = document.getElementById('result');
+    const shareDiv = document.getElementById('share');
+    if (progress.solved) {
+      resultEl.textContent = t('solved');
+      resultEl.className = 'status good';
+      renderShareLine();
+      shareDiv.classList.remove('hidden');
+    } else if (lastCheckFailed) {
+      // First 3 failed checks stay plain; the count only appears once the
+      // player has been at it a while. Uses the existing checks counter --
+      // no separate storage needed.
+      const showCount = progress.checks >= 4;
+      resultEl.textContent = showCount
+        ? t('notSolvedYet') + t('correctSuffix')(lastCorrectCount, names.length)
+        : t('notSolvedYet');
+      resultEl.className = 'status bad';
+      shareDiv.classList.add('hidden');
+    } else {
+      resultEl.textContent = '';
+      resultEl.className = 'status';
+      shareDiv.classList.add('hidden');
+    }
+  }
+
+  function renderGraph() {
+    const svg = document.getElementById('graph');
+    svg.innerHTML = '';
+    const W = 480, H = 300, margin = 55;
+
+    const lons = puzzle.nodes.map(n => n.position[0]);
+    const lats = puzzle.nodes.map(n => n.position[1]);
+    const minLon = Math.min(...lons), maxLon = Math.max(...lons);
+    const minLat = Math.min(...lats), maxLat = Math.max(...lats);
+    const spanLon = Math.max(maxLon - minLon, 0.001);
+    const spanLat = Math.max(maxLat - minLat, 0.001);
+    const availW = W - 2 * margin, availH = H - 2 * margin;
+    const scale = Math.min(availW / spanLon, availH / spanLat);
+    const offX = margin + (availW - spanLon * scale) / 2;
+    const offY = margin + (availH - spanLat * scale) / 2;
+
+    const pos = puzzle.nodes.map(n => ({
+      x: offX + (n.position[0] - minLon) * scale,
+      y: offY + (maxLat - n.position[1]) * scale, // lat increases north = up
+    }));
+
+    const nameIndex = {};
+    names.forEach((nm, i) => { nameIndex[nm] = i; });
+
+    const NS = 'http://www.w3.org/2000/svg';
+
+    // Faint lat/long graticule behind everything, same proportions as the
+    // reference mock's 480x300 chart.
+    const grat = document.createElementNS(NS, 'g');
+    grat.setAttribute('stroke', 'var(--line)');
+    grat.setAttribute('stroke-width', '0.5');
+    grat.setAttribute('opacity', '0.5');
+    [60, 120, 180, 240].forEach(y => {
+      const ln = document.createElementNS(NS, 'line');
+      ln.setAttribute('x1', 0); ln.setAttribute('y1', y);
+      ln.setAttribute('x2', W); ln.setAttribute('y2', y);
+      grat.appendChild(ln);
+    });
+    [80, 160, 240, 320, 400].forEach(x => {
+      const ln = document.createElementNS(NS, 'line');
+      ln.setAttribute('x1', x); ln.setAttribute('y1', 0);
+      ln.setAttribute('x2', x); ln.setAttribute('y2', H);
+      grat.appendChild(ln);
+    });
+    svg.appendChild(grat);
+
+    // Edges, one shared-style group (matches the mock's approach).
+    const edgeG = document.createElementNS(NS, 'g');
+    edgeG.setAttribute('stroke', 'var(--brass)');
+    edgeG.setAttribute('stroke-width', '1');
+    edgeG.setAttribute('opacity', '0.55');
+    puzzle.edges.forEach(([a, b]) => {
+      const i = nameIndex[a], j = nameIndex[b];
+      const line = document.createElementNS(NS, 'line');
+      line.setAttribute('x1', pos[i].x);
+      line.setAttribute('y1', pos[i].y);
+      line.setAttribute('x2', pos[j].x);
+      line.setAttribute('y2', pos[j].y);
+      edgeG.appendChild(line);
+    });
+    svg.appendChild(edgeG);
+
+    // Triangulation-mark nodes: circle + cross, open/brass when unassigned,
+    // filled/verdigris-tinted once correctly -- well, once -- assigned.
+    pos.forEach((p, i) => {
+      const style = NODE_STYLE[nodeStateFor(i)];
+      const g = document.createElementNS(NS, 'g');
+
+      const circle = document.createElementNS(NS, 'circle');
+      circle.setAttribute('cx', p.x);
+      circle.setAttribute('cy', p.y);
+      circle.setAttribute('r', style.r);
+      circle.setAttribute('fill', style.fill);
+      circle.setAttribute('stroke', style.stroke);
+      circle.setAttribute('stroke-width', style.circleWidth);
+      circle.style.cursor = 'pointer';
+      circle.addEventListener('click', () => onNodeClick(i));
+      g.appendChild(circle);
+
+      [[-1, 0, 1, 0], [0, -1, 0, 1]].forEach(([x1f, y1f, x2f, y2f]) => {
+        const ln = document.createElementNS(NS, 'line');
+        const r = style.r;
+        ln.setAttribute('x1', p.x + x1f * r * 0.6);
+        ln.setAttribute('y1', p.y + y1f * r * 0.6);
+        ln.setAttribute('x2', p.x + x2f * r * 0.6);
+        ln.setAttribute('y2', p.y + y2f * r * 0.6);
+        ln.setAttribute('stroke', style.stroke);
+        ln.setAttribute('stroke-width', style.crossWidth);
+        ln.style.pointerEvents = 'none';
+        g.appendChild(ln);
+      });
+
+      const label = document.createElementNS(NS, 'text');
+      label.setAttribute('x', p.x);
+      label.setAttribute('y', p.y - 22);
+      label.setAttribute('text-anchor', 'middle');
+      // Not "IBM Plex Mono, monospace" as in the mock's own script -- a
+      // country name / "?" isn't numeric data, so per the brief this stays
+      // Source Serif 4. See the top-of-file note.
+      label.setAttribute('font-family', "'Source Serif 4', serif");
+      label.setAttribute('font-size', '10');
+      label.setAttribute('fill', style.labelColor);
+      label.style.pointerEvents = 'none';
+      label.textContent = assignment[i] ? frName(assignment[i]) : '?';
+      g.appendChild(label);
+
+      svg.appendChild(g);
+    });
+  }
+
+  function renderClues() {
+    const ul = document.getElementById('clueList');
+    ul.innerHTML = '';
+    // French chrome has been translated throughout; this is the first
+    // piece of actual PUZZLE content (clue sentences) that's now also
+    // available in French, via the pre-rendered "clues_fr" array.
+    const source = (lang === 'fr' && puzzle.clues_fr) ? puzzle.clues_fr : puzzle.clues;
+    source.forEach(c => {
+      const li = document.createElement('li');
+      li.textContent = sentence(c);
+      ul.appendChild(li);
+    });
+  }
+
+  function renderTray() {
+    const container = document.getElementById('chips');
+    container.innerHTML = '';
+    const used = new Set(Object.values(assignment));
+    trayNames.forEach(nm => {
+      const chip = document.createElement('button');
+      const isUsed = used.has(nm);
+      chip.className = 'chip' + (isUsed ? ' used' : '');
+      chip.textContent = frName(nm);
+      chip.disabled = isUsed;
+      chip.addEventListener('click', () => onChipClick(nm));
+      container.appendChild(chip);
+    });
+  }
+
+  function onNodeClick(i) {
+    lastCheckFailed = false;
+    document.getElementById('hint').textContent = '';
+
+    if (assignment[i] !== undefined) {
+      // Tapping an assigned node clears it and selects it for a new choice.
+      delete assignment[i];
+      selectedNode = i;
+    } else if (selectedNode === i) {
+      selectedNode = null; // tap again to deselect
+    } else {
+      selectedNode = i;
+    }
+    render();
+  }
+
+  function onChipClick(name) {
+    if (selectedNode === null) {
+      document.getElementById('hint').textContent = t('hint');
+      return;
+    }
+    lastCheckFailed = false;
+    document.getElementById('hint').textContent = '';
+
+    assignment[selectedNode] = name;
+    selectedNode = null;
+    render();
+  }
+
+  // No per-node coloring, ever. Every press before the first success counts
+  // toward the share line; once solved, the count is locked in and further
+  // presses don't change it. On a failed check, a single AGGREGATE correct
+  // count is computed (not shown until the 4th failed press) -- still not
+  // per-country feedback, just one number.
+  function checkAnswer() {
+    const total = names.length;
+    const allAssigned = Object.keys(assignment).length === total;
+    const correctCount = names.reduce((sum, truth, i) => sum + (assignment[i] === truth ? 1 : 0), 0);
+    const solvedNow = allAssigned && correctCount === total;
+
+    if (!progress.solved) {
+      progress.checks += 1;
+      if (solvedNow) {
+        progress.solved = true;
+        const startedAt = progress.startedAt != null ? progress.startedAt : Date.now();
+        progress.elapsedSeconds = Math.max(0, Math.round((Date.now() - startedAt) / 1000));
+      } else {
+        lastCorrectCount = correctCount;
+      }
+      saveProgress();
+    }
+    lastCheckFailed = !progress.solved;
+    renderStatus();
+  }
+
+  function resetPuzzle() {
+    assignment = {};
+    selectedNode = null;
+    lastCheckFailed = false;
+    document.getElementById('hint').textContent = '';
+    render();
+  }
+
+  // Full reset: unlike resetPuzzle() (board only), this wipes the stored
+  // check count and solved status for today's puzzle, as if never played.
+  function fullReset() {
+    const ok = confirm(t('confirmReset'));
+    if (!ok) return;
+    try {
+      localStorage.removeItem(storageKey(puzzleIndex));
+    } catch (e) { /* storage unavailable -- nothing to clear */ }
+    progress = freshProgress();
+    ensureTimerStarted(); // restart the hidden timer immediately, as if freshly loaded
+    assignment = {};
+    selectedNode = null;
+    lastCheckFailed = false;
+    document.getElementById('hint').textContent = '';
+    render();
+  }
+
+  function copyResult() {
+    const status = document.getElementById('copyStatus');
+    navigator.clipboard.writeText(shareText()).then(() => {
+      status.textContent = t('copied');
+      setTimeout(() => { status.textContent = ''; }, 2000);
+    }).catch(() => {
+      status.textContent = t('copyFailed');
+    });
+  }
+
+  document.getElementById('checkBtn').addEventListener('click', checkAnswer);
+  document.getElementById('resetBtn').addEventListener('click', resetPuzzle);
+  document.getElementById('copyBtn').addEventListener('click', copyResult);
+  document.getElementById('fullResetBtn').addEventListener('click', fullReset);
+
+  // Info popover: click (not hover, so it works on touch) toggles it; a
+  // click anywhere outside the icon/popover closes it.
+  function setInfoOpen(open) {
+    document.getElementById('infoPopover').classList.toggle('hidden', !open);
+    document.getElementById('infoBtn').classList.toggle('active', open);
+    document.getElementById('infoBtn').setAttribute('aria-expanded', String(open));
+  }
+  document.getElementById('infoBtn').addEventListener('click', e => {
+    e.stopPropagation();
+    setInfoOpen(document.getElementById('infoPopover').classList.contains('hidden'));
+  });
+  document.addEventListener('click', e => {
+    if (!document.querySelector('.info-wrap').contains(e.target)) setInfoOpen(false);
+  });
+
+  init();
+</script>
+</body>
+</html>

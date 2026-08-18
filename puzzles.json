@@ -1,0 +1,6587 @@
+[
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Cambodia",
+        "position": [
+          104.99873167081543,
+          12.865726500000001
+        ]
+      },
+      {
+        "name": "Laos",
+        "position": [
+          102.08216886306829,
+          18.175027999999998
+        ]
+      },
+      {
+        "name": "Malaysia",
+        "position": [
+          102.07211185299448,
+          3.832919
+        ]
+      },
+      {
+        "name": "Myanmar",
+        "position": [
+          95.87301216020606,
+          18.9967865
+        ]
+      },
+      {
+        "name": "Thailand",
+        "position": [
+          101.66324428479209,
+          13.037021
+        ]
+      },
+      {
+        "name": "Vietnam",
+        "position": [
+          107.77693434146269,
+          15.99414
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Cambodia",
+        "Laos"
+      ],
+      [
+        "Cambodia",
+        "Thailand"
+      ],
+      [
+        "Cambodia",
+        "Vietnam"
+      ],
+      [
+        "Laos",
+        "Myanmar"
+      ],
+      [
+        "Laos",
+        "Thailand"
+      ],
+      [
+        "Laos",
+        "Vietnam"
+      ],
+      [
+        "Malaysia",
+        "Thailand"
+      ],
+      [
+        "Myanmar",
+        "Thailand"
+      ]
+    ],
+    "clues": [
+      "Malaysia borders Thailand",
+      "Vietnam borders only Cambodia and Laos",
+      "Myanmar borders only Laos and Thailand"
+    ],
+    "date": "2026-08-19",
+    "region": "South-eastern Asia",
+    "clues_fr": [
+      "La Malaisie et la Thaïlande sont limitrophes.",
+      "Le Vietnam n'est limitrophe que du Cambodge et du Laos.",
+      "La Birmanie n'est limitrophe que du Laos et de la Thaïlande."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Algeria",
+        "position": [
+          0.5262735538355487,
+          27.916216499999997
+        ]
+      },
+      {
+        "name": "Libya",
+        "position": [
+          17.25892425,
+          26.303265500000002
+        ]
+      },
+      {
+        "name": "Mauritania",
+        "position": [
+          -11.492962895049338,
+          21.163411500000002
+        ]
+      },
+      {
+        "name": "Morocco",
+        "position": [
+          -9.983264516786328,
+          28.490393
+        ]
+      },
+      {
+        "name": "Senegal",
+        "position": [
+          -14.72919092443719,
+          14.495175
+        ]
+      },
+      {
+        "name": "W. Sahara",
+        "position": [
+          -12.57201526395745,
+          24.2305625
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Algeria",
+        "Libya"
+      ],
+      [
+        "Algeria",
+        "Mauritania"
+      ],
+      [
+        "Algeria",
+        "Morocco"
+      ],
+      [
+        "Algeria",
+        "W. Sahara"
+      ],
+      [
+        "Mauritania",
+        "Senegal"
+      ],
+      [
+        "Mauritania",
+        "W. Sahara"
+      ],
+      [
+        "Morocco",
+        "W. Sahara"
+      ]
+    ],
+    "clues": [
+      "Morocco borders only Algeria and W. Sahara",
+      "Algeria borders Libya",
+      "Mauritania borders W. Sahara",
+      "Mauritania borders Senegal"
+    ],
+    "date": "2026-08-20",
+    "region": "Northern Africa",
+    "clues_fr": [
+      "Le Maroc n'est limitrophe que de l'Algérie et du Sahara occidental.",
+      "L'Algérie partage une frontière avec la Libye.",
+      "La Mauritanie partage une frontière avec le Sahara occidental.",
+      "La Mauritanie et le Sénégal sont limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "MEDIUM",
+    "nodes": [
+      {
+        "name": "Afghanistan",
+        "position": [
+          65.3146659870815,
+          33.832651
+        ]
+      },
+      {
+        "name": "China",
+        "position": [
+          98.76958324319138,
+          36.79871
+        ]
+      },
+      {
+        "name": "Iran",
+        "position": [
+          54.1182449317387,
+          32.3260375
+        ]
+      },
+      {
+        "name": "Kazakhstan",
+        "position": [
+          66.31159476987067,
+          48.068961
+        ]
+      },
+      {
+        "name": "Kyrgyzstan",
+        "position": [
+          75.19201303579243,
+          41.289108
+        ]
+      },
+      {
+        "name": "Tajikistan",
+        "position": [
+          71.03984570215975,
+          38.75403
+        ]
+      },
+      {
+        "name": "Turkmenistan",
+        "position": [
+          58.67204951849102,
+          39.1213335
+        ]
+      },
+      {
+        "name": "Uzbekistan",
+        "position": [
+          63.44287545838027,
+          41.353277000000006
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Afghanistan",
+        "China"
+      ],
+      [
+        "Afghanistan",
+        "Iran"
+      ],
+      [
+        "Afghanistan",
+        "Tajikistan"
+      ],
+      [
+        "Afghanistan",
+        "Turkmenistan"
+      ],
+      [
+        "Afghanistan",
+        "Uzbekistan"
+      ],
+      [
+        "China",
+        "Kazakhstan"
+      ],
+      [
+        "China",
+        "Kyrgyzstan"
+      ],
+      [
+        "China",
+        "Tajikistan"
+      ],
+      [
+        "Iran",
+        "Turkmenistan"
+      ],
+      [
+        "Kazakhstan",
+        "Kyrgyzstan"
+      ],
+      [
+        "Kazakhstan",
+        "Turkmenistan"
+      ],
+      [
+        "Kazakhstan",
+        "Uzbekistan"
+      ],
+      [
+        "Kyrgyzstan",
+        "Tajikistan"
+      ],
+      [
+        "Kyrgyzstan",
+        "Uzbekistan"
+      ],
+      [
+        "Tajikistan",
+        "Uzbekistan"
+      ],
+      [
+        "Turkmenistan",
+        "Uzbekistan"
+      ]
+    ],
+    "clues": [
+      "China does not border Turkmenistan",
+      "Afghanistan borders Uzbekistan",
+      "Iran borders only Afghanistan and Turkmenistan",
+      "Kazakhstan does not border Tajikistan",
+      "China does not border Uzbekistan",
+      "Kazakhstan borders Turkmenistan"
+    ],
+    "date": "2026-08-21",
+    "region": "Central Asia",
+    "clues_fr": [
+      "La Chine n'est pas limitrophe du Turkménistan.",
+      "L'Afghanistan partage une frontière avec l'Ouzbékistan.",
+      "L'Iran n'est limitrophe que de l'Afghanistan et du Turkménistan.",
+      "Le Kazakhstan ne partage pas de frontière avec le Tadjikistan.",
+      "La Chine ne partage pas de frontière avec l'Ouzbékistan.",
+      "Le Kazakhstan et le Turkménistan sont limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Albania",
+        "position": [
+          19.9675900776865,
+          41.247896
+        ]
+      },
+      {
+        "name": "Austria",
+        "position": [
+          14.953149833502414,
+          47.9191815
+        ]
+      },
+      {
+        "name": "Bosnia and Herz.",
+        "position": [
+          18.115159863686415,
+          43.853095999999994
+        ]
+      },
+      {
+        "name": "Hungary",
+        "position": [
+          19.103248635963975,
+          47.2452045
+        ]
+      },
+      {
+        "name": "Kosovo",
+        "position": [
+          20.91366557164779,
+          42.513925
+        ]
+      },
+      {
+        "name": "Montenegro",
+        "position": [
+          19.396216204979822,
+          42.7504985
+        ]
+      },
+      {
+        "name": "North Macedonia",
+        "position": [
+          21.720350432373735,
+          41.6810995
+        ]
+      },
+      {
+        "name": "Serbia",
+        "position": [
+          21.013475351815377,
+          44.1366965
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Albania",
+        "Kosovo"
+      ],
+      [
+        "Albania",
+        "Montenegro"
+      ],
+      [
+        "Albania",
+        "North Macedonia"
+      ],
+      [
+        "Austria",
+        "Hungary"
+      ],
+      [
+        "Bosnia and Herz.",
+        "Montenegro"
+      ],
+      [
+        "Bosnia and Herz.",
+        "Serbia"
+      ],
+      [
+        "Hungary",
+        "Serbia"
+      ],
+      [
+        "Kosovo",
+        "Montenegro"
+      ],
+      [
+        "Kosovo",
+        "North Macedonia"
+      ],
+      [
+        "Kosovo",
+        "Serbia"
+      ],
+      [
+        "Montenegro",
+        "Serbia"
+      ],
+      [
+        "North Macedonia",
+        "Serbia"
+      ]
+    ],
+    "clues": [
+      "Bosnia and Herz. borders only Montenegro and Serbia",
+      "Hungary borders only Austria and Serbia",
+      "Kosovo borders Montenegro",
+      "Albania does not border Serbia"
+    ],
+    "date": "2026-08-22",
+    "region": "Southern Europe",
+    "clues_fr": [
+      "La Bosnie-Herzégovine n'est limitrophe que du Monténégro et de la Serbie.",
+      "La Hongrie n'est limitrophe que de l'Autriche et de la Serbie.",
+      "Le Kosovo partage une frontière avec le Monténégro.",
+      "L'Albanie et la Serbie ne sont pas limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Bhutan",
+        "position": [
+          90.49641832093482,
+          27.612178
+        ]
+      },
+      {
+        "name": "India",
+        "position": [
+          79.17905943652184,
+          21.8722055
+        ]
+      },
+      {
+        "name": "Laos",
+        "position": [
+          102.08216886306829,
+          18.175027999999998
+        ]
+      },
+      {
+        "name": "Malaysia",
+        "position": [
+          102.07211185299448,
+          3.832919
+        ]
+      },
+      {
+        "name": "Myanmar",
+        "position": [
+          95.87301216020606,
+          18.9967865
+        ]
+      },
+      {
+        "name": "Thailand",
+        "position": [
+          101.66324428479209,
+          13.037021
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Bhutan",
+        "India"
+      ],
+      [
+        "India",
+        "Myanmar"
+      ],
+      [
+        "Laos",
+        "Myanmar"
+      ],
+      [
+        "Laos",
+        "Thailand"
+      ],
+      [
+        "Malaysia",
+        "Thailand"
+      ],
+      [
+        "Myanmar",
+        "Thailand"
+      ]
+    ],
+    "clues": [
+      "India borders only Bhutan and Myanmar",
+      "Laos borders Thailand",
+      "Malaysia borders Thailand",
+      "Laos borders Myanmar"
+    ],
+    "date": "2026-08-23",
+    "region": "South-eastern Asia",
+    "clues_fr": [
+      "L'Inde n'est limitrophe que du Bhoutan et de la Birmanie.",
+      "Le Laos et la Thaïlande sont limitrophes.",
+      "La Malaisie et la Thaïlande sont limitrophes.",
+      "Le Laos partage une frontière avec la Birmanie."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "MEDIUM",
+    "nodes": [
+      {
+        "name": "Argentina",
+        "position": [
+          -64.08055141174417,
+          -37.2391995
+        ]
+      },
+      {
+        "name": "Bolivia",
+        "position": [
+          -63.63894096624066,
+          -16.400135499999998
+        ]
+      },
+      {
+        "name": "Chile",
+        "position": [
+          -69.83780456667986,
+          -54.015925
+        ]
+      },
+      {
+        "name": "Paraguay",
+        "position": [
+          -58.6374159551108,
+          -23.1138085
+        ]
+      },
+      {
+        "name": "Peru",
+        "position": [
+          -75.87473845667213,
+          -9.247523000000001
+        ]
+      },
+      {
+        "name": "Uruguay",
+        "position": [
+          -55.818919527663155,
+          -32.387454500000004
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Argentina",
+        "Bolivia"
+      ],
+      [
+        "Argentina",
+        "Chile"
+      ],
+      [
+        "Argentina",
+        "Paraguay"
+      ],
+      [
+        "Argentina",
+        "Uruguay"
+      ],
+      [
+        "Bolivia",
+        "Chile"
+      ],
+      [
+        "Bolivia",
+        "Paraguay"
+      ],
+      [
+        "Bolivia",
+        "Peru"
+      ],
+      [
+        "Chile",
+        "Peru"
+      ]
+    ],
+    "clues": [
+      "Argentina borders Paraguay",
+      "Argentina borders Chile",
+      "Bolivia borders 4 of the others",
+      "Uruguay borders 1 of the others",
+      "Paraguay borders 2 of the others",
+      "Argentina borders Uruguay",
+      "Brazil does not border Bolivia",
+      "Ecuador does not border Chile",
+      "Colombia does not border Chile",
+      "Peru does not border Brazil"
+    ],
+    "decoys": [
+      "Brazil",
+      "Colombia",
+      "Ecuador"
+    ],
+    "date": "2026-08-24",
+    "region": "South America",
+    "clues_fr": [
+      "L'Argentine et le Paraguay sont limitrophes.",
+      "L'Argentine est limitrophe du Chili.",
+      "La Bolivie est limitrophe de 4 des autres lieux.",
+      "L'Uruguay est limitrophe de 1 des autres lieux.",
+      "Le Paraguay est limitrophe de 2 des autres lieux.",
+      "L'Argentine partage une frontière avec l'Uruguay.",
+      "Le Brésil ne partage pas de frontière avec la Bolivie.",
+      "L'Équateur et le Chili ne sont pas limitrophes.",
+      "La Colombie et le Chili ne sont pas limitrophes.",
+      "Le Pérou ne partage pas de frontière avec le Brésil."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Djibouti",
+        "position": [
+          42.41228242457338,
+          11.8552845
+        ]
+      },
+      {
+        "name": "Eritrea",
+        "position": [
+          38.295763745061734,
+          15.1975385
+        ]
+      },
+      {
+        "name": "Ethiopia",
+        "position": [
+          38.72639118584681,
+          9.36203
+        ]
+      },
+      {
+        "name": "Kenya",
+        "position": [
+          37.51297205252195,
+          0.312407
+        ]
+      },
+      {
+        "name": "Somalia",
+        "position": [
+          46.7941796825168,
+          5.170365
+        ]
+      },
+      {
+        "name": "Somaliland",
+        "position": [
+          46.034650691081545,
+          9.75699
+        ]
+      },
+      {
+        "name": "Tanzania",
+        "position": [
+          34.14207067870728,
+          -6.207829500000001
+        ]
+      },
+      {
+        "name": "Zambia",
+        "position": [
+          25.369727205483482,
+          -13.080002
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Djibouti",
+        "Eritrea"
+      ],
+      [
+        "Djibouti",
+        "Ethiopia"
+      ],
+      [
+        "Djibouti",
+        "Somaliland"
+      ],
+      [
+        "Eritrea",
+        "Ethiopia"
+      ],
+      [
+        "Ethiopia",
+        "Kenya"
+      ],
+      [
+        "Ethiopia",
+        "Somalia"
+      ],
+      [
+        "Ethiopia",
+        "Somaliland"
+      ],
+      [
+        "Kenya",
+        "Somalia"
+      ],
+      [
+        "Kenya",
+        "Tanzania"
+      ],
+      [
+        "Somalia",
+        "Somaliland"
+      ],
+      [
+        "Tanzania",
+        "Zambia"
+      ]
+    ],
+    "clues": [
+      "Tanzania borders only Kenya and Zambia",
+      "Ethiopia borders Somalia",
+      "Kenya borders Somalia",
+      "Kenya does not border Somaliland",
+      "Eritrea borders only Djibouti and Ethiopia"
+    ],
+    "date": "2026-08-25",
+    "region": "Eastern Africa",
+    "clues_fr": [
+      "La Tanzanie n'est limitrophe que du Kenya et de la Zambie.",
+      "L'Éthiopie et la Somalie sont limitrophes.",
+      "Le Kenya partage une frontière avec la Somalie.",
+      "Le Kenya et le Somaliland ne sont pas limitrophes.",
+      "L'Érythrée n'est limitrophe que de Djibouti et de l'Éthiopie."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Albania",
+        "position": [
+          19.9675900776865,
+          41.247896
+        ]
+      },
+      {
+        "name": "Bosnia and Herz.",
+        "position": [
+          18.115159863686415,
+          43.853095999999994
+        ]
+      },
+      {
+        "name": "Croatia",
+        "position": [
+          15.583559096689727,
+          44.544813500000004
+        ]
+      },
+      {
+        "name": "Greece",
+        "position": [
+          21.806331463138974,
+          39.080456999999996
+        ]
+      },
+      {
+        "name": "Hungary",
+        "position": [
+          19.103248635963975,
+          47.2452045
+        ]
+      },
+      {
+        "name": "Montenegro",
+        "position": [
+          19.396216204979822,
+          42.7504985
+        ]
+      },
+      {
+        "name": "North Macedonia",
+        "position": [
+          21.720350432373735,
+          41.6810995
+        ]
+      },
+      {
+        "name": "Serbia",
+        "position": [
+          21.013475351815377,
+          44.1366965
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Albania",
+        "Greece"
+      ],
+      [
+        "Albania",
+        "Montenegro"
+      ],
+      [
+        "Albania",
+        "North Macedonia"
+      ],
+      [
+        "Bosnia and Herz.",
+        "Croatia"
+      ],
+      [
+        "Bosnia and Herz.",
+        "Montenegro"
+      ],
+      [
+        "Bosnia and Herz.",
+        "Serbia"
+      ],
+      [
+        "Croatia",
+        "Hungary"
+      ],
+      [
+        "Croatia",
+        "Montenegro"
+      ],
+      [
+        "Croatia",
+        "Serbia"
+      ],
+      [
+        "Greece",
+        "North Macedonia"
+      ],
+      [
+        "Hungary",
+        "Serbia"
+      ],
+      [
+        "Montenegro",
+        "Serbia"
+      ],
+      [
+        "North Macedonia",
+        "Serbia"
+      ]
+    ],
+    "clues": [
+      "Greece borders only Albania and North Macedonia",
+      "Hungary borders only Croatia and Serbia",
+      "Albania does not border Bosnia and Herz.",
+      "North Macedonia borders Serbia"
+    ],
+    "date": "2026-08-26",
+    "region": "Southern Europe",
+    "clues_fr": [
+      "La Grèce n'est limitrophe que de l'Albanie et de la Macédoine du Nord.",
+      "La Hongrie n'est limitrophe que de la Croatie et de la Serbie.",
+      "L'Albanie et la Bosnie-Herzégovine ne sont pas limitrophes.",
+      "La Macédoine du Nord et la Serbie sont limitrophes."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "HARD",
+    "nodes": [
+      {
+        "name": "Algeria",
+        "position": [
+          0.5262735538355487,
+          27.916216499999997
+        ]
+      },
+      {
+        "name": "Benin",
+        "position": [
+          2.2853249252024064,
+          9.236115999999999
+        ]
+      },
+      {
+        "name": "Cameroon",
+        "position": [
+          13.491597921033106,
+          7.2262
+        ]
+      },
+      {
+        "name": "Central African Rep.",
+        "position": [
+          20.478740083438915,
+          6.7629595
+        ]
+      },
+      {
+        "name": "Chad",
+        "position": [
+          18.30671414948851,
+          15.277565
+        ]
+      },
+      {
+        "name": "Libya",
+        "position": [
+          17.25892425,
+          26.303265500000002
+        ]
+      },
+      {
+        "name": "Niger",
+        "position": [
+          9.774100880356354,
+          17.390088499999997
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Algeria",
+        "Libya"
+      ],
+      [
+        "Algeria",
+        "Niger"
+      ],
+      [
+        "Benin",
+        "Niger"
+      ],
+      [
+        "Cameroon",
+        "Central African Rep."
+      ],
+      [
+        "Cameroon",
+        "Chad"
+      ],
+      [
+        "Cameroon",
+        "Niger"
+      ],
+      [
+        "Central African Rep.",
+        "Chad"
+      ],
+      [
+        "Chad",
+        "Libya"
+      ],
+      [
+        "Chad",
+        "Niger"
+      ],
+      [
+        "Libya",
+        "Niger"
+      ]
+    ],
+    "clues": [
+      "Cameroon does not border Libya",
+      "Tunisia does not border Niger",
+      "Algeria borders only Libya and Niger",
+      "Niger borders 5 of the others",
+      "Benin does not border Central African Rep.",
+      "Mauritania does not border Niger",
+      "Egypt does not border Niger",
+      "Central African Rep. borders 2 of the others",
+      "Chad does not border Egypt"
+    ],
+    "decoys": [
+      "Egypt",
+      "Mauritania",
+      "Tunisia"
+    ],
+    "date": "2026-08-27",
+    "region": "Middle Africa",
+    "clues_fr": [
+      "Le Cameroun et la Libye ne sont pas limitrophes.",
+      "La Tunisie n'est pas limitrophe du Niger.",
+      "L'Algérie n'est limitrophe que de la Libye et du Niger.",
+      "Le Niger est limitrophe de 5 des autres lieux.",
+      "Le Bénin n'est pas limitrophe de la République centrafricaine.",
+      "La Mauritanie et le Niger ne sont pas limitrophes.",
+      "L'Égypte n'est pas limitrophe du Niger.",
+      "La République centrafricaine est limitrophe de 2 des autres lieux.",
+      "Le Tchad ne partage pas de frontière avec l'Égypte."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Argentina",
+        "position": [
+          -64.08055141174417,
+          -37.2391995
+        ]
+      },
+      {
+        "name": "Bolivia",
+        "position": [
+          -63.63894096624066,
+          -16.400135499999998
+        ]
+      },
+      {
+        "name": "Chile",
+        "position": [
+          -69.83780456667986,
+          -54.015925
+        ]
+      },
+      {
+        "name": "Colombia",
+        "position": [
+          -72.4864581064173,
+          3.9686209999999997
+        ]
+      },
+      {
+        "name": "Ecuador",
+        "position": [
+          -78.27869868033336,
+          -1.763329
+        ]
+      },
+      {
+        "name": "Panama",
+        "position": [
+          -81.48307979580451,
+          8.405611
+        ]
+      },
+      {
+        "name": "Paraguay",
+        "position": [
+          -58.6374159551108,
+          -23.1138085
+        ]
+      },
+      {
+        "name": "Peru",
+        "position": [
+          -75.87473845667213,
+          -9.247523000000001
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Argentina",
+        "Bolivia"
+      ],
+      [
+        "Argentina",
+        "Chile"
+      ],
+      [
+        "Argentina",
+        "Paraguay"
+      ],
+      [
+        "Bolivia",
+        "Chile"
+      ],
+      [
+        "Bolivia",
+        "Paraguay"
+      ],
+      [
+        "Bolivia",
+        "Peru"
+      ],
+      [
+        "Chile",
+        "Peru"
+      ],
+      [
+        "Colombia",
+        "Ecuador"
+      ],
+      [
+        "Colombia",
+        "Panama"
+      ],
+      [
+        "Colombia",
+        "Peru"
+      ],
+      [
+        "Ecuador",
+        "Peru"
+      ]
+    ],
+    "clues": [
+      "Chile borders Peru",
+      "Paraguay borders only Argentina and Bolivia",
+      "Ecuador borders only Colombia and Peru",
+      "Colombia borders Panama",
+      "Argentina borders Chile",
+      "Argentina does not border Peru"
+    ],
+    "date": "2026-08-28",
+    "region": "South America",
+    "clues_fr": [
+      "Le Chili et le Pérou sont limitrophes.",
+      "Le Paraguay n'est limitrophe que de l'Argentine et de la Bolivie.",
+      "L'Équateur n'est limitrophe que de la Colombie et du Pérou.",
+      "La Colombie est limitrophe du Panama.",
+      "L'Argentine est limitrophe du Chili.",
+      "L'Argentine n'est pas limitrophe du Pérou."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Benin",
+        "position": [
+          2.2853249252024064,
+          9.236115999999999
+        ]
+      },
+      {
+        "name": "Cameroon",
+        "position": [
+          13.491597921033106,
+          7.2262
+        ]
+      },
+      {
+        "name": "Chad",
+        "position": [
+          18.30671414948851,
+          15.277565
+        ]
+      },
+      {
+        "name": "Congo",
+        "position": [
+          15.943964215882808,
+          -0.6482285
+        ]
+      },
+      {
+        "name": "Libya",
+        "position": [
+          17.25892425,
+          26.303265500000002
+        ]
+      },
+      {
+        "name": "Nigeria",
+        "position": [
+          7.8318782606688355,
+          8.927685499999999
+        ]
+      },
+      {
+        "name": "Togo",
+        "position": [
+          1.1192625385164365,
+          8.494844
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Benin",
+        "Nigeria"
+      ],
+      [
+        "Benin",
+        "Togo"
+      ],
+      [
+        "Cameroon",
+        "Chad"
+      ],
+      [
+        "Cameroon",
+        "Congo"
+      ],
+      [
+        "Cameroon",
+        "Nigeria"
+      ],
+      [
+        "Chad",
+        "Libya"
+      ]
+    ],
+    "clues": [
+      "Chad borders only Cameroon and Libya",
+      "Benin borders only Nigeria and Togo",
+      "Cameroon does not border Togo",
+      "Cameroon borders Congo"
+    ],
+    "date": "2026-08-29",
+    "region": "Africa",
+    "clues_fr": [
+      "Le Tchad n'est limitrophe que du Cameroun et de la Libye.",
+      "Le Bénin n'est limitrophe que du Nigeria et du Togo.",
+      "Le Cameroun ne partage pas de frontière avec le Togo.",
+      "Le Cameroun partage une frontière avec la République du Congo."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "MEDIUM",
+    "nodes": [
+      {
+        "name": "Egypt",
+        "position": [
+          29.369537116289596,
+          26.895485
+        ]
+      },
+      {
+        "name": "Israel",
+        "position": [
+          34.69111642632299,
+          31.421260500000002
+        ]
+      },
+      {
+        "name": "Jordan",
+        "position": [
+          36.31227587319722,
+          31.294576
+        ]
+      },
+      {
+        "name": "Lebanon",
+        "position": [
+          35.7946617831452,
+          33.865181
+        ]
+      },
+      {
+        "name": "Libya",
+        "position": [
+          17.25892425,
+          26.303265500000002
+        ]
+      },
+      {
+        "name": "Palestine",
+        "position": [
+          35.30150271526564,
+          32.130286999999996
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Egypt",
+        "Israel"
+      ],
+      [
+        "Egypt",
+        "Jordan"
+      ],
+      [
+        "Egypt",
+        "Libya"
+      ],
+      [
+        "Israel",
+        "Jordan"
+      ],
+      [
+        "Israel",
+        "Lebanon"
+      ],
+      [
+        "Israel",
+        "Palestine"
+      ],
+      [
+        "Jordan",
+        "Palestine"
+      ]
+    ],
+    "clues": [
+      "Niger does not border Egypt",
+      "Jordan borders 3 of the others",
+      "Chad does not border Egypt",
+      "Sudan does not border Egypt",
+      "Palestine borders only Israel and Jordan",
+      "Israel borders Lebanon",
+      "Egypt borders Jordan",
+      "Libya does not border Chad"
+    ],
+    "decoys": [
+      "Chad",
+      "Niger",
+      "Sudan"
+    ],
+    "date": "2026-08-30",
+    "region": "Western Asia",
+    "clues_fr": [
+      "Le Niger n'est pas limitrophe de l'Égypte.",
+      "La Jordanie est limitrophe de 3 des autres lieux.",
+      "Le Tchad ne partage pas de frontière avec l'Égypte.",
+      "Le Soudan n'est pas limitrophe de l'Égypte.",
+      "La Palestine n'est limitrophe que d'Israël et de la Jordanie.",
+      "Israël partage une frontière avec le Liban.",
+      "L'Égypte est limitrophe de la Jordanie.",
+      "La Libye n'est pas limitrophe du Tchad."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Argentina",
+        "position": [
+          -64.08055141174417,
+          -37.2391995
+        ]
+      },
+      {
+        "name": "Bolivia",
+        "position": [
+          -63.63894096624066,
+          -16.400135499999998
+        ]
+      },
+      {
+        "name": "Brazil",
+        "position": [
+          -49.71162185852424,
+          -14.0736885
+        ]
+      },
+      {
+        "name": "Chile",
+        "position": [
+          -69.83780456667986,
+          -54.015925
+        ]
+      },
+      {
+        "name": "Guyana",
+        "position": [
+          -58.845385714394844,
+          4.9133435
+        ]
+      },
+      {
+        "name": "Paraguay",
+        "position": [
+          -58.6374159551108,
+          -23.1138085
+        ]
+      },
+      {
+        "name": "Uruguay",
+        "position": [
+          -55.818919527663155,
+          -32.387454500000004
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Argentina",
+        "Bolivia"
+      ],
+      [
+        "Argentina",
+        "Brazil"
+      ],
+      [
+        "Argentina",
+        "Chile"
+      ],
+      [
+        "Argentina",
+        "Paraguay"
+      ],
+      [
+        "Argentina",
+        "Uruguay"
+      ],
+      [
+        "Bolivia",
+        "Brazil"
+      ],
+      [
+        "Bolivia",
+        "Chile"
+      ],
+      [
+        "Bolivia",
+        "Paraguay"
+      ],
+      [
+        "Brazil",
+        "Guyana"
+      ],
+      [
+        "Brazil",
+        "Paraguay"
+      ],
+      [
+        "Brazil",
+        "Uruguay"
+      ]
+    ],
+    "clues": [
+      "Chile borders only Argentina and Bolivia",
+      "Uruguay borders only Argentina and Brazil",
+      "Bolivia does not border Guyana"
+    ],
+    "date": "2026-08-31",
+    "region": "South America",
+    "clues_fr": [
+      "Le Chili n'est limitrophe que de l'Argentine et de la Bolivie.",
+      "L'Uruguay n'est limitrophe que de l'Argentine et du Brésil.",
+      "La Bolivie et le Guyana ne sont pas limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Botswana",
+        "position": [
+          24.310117415297675,
+          -22.4595335
+        ]
+      },
+      {
+        "name": "Kenya",
+        "position": [
+          37.51297205252195,
+          0.312407
+        ]
+      },
+      {
+        "name": "Mozambique",
+        "position": [
+          34.69681884478825,
+          -18.3193725
+        ]
+      },
+      {
+        "name": "Somalia",
+        "position": [
+          46.7941796825168,
+          5.170365
+        ]
+      },
+      {
+        "name": "Tanzania",
+        "position": [
+          34.14207067870728,
+          -6.207829500000001
+        ]
+      },
+      {
+        "name": "Zambia",
+        "position": [
+          25.369727205483482,
+          -13.080002
+        ]
+      },
+      {
+        "name": "Zimbabwe",
+        "position": [
+          29.321720453347616,
+          -19.003749499999998
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Botswana",
+        "Zambia"
+      ],
+      [
+        "Botswana",
+        "Zimbabwe"
+      ],
+      [
+        "Kenya",
+        "Somalia"
+      ],
+      [
+        "Kenya",
+        "Tanzania"
+      ],
+      [
+        "Mozambique",
+        "Tanzania"
+      ],
+      [
+        "Mozambique",
+        "Zambia"
+      ],
+      [
+        "Mozambique",
+        "Zimbabwe"
+      ],
+      [
+        "Tanzania",
+        "Zambia"
+      ],
+      [
+        "Zambia",
+        "Zimbabwe"
+      ]
+    ],
+    "clues": [
+      "Tanzania borders Zambia",
+      "Somalia does not border Tanzania",
+      "Kenya borders only Somalia and Tanzania",
+      "Botswana borders only Zambia and Zimbabwe"
+    ],
+    "date": "2026-09-01",
+    "region": "Eastern Africa",
+    "clues_fr": [
+      "La Tanzanie est limitrophe de la Zambie.",
+      "La Somalie ne partage pas de frontière avec la Tanzanie.",
+      "Le Kenya n'est limitrophe que de la Somalie et de la Tanzanie.",
+      "Le Botswana n'est limitrophe que de la Zambie et du Zimbabwe."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "MEDIUM",
+    "nodes": [
+      {
+        "name": "Bolivia",
+        "position": [
+          -63.63894096624066,
+          -16.400135499999998
+        ]
+      },
+      {
+        "name": "Brazil",
+        "position": [
+          -49.71162185852424,
+          -14.0736885
+        ]
+      },
+      {
+        "name": "Chile",
+        "position": [
+          -69.83780456667986,
+          -54.015925
+        ]
+      },
+      {
+        "name": "Colombia",
+        "position": [
+          -72.4864581064173,
+          3.9686209999999997
+        ]
+      },
+      {
+        "name": "France",
+        "position": [
+          2.099228368479555,
+          46.895071
+        ]
+      },
+      {
+        "name": "Peru",
+        "position": [
+          -75.87473845667213,
+          -9.247523000000001
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Bolivia",
+        "Brazil"
+      ],
+      [
+        "Bolivia",
+        "Chile"
+      ],
+      [
+        "Bolivia",
+        "Peru"
+      ],
+      [
+        "Brazil",
+        "Colombia"
+      ],
+      [
+        "Brazil",
+        "France"
+      ],
+      [
+        "Brazil",
+        "Peru"
+      ],
+      [
+        "Chile",
+        "Peru"
+      ],
+      [
+        "Colombia",
+        "Peru"
+      ]
+    ],
+    "clues": [
+      "Suriname does not border Bolivia",
+      "Germany does not border Bolivia",
+      "Germany does not border Brazil",
+      "Brazil borders France",
+      "France borders 1 of the others",
+      "Suriname does not border Brazil",
+      "Ecuador does not border Bolivia",
+      "Colombia borders only Brazil and Peru",
+      "Brazil does not border Chile",
+      "Ecuador does not border Brazil"
+    ],
+    "decoys": [
+      "Ecuador",
+      "Germany",
+      "Suriname"
+    ],
+    "date": "2026-09-02",
+    "region": "South America",
+    "clues_fr": [
+      "Le Suriname et la Bolivie ne sont pas limitrophes.",
+      "L'Allemagne n'est pas limitrophe de la Bolivie.",
+      "L'Allemagne et le Brésil ne sont pas limitrophes.",
+      "Le Brésil partage une frontière avec la France.",
+      "La France partage une frontière avec 1 des autres lieux.",
+      "Le Suriname ne partage pas de frontière avec le Brésil.",
+      "L'Équateur et la Bolivie ne sont pas limitrophes.",
+      "La Colombie n'est limitrophe que du Brésil et du Pérou.",
+      "Le Brésil n'est pas limitrophe du Chili.",
+      "L'Équateur et le Brésil ne sont pas limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "El Salvador",
+        "position": [
+          -88.92009515776553,
+          13.815268
+        ]
+      },
+      {
+        "name": "Guatemala",
+        "position": [
+          -90.33421985102814,
+          15.791555500000001
+        ]
+      },
+      {
+        "name": "Honduras",
+        "position": [
+          -87.22788986822297,
+          14.487836999999999
+        ]
+      },
+      {
+        "name": "Mexico",
+        "position": [
+          -102.25017233870508,
+          23.5993735
+        ]
+      },
+      {
+        "name": "Nicaragua",
+        "position": [
+          -85.574355714402,
+          12.889600999999999
+        ]
+      },
+      {
+        "name": "United States of America",
+        "position": [
+          -99.31483211377508,
+          37.236745
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "El Salvador",
+        "Guatemala"
+      ],
+      [
+        "El Salvador",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Mexico"
+      ],
+      [
+        "Honduras",
+        "Nicaragua"
+      ],
+      [
+        "Mexico",
+        "United States of America"
+      ]
+    ],
+    "clues": [
+      "Guatemala does not border United States of America",
+      "El Salvador borders only Guatemala and Honduras",
+      "Mexico borders only Guatemala and United States of America"
+    ],
+    "date": "2026-09-03",
+    "region": "Central America",
+    "clues_fr": [
+      "Le Guatemala et les États-Unis ne sont pas limitrophes.",
+      "Le Salvador n'est limitrophe que du Guatemala et du Honduras.",
+      "Le Mexique n'est limitrophe que du Guatemala et des États-Unis."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Dem. Rep. Congo",
+        "position": [
+          22.39056601648901,
+          -4.099336
+        ]
+      },
+      {
+        "name": "Mozambique",
+        "position": [
+          34.69681884478825,
+          -18.3193725
+        ]
+      },
+      {
+        "name": "Rwanda",
+        "position": [
+          30.030836557538688,
+          -1.9570120000000002
+        ]
+      },
+      {
+        "name": "South Africa",
+        "position": [
+          26.14762704403642,
+          -28.408524
+        ]
+      },
+      {
+        "name": "Tanzania",
+        "position": [
+          34.14207067870728,
+          -6.207829500000001
+        ]
+      },
+      {
+        "name": "Zambia",
+        "position": [
+          25.369727205483482,
+          -13.080002
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Dem. Rep. Congo",
+        "Rwanda"
+      ],
+      [
+        "Dem. Rep. Congo",
+        "Tanzania"
+      ],
+      [
+        "Dem. Rep. Congo",
+        "Zambia"
+      ],
+      [
+        "Mozambique",
+        "South Africa"
+      ],
+      [
+        "Mozambique",
+        "Tanzania"
+      ],
+      [
+        "Mozambique",
+        "Zambia"
+      ],
+      [
+        "Rwanda",
+        "Tanzania"
+      ],
+      [
+        "Tanzania",
+        "Zambia"
+      ]
+    ],
+    "clues": [
+      "Dem. Rep. Congo does not border Mozambique",
+      "Dem. Rep. Congo borders Zambia",
+      "Rwanda borders only Dem. Rep. Congo and Tanzania",
+      "Mozambique borders Tanzania"
+    ],
+    "date": "2026-09-04",
+    "region": "Eastern Africa",
+    "clues_fr": [
+      "La République démocratique du Congo n'est pas limitrophe du Mozambique.",
+      "La République démocratique du Congo et la Zambie sont limitrophes.",
+      "Le Rwanda n'est limitrophe que de la République démocratique du Congo et de la Tanzanie.",
+      "Le Mozambique partage une frontière avec la Tanzanie."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "HARD",
+    "nodes": [
+      {
+        "name": "Egypt",
+        "position": [
+          29.369537116289596,
+          26.895485
+        ]
+      },
+      {
+        "name": "Israel",
+        "position": [
+          34.69111642632299,
+          31.421260500000002
+        ]
+      },
+      {
+        "name": "Jordan",
+        "position": [
+          36.31227587319722,
+          31.294576
+        ]
+      },
+      {
+        "name": "Lebanon",
+        "position": [
+          35.7946617831452,
+          33.865181
+        ]
+      },
+      {
+        "name": "Libya",
+        "position": [
+          17.25892425,
+          26.303265500000002
+        ]
+      },
+      {
+        "name": "Palestine",
+        "position": [
+          35.30150271526564,
+          32.130286999999996
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Egypt",
+        "Israel"
+      ],
+      [
+        "Egypt",
+        "Jordan"
+      ],
+      [
+        "Egypt",
+        "Libya"
+      ],
+      [
+        "Israel",
+        "Jordan"
+      ],
+      [
+        "Israel",
+        "Lebanon"
+      ],
+      [
+        "Israel",
+        "Palestine"
+      ],
+      [
+        "Jordan",
+        "Palestine"
+      ]
+    ],
+    "clues": [
+      "Tunisia does not border Israel",
+      "Jordan does not border Lebanon",
+      "Iraq does not border Israel",
+      "Palestine borders only Israel and Jordan",
+      "Niger does not border Israel",
+      "Niger does not border Egypt",
+      "Israel does not border Libya",
+      "Tunisia does not border Egypt",
+      "Iraq does not border Egypt",
+      "Jordan borders 3 of the others"
+    ],
+    "decoys": [
+      "Iraq",
+      "Niger",
+      "Tunisia"
+    ],
+    "date": "2026-09-05",
+    "region": "Western Asia",
+    "clues_fr": [
+      "La Tunisie et Israël ne sont pas limitrophes.",
+      "La Jordanie ne partage pas de frontière avec le Liban.",
+      "L'Irak ne partage pas de frontière avec Israël.",
+      "La Palestine n'est limitrophe que d'Israël et de la Jordanie.",
+      "Le Niger et Israël ne sont pas limitrophes.",
+      "Le Niger ne partage pas de frontière avec l'Égypte.",
+      "Israël n'est pas limitrophe de la Libye.",
+      "La Tunisie ne partage pas de frontière avec l'Égypte.",
+      "L'Irak ne partage pas de frontière avec l'Égypte.",
+      "La Jordanie est limitrophe de 3 des autres lieux."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Bolivia",
+        "position": [
+          -63.63894096624066,
+          -16.400135499999998
+        ]
+      },
+      {
+        "name": "Brazil",
+        "position": [
+          -49.71162185852424,
+          -14.0736885
+        ]
+      },
+      {
+        "name": "Colombia",
+        "position": [
+          -72.4864581064173,
+          3.9686209999999997
+        ]
+      },
+      {
+        "name": "Ecuador",
+        "position": [
+          -78.27869868033336,
+          -1.763329
+        ]
+      },
+      {
+        "name": "Guyana",
+        "position": [
+          -58.845385714394844,
+          4.9133435
+        ]
+      },
+      {
+        "name": "Peru",
+        "position": [
+          -75.87473845667213,
+          -9.247523000000001
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Bolivia",
+        "Brazil"
+      ],
+      [
+        "Bolivia",
+        "Peru"
+      ],
+      [
+        "Brazil",
+        "Colombia"
+      ],
+      [
+        "Brazil",
+        "Guyana"
+      ],
+      [
+        "Brazil",
+        "Peru"
+      ],
+      [
+        "Colombia",
+        "Ecuador"
+      ],
+      [
+        "Colombia",
+        "Peru"
+      ],
+      [
+        "Ecuador",
+        "Peru"
+      ]
+    ],
+    "clues": [
+      "Bolivia borders only Brazil and Peru",
+      "Ecuador borders only Colombia and Peru",
+      "Colombia does not border Guyana"
+    ],
+    "date": "2026-09-06",
+    "region": "South America",
+    "clues_fr": [
+      "La Bolivie n'est limitrophe que du Brésil et du Pérou.",
+      "L'Équateur n'est limitrophe que de la Colombie et du Pérou.",
+      "La Colombie n'est pas limitrophe du Guyana."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Belize",
+        "position": [
+          -88.69909244027376,
+          17.310584499999997
+        ]
+      },
+      {
+        "name": "Costa Rica",
+        "position": [
+          -83.68384173481984,
+          9.7057645
+        ]
+      },
+      {
+        "name": "El Salvador",
+        "position": [
+          -88.92009515776553,
+          13.815268
+        ]
+      },
+      {
+        "name": "Guatemala",
+        "position": [
+          -90.33421985102814,
+          15.791555500000001
+        ]
+      },
+      {
+        "name": "Honduras",
+        "position": [
+          -87.22788986822297,
+          14.487836999999999
+        ]
+      },
+      {
+        "name": "Nicaragua",
+        "position": [
+          -85.574355714402,
+          12.889600999999999
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Belize",
+        "Guatemala"
+      ],
+      [
+        "Costa Rica",
+        "Nicaragua"
+      ],
+      [
+        "El Salvador",
+        "Guatemala"
+      ],
+      [
+        "El Salvador",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Honduras"
+      ],
+      [
+        "Honduras",
+        "Nicaragua"
+      ]
+    ],
+    "clues": [
+      "Belize borders Guatemala",
+      "El Salvador borders only Guatemala and Honduras",
+      "Nicaragua borders only Costa Rica and Honduras"
+    ],
+    "date": "2026-09-07",
+    "region": "Central America",
+    "clues_fr": [
+      "Le Belize est limitrophe du Guatemala.",
+      "Le Salvador n'est limitrophe que du Guatemala et du Honduras.",
+      "Le Nicaragua n'est limitrophe que du Costa Rica et du Honduras."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "MEDIUM",
+    "nodes": [
+      {
+        "name": "Egypt",
+        "position": [
+          29.369537116289596,
+          26.895485
+        ]
+      },
+      {
+        "name": "Israel",
+        "position": [
+          34.69111642632299,
+          31.421260500000002
+        ]
+      },
+      {
+        "name": "Jordan",
+        "position": [
+          36.31227587319722,
+          31.294576
+        ]
+      },
+      {
+        "name": "Lebanon",
+        "position": [
+          35.7946617831452,
+          33.865181
+        ]
+      },
+      {
+        "name": "Palestine",
+        "position": [
+          35.30150271526564,
+          32.130286999999996
+        ]
+      },
+      {
+        "name": "Sudan",
+        "position": [
+          29.615603211023824,
+          15.277565
+        ]
+      },
+      {
+        "name": "Syria",
+        "position": [
+          38.57395267223778,
+          35.0274615
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Egypt",
+        "Israel"
+      ],
+      [
+        "Egypt",
+        "Jordan"
+      ],
+      [
+        "Egypt",
+        "Sudan"
+      ],
+      [
+        "Israel",
+        "Jordan"
+      ],
+      [
+        "Israel",
+        "Lebanon"
+      ],
+      [
+        "Israel",
+        "Palestine"
+      ],
+      [
+        "Israel",
+        "Syria"
+      ],
+      [
+        "Jordan",
+        "Palestine"
+      ],
+      [
+        "Jordan",
+        "Syria"
+      ],
+      [
+        "Lebanon",
+        "Syria"
+      ]
+    ],
+    "clues": [
+      "Sudan borders 1 of the others",
+      "Egypt borders Jordan",
+      "Palestine borders only Israel and Jordan",
+      "Israel borders 5 of the others",
+      "Eritrea does not border Israel",
+      "Egypt borders Sudan",
+      "Libya does not border Israel",
+      "Lebanon borders 2 of the others",
+      "Ethiopia does not border Israel",
+      "Syria does not border Eritrea"
+    ],
+    "decoys": [
+      "Eritrea",
+      "Ethiopia",
+      "Libya"
+    ],
+    "date": "2026-09-08",
+    "region": "Western Asia",
+    "clues_fr": [
+      "Le Soudan partage une frontière avec 1 des autres lieux.",
+      "L'Égypte et la Jordanie sont limitrophes.",
+      "La Palestine n'est limitrophe que d'Israël et de la Jordanie.",
+      "Israël partage une frontière avec 5 des autres lieux.",
+      "L'Érythrée ne partage pas de frontière avec Israël.",
+      "L'Égypte est limitrophe du Soudan.",
+      "La Libye n'est pas limitrophe d'Israël.",
+      "Le Liban est limitrophe de 2 des autres lieux.",
+      "L'Éthiopie et Israël ne sont pas limitrophes.",
+      "La Syrie n'est pas limitrophe de l'Érythrée."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Algeria",
+        "position": [
+          0.5262735538355487,
+          27.916216499999997
+        ]
+      },
+      {
+        "name": "Guinea",
+        "position": [
+          -9.657523736704057,
+          9.950943500000001
+        ]
+      },
+      {
+        "name": "Libya",
+        "position": [
+          17.25892425,
+          26.303265500000002
+        ]
+      },
+      {
+        "name": "Mali",
+        "position": [
+          -0.7009447099266355,
+          17.9547955
+        ]
+      },
+      {
+        "name": "Mauritania",
+        "position": [
+          -11.492962895049338,
+          21.163411500000002
+        ]
+      },
+      {
+        "name": "Niger",
+        "position": [
+          9.774100880356354,
+          17.390088499999997
+        ]
+      },
+      {
+        "name": "Tunisia",
+        "position": [
+          8.914020087493613,
+          33.941559
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Algeria",
+        "Libya"
+      ],
+      [
+        "Algeria",
+        "Mali"
+      ],
+      [
+        "Algeria",
+        "Mauritania"
+      ],
+      [
+        "Algeria",
+        "Niger"
+      ],
+      [
+        "Algeria",
+        "Tunisia"
+      ],
+      [
+        "Guinea",
+        "Mali"
+      ],
+      [
+        "Libya",
+        "Niger"
+      ],
+      [
+        "Libya",
+        "Tunisia"
+      ],
+      [
+        "Mali",
+        "Mauritania"
+      ],
+      [
+        "Mali",
+        "Niger"
+      ]
+    ],
+    "clues": [
+      "Tunisia borders only Algeria and Libya",
+      "Guinea does not border Libya",
+      "Mauritania borders only Algeria and Mali"
+    ],
+    "date": "2026-09-09",
+    "region": "Western Africa",
+    "clues_fr": [
+      "La Tunisie n'est limitrophe que de l'Algérie et de la Libye.",
+      "La Guinée et la Libye ne sont pas limitrophes.",
+      "La Mauritanie n'est limitrophe que de l'Algérie et du Mali."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Belize",
+        "position": [
+          -88.69909244027376,
+          17.310584499999997
+        ]
+      },
+      {
+        "name": "Costa Rica",
+        "position": [
+          -83.68384173481984,
+          9.7057645
+        ]
+      },
+      {
+        "name": "El Salvador",
+        "position": [
+          -88.92009515776553,
+          13.815268
+        ]
+      },
+      {
+        "name": "Guatemala",
+        "position": [
+          -90.33421985102814,
+          15.791555500000001
+        ]
+      },
+      {
+        "name": "Honduras",
+        "position": [
+          -87.22788986822297,
+          14.487836999999999
+        ]
+      },
+      {
+        "name": "Nicaragua",
+        "position": [
+          -85.574355714402,
+          12.889600999999999
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Belize",
+        "Guatemala"
+      ],
+      [
+        "Costa Rica",
+        "Nicaragua"
+      ],
+      [
+        "El Salvador",
+        "Guatemala"
+      ],
+      [
+        "El Salvador",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Honduras"
+      ],
+      [
+        "Honduras",
+        "Nicaragua"
+      ]
+    ],
+    "clues": [
+      "Nicaragua borders only Costa Rica and Honduras",
+      "El Salvador borders only Guatemala and Honduras",
+      "Guatemala borders Honduras"
+    ],
+    "date": "2026-09-10",
+    "region": "Central America",
+    "clues_fr": [
+      "Le Nicaragua n'est limitrophe que du Costa Rica et du Honduras.",
+      "Le Salvador n'est limitrophe que du Guatemala et du Honduras.",
+      "Le Guatemala et le Honduras sont limitrophes."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "HARD",
+    "nodes": [
+      {
+        "name": "Argentina",
+        "position": [
+          -64.08055141174417,
+          -37.2391995
+        ]
+      },
+      {
+        "name": "Bolivia",
+        "position": [
+          -63.63894096624066,
+          -16.400135499999998
+        ]
+      },
+      {
+        "name": "Chile",
+        "position": [
+          -69.83780456667986,
+          -54.015925
+        ]
+      },
+      {
+        "name": "Colombia",
+        "position": [
+          -72.4864581064173,
+          3.9686209999999997
+        ]
+      },
+      {
+        "name": "Paraguay",
+        "position": [
+          -58.6374159551108,
+          -23.1138085
+        ]
+      },
+      {
+        "name": "Peru",
+        "position": [
+          -75.87473845667213,
+          -9.247523000000001
+        ]
+      },
+      {
+        "name": "Uruguay",
+        "position": [
+          -55.818919527663155,
+          -32.387454500000004
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Argentina",
+        "Bolivia"
+      ],
+      [
+        "Argentina",
+        "Chile"
+      ],
+      [
+        "Argentina",
+        "Paraguay"
+      ],
+      [
+        "Argentina",
+        "Uruguay"
+      ],
+      [
+        "Bolivia",
+        "Chile"
+      ],
+      [
+        "Bolivia",
+        "Paraguay"
+      ],
+      [
+        "Bolivia",
+        "Peru"
+      ],
+      [
+        "Chile",
+        "Peru"
+      ],
+      [
+        "Colombia",
+        "Peru"
+      ]
+    ],
+    "clues": [
+      "Colombia borders Peru",
+      "Panama does not border Argentina",
+      "Argentina does not border Peru",
+      "Brazil does not border Argentina",
+      "Venezuela does not border Argentina",
+      "Paraguay borders only Argentina and Bolivia",
+      "Chile borders Peru",
+      "Colombia borders 1 of the others",
+      "Uruguay does not border Brazil"
+    ],
+    "decoys": [
+      "Brazil",
+      "Panama",
+      "Venezuela"
+    ],
+    "date": "2026-09-11",
+    "region": "South America",
+    "clues_fr": [
+      "La Colombie et le Pérou sont limitrophes.",
+      "Le Panama ne partage pas de frontière avec l'Argentine.",
+      "L'Argentine et le Pérou ne sont pas limitrophes.",
+      "Le Brésil et l'Argentine ne sont pas limitrophes.",
+      "Le Venezuela ne partage pas de frontière avec l'Argentine.",
+      "Le Paraguay n'est limitrophe que de l'Argentine et de la Bolivie.",
+      "Le Chili et le Pérou sont limitrophes.",
+      "La Colombie est limitrophe de 1 des autres lieux.",
+      "L'Uruguay ne partage pas de frontière avec le Brésil."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "MEDIUM",
+    "nodes": [
+      {
+        "name": "Angola",
+        "position": [
+          18.809785909133016,
+          -11.880463500000001
+        ]
+      },
+      {
+        "name": "Cameroon",
+        "position": [
+          13.491597921033106,
+          7.2262
+        ]
+      },
+      {
+        "name": "Central African Rep.",
+        "position": [
+          20.478740083438915,
+          6.7629595
+        ]
+      },
+      {
+        "name": "Congo",
+        "position": [
+          15.943964215882808,
+          -0.6482285
+        ]
+      },
+      {
+        "name": "Ethiopia",
+        "position": [
+          38.72639118584681,
+          9.36203
+        ]
+      },
+      {
+        "name": "Gabon",
+        "position": [
+          11.592640808043878,
+          -0.9451875000000001
+        ]
+      },
+      {
+        "name": "Sudan",
+        "position": [
+          29.615603211023824,
+          15.277565
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Angola",
+        "Congo"
+      ],
+      [
+        "Cameroon",
+        "Central African Rep."
+      ],
+      [
+        "Cameroon",
+        "Congo"
+      ],
+      [
+        "Cameroon",
+        "Gabon"
+      ],
+      [
+        "Central African Rep.",
+        "Congo"
+      ],
+      [
+        "Central African Rep.",
+        "Sudan"
+      ],
+      [
+        "Congo",
+        "Gabon"
+      ],
+      [
+        "Ethiopia",
+        "Sudan"
+      ]
+    ],
+    "clues": [
+      "Sudan borders only Central African Rep. and Ethiopia",
+      "Gabon borders only Cameroon and Congo",
+      "Eq. Guinea does not border Congo",
+      "Eritrea does not border Congo",
+      "Congo borders 4 of the others",
+      "Central African Rep. borders Congo",
+      "Niger does not border Congo",
+      "Angola does not border Eq. Guinea"
+    ],
+    "decoys": [
+      "Eq. Guinea",
+      "Eritrea",
+      "Niger"
+    ],
+    "date": "2026-09-12",
+    "region": "Middle Africa",
+    "clues_fr": [
+      "Le Soudan n'est limitrophe que de la République centrafricaine et de l'Éthiopie.",
+      "Le Gabon n'est limitrophe que du Cameroun et de la République du Congo.",
+      "La Guinée équatoriale n'est pas limitrophe de la République du Congo.",
+      "L'Érythrée n'est pas limitrophe de la République du Congo.",
+      "La République du Congo partage une frontière avec 4 des autres lieux.",
+      "La République centrafricaine et la République du Congo sont limitrophes.",
+      "Le Niger et la République du Congo ne sont pas limitrophes.",
+      "L'Angola et la Guinée équatoriale ne sont pas limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Argentina",
+        "position": [
+          -64.08055141174417,
+          -37.2391995
+        ]
+      },
+      {
+        "name": "Belgium",
+        "position": [
+          4.737356308041732,
+          50.5796775
+        ]
+      },
+      {
+        "name": "Brazil",
+        "position": [
+          -49.71162185852424,
+          -14.0736885
+        ]
+      },
+      {
+        "name": "Chile",
+        "position": [
+          -69.83780456667986,
+          -54.015925
+        ]
+      },
+      {
+        "name": "France",
+        "position": [
+          2.099228368479555,
+          46.895071
+        ]
+      },
+      {
+        "name": "Paraguay",
+        "position": [
+          -58.6374159551108,
+          -23.1138085
+        ]
+      },
+      {
+        "name": "Peru",
+        "position": [
+          -75.87473845667213,
+          -9.247523000000001
+        ]
+      },
+      {
+        "name": "Venezuela",
+        "position": [
+          -65.42593985987202,
+          6.4816975
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Argentina",
+        "Brazil"
+      ],
+      [
+        "Argentina",
+        "Chile"
+      ],
+      [
+        "Argentina",
+        "Paraguay"
+      ],
+      [
+        "Belgium",
+        "France"
+      ],
+      [
+        "Brazil",
+        "France"
+      ],
+      [
+        "Brazil",
+        "Paraguay"
+      ],
+      [
+        "Brazil",
+        "Peru"
+      ],
+      [
+        "Brazil",
+        "Venezuela"
+      ],
+      [
+        "Chile",
+        "Peru"
+      ]
+    ],
+    "clues": [
+      "Chile borders only Argentina and Peru",
+      "France borders only Belgium and Brazil",
+      "Argentina does not border Belgium",
+      "Argentina borders Paraguay"
+    ],
+    "date": "2026-09-13",
+    "region": "South America",
+    "clues_fr": [
+      "Le Chili n'est limitrophe que de l'Argentine et du Pérou.",
+      "La France n'est limitrophe que de la Belgique et du Brésil.",
+      "L'Argentine ne partage pas de frontière avec la Belgique.",
+      "L'Argentine et le Paraguay sont limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Djibouti",
+        "position": [
+          42.41228242457338,
+          11.8552845
+        ]
+      },
+      {
+        "name": "Eritrea",
+        "position": [
+          38.295763745061734,
+          15.1975385
+        ]
+      },
+      {
+        "name": "Ethiopia",
+        "position": [
+          38.72639118584681,
+          9.36203
+        ]
+      },
+      {
+        "name": "Libya",
+        "position": [
+          17.25892425,
+          26.303265500000002
+        ]
+      },
+      {
+        "name": "Somaliland",
+        "position": [
+          46.034650691081545,
+          9.75699
+        ]
+      },
+      {
+        "name": "Sudan",
+        "position": [
+          29.615603211023824,
+          15.277565
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Djibouti",
+        "Eritrea"
+      ],
+      [
+        "Djibouti",
+        "Ethiopia"
+      ],
+      [
+        "Djibouti",
+        "Somaliland"
+      ],
+      [
+        "Eritrea",
+        "Ethiopia"
+      ],
+      [
+        "Eritrea",
+        "Sudan"
+      ],
+      [
+        "Ethiopia",
+        "Somaliland"
+      ],
+      [
+        "Ethiopia",
+        "Sudan"
+      ],
+      [
+        "Libya",
+        "Sudan"
+      ]
+    ],
+    "clues": [
+      "Djibouti borders Eritrea",
+      "Eritrea borders Ethiopia",
+      "Ethiopia borders Sudan",
+      "Somaliland borders only Djibouti and Ethiopia"
+    ],
+    "date": "2026-09-14",
+    "region": "Eastern Africa",
+    "clues_fr": [
+      "Djibouti est limitrophe de l'Érythrée.",
+      "L'Érythrée partage une frontière avec l'Éthiopie.",
+      "L'Éthiopie partage une frontière avec le Soudan.",
+      "Le Somaliland n'est limitrophe que de Djibouti et de l'Éthiopie."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "MEDIUM",
+    "nodes": [
+      {
+        "name": "Costa Rica",
+        "position": [
+          -83.68384173481984,
+          9.7057645
+        ]
+      },
+      {
+        "name": "El Salvador",
+        "position": [
+          -88.92009515776553,
+          13.815268
+        ]
+      },
+      {
+        "name": "Guatemala",
+        "position": [
+          -90.33421985102814,
+          15.791555500000001
+        ]
+      },
+      {
+        "name": "Honduras",
+        "position": [
+          -87.22788986822297,
+          14.487836999999999
+        ]
+      },
+      {
+        "name": "Mexico",
+        "position": [
+          -102.25017233870508,
+          23.5993735
+        ]
+      },
+      {
+        "name": "Nicaragua",
+        "position": [
+          -85.574355714402,
+          12.889600999999999
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Costa Rica",
+        "Nicaragua"
+      ],
+      [
+        "El Salvador",
+        "Guatemala"
+      ],
+      [
+        "El Salvador",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Mexico"
+      ],
+      [
+        "Honduras",
+        "Nicaragua"
+      ]
+    ],
+    "clues": [
+      "Mexico borders 1 of the others",
+      "Panama does not border Honduras",
+      "Costa Rica borders 1 of the others",
+      "Costa Rica does not border El Salvador",
+      "Guatemala borders 3 of the others",
+      "Guatemala borders Honduras",
+      "Guatemala borders Mexico",
+      "United States of America does not border Honduras",
+      "Belize does not border Costa Rica",
+      "El Salvador borders 2 of the others",
+      "Nicaragua does not border Belize"
+    ],
+    "decoys": [
+      "Belize",
+      "Panama",
+      "United States of America"
+    ],
+    "date": "2026-09-15",
+    "region": "Central America",
+    "clues_fr": [
+      "Le Mexique est limitrophe de 1 des autres lieux.",
+      "Le Panama n'est pas limitrophe du Honduras.",
+      "Le Costa Rica partage une frontière avec 1 des autres lieux.",
+      "Le Costa Rica n'est pas limitrophe du Salvador.",
+      "Le Guatemala est limitrophe de 3 des autres lieux.",
+      "Le Guatemala partage une frontière avec le Honduras.",
+      "Le Guatemala et le Mexique sont limitrophes.",
+      "Les États-Unis et le Honduras ne sont pas limitrophes.",
+      "Le Belize n'est pas limitrophe du Costa Rica.",
+      "Le Salvador est limitrophe de 2 des autres lieux.",
+      "Le Nicaragua et le Belize ne sont pas limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Algeria",
+        "position": [
+          0.5262735538355487,
+          27.916216499999997
+        ]
+      },
+      {
+        "name": "Mauritania",
+        "position": [
+          -11.492962895049338,
+          21.163411500000002
+        ]
+      },
+      {
+        "name": "Morocco",
+        "position": [
+          -9.983264516786328,
+          28.490393
+        ]
+      },
+      {
+        "name": "Niger",
+        "position": [
+          9.774100880356354,
+          17.390088499999997
+        ]
+      },
+      {
+        "name": "Senegal",
+        "position": [
+          -14.72919092443719,
+          14.495175
+        ]
+      },
+      {
+        "name": "W. Sahara",
+        "position": [
+          -12.57201526395745,
+          24.2305625
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Algeria",
+        "Mauritania"
+      ],
+      [
+        "Algeria",
+        "Morocco"
+      ],
+      [
+        "Algeria",
+        "Niger"
+      ],
+      [
+        "Algeria",
+        "W. Sahara"
+      ],
+      [
+        "Mauritania",
+        "Senegal"
+      ],
+      [
+        "Mauritania",
+        "W. Sahara"
+      ],
+      [
+        "Morocco",
+        "W. Sahara"
+      ]
+    ],
+    "clues": [
+      "Algeria borders Mauritania",
+      "Morocco borders only Algeria and W. Sahara",
+      "Mauritania borders W. Sahara",
+      "Algeria borders Niger"
+    ],
+    "date": "2026-09-16",
+    "region": "Africa",
+    "clues_fr": [
+      "L'Algérie est limitrophe de la Mauritanie.",
+      "Le Maroc n'est limitrophe que de l'Algérie et du Sahara occidental.",
+      "La Mauritanie est limitrophe du Sahara occidental.",
+      "L'Algérie et le Niger sont limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Egypt",
+        "position": [
+          29.369537116289596,
+          26.895485
+        ]
+      },
+      {
+        "name": "Eritrea",
+        "position": [
+          38.295763745061734,
+          15.1975385
+        ]
+      },
+      {
+        "name": "Ethiopia",
+        "position": [
+          38.72639118584681,
+          9.36203
+        ]
+      },
+      {
+        "name": "Kenya",
+        "position": [
+          37.51297205252195,
+          0.312407
+        ]
+      },
+      {
+        "name": "S. Sudan",
+        "position": [
+          28.970074432703957,
+          8.027146
+        ]
+      },
+      {
+        "name": "Somaliland",
+        "position": [
+          46.034650691081545,
+          9.75699
+        ]
+      },
+      {
+        "name": "Sudan",
+        "position": [
+          29.615603211023824,
+          15.277565
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Egypt",
+        "Sudan"
+      ],
+      [
+        "Eritrea",
+        "Ethiopia"
+      ],
+      [
+        "Eritrea",
+        "Sudan"
+      ],
+      [
+        "Ethiopia",
+        "Kenya"
+      ],
+      [
+        "Ethiopia",
+        "S. Sudan"
+      ],
+      [
+        "Ethiopia",
+        "Somaliland"
+      ],
+      [
+        "Ethiopia",
+        "Sudan"
+      ],
+      [
+        "Kenya",
+        "S. Sudan"
+      ],
+      [
+        "S. Sudan",
+        "Sudan"
+      ]
+    ],
+    "clues": [
+      "Egypt borders Sudan",
+      "Kenya borders only Ethiopia and S. Sudan",
+      "Eritrea borders only Ethiopia and Sudan"
+    ],
+    "date": "2026-09-17",
+    "region": "Eastern Africa",
+    "clues_fr": [
+      "L'Égypte est limitrophe du Soudan.",
+      "Le Kenya n'est limitrophe que de l'Éthiopie et du Soudan du Sud.",
+      "L'Érythrée n'est limitrophe que de l'Éthiopie et du Soudan."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "HARD",
+    "nodes": [
+      {
+        "name": "Burundi",
+        "position": [
+          29.957121293416,
+          -3.463945
+        ]
+      },
+      {
+        "name": "Djibouti",
+        "position": [
+          42.41228242457338,
+          11.8552845
+        ]
+      },
+      {
+        "name": "Kenya",
+        "position": [
+          37.51297205252195,
+          0.312407
+        ]
+      },
+      {
+        "name": "S. Sudan",
+        "position": [
+          28.970074432703957,
+          8.027146
+        ]
+      },
+      {
+        "name": "Somalia",
+        "position": [
+          46.7941796825168,
+          5.170365
+        ]
+      },
+      {
+        "name": "Somaliland",
+        "position": [
+          46.034650691081545,
+          9.75699
+        ]
+      },
+      {
+        "name": "Tanzania",
+        "position": [
+          34.14207067870728,
+          -6.207829500000001
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Burundi",
+        "Tanzania"
+      ],
+      [
+        "Djibouti",
+        "Somaliland"
+      ],
+      [
+        "Kenya",
+        "S. Sudan"
+      ],
+      [
+        "Kenya",
+        "Somalia"
+      ],
+      [
+        "Kenya",
+        "Tanzania"
+      ],
+      [
+        "Somalia",
+        "Somaliland"
+      ]
+    ],
+    "clues": [
+      "Somaliland borders 2 of the others",
+      "Ethiopia does not border Kenya",
+      "S. Sudan does not border Somaliland",
+      "Zambia does not border Somaliland",
+      "Ethiopia does not border Somaliland",
+      "Zambia does not border Kenya",
+      "Rwanda does not border Somaliland",
+      "Rwanda does not border Kenya",
+      "Tanzania borders only Burundi and Kenya",
+      "Kenya does not border Somaliland",
+      "Somalia borders 2 of the others",
+      "Kenya borders 3 of the others",
+      "Djibouti does not border Ethiopia"
+    ],
+    "decoys": [
+      "Ethiopia",
+      "Rwanda",
+      "Zambia"
+    ],
+    "date": "2026-09-18",
+    "region": "Eastern Africa",
+    "clues_fr": [
+      "Le Somaliland est limitrophe de 2 des autres lieux.",
+      "L'Éthiopie n'est pas limitrophe du Kenya.",
+      "Le Soudan du Sud ne partage pas de frontière avec le Somaliland.",
+      "La Zambie ne partage pas de frontière avec le Somaliland.",
+      "L'Éthiopie et le Somaliland ne sont pas limitrophes.",
+      "La Zambie et le Kenya ne sont pas limitrophes.",
+      "Le Rwanda et le Somaliland ne sont pas limitrophes.",
+      "Le Rwanda n'est pas limitrophe du Kenya.",
+      "La Tanzanie n'est limitrophe que du Burundi et du Kenya.",
+      "Le Kenya et le Somaliland ne sont pas limitrophes.",
+      "La Somalie partage une frontière avec 2 des autres lieux.",
+      "Le Kenya partage une frontière avec 3 des autres lieux.",
+      "Djibouti n'est pas limitrophe de l'Éthiopie."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Austria",
+        "position": [
+          14.953149833502414,
+          47.9191815
+        ]
+      },
+      {
+        "name": "Bosnia and Herz.",
+        "position": [
+          18.115159863686415,
+          43.853095999999994
+        ]
+      },
+      {
+        "name": "Croatia",
+        "position": [
+          15.583559096689727,
+          44.544813500000004
+        ]
+      },
+      {
+        "name": "Kosovo",
+        "position": [
+          20.91366557164779,
+          42.513925
+        ]
+      },
+      {
+        "name": "Moldova",
+        "position": [
+          28.649038202278767,
+          47.137614
+        ]
+      },
+      {
+        "name": "Romania",
+        "position": [
+          24.211692276700624,
+          46.0360275
+        ]
+      },
+      {
+        "name": "Serbia",
+        "position": [
+          21.013475351815377,
+          44.1366965
+        ]
+      },
+      {
+        "name": "Slovenia",
+        "position": [
+          14.732281045424251,
+          46.127443
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Austria",
+        "Slovenia"
+      ],
+      [
+        "Bosnia and Herz.",
+        "Croatia"
+      ],
+      [
+        "Bosnia and Herz.",
+        "Serbia"
+      ],
+      [
+        "Croatia",
+        "Serbia"
+      ],
+      [
+        "Croatia",
+        "Slovenia"
+      ],
+      [
+        "Kosovo",
+        "Serbia"
+      ],
+      [
+        "Moldova",
+        "Romania"
+      ],
+      [
+        "Romania",
+        "Serbia"
+      ]
+    ],
+    "clues": [
+      "Bosnia and Herz. borders Croatia",
+      "Croatia does not border Kosovo",
+      "Croatia does not border Moldova",
+      "Slovenia borders only Austria and Croatia",
+      "Romania borders only Moldova and Serbia"
+    ],
+    "date": "2026-09-19",
+    "region": "Southern Europe",
+    "clues_fr": [
+      "La Bosnie-Herzégovine partage une frontière avec la Croatie.",
+      "La Croatie ne partage pas de frontière avec le Kosovo.",
+      "La Croatie et la Moldavie ne sont pas limitrophes.",
+      "La Slovénie n'est limitrophe que de l'Autriche et de la Croatie.",
+      "La Roumanie n'est limitrophe que de la Moldavie et de la Serbie."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Iran",
+        "position": [
+          54.1182449317387,
+          32.3260375
+        ]
+      },
+      {
+        "name": "Iraq",
+        "position": [
+          42.41492183998177,
+          33.1979865
+        ]
+      },
+      {
+        "name": "Kuwait",
+        "position": [
+          47.393071897311984,
+          29.202662
+        ]
+      },
+      {
+        "name": "Lebanon",
+        "position": [
+          35.7946617831452,
+          33.865181
+        ]
+      },
+      {
+        "name": "Oman",
+        "position": [
+          56.97737402903281,
+          20.797736
+        ]
+      },
+      {
+        "name": "Saudi Arabia",
+        "position": [
+          44.55272493431764,
+          24.265496
+        ]
+      },
+      {
+        "name": "Syria",
+        "position": [
+          38.57395267223778,
+          35.0274615
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Iran",
+        "Iraq"
+      ],
+      [
+        "Iraq",
+        "Kuwait"
+      ],
+      [
+        "Iraq",
+        "Saudi Arabia"
+      ],
+      [
+        "Iraq",
+        "Syria"
+      ],
+      [
+        "Kuwait",
+        "Saudi Arabia"
+      ],
+      [
+        "Lebanon",
+        "Syria"
+      ],
+      [
+        "Oman",
+        "Saudi Arabia"
+      ]
+    ],
+    "clues": [
+      "Syria borders only Iraq and Lebanon",
+      "Kuwait borders only Iraq and Saudi Arabia",
+      "Iran borders Iraq",
+      "Saudi Arabia borders 3 of the others"
+    ],
+    "date": "2026-09-20",
+    "region": "Western Asia",
+    "clues_fr": [
+      "La Syrie n'est limitrophe que de l'Irak et du Liban.",
+      "Le Koweït n'est limitrophe que de l'Irak et de l'Arabie saoudite.",
+      "L'Iran est limitrophe de l'Irak.",
+      "L'Arabie saoudite est limitrophe de 3 des autres lieux."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "MEDIUM",
+    "nodes": [
+      {
+        "name": "Botswana",
+        "position": [
+          24.310117415297675,
+          -22.4595335
+        ]
+      },
+      {
+        "name": "Congo",
+        "position": [
+          15.943964215882808,
+          -0.6482285
+        ]
+      },
+      {
+        "name": "Dem. Rep. Congo",
+        "position": [
+          22.39056601648901,
+          -4.099336
+        ]
+      },
+      {
+        "name": "Tanzania",
+        "position": [
+          34.14207067870728,
+          -6.207829500000001
+        ]
+      },
+      {
+        "name": "Uganda",
+        "position": [
+          32.5465063912396,
+          1.3803725
+        ]
+      },
+      {
+        "name": "Zambia",
+        "position": [
+          25.369727205483482,
+          -13.080002
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Botswana",
+        "Zambia"
+      ],
+      [
+        "Congo",
+        "Dem. Rep. Congo"
+      ],
+      [
+        "Dem. Rep. Congo",
+        "Tanzania"
+      ],
+      [
+        "Dem. Rep. Congo",
+        "Uganda"
+      ],
+      [
+        "Dem. Rep. Congo",
+        "Zambia"
+      ],
+      [
+        "Tanzania",
+        "Uganda"
+      ],
+      [
+        "Tanzania",
+        "Zambia"
+      ]
+    ],
+    "clues": [
+      "Botswana borders 1 of the others",
+      "Congo borders 1 of the others",
+      "Congo borders Dem. Rep. Congo",
+      "Gabon does not border Tanzania",
+      "S. Sudan does not border Botswana",
+      "Malawi does not border Botswana",
+      "Uganda borders only Dem. Rep. Congo and Tanzania",
+      "Zambia does not border Gabon"
+    ],
+    "decoys": [
+      "Gabon",
+      "Malawi",
+      "S. Sudan"
+    ],
+    "date": "2026-09-21",
+    "region": "Eastern Africa",
+    "clues_fr": [
+      "Le Botswana est limitrophe de 1 des autres lieux.",
+      "La République du Congo est limitrophe de 1 des autres lieux.",
+      "La République du Congo partage une frontière avec la République démocratique du Congo.",
+      "Le Gabon et la Tanzanie ne sont pas limitrophes.",
+      "Le Soudan du Sud ne partage pas de frontière avec le Botswana.",
+      "Le Malawi et le Botswana ne sont pas limitrophes.",
+      "L'Ouganda n'est limitrophe que de la République démocratique du Congo et de la Tanzanie.",
+      "La Zambie n'est pas limitrophe du Gabon."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Belize",
+        "position": [
+          -88.69909244027376,
+          17.310584499999997
+        ]
+      },
+      {
+        "name": "Costa Rica",
+        "position": [
+          -83.68384173481984,
+          9.7057645
+        ]
+      },
+      {
+        "name": "El Salvador",
+        "position": [
+          -88.92009515776553,
+          13.815268
+        ]
+      },
+      {
+        "name": "Guatemala",
+        "position": [
+          -90.33421985102814,
+          15.791555500000001
+        ]
+      },
+      {
+        "name": "Honduras",
+        "position": [
+          -87.22788986822297,
+          14.487836999999999
+        ]
+      },
+      {
+        "name": "Mexico",
+        "position": [
+          -102.25017233870508,
+          23.5993735
+        ]
+      },
+      {
+        "name": "Nicaragua",
+        "position": [
+          -85.574355714402,
+          12.889600999999999
+        ]
+      },
+      {
+        "name": "United States of America",
+        "position": [
+          -99.31483211377508,
+          37.236745
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Belize",
+        "Guatemala"
+      ],
+      [
+        "Belize",
+        "Mexico"
+      ],
+      [
+        "Costa Rica",
+        "Nicaragua"
+      ],
+      [
+        "El Salvador",
+        "Guatemala"
+      ],
+      [
+        "El Salvador",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Mexico"
+      ],
+      [
+        "Honduras",
+        "Nicaragua"
+      ],
+      [
+        "Mexico",
+        "United States of America"
+      ]
+    ],
+    "clues": [
+      "Belize borders only Guatemala and Mexico",
+      "Costa Rica does not border Guatemala",
+      "Mexico borders 3 of the others",
+      "El Salvador borders Guatemala",
+      "Nicaragua borders only Costa Rica and Honduras"
+    ],
+    "date": "2026-09-22",
+    "region": "Central America",
+    "clues_fr": [
+      "Le Belize n'est limitrophe que du Guatemala et du Mexique.",
+      "Le Costa Rica et le Guatemala ne sont pas limitrophes.",
+      "Le Mexique est limitrophe de 3 des autres lieux.",
+      "Le Salvador est limitrophe du Guatemala.",
+      "Le Nicaragua n'est limitrophe que du Costa Rica et du Honduras."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "MEDIUM",
+    "nodes": [
+      {
+        "name": "Belgium",
+        "position": [
+          4.737356308041732,
+          50.5796775
+        ]
+      },
+      {
+        "name": "Czechia",
+        "position": [
+          15.538166373823362,
+          49.758268
+        ]
+      },
+      {
+        "name": "France",
+        "position": [
+          2.099228368479555,
+          46.895071
+        ]
+      },
+      {
+        "name": "Germany",
+        "position": [
+          10.432350876756606,
+          51.431228000000004
+        ]
+      },
+      {
+        "name": "Netherlands",
+        "position": [
+          5.39811344311906,
+          52.0402345
+        ]
+      },
+      {
+        "name": "Spain",
+        "position": [
+          -3.5199677746850035,
+          39.917913
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Belgium",
+        "France"
+      ],
+      [
+        "Belgium",
+        "Germany"
+      ],
+      [
+        "Belgium",
+        "Netherlands"
+      ],
+      [
+        "Czechia",
+        "Germany"
+      ],
+      [
+        "France",
+        "Germany"
+      ],
+      [
+        "France",
+        "Spain"
+      ],
+      [
+        "Germany",
+        "Netherlands"
+      ]
+    ],
+    "clues": [
+      "Suriname does not border Czechia",
+      "Portugal does not border Germany",
+      "Czechia does not border Spain",
+      "Poland does not border Germany",
+      "Belgium borders 3 of the others",
+      "Portugal does not border France",
+      "Poland does not border Czechia",
+      "Suriname does not border France",
+      "Portugal does not border Czechia",
+      "Germany does not border Spain",
+      "Suriname does not border Germany",
+      "Netherlands borders only Belgium and Germany",
+      "Poland does not border France"
+    ],
+    "decoys": [
+      "Poland",
+      "Portugal",
+      "Suriname"
+    ],
+    "date": "2026-09-23",
+    "region": "Western Europe",
+    "clues_fr": [
+      "Le Suriname n'est pas limitrophe de la Tchéquie.",
+      "Le Portugal et l'Allemagne ne sont pas limitrophes.",
+      "La Tchéquie n'est pas limitrophe de l'Espagne.",
+      "La Pologne et l'Allemagne ne sont pas limitrophes.",
+      "La Belgique partage une frontière avec 3 des autres lieux.",
+      "Le Portugal et la France ne sont pas limitrophes.",
+      "La Pologne ne partage pas de frontière avec la Tchéquie.",
+      "Le Suriname et la France ne sont pas limitrophes.",
+      "Le Portugal et la Tchéquie ne sont pas limitrophes.",
+      "L'Allemagne ne partage pas de frontière avec l'Espagne.",
+      "Le Suriname et l'Allemagne ne sont pas limitrophes.",
+      "Les Pays-Bas ne sont limitrophes que de la Belgique et de l'Allemagne.",
+      "La Pologne et la France ne sont pas limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Canada",
+        "position": [
+          -110.24380777716146,
+          56.70192
+        ]
+      },
+      {
+        "name": "El Salvador",
+        "position": [
+          -88.92009515776553,
+          13.815268
+        ]
+      },
+      {
+        "name": "Guatemala",
+        "position": [
+          -90.33421985102814,
+          15.791555500000001
+        ]
+      },
+      {
+        "name": "Honduras",
+        "position": [
+          -87.22788986822297,
+          14.487836999999999
+        ]
+      },
+      {
+        "name": "Mexico",
+        "position": [
+          -102.25017233870508,
+          23.5993735
+        ]
+      },
+      {
+        "name": "Nicaragua",
+        "position": [
+          -85.574355714402,
+          12.889600999999999
+        ]
+      },
+      {
+        "name": "United States of America",
+        "position": [
+          -99.31483211377508,
+          37.236745
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Canada",
+        "United States of America"
+      ],
+      [
+        "El Salvador",
+        "Guatemala"
+      ],
+      [
+        "El Salvador",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Mexico"
+      ],
+      [
+        "Honduras",
+        "Nicaragua"
+      ],
+      [
+        "Mexico",
+        "United States of America"
+      ]
+    ],
+    "clues": [
+      "Guatemala borders Mexico",
+      "El Salvador borders only Guatemala and Honduras",
+      "United States of America borders only Canada and Mexico",
+      "Honduras borders Nicaragua"
+    ],
+    "date": "2026-09-24",
+    "region": "Central America",
+    "clues_fr": [
+      "Le Guatemala est limitrophe du Mexique.",
+      "Le Salvador n'est limitrophe que du Guatemala et du Honduras.",
+      "Les États-Unis ne sont limitrophes que du Canada et du Mexique.",
+      "Le Honduras et le Nicaragua sont limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Bangladesh",
+        "position": [
+          89.87623897797096,
+          23.563936499999997
+        ]
+      },
+      {
+        "name": "Bhutan",
+        "position": [
+          90.49641832093482,
+          27.612178
+        ]
+      },
+      {
+        "name": "China",
+        "position": [
+          98.76958324319138,
+          36.79871
+        ]
+      },
+      {
+        "name": "India",
+        "position": [
+          79.17905943652184,
+          21.8722055
+        ]
+      },
+      {
+        "name": "Iran",
+        "position": [
+          54.1182449317387,
+          32.3260375
+        ]
+      },
+      {
+        "name": "Pakistan",
+        "position": [
+          70.0926279674016,
+          30.357656
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Bangladesh",
+        "India"
+      ],
+      [
+        "Bhutan",
+        "China"
+      ],
+      [
+        "Bhutan",
+        "India"
+      ],
+      [
+        "China",
+        "India"
+      ],
+      [
+        "China",
+        "Pakistan"
+      ],
+      [
+        "India",
+        "Pakistan"
+      ],
+      [
+        "Iran",
+        "Pakistan"
+      ]
+    ],
+    "clues": [
+      "India borders Pakistan",
+      "Bangladesh borders India",
+      "China borders Pakistan",
+      "Bhutan borders only China and India"
+    ],
+    "date": "2026-09-25",
+    "region": "Southern Asia",
+    "clues_fr": [
+      "L'Inde est limitrophe du Pakistan.",
+      "Le Bangladesh partage une frontière avec l'Inde.",
+      "La Chine est limitrophe du Pakistan.",
+      "Le Bhoutan n'est limitrophe que de la Chine et de l'Inde."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "MEDIUM",
+    "nodes": [
+      {
+        "name": "Bolivia",
+        "position": [
+          -63.63894096624066,
+          -16.400135499999998
+        ]
+      },
+      {
+        "name": "Brazil",
+        "position": [
+          -49.71162185852424,
+          -14.0736885
+        ]
+      },
+      {
+        "name": "Chile",
+        "position": [
+          -69.83780456667986,
+          -54.015925
+        ]
+      },
+      {
+        "name": "Ecuador",
+        "position": [
+          -78.27869868033336,
+          -1.763329
+        ]
+      },
+      {
+        "name": "France",
+        "position": [
+          2.099228368479555,
+          46.895071
+        ]
+      },
+      {
+        "name": "Peru",
+        "position": [
+          -75.87473845667213,
+          -9.247523000000001
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Bolivia",
+        "Brazil"
+      ],
+      [
+        "Bolivia",
+        "Chile"
+      ],
+      [
+        "Bolivia",
+        "Peru"
+      ],
+      [
+        "Brazil",
+        "France"
+      ],
+      [
+        "Brazil",
+        "Peru"
+      ],
+      [
+        "Chile",
+        "Peru"
+      ],
+      [
+        "Ecuador",
+        "Peru"
+      ]
+    ],
+    "clues": [
+      "Germany does not border Brazil",
+      "Chile borders only Bolivia and Peru",
+      "Suriname does not border Brazil",
+      "Italy does not border Brazil",
+      "Brazil borders 3 of the others",
+      "Ecuador borders Peru",
+      "France does not border Germany"
+    ],
+    "decoys": [
+      "Germany",
+      "Italy",
+      "Suriname"
+    ],
+    "date": "2026-09-26",
+    "region": "South America",
+    "clues_fr": [
+      "L'Allemagne n'est pas limitrophe du Brésil.",
+      "Le Chili n'est limitrophe que de la Bolivie et du Pérou.",
+      "Le Suriname ne partage pas de frontière avec le Brésil.",
+      "L'Italie n'est pas limitrophe du Brésil.",
+      "Le Brésil est limitrophe de 3 des autres lieux.",
+      "L'Équateur et le Pérou sont limitrophes.",
+      "La France et l'Allemagne ne sont pas limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Albania",
+        "position": [
+          19.9675900776865,
+          41.247896
+        ]
+      },
+      {
+        "name": "Bulgaria",
+        "position": [
+          25.138533279202548,
+          42.739419999999996
+        ]
+      },
+      {
+        "name": "Greece",
+        "position": [
+          21.806331463138974,
+          39.080456999999996
+        ]
+      },
+      {
+        "name": "Hungary",
+        "position": [
+          19.103248635963975,
+          47.2452045
+        ]
+      },
+      {
+        "name": "North Macedonia",
+        "position": [
+          21.720350432373735,
+          41.6810995
+        ]
+      },
+      {
+        "name": "Romania",
+        "position": [
+          24.211692276700624,
+          46.0360275
+        ]
+      },
+      {
+        "name": "Turkey",
+        "position": [
+          35.454930892256485,
+          38.6335205
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Albania",
+        "Greece"
+      ],
+      [
+        "Albania",
+        "North Macedonia"
+      ],
+      [
+        "Bulgaria",
+        "Greece"
+      ],
+      [
+        "Bulgaria",
+        "North Macedonia"
+      ],
+      [
+        "Bulgaria",
+        "Romania"
+      ],
+      [
+        "Bulgaria",
+        "Turkey"
+      ],
+      [
+        "Greece",
+        "North Macedonia"
+      ],
+      [
+        "Greece",
+        "Turkey"
+      ],
+      [
+        "Hungary",
+        "Romania"
+      ]
+    ],
+    "clues": [
+      "Romania borders only Bulgaria and Hungary",
+      "Turkey borders only Bulgaria and Greece",
+      "Albania borders only Greece and North Macedonia",
+      "Greece borders North Macedonia"
+    ],
+    "date": "2026-09-27",
+    "region": "Europe",
+    "clues_fr": [
+      "La Roumanie n'est limitrophe que de la Bulgarie et de la Hongrie.",
+      "La Turquie n'est limitrophe que de la Bulgarie et de la Grèce.",
+      "L'Albanie n'est limitrophe que de la Grèce et de la Macédoine du Nord.",
+      "La Grèce est limitrophe de la Macédoine du Nord."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "MEDIUM",
+    "nodes": [
+      {
+        "name": "Algeria",
+        "position": [
+          0.5262735538355487,
+          27.916216499999997
+        ]
+      },
+      {
+        "name": "Burkina Faso",
+        "position": [
+          -1.275629162240045,
+          12.241398
+        ]
+      },
+      {
+        "name": "Ghana",
+        "position": [
+          -1.0873751582526647,
+          7.8156859999999995
+        ]
+      },
+      {
+        "name": "Mali",
+        "position": [
+          -0.7009447099266355,
+          17.9547955
+        ]
+      },
+      {
+        "name": "Niger",
+        "position": [
+          9.774100880356354,
+          17.390088499999997
+        ]
+      },
+      {
+        "name": "Senegal",
+        "position": [
+          -14.72919092443719,
+          14.495175
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Algeria",
+        "Mali"
+      ],
+      [
+        "Algeria",
+        "Niger"
+      ],
+      [
+        "Burkina Faso",
+        "Ghana"
+      ],
+      [
+        "Burkina Faso",
+        "Mali"
+      ],
+      [
+        "Burkina Faso",
+        "Niger"
+      ],
+      [
+        "Mali",
+        "Niger"
+      ],
+      [
+        "Mali",
+        "Senegal"
+      ]
+    ],
+    "clues": [
+      "Algeria does not border Burkina Faso",
+      "Mali borders 4 of the others",
+      "Algeria does not border Senegal",
+      "Burkina Faso borders Ghana",
+      "Tunisia does not border Mali",
+      "Mauritania does not border Mali",
+      "Algeria does not border Ghana",
+      "W. Sahara does not border Mali",
+      "Burkina Faso borders Mali",
+      "Algeria borders 2 of the others",
+      "Niger does not border Mauritania"
+    ],
+    "decoys": [
+      "Mauritania",
+      "Tunisia",
+      "W. Sahara"
+    ],
+    "date": "2026-09-28",
+    "region": "Western Africa",
+    "clues_fr": [
+      "L'Algérie et le Burkina Faso ne sont pas limitrophes.",
+      "Le Mali est limitrophe de 4 des autres lieux.",
+      "L'Algérie et le Sénégal ne sont pas limitrophes.",
+      "Le Burkina Faso partage une frontière avec le Ghana.",
+      "La Tunisie et le Mali ne sont pas limitrophes.",
+      "La Mauritanie n'est pas limitrophe du Mali.",
+      "L'Algérie et le Ghana ne sont pas limitrophes.",
+      "Le Sahara occidental et le Mali ne sont pas limitrophes.",
+      "Le Burkina Faso et le Mali sont limitrophes.",
+      "L'Algérie est limitrophe de 2 des autres lieux.",
+      "Le Niger ne partage pas de frontière avec la Mauritanie."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Bulgaria",
+        "position": [
+          25.138533279202548,
+          42.739419999999996
+        ]
+      },
+      {
+        "name": "Greece",
+        "position": [
+          21.806331463138974,
+          39.080456999999996
+        ]
+      },
+      {
+        "name": "Hungary",
+        "position": [
+          19.103248635963975,
+          47.2452045
+        ]
+      },
+      {
+        "name": "Romania",
+        "position": [
+          24.211692276700624,
+          46.0360275
+        ]
+      },
+      {
+        "name": "Russia",
+        "position": [
+          88.59732843667405,
+          59.40587
+        ]
+      },
+      {
+        "name": "Ukraine",
+        "position": [
+          30.980774041438647,
+          48.804606
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Bulgaria",
+        "Greece"
+      ],
+      [
+        "Bulgaria",
+        "Romania"
+      ],
+      [
+        "Hungary",
+        "Romania"
+      ],
+      [
+        "Hungary",
+        "Ukraine"
+      ],
+      [
+        "Romania",
+        "Ukraine"
+      ],
+      [
+        "Russia",
+        "Ukraine"
+      ]
+    ],
+    "clues": [
+      "Bulgaria borders only Greece and Romania",
+      "Hungary borders only Romania and Ukraine",
+      "Greece does not border Romania"
+    ],
+    "date": "2026-09-29",
+    "region": "Eastern Europe",
+    "clues_fr": [
+      "La Bulgarie n'est limitrophe que de la Grèce et de la Roumanie.",
+      "La Hongrie n'est limitrophe que de la Roumanie et de l'Ukraine.",
+      "La Grèce n'est pas limitrophe de la Roumanie."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Argentina",
+        "position": [
+          -64.08055141174417,
+          -37.2391995
+        ]
+      },
+      {
+        "name": "Belgium",
+        "position": [
+          4.737356308041732,
+          50.5796775
+        ]
+      },
+      {
+        "name": "Brazil",
+        "position": [
+          -49.71162185852424,
+          -14.0736885
+        ]
+      },
+      {
+        "name": "Chile",
+        "position": [
+          -69.83780456667986,
+          -54.015925
+        ]
+      },
+      {
+        "name": "France",
+        "position": [
+          2.099228368479555,
+          46.895071
+        ]
+      },
+      {
+        "name": "Netherlands",
+        "position": [
+          5.39811344311906,
+          52.0402345
+        ]
+      },
+      {
+        "name": "Uruguay",
+        "position": [
+          -55.818919527663155,
+          -32.387454500000004
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Argentina",
+        "Brazil"
+      ],
+      [
+        "Argentina",
+        "Chile"
+      ],
+      [
+        "Argentina",
+        "Uruguay"
+      ],
+      [
+        "Belgium",
+        "France"
+      ],
+      [
+        "Belgium",
+        "Netherlands"
+      ],
+      [
+        "Brazil",
+        "France"
+      ],
+      [
+        "Brazil",
+        "Uruguay"
+      ]
+    ],
+    "clues": [
+      "Brazil borders France",
+      "Belgium borders only France and Netherlands",
+      "Uruguay borders only Argentina and Brazil",
+      "Argentina borders Brazil"
+    ],
+    "date": "2026-09-30",
+    "region": "South America",
+    "clues_fr": [
+      "Le Brésil partage une frontière avec la France.",
+      "La Belgique n'est limitrophe que de la France et des Pays-Bas.",
+      "L'Uruguay n'est limitrophe que de l'Argentine et du Brésil.",
+      "L'Argentine et le Brésil sont limitrophes."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "HARD",
+    "nodes": [
+      {
+        "name": "Austria",
+        "position": [
+          14.953149833502414,
+          47.9191815
+        ]
+      },
+      {
+        "name": "Belarus",
+        "position": [
+          27.786411458976076,
+          53.706037
+        ]
+      },
+      {
+        "name": "Czechia",
+        "position": [
+          15.538166373823362,
+          49.758268
+        ]
+      },
+      {
+        "name": "Poland",
+        "position": [
+          19.07626726679996,
+          51.8844175
+        ]
+      },
+      {
+        "name": "Slovakia",
+        "position": [
+          19.63011385405736,
+          48.7119365
+        ]
+      },
+      {
+        "name": "Slovenia",
+        "position": [
+          14.732281045424251,
+          46.127443
+        ]
+      },
+      {
+        "name": "Ukraine",
+        "position": [
+          30.980774041438647,
+          48.804606
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Austria",
+        "Czechia"
+      ],
+      [
+        "Austria",
+        "Slovakia"
+      ],
+      [
+        "Austria",
+        "Slovenia"
+      ],
+      [
+        "Belarus",
+        "Poland"
+      ],
+      [
+        "Belarus",
+        "Ukraine"
+      ],
+      [
+        "Czechia",
+        "Poland"
+      ],
+      [
+        "Czechia",
+        "Slovakia"
+      ],
+      [
+        "Poland",
+        "Slovakia"
+      ],
+      [
+        "Poland",
+        "Ukraine"
+      ],
+      [
+        "Slovakia",
+        "Ukraine"
+      ]
+    ],
+    "clues": [
+      "Lithuania does not border Austria",
+      "Latvia does not border Austria",
+      "Belarus borders only Poland and Ukraine",
+      "Ukraine borders 3 of the others",
+      "Lithuania does not border Czechia",
+      "Czechia does not border Ukraine",
+      "Lithuania does not border Poland",
+      "Latvia does not border Poland",
+      "Austria does not border Poland",
+      "Switzerland does not border Austria",
+      "Poland does not border Slovenia",
+      "Latvia does not border Slovakia",
+      "Switzerland does not border Slovakia",
+      "Slovakia does not border Slovenia",
+      "Switzerland does not border Ukraine"
+    ],
+    "decoys": [
+      "Latvia",
+      "Lithuania",
+      "Switzerland"
+    ],
+    "date": "2026-10-01",
+    "region": "Eastern Europe",
+    "clues_fr": [
+      "La Lituanie et l'Autriche ne sont pas limitrophes.",
+      "La Lettonie ne partage pas de frontière avec l'Autriche.",
+      "La Biélorussie n'est limitrophe que de la Pologne et de l'Ukraine.",
+      "L'Ukraine partage une frontière avec 3 des autres lieux.",
+      "La Lituanie n'est pas limitrophe de la Tchéquie.",
+      "La Tchéquie ne partage pas de frontière avec l'Ukraine.",
+      "La Lituanie ne partage pas de frontière avec la Pologne.",
+      "La Lettonie n'est pas limitrophe de la Pologne.",
+      "L'Autriche n'est pas limitrophe de la Pologne.",
+      "La Suisse ne partage pas de frontière avec l'Autriche.",
+      "La Pologne ne partage pas de frontière avec la Slovénie.",
+      "La Lettonie ne partage pas de frontière avec la Slovaquie.",
+      "La Suisse et la Slovaquie ne sont pas limitrophes.",
+      "La Slovaquie ne partage pas de frontière avec la Slovénie.",
+      "La Suisse ne partage pas de frontière avec l'Ukraine."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "HARD",
+    "nodes": [
+      {
+        "name": "Cameroon",
+        "position": [
+          13.491597921033106,
+          7.2262
+        ]
+      },
+      {
+        "name": "Central African Rep.",
+        "position": [
+          20.478740083438915,
+          6.7629595
+        ]
+      },
+      {
+        "name": "Chad",
+        "position": [
+          18.30671414948851,
+          15.277565
+        ]
+      },
+      {
+        "name": "Gabon",
+        "position": [
+          11.592640808043878,
+          -0.9451875000000001
+        ]
+      },
+      {
+        "name": "Mali",
+        "position": [
+          -0.7009447099266355,
+          17.9547955
+        ]
+      },
+      {
+        "name": "Niger",
+        "position": [
+          9.774100880356354,
+          17.390088499999997
+        ]
+      },
+      {
+        "name": "Nigeria",
+        "position": [
+          7.8318782606688355,
+          8.927685499999999
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Cameroon",
+        "Central African Rep."
+      ],
+      [
+        "Cameroon",
+        "Chad"
+      ],
+      [
+        "Cameroon",
+        "Gabon"
+      ],
+      [
+        "Cameroon",
+        "Niger"
+      ],
+      [
+        "Cameroon",
+        "Nigeria"
+      ],
+      [
+        "Central African Rep.",
+        "Chad"
+      ],
+      [
+        "Chad",
+        "Niger"
+      ],
+      [
+        "Mali",
+        "Niger"
+      ],
+      [
+        "Niger",
+        "Nigeria"
+      ]
+    ],
+    "clues": [
+      "Côte d'Ivoire does not border Cameroon",
+      "Cameroon borders Nigeria",
+      "Côte d'Ivoire does not border Niger",
+      "S. Sudan does not border Cameroon",
+      "Chad borders Niger",
+      "Gabon does not border Niger",
+      "Central African Rep. borders only Cameroon and Chad",
+      "Senegal does not border Cameroon",
+      "Senegal does not border Niger",
+      "S. Sudan does not border Niger",
+      "Chad borders 3 of the others",
+      "Mali does not border Côte d'Ivoire"
+    ],
+    "decoys": [
+      "Côte d'Ivoire",
+      "S. Sudan",
+      "Senegal"
+    ],
+    "date": "2026-10-02",
+    "region": "Middle Africa",
+    "clues_fr": [
+      "La Côte d'Ivoire et le Cameroun ne sont pas limitrophes.",
+      "Le Cameroun est limitrophe du Nigeria.",
+      "La Côte d'Ivoire ne partage pas de frontière avec le Niger.",
+      "Le Soudan du Sud et le Cameroun ne sont pas limitrophes.",
+      "Le Tchad partage une frontière avec le Niger.",
+      "Le Gabon ne partage pas de frontière avec le Niger.",
+      "La République centrafricaine n'est limitrophe que du Cameroun et du Tchad.",
+      "Le Sénégal et le Cameroun ne sont pas limitrophes.",
+      "Le Sénégal n'est pas limitrophe du Niger.",
+      "Le Soudan du Sud et le Niger ne sont pas limitrophes.",
+      "Le Tchad est limitrophe de 3 des autres lieux.",
+      "Le Mali n'est pas limitrophe de la Côte d'Ivoire."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Algeria",
+        "position": [
+          0.5262735538355487,
+          27.916216499999997
+        ]
+      },
+      {
+        "name": "Chad",
+        "position": [
+          18.30671414948851,
+          15.277565
+        ]
+      },
+      {
+        "name": "Ethiopia",
+        "position": [
+          38.72639118584681,
+          9.36203
+        ]
+      },
+      {
+        "name": "Libya",
+        "position": [
+          17.25892425,
+          26.303265500000002
+        ]
+      },
+      {
+        "name": "Somalia",
+        "position": [
+          46.7941796825168,
+          5.170365
+        ]
+      },
+      {
+        "name": "Sudan",
+        "position": [
+          29.615603211023824,
+          15.277565
+        ]
+      },
+      {
+        "name": "Tunisia",
+        "position": [
+          8.914020087493613,
+          33.941559
+        ]
+      },
+      {
+        "name": "W. Sahara",
+        "position": [
+          -12.57201526395745,
+          24.2305625
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Algeria",
+        "Libya"
+      ],
+      [
+        "Algeria",
+        "Tunisia"
+      ],
+      [
+        "Algeria",
+        "W. Sahara"
+      ],
+      [
+        "Chad",
+        "Libya"
+      ],
+      [
+        "Chad",
+        "Sudan"
+      ],
+      [
+        "Ethiopia",
+        "Somalia"
+      ],
+      [
+        "Ethiopia",
+        "Sudan"
+      ],
+      [
+        "Libya",
+        "Sudan"
+      ],
+      [
+        "Libya",
+        "Tunisia"
+      ]
+    ],
+    "clues": [
+      "Tunisia borders only Algeria and Libya",
+      "Chad does not border Somalia",
+      "Chad borders 2 of the others",
+      "Algeria borders W. Sahara",
+      "Ethiopia borders only Somalia and Sudan"
+    ],
+    "date": "2026-10-03",
+    "region": "Northern Africa",
+    "clues_fr": [
+      "La Tunisie n'est limitrophe que de l'Algérie et de la Libye.",
+      "Le Tchad et la Somalie ne sont pas limitrophes.",
+      "Le Tchad partage une frontière avec 2 des autres lieux.",
+      "L'Algérie partage une frontière avec le Sahara occidental.",
+      "L'Éthiopie n'est limitrophe que de la Somalie et du Soudan."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Egypt",
+        "position": [
+          29.369537116289596,
+          26.895485
+        ]
+      },
+      {
+        "name": "Israel",
+        "position": [
+          34.69111642632299,
+          31.421260500000002
+        ]
+      },
+      {
+        "name": "Jordan",
+        "position": [
+          36.31227587319722,
+          31.294576
+        ]
+      },
+      {
+        "name": "Lebanon",
+        "position": [
+          35.7946617831452,
+          33.865181
+        ]
+      },
+      {
+        "name": "Libya",
+        "position": [
+          17.25892425,
+          26.303265500000002
+        ]
+      },
+      {
+        "name": "Syria",
+        "position": [
+          38.57395267223778,
+          35.0274615
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Egypt",
+        "Israel"
+      ],
+      [
+        "Egypt",
+        "Jordan"
+      ],
+      [
+        "Egypt",
+        "Libya"
+      ],
+      [
+        "Israel",
+        "Jordan"
+      ],
+      [
+        "Israel",
+        "Lebanon"
+      ],
+      [
+        "Israel",
+        "Syria"
+      ],
+      [
+        "Jordan",
+        "Syria"
+      ],
+      [
+        "Lebanon",
+        "Syria"
+      ]
+    ],
+    "clues": [
+      "Egypt borders Israel",
+      "Israel borders Jordan",
+      "Egypt borders Libya",
+      "Lebanon borders only Israel and Syria"
+    ],
+    "date": "2026-10-04",
+    "region": "Western Asia",
+    "clues_fr": [
+      "L'Égypte et Israël sont limitrophes.",
+      "Israël et la Jordanie sont limitrophes.",
+      "L'Égypte et la Libye sont limitrophes.",
+      "Le Liban n'est limitrophe que d'Israël et de la Syrie."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "HARD",
+    "nodes": [
+      {
+        "name": "Austria",
+        "position": [
+          14.953149833502414,
+          47.9191815
+        ]
+      },
+      {
+        "name": "Czechia",
+        "position": [
+          15.538166373823362,
+          49.758268
+        ]
+      },
+      {
+        "name": "Hungary",
+        "position": [
+          19.103248635963975,
+          47.2452045
+        ]
+      },
+      {
+        "name": "Moldova",
+        "position": [
+          28.649038202278767,
+          47.137614
+        ]
+      },
+      {
+        "name": "Romania",
+        "position": [
+          24.211692276700624,
+          46.0360275
+        ]
+      },
+      {
+        "name": "Slovenia",
+        "position": [
+          14.732281045424251,
+          46.127443
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Austria",
+        "Czechia"
+      ],
+      [
+        "Austria",
+        "Hungary"
+      ],
+      [
+        "Austria",
+        "Slovenia"
+      ],
+      [
+        "Hungary",
+        "Romania"
+      ],
+      [
+        "Hungary",
+        "Slovenia"
+      ],
+      [
+        "Moldova",
+        "Romania"
+      ]
+    ],
+    "clues": [
+      "Slovakia does not border Austria",
+      "Switzerland does not border Austria",
+      "Romania borders only Hungary and Moldova",
+      "Bulgaria does not border Austria",
+      "Switzerland does not border Hungary",
+      "Moldova borders 1 of the others",
+      "Slovenia borders 2 of the others",
+      "Slovakia does not border Hungary",
+      "Bulgaria does not border Hungary",
+      "Czechia does not border Hungary"
+    ],
+    "decoys": [
+      "Bulgaria",
+      "Slovakia",
+      "Switzerland"
+    ],
+    "date": "2026-10-05",
+    "region": "Eastern Europe",
+    "clues_fr": [
+      "La Slovaquie ne partage pas de frontière avec l'Autriche.",
+      "La Suisse et l'Autriche ne sont pas limitrophes.",
+      "La Roumanie n'est limitrophe que de la Hongrie et de la Moldavie.",
+      "La Bulgarie n'est pas limitrophe de l'Autriche.",
+      "La Suisse n'est pas limitrophe de la Hongrie.",
+      "La Moldavie partage une frontière avec 1 des autres lieux.",
+      "La Slovénie partage une frontière avec 2 des autres lieux.",
+      "La Slovaquie et la Hongrie ne sont pas limitrophes.",
+      "La Bulgarie n'est pas limitrophe de la Hongrie.",
+      "La Tchéquie ne partage pas de frontière avec la Hongrie."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Brazil",
+        "position": [
+          -49.71162185852424,
+          -14.0736885
+        ]
+      },
+      {
+        "name": "Chile",
+        "position": [
+          -69.83780456667986,
+          -54.015925
+        ]
+      },
+      {
+        "name": "Colombia",
+        "position": [
+          -72.4864581064173,
+          3.9686209999999997
+        ]
+      },
+      {
+        "name": "France",
+        "position": [
+          2.099228368479555,
+          46.895071
+        ]
+      },
+      {
+        "name": "Peru",
+        "position": [
+          -75.87473845667213,
+          -9.247523000000001
+        ]
+      },
+      {
+        "name": "Switzerland",
+        "position": [
+          8.286515281476472,
+          46.8096625
+        ]
+      },
+      {
+        "name": "Uruguay",
+        "position": [
+          -55.818919527663155,
+          -32.387454500000004
+        ]
+      },
+      {
+        "name": "Venezuela",
+        "position": [
+          -65.42593985987202,
+          6.4816975
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Brazil",
+        "Colombia"
+      ],
+      [
+        "Brazil",
+        "France"
+      ],
+      [
+        "Brazil",
+        "Peru"
+      ],
+      [
+        "Brazil",
+        "Uruguay"
+      ],
+      [
+        "Brazil",
+        "Venezuela"
+      ],
+      [
+        "Chile",
+        "Peru"
+      ],
+      [
+        "Colombia",
+        "Peru"
+      ],
+      [
+        "Colombia",
+        "Venezuela"
+      ],
+      [
+        "France",
+        "Switzerland"
+      ]
+    ],
+    "clues": [
+      "Colombia borders Peru",
+      "France borders only Brazil and Switzerland",
+      "Brazil does not border Chile",
+      "Venezuela borders only Brazil and Colombia"
+    ],
+    "date": "2026-10-06",
+    "region": "South America",
+    "clues_fr": [
+      "La Colombie partage une frontière avec le Pérou.",
+      "La France n'est limitrophe que du Brésil et de la Suisse.",
+      "Le Brésil ne partage pas de frontière avec le Chili.",
+      "Le Venezuela n'est limitrophe que du Brésil et de la Colombie."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Armenia",
+        "position": [
+          45.063666445448874,
+          39.952497
+        ]
+      },
+      {
+        "name": "Azerbaijan",
+        "position": [
+          47.63524375798974,
+          40.038047500000005
+        ]
+      },
+      {
+        "name": "Georgia",
+        "position": [
+          43.60200542633359,
+          42.297610500000005
+        ]
+      },
+      {
+        "name": "Iran",
+        "position": [
+          54.1182449317387,
+          32.3260375
+        ]
+      },
+      {
+        "name": "Iraq",
+        "position": [
+          42.41492183998177,
+          33.1979865
+        ]
+      },
+      {
+        "name": "Pakistan",
+        "position": [
+          70.0926279674016,
+          30.357656
+        ]
+      },
+      {
+        "name": "Russia",
+        "position": [
+          88.59732843667405,
+          59.40587
+        ]
+      },
+      {
+        "name": "Turkey",
+        "position": [
+          35.454930892256485,
+          38.6335205
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Armenia",
+        "Azerbaijan"
+      ],
+      [
+        "Armenia",
+        "Georgia"
+      ],
+      [
+        "Armenia",
+        "Iran"
+      ],
+      [
+        "Armenia",
+        "Turkey"
+      ],
+      [
+        "Azerbaijan",
+        "Georgia"
+      ],
+      [
+        "Azerbaijan",
+        "Iran"
+      ],
+      [
+        "Azerbaijan",
+        "Russia"
+      ],
+      [
+        "Azerbaijan",
+        "Turkey"
+      ],
+      [
+        "Georgia",
+        "Russia"
+      ],
+      [
+        "Georgia",
+        "Turkey"
+      ],
+      [
+        "Iran",
+        "Iraq"
+      ],
+      [
+        "Iran",
+        "Pakistan"
+      ],
+      [
+        "Iran",
+        "Turkey"
+      ],
+      [
+        "Iraq",
+        "Turkey"
+      ]
+    ],
+    "clues": [
+      "Iraq borders only Iran and Turkey",
+      "Iran borders Pakistan",
+      "Russia borders only Azerbaijan and Georgia",
+      "Armenia borders Turkey",
+      "Georgia does not border Iran"
+    ],
+    "date": "2026-10-07",
+    "region": "Western Asia",
+    "clues_fr": [
+      "L'Irak n'est limitrophe que de l'Iran et de la Turquie.",
+      "L'Iran partage une frontière avec le Pakistan.",
+      "La Russie n'est limitrophe que de l'Azerbaïdjan et de la Géorgie.",
+      "L'Arménie est limitrophe de la Turquie.",
+      "La Géorgie ne partage pas de frontière avec l'Iran."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "HARD",
+    "nodes": [
+      {
+        "name": "Brazil",
+        "position": [
+          -49.71162185852424,
+          -14.0736885
+        ]
+      },
+      {
+        "name": "France",
+        "position": [
+          2.099228368479555,
+          46.895071
+        ]
+      },
+      {
+        "name": "Germany",
+        "position": [
+          10.432350876756606,
+          51.431228000000004
+        ]
+      },
+      {
+        "name": "Italy",
+        "position": [
+          12.631183538666289,
+          42.5582165
+        ]
+      },
+      {
+        "name": "Luxembourg",
+        "position": [
+          5.964412349411621,
+          49.715855
+        ]
+      },
+      {
+        "name": "Netherlands",
+        "position": [
+          5.39811344311906,
+          52.0402345
+        ]
+      },
+      {
+        "name": "Switzerland",
+        "position": [
+          8.286515281476472,
+          46.8096625
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Brazil",
+        "France"
+      ],
+      [
+        "France",
+        "Germany"
+      ],
+      [
+        "France",
+        "Italy"
+      ],
+      [
+        "France",
+        "Luxembourg"
+      ],
+      [
+        "France",
+        "Switzerland"
+      ],
+      [
+        "Germany",
+        "Luxembourg"
+      ],
+      [
+        "Germany",
+        "Netherlands"
+      ],
+      [
+        "Germany",
+        "Switzerland"
+      ],
+      [
+        "Italy",
+        "Switzerland"
+      ]
+    ],
+    "clues": [
+      "Netherlands borders 1 of the others",
+      "Poland does not border France",
+      "Germany borders Netherlands",
+      "Peru does not border France",
+      "Germany borders Luxembourg",
+      "Italy does not border Luxembourg",
+      "France borders 5 of the others",
+      "Germany borders Switzerland",
+      "Argentina does not border France",
+      "Italy borders 2 of the others",
+      "Brazil does not border Argentina"
+    ],
+    "decoys": [
+      "Argentina",
+      "Peru",
+      "Poland"
+    ],
+    "date": "2026-10-08",
+    "region": "Western Europe",
+    "clues_fr": [
+      "Les Pays-Bas sont limitrophes de 1 des autres lieux.",
+      "La Pologne et la France ne sont pas limitrophes.",
+      "L'Allemagne partage une frontière avec les Pays-Bas.",
+      "Le Pérou ne partage pas de frontière avec la France.",
+      "L'Allemagne partage une frontière avec le Luxembourg.",
+      "L'Italie et le Luxembourg ne sont pas limitrophes.",
+      "La France est limitrophe de 5 des autres lieux.",
+      "L'Allemagne partage une frontière avec la Suisse.",
+      "L'Argentine ne partage pas de frontière avec la France.",
+      "L'Italie est limitrophe de 2 des autres lieux.",
+      "Le Brésil n'est pas limitrophe de l'Argentine."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Belize",
+        "position": [
+          -88.69909244027376,
+          17.310584499999997
+        ]
+      },
+      {
+        "name": "Canada",
+        "position": [
+          -110.24380777716146,
+          56.70192
+        ]
+      },
+      {
+        "name": "El Salvador",
+        "position": [
+          -88.92009515776553,
+          13.815268
+        ]
+      },
+      {
+        "name": "Guatemala",
+        "position": [
+          -90.33421985102814,
+          15.791555500000001
+        ]
+      },
+      {
+        "name": "Honduras",
+        "position": [
+          -87.22788986822297,
+          14.487836999999999
+        ]
+      },
+      {
+        "name": "Mexico",
+        "position": [
+          -102.25017233870508,
+          23.5993735
+        ]
+      },
+      {
+        "name": "Nicaragua",
+        "position": [
+          -85.574355714402,
+          12.889600999999999
+        ]
+      },
+      {
+        "name": "United States of America",
+        "position": [
+          -99.31483211377508,
+          37.236745
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Belize",
+        "Guatemala"
+      ],
+      [
+        "Belize",
+        "Mexico"
+      ],
+      [
+        "Canada",
+        "United States of America"
+      ],
+      [
+        "El Salvador",
+        "Guatemala"
+      ],
+      [
+        "El Salvador",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Mexico"
+      ],
+      [
+        "Honduras",
+        "Nicaragua"
+      ],
+      [
+        "Mexico",
+        "United States of America"
+      ]
+    ],
+    "clues": [
+      "El Salvador borders only Guatemala and Honduras",
+      "Belize borders only Guatemala and Mexico",
+      "Guatemala borders Honduras",
+      "United States of America borders only Canada and Mexico"
+    ],
+    "date": "2026-10-09",
+    "region": "Central America",
+    "clues_fr": [
+      "Le Salvador n'est limitrophe que du Guatemala et du Honduras.",
+      "Le Belize n'est limitrophe que du Guatemala et du Mexique.",
+      "Le Guatemala partage une frontière avec le Honduras.",
+      "Les États-Unis ne sont limitrophes que du Canada et du Mexique."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Benin",
+        "position": [
+          2.2853249252024064,
+          9.236115999999999
+        ]
+      },
+      {
+        "name": "Burkina Faso",
+        "position": [
+          -1.275629162240045,
+          12.241398
+        ]
+      },
+      {
+        "name": "Ghana",
+        "position": [
+          -1.0873751582526647,
+          7.8156859999999995
+        ]
+      },
+      {
+        "name": "Mali",
+        "position": [
+          -0.7009447099266355,
+          17.9547955
+        ]
+      },
+      {
+        "name": "Mauritania",
+        "position": [
+          -11.492962895049338,
+          21.163411500000002
+        ]
+      },
+      {
+        "name": "Niger",
+        "position": [
+          9.774100880356354,
+          17.390088499999997
+        ]
+      },
+      {
+        "name": "Togo",
+        "position": [
+          1.1192625385164365,
+          8.494844
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Benin",
+        "Burkina Faso"
+      ],
+      [
+        "Benin",
+        "Niger"
+      ],
+      [
+        "Benin",
+        "Togo"
+      ],
+      [
+        "Burkina Faso",
+        "Ghana"
+      ],
+      [
+        "Burkina Faso",
+        "Mali"
+      ],
+      [
+        "Burkina Faso",
+        "Niger"
+      ],
+      [
+        "Burkina Faso",
+        "Togo"
+      ],
+      [
+        "Ghana",
+        "Togo"
+      ],
+      [
+        "Mali",
+        "Mauritania"
+      ],
+      [
+        "Mali",
+        "Niger"
+      ]
+    ],
+    "clues": [
+      "Benin borders Togo",
+      "Mali borders Mauritania",
+      "Ghana borders only Burkina Faso and Togo",
+      "Burkina Faso borders Niger",
+      "Burkina Faso borders Mali"
+    ],
+    "date": "2026-10-10",
+    "region": "Western Africa",
+    "clues_fr": [
+      "Le Bénin et le Togo sont limitrophes.",
+      "Le Mali partage une frontière avec la Mauritanie.",
+      "Le Ghana n'est limitrophe que du Burkina Faso et du Togo.",
+      "Le Burkina Faso est limitrophe du Niger.",
+      "Le Burkina Faso et le Mali sont limitrophes."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "MEDIUM",
+    "nodes": [
+      {
+        "name": "Bulgaria",
+        "position": [
+          25.138533279202548,
+          42.739419999999996
+        ]
+      },
+      {
+        "name": "Greece",
+        "position": [
+          21.806331463138974,
+          39.080456999999996
+        ]
+      },
+      {
+        "name": "Hungary",
+        "position": [
+          19.103248635963975,
+          47.2452045
+        ]
+      },
+      {
+        "name": "Montenegro",
+        "position": [
+          19.396216204979822,
+          42.7504985
+        ]
+      },
+      {
+        "name": "Romania",
+        "position": [
+          24.211692276700624,
+          46.0360275
+        ]
+      },
+      {
+        "name": "Serbia",
+        "position": [
+          21.013475351815377,
+          44.1366965
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Bulgaria",
+        "Greece"
+      ],
+      [
+        "Bulgaria",
+        "Romania"
+      ],
+      [
+        "Bulgaria",
+        "Serbia"
+      ],
+      [
+        "Hungary",
+        "Romania"
+      ],
+      [
+        "Hungary",
+        "Serbia"
+      ],
+      [
+        "Montenegro",
+        "Serbia"
+      ],
+      [
+        "Romania",
+        "Serbia"
+      ]
+    ],
+    "clues": [
+      "Montenegro borders 1 of the others",
+      "Austria does not border Serbia",
+      "Turkey does not border Bulgaria",
+      "Romania borders 3 of the others",
+      "Turkey does not border Serbia",
+      "Austria does not border Bulgaria",
+      "Bosnia and Herz. does not border Bulgaria",
+      "Bosnia and Herz. does not border Serbia",
+      "Greece does not border Serbia",
+      "Hungary borders only Romania and Serbia"
+    ],
+    "decoys": [
+      "Austria",
+      "Bosnia and Herz.",
+      "Turkey"
+    ],
+    "date": "2026-10-11",
+    "region": "Europe",
+    "clues_fr": [
+      "Le Monténégro partage une frontière avec 1 des autres lieux.",
+      "L'Autriche ne partage pas de frontière avec la Serbie.",
+      "La Turquie et la Bulgarie ne sont pas limitrophes.",
+      "La Roumanie est limitrophe de 3 des autres lieux.",
+      "La Turquie et la Serbie ne sont pas limitrophes.",
+      "L'Autriche et la Bulgarie ne sont pas limitrophes.",
+      "La Bosnie-Herzégovine et la Bulgarie ne sont pas limitrophes.",
+      "La Bosnie-Herzégovine n'est pas limitrophe de la Serbie.",
+      "La Grèce ne partage pas de frontière avec la Serbie.",
+      "La Hongrie n'est limitrophe que de la Roumanie et de la Serbie."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Benin",
+        "position": [
+          2.2853249252024064,
+          9.236115999999999
+        ]
+      },
+      {
+        "name": "Cameroon",
+        "position": [
+          13.491597921033106,
+          7.2262
+        ]
+      },
+      {
+        "name": "Central African Rep.",
+        "position": [
+          20.478740083438915,
+          6.7629595
+        ]
+      },
+      {
+        "name": "Chad",
+        "position": [
+          18.30671414948851,
+          15.277565
+        ]
+      },
+      {
+        "name": "Gabon",
+        "position": [
+          11.592640808043878,
+          -0.9451875000000001
+        ]
+      },
+      {
+        "name": "Niger",
+        "position": [
+          9.774100880356354,
+          17.390088499999997
+        ]
+      },
+      {
+        "name": "Sudan",
+        "position": [
+          29.615603211023824,
+          15.277565
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Benin",
+        "Niger"
+      ],
+      [
+        "Cameroon",
+        "Central African Rep."
+      ],
+      [
+        "Cameroon",
+        "Chad"
+      ],
+      [
+        "Cameroon",
+        "Gabon"
+      ],
+      [
+        "Cameroon",
+        "Niger"
+      ],
+      [
+        "Central African Rep.",
+        "Chad"
+      ],
+      [
+        "Central African Rep.",
+        "Sudan"
+      ],
+      [
+        "Chad",
+        "Niger"
+      ],
+      [
+        "Chad",
+        "Sudan"
+      ]
+    ],
+    "clues": [
+      "Sudan borders only Central African Rep. and Chad",
+      "Cameroon borders Gabon",
+      "Chad borders Niger",
+      "Central African Rep. does not border Niger",
+      "Central African Rep. does not border Gabon"
+    ],
+    "date": "2026-10-12",
+    "region": "Middle Africa",
+    "clues_fr": [
+      "Le Soudan n'est limitrophe que de la République centrafricaine et du Tchad.",
+      "Le Cameroun est limitrophe du Gabon.",
+      "Le Tchad est limitrophe du Niger.",
+      "La République centrafricaine ne partage pas de frontière avec le Niger.",
+      "La République centrafricaine ne partage pas de frontière avec le Gabon."
+    ]
+  },
+  {
+    "type": "decoy",
+    "difficulty": "HARD",
+    "nodes": [
+      {
+        "name": "Afghanistan",
+        "position": [
+          65.3146659870815,
+          33.832651
+        ]
+      },
+      {
+        "name": "Azerbaijan",
+        "position": [
+          47.63524375798974,
+          40.038047500000005
+        ]
+      },
+      {
+        "name": "Iran",
+        "position": [
+          54.1182449317387,
+          32.3260375
+        ]
+      },
+      {
+        "name": "Iraq",
+        "position": [
+          42.41492183998177,
+          33.1979865
+        ]
+      },
+      {
+        "name": "Jordan",
+        "position": [
+          36.31227587319722,
+          31.294576
+        ]
+      },
+      {
+        "name": "Turkey",
+        "position": [
+          35.454930892256485,
+          38.6335205
+        ]
+      },
+      {
+        "name": "Uzbekistan",
+        "position": [
+          63.44287545838027,
+          41.353277000000006
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Afghanistan",
+        "Iran"
+      ],
+      [
+        "Afghanistan",
+        "Uzbekistan"
+      ],
+      [
+        "Azerbaijan",
+        "Iran"
+      ],
+      [
+        "Azerbaijan",
+        "Turkey"
+      ],
+      [
+        "Iran",
+        "Iraq"
+      ],
+      [
+        "Iran",
+        "Turkey"
+      ],
+      [
+        "Iraq",
+        "Jordan"
+      ],
+      [
+        "Iraq",
+        "Turkey"
+      ]
+    ],
+    "clues": [
+      "Afghanistan borders Iran",
+      "Iran borders Iraq",
+      "Azerbaijan borders Turkey",
+      "Iraq borders Turkey",
+      "Greece does not border Afghanistan",
+      "Syria does not border Afghanistan",
+      "Turkey borders 3 of the others",
+      "Jordan borders 1 of the others",
+      "Russia does not border Afghanistan",
+      "Iraq borders Jordan",
+      "Uzbekistan does not border Greece"
+    ],
+    "decoys": [
+      "Greece",
+      "Russia",
+      "Syria"
+    ],
+    "date": "2026-10-13",
+    "region": "Western Asia",
+    "clues_fr": [
+      "L'Afghanistan partage une frontière avec l'Iran.",
+      "L'Iran et l'Irak sont limitrophes.",
+      "L'Azerbaïdjan est limitrophe de la Turquie.",
+      "L'Irak est limitrophe de la Turquie.",
+      "La Grèce n'est pas limitrophe de l'Afghanistan.",
+      "La Syrie n'est pas limitrophe de l'Afghanistan.",
+      "La Turquie partage une frontière avec 3 des autres lieux.",
+      "La Jordanie est limitrophe de 1 des autres lieux.",
+      "La Russie et l'Afghanistan ne sont pas limitrophes.",
+      "L'Irak et la Jordanie sont limitrophes.",
+      "L'Ouzbékistan et la Grèce ne sont pas limitrophes."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Cameroon",
+        "position": [
+          13.491597921033106,
+          7.2262
+        ]
+      },
+      {
+        "name": "Central African Rep.",
+        "position": [
+          20.478740083438915,
+          6.7629595
+        ]
+      },
+      {
+        "name": "Chad",
+        "position": [
+          18.30671414948851,
+          15.277565
+        ]
+      },
+      {
+        "name": "Dem. Rep. Congo",
+        "position": [
+          22.39056601648901,
+          -4.099336
+        ]
+      },
+      {
+        "name": "Ethiopia",
+        "position": [
+          38.72639118584681,
+          9.36203
+        ]
+      },
+      {
+        "name": "Gabon",
+        "position": [
+          11.592640808043878,
+          -0.9451875000000001
+        ]
+      },
+      {
+        "name": "S. Sudan",
+        "position": [
+          28.970074432703957,
+          8.027146
+        ]
+      },
+      {
+        "name": "Sudan",
+        "position": [
+          29.615603211023824,
+          15.277565
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Cameroon",
+        "Central African Rep."
+      ],
+      [
+        "Cameroon",
+        "Chad"
+      ],
+      [
+        "Cameroon",
+        "Gabon"
+      ],
+      [
+        "Central African Rep.",
+        "Chad"
+      ],
+      [
+        "Central African Rep.",
+        "Dem. Rep. Congo"
+      ],
+      [
+        "Central African Rep.",
+        "S. Sudan"
+      ],
+      [
+        "Central African Rep.",
+        "Sudan"
+      ],
+      [
+        "Chad",
+        "Sudan"
+      ],
+      [
+        "Dem. Rep. Congo",
+        "S. Sudan"
+      ],
+      [
+        "Ethiopia",
+        "S. Sudan"
+      ],
+      [
+        "Ethiopia",
+        "Sudan"
+      ],
+      [
+        "S. Sudan",
+        "Sudan"
+      ]
+    ],
+    "clues": [
+      "Ethiopia borders only S. Sudan and Sudan",
+      "Cameroon borders Central African Rep.",
+      "Dem. Rep. Congo borders only Central African Rep. and S. Sudan",
+      "Gabon does not border Sudan",
+      "Chad does not border Gabon"
+    ],
+    "date": "2026-10-14",
+    "region": "Middle Africa",
+    "clues_fr": [
+      "L'Éthiopie n'est limitrophe que du Soudan du Sud et du Soudan.",
+      "Le Cameroun partage une frontière avec la République centrafricaine.",
+      "La République démocratique du Congo n'est limitrophe que de la République centrafricaine et du Soudan du Sud.",
+      "Le Gabon ne partage pas de frontière avec le Soudan.",
+      "Le Tchad n'est pas limitrophe du Gabon."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Djibouti",
+        "position": [
+          42.41228242457338,
+          11.8552845
+        ]
+      },
+      {
+        "name": "Ethiopia",
+        "position": [
+          38.72639118584681,
+          9.36203
+        ]
+      },
+      {
+        "name": "Kenya",
+        "position": [
+          37.51297205252195,
+          0.312407
+        ]
+      },
+      {
+        "name": "S. Sudan",
+        "position": [
+          28.970074432703957,
+          8.027146
+        ]
+      },
+      {
+        "name": "Somalia",
+        "position": [
+          46.7941796825168,
+          5.170365
+        ]
+      },
+      {
+        "name": "Somaliland",
+        "position": [
+          46.034650691081545,
+          9.75699
+        ]
+      },
+      {
+        "name": "Tanzania",
+        "position": [
+          34.14207067870728,
+          -6.207829500000001
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Djibouti",
+        "Ethiopia"
+      ],
+      [
+        "Djibouti",
+        "Somaliland"
+      ],
+      [
+        "Ethiopia",
+        "Kenya"
+      ],
+      [
+        "Ethiopia",
+        "S. Sudan"
+      ],
+      [
+        "Ethiopia",
+        "Somalia"
+      ],
+      [
+        "Ethiopia",
+        "Somaliland"
+      ],
+      [
+        "Kenya",
+        "S. Sudan"
+      ],
+      [
+        "Kenya",
+        "Somalia"
+      ],
+      [
+        "Kenya",
+        "Tanzania"
+      ],
+      [
+        "Somalia",
+        "Somaliland"
+      ]
+    ],
+    "clues": [
+      "Ethiopia does not border Tanzania",
+      "Djibouti borders only Ethiopia and Somaliland",
+      "Kenya borders Tanzania",
+      "S. Sudan borders only Ethiopia and Kenya"
+    ],
+    "date": "2026-10-15",
+    "region": "Eastern Africa",
+    "clues_fr": [
+      "L'Éthiopie et la Tanzanie ne sont pas limitrophes.",
+      "Djibouti n'est limitrophe que de l'Éthiopie et du Somaliland.",
+      "Le Kenya est limitrophe de la Tanzanie.",
+      "Le Soudan du Sud n'est limitrophe que de l'Éthiopie et du Kenya."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "HARD",
+    "nodes": [
+      {
+        "name": "Bosnia and Herz.",
+        "position": [
+          18.115159863686415,
+          43.853095999999994
+        ]
+      },
+      {
+        "name": "Bulgaria",
+        "position": [
+          25.138533279202548,
+          42.739419999999996
+        ]
+      },
+      {
+        "name": "Hungary",
+        "position": [
+          19.103248635963975,
+          47.2452045
+        ]
+      },
+      {
+        "name": "Moldova",
+        "position": [
+          28.649038202278767,
+          47.137614
+        ]
+      },
+      {
+        "name": "Romania",
+        "position": [
+          24.211692276700624,
+          46.0360275
+        ]
+      },
+      {
+        "name": "Serbia",
+        "position": [
+          21.013475351815377,
+          44.1366965
+        ]
+      },
+      {
+        "name": "Slovakia",
+        "position": [
+          19.63011385405736,
+          48.7119365
+        ]
+      },
+      {
+        "name": "Ukraine",
+        "position": [
+          30.980774041438647,
+          48.804606
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Bosnia and Herz.",
+        "Serbia"
+      ],
+      [
+        "Bulgaria",
+        "Romania"
+      ],
+      [
+        "Bulgaria",
+        "Serbia"
+      ],
+      [
+        "Hungary",
+        "Romania"
+      ],
+      [
+        "Hungary",
+        "Serbia"
+      ],
+      [
+        "Hungary",
+        "Slovakia"
+      ],
+      [
+        "Hungary",
+        "Ukraine"
+      ],
+      [
+        "Moldova",
+        "Romania"
+      ],
+      [
+        "Moldova",
+        "Ukraine"
+      ],
+      [
+        "Romania",
+        "Serbia"
+      ],
+      [
+        "Romania",
+        "Ukraine"
+      ],
+      [
+        "Slovakia",
+        "Ukraine"
+      ]
+    ],
+    "clues": [
+      "Serbia does not border Ukraine",
+      "Moldova borders Romania",
+      "Slovakia borders only Hungary and Ukraine",
+      "Bulgaria borders only Romania and Serbia"
+    ],
+    "date": "2026-10-16",
+    "region": "Eastern Europe",
+    "clues_fr": [
+      "La Serbie ne partage pas de frontière avec l'Ukraine.",
+      "La Moldavie partage une frontière avec la Roumanie.",
+      "La Slovaquie n'est limitrophe que de la Hongrie et de l'Ukraine.",
+      "La Bulgarie n'est limitrophe que de la Roumanie et de la Serbie."
+    ]
+  },
+  {
+    "type": "plain",
+    "difficulty": "EASY",
+    "nodes": [
+      {
+        "name": "Belize",
+        "position": [
+          -88.69909244027376,
+          17.310584499999997
+        ]
+      },
+      {
+        "name": "Guatemala",
+        "position": [
+          -90.33421985102814,
+          15.791555500000001
+        ]
+      },
+      {
+        "name": "Honduras",
+        "position": [
+          -87.22788986822297,
+          14.487836999999999
+        ]
+      },
+      {
+        "name": "Mexico",
+        "position": [
+          -102.25017233870508,
+          23.5993735
+        ]
+      },
+      {
+        "name": "Nicaragua",
+        "position": [
+          -85.574355714402,
+          12.889600999999999
+        ]
+      },
+      {
+        "name": "United States of America",
+        "position": [
+          -99.31483211377508,
+          37.236745
+        ]
+      }
+    ],
+    "edges": [
+      [
+        "Belize",
+        "Guatemala"
+      ],
+      [
+        "Belize",
+        "Mexico"
+      ],
+      [
+        "Guatemala",
+        "Honduras"
+      ],
+      [
+        "Guatemala",
+        "Mexico"
+      ],
+      [
+        "Honduras",
+        "Nicaragua"
+      ],
+      [
+        "Mexico",
+        "United States of America"
+      ]
+    ],
+    "clues": [
+      "Guatemala borders Honduras",
+      "Mexico borders United States of America",
+      "Belize borders only Guatemala and Mexico",
+      "Honduras borders Nicaragua"
+    ],
+    "date": "2026-10-17",
+    "region": "Central America",
+    "clues_fr": [
+      "Le Guatemala partage une frontière avec le Honduras.",
+      "Le Mexique partage une frontière avec les États-Unis.",
+      "Le Belize n'est limitrophe que du Guatemala et du Mexique.",
+      "Le Honduras et le Nicaragua sont limitrophes."
+    ]
+  }
+]

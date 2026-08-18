@@ -1,0 +1,882 @@
+{
+  "Afghanistan": {
+    "article": "l'",
+    "french_name": "Afghanistan",
+    "gender": "masculine"
+  },
+  "Albania": {
+    "article": "l'",
+    "french_name": "Albanie",
+    "gender": "feminine"
+  },
+  "Algeria": {
+    "article": "l'",
+    "french_name": "Algérie",
+    "gender": "feminine"
+  },
+  "Angola": {
+    "article": "l'",
+    "french_name": "Angola",
+    "gender": "masculine"
+  },
+  "Argentina": {
+    "article": "l'",
+    "french_name": "Argentine",
+    "gender": "feminine"
+  },
+  "Armenia": {
+    "article": "l'",
+    "french_name": "Arménie",
+    "gender": "feminine"
+  },
+  "Australia": {
+    "article": "l'",
+    "french_name": "Australie",
+    "gender": "feminine"
+  },
+  "Austria": {
+    "article": "l'",
+    "french_name": "Autriche",
+    "gender": "feminine"
+  },
+  "Azerbaijan": {
+    "article": "l'",
+    "french_name": "Azerbaïdjan",
+    "gender": "masculine"
+  },
+  "Bahamas": {
+    "article": "les",
+    "french_name": "Bahamas",
+    "gender": "plural"
+  },
+  "Bangladesh": {
+    "article": "le",
+    "french_name": "Bangladesh",
+    "gender": "masculine"
+  },
+  "Belarus": {
+    "article": "la",
+    "french_name": "Biélorussie",
+    "gender": "feminine"
+  },
+  "Belgium": {
+    "article": "la",
+    "french_name": "Belgique",
+    "gender": "feminine"
+  },
+  "Belize": {
+    "article": "le",
+    "french_name": "Belize",
+    "gender": "masculine"
+  },
+  "Benin": {
+    "article": "le",
+    "french_name": "Bénin",
+    "gender": "masculine"
+  },
+  "Bhutan": {
+    "article": "le",
+    "french_name": "Bhoutan",
+    "gender": "masculine"
+  },
+  "Bolivia": {
+    "article": "la",
+    "french_name": "Bolivie",
+    "gender": "feminine"
+  },
+  "Bosnia and Herz.": {
+    "article": "la",
+    "french_name": "Bosnie-Herzégovine",
+    "gender": "feminine"
+  },
+  "Botswana": {
+    "article": "le",
+    "french_name": "Botswana",
+    "gender": "masculine"
+  },
+  "Brazil": {
+    "article": "le",
+    "french_name": "Brésil",
+    "gender": "masculine"
+  },
+  "Brunei": {
+    "article": "le",
+    "french_name": "Brunei",
+    "gender": "masculine"
+  },
+  "Bulgaria": {
+    "article": "la",
+    "french_name": "Bulgarie",
+    "gender": "feminine"
+  },
+  "Burkina Faso": {
+    "article": "le",
+    "french_name": "Burkina Faso",
+    "gender": "masculine"
+  },
+  "Burundi": {
+    "article": "le",
+    "french_name": "Burundi",
+    "gender": "masculine"
+  },
+  "Cambodia": {
+    "article": "le",
+    "french_name": "Cambodge",
+    "gender": "masculine"
+  },
+  "Cameroon": {
+    "article": "le",
+    "french_name": "Cameroun",
+    "gender": "masculine"
+  },
+  "Canada": {
+    "article": "le",
+    "french_name": "Canada",
+    "gender": "masculine"
+  },
+  "Central African Rep.": {
+    "article": "la",
+    "french_name": "République centrafricaine",
+    "gender": "feminine"
+  },
+  "Chad": {
+    "article": "le",
+    "french_name": "Tchad",
+    "gender": "masculine"
+  },
+  "Chile": {
+    "article": "le",
+    "french_name": "Chili",
+    "gender": "masculine"
+  },
+  "China": {
+    "article": "la",
+    "french_name": "Chine",
+    "gender": "feminine"
+  },
+  "Colombia": {
+    "article": "la",
+    "french_name": "Colombie",
+    "gender": "feminine"
+  },
+  "Congo": {
+    "article": "la",
+    "french_name": "République du Congo",
+    "gender": "feminine"
+  },
+  "Costa Rica": {
+    "article": "le",
+    "french_name": "Costa Rica",
+    "gender": "masculine"
+  },
+  "Croatia": {
+    "article": "la",
+    "french_name": "Croatie",
+    "gender": "feminine"
+  },
+  "Cuba": {
+    "article": "",
+    "french_name": "Cuba",
+    "gender": "masculine"
+  },
+  "Cyprus": {
+    "article": "",
+    "french_name": "Chypre",
+    "gender": "feminine"
+  },
+  "Czechia": {
+    "article": "la",
+    "french_name": "Tchéquie",
+    "gender": "feminine"
+  },
+  "Côte d'Ivoire": {
+    "article": "la",
+    "french_name": "Côte d'Ivoire",
+    "gender": "feminine"
+  },
+  "Dem. Rep. Congo": {
+    "article": "la",
+    "french_name": "République démocratique du Congo",
+    "gender": "feminine"
+  },
+  "Denmark": {
+    "article": "le",
+    "french_name": "Danemark",
+    "gender": "masculine"
+  },
+  "Djibouti": {
+    "article": "",
+    "french_name": "Djibouti",
+    "gender": "masculine"
+  },
+  "Dominican Rep.": {
+    "article": "la",
+    "french_name": "République dominicaine",
+    "gender": "feminine"
+  },
+  "Ecuador": {
+    "article": "l'",
+    "french_name": "Équateur",
+    "gender": "masculine"
+  },
+  "Egypt": {
+    "article": "l'",
+    "french_name": "Égypte",
+    "gender": "feminine"
+  },
+  "El Salvador": {
+    "article": "le",
+    "french_name": "Salvador",
+    "gender": "masculine"
+  },
+  "Eq. Guinea": {
+    "article": "la",
+    "french_name": "Guinée équatoriale",
+    "gender": "feminine"
+  },
+  "Eritrea": {
+    "article": "l'",
+    "french_name": "Érythrée",
+    "gender": "feminine"
+  },
+  "Estonia": {
+    "article": "l'",
+    "french_name": "Estonie",
+    "gender": "feminine"
+  },
+  "Ethiopia": {
+    "article": "l'",
+    "french_name": "Éthiopie",
+    "gender": "feminine"
+  },
+  "Falkland Is.": {
+    "article": "les",
+    "french_name": "îles Malouines",
+    "gender": "plural"
+  },
+  "Fiji": {
+    "article": "les",
+    "french_name": "Fidji",
+    "gender": "plural"
+  },
+  "Finland": {
+    "article": "la",
+    "french_name": "Finlande",
+    "gender": "feminine"
+  },
+  "Fr. S. Antarctic Lands": {
+    "article": "les",
+    "french_name": "Terres australes et antarctiques françaises",
+    "gender": "plural"
+  },
+  "France": {
+    "article": "la",
+    "french_name": "France",
+    "gender": "feminine"
+  },
+  "Gabon": {
+    "article": "le",
+    "french_name": "Gabon",
+    "gender": "masculine"
+  },
+  "Gambia": {
+    "article": "la",
+    "french_name": "Gambie",
+    "gender": "feminine"
+  },
+  "Georgia": {
+    "article": "la",
+    "french_name": "Géorgie",
+    "gender": "feminine"
+  },
+  "Germany": {
+    "article": "l'",
+    "french_name": "Allemagne",
+    "gender": "feminine"
+  },
+  "Ghana": {
+    "article": "le",
+    "french_name": "Ghana",
+    "gender": "masculine"
+  },
+  "Greece": {
+    "article": "la",
+    "french_name": "Grèce",
+    "gender": "feminine"
+  },
+  "Greenland": {
+    "article": "le",
+    "french_name": "Groenland",
+    "gender": "masculine"
+  },
+  "Guatemala": {
+    "article": "le",
+    "french_name": "Guatemala",
+    "gender": "masculine"
+  },
+  "Guinea": {
+    "article": "la",
+    "french_name": "Guinée",
+    "gender": "feminine"
+  },
+  "Guinea-Bissau": {
+    "article": "le",
+    "french_name": "Guinée-Bissau",
+    "gender": "masculine"
+  },
+  "Guyana": {
+    "article": "le",
+    "french_name": "Guyana",
+    "gender": "masculine"
+  },
+  "Haiti": {
+    "article": "",
+    "french_name": "Haïti",
+    "gender": "masculine"
+  },
+  "Honduras": {
+    "article": "le",
+    "french_name": "Honduras",
+    "gender": "masculine"
+  },
+  "Hungary": {
+    "article": "la",
+    "french_name": "Hongrie",
+    "gender": "feminine"
+  },
+  "Iceland": {
+    "article": "l'",
+    "french_name": "Islande",
+    "gender": "feminine"
+  },
+  "India": {
+    "article": "l'",
+    "french_name": "Inde",
+    "gender": "feminine"
+  },
+  "Indonesia": {
+    "article": "l'",
+    "french_name": "Indonésie",
+    "gender": "feminine"
+  },
+  "Iran": {
+    "article": "l'",
+    "french_name": "Iran",
+    "gender": "masculine"
+  },
+  "Iraq": {
+    "article": "l'",
+    "french_name": "Irak",
+    "gender": "masculine"
+  },
+  "Ireland": {
+    "article": "l'",
+    "french_name": "Irlande",
+    "gender": "feminine"
+  },
+  "Israel": {
+    "article": "",
+    "french_name": "Israël",
+    "gender": "masculine"
+  },
+  "Italy": {
+    "article": "l'",
+    "french_name": "Italie",
+    "gender": "feminine"
+  },
+  "Jamaica": {
+    "article": "la",
+    "french_name": "Jamaïque",
+    "gender": "feminine"
+  },
+  "Japan": {
+    "article": "le",
+    "french_name": "Japon",
+    "gender": "masculine"
+  },
+  "Jordan": {
+    "article": "la",
+    "french_name": "Jordanie",
+    "gender": "feminine"
+  },
+  "Kazakhstan": {
+    "article": "le",
+    "french_name": "Kazakhstan",
+    "gender": "masculine"
+  },
+  "Kenya": {
+    "article": "le",
+    "french_name": "Kenya",
+    "gender": "masculine"
+  },
+  "Kosovo": {
+    "article": "le",
+    "french_name": "Kosovo",
+    "gender": "masculine"
+  },
+  "Kuwait": {
+    "article": "le",
+    "french_name": "Koweït",
+    "gender": "masculine"
+  },
+  "Kyrgyzstan": {
+    "article": "le",
+    "french_name": "Kirghizistan",
+    "gender": "masculine"
+  },
+  "Laos": {
+    "article": "le",
+    "french_name": "Laos",
+    "gender": "masculine"
+  },
+  "Latvia": {
+    "article": "la",
+    "french_name": "Lettonie",
+    "gender": "feminine"
+  },
+  "Lebanon": {
+    "article": "le",
+    "french_name": "Liban",
+    "gender": "masculine"
+  },
+  "Lesotho": {
+    "article": "le",
+    "french_name": "Lesotho",
+    "gender": "masculine"
+  },
+  "Liberia": {
+    "article": "le",
+    "french_name": "Liberia",
+    "gender": "masculine"
+  },
+  "Libya": {
+    "article": "la",
+    "french_name": "Libye",
+    "gender": "feminine"
+  },
+  "Lithuania": {
+    "article": "la",
+    "french_name": "Lituanie",
+    "gender": "feminine"
+  },
+  "Luxembourg": {
+    "article": "le",
+    "french_name": "Luxembourg",
+    "gender": "masculine"
+  },
+  "Madagascar": {
+    "article": "",
+    "french_name": "Madagascar",
+    "gender": "masculine"
+  },
+  "Malawi": {
+    "article": "le",
+    "french_name": "Malawi",
+    "gender": "masculine"
+  },
+  "Malaysia": {
+    "article": "la",
+    "french_name": "Malaisie",
+    "gender": "feminine"
+  },
+  "Mali": {
+    "article": "le",
+    "french_name": "Mali",
+    "gender": "masculine"
+  },
+  "Mauritania": {
+    "article": "la",
+    "french_name": "Mauritanie",
+    "gender": "feminine"
+  },
+  "Mexico": {
+    "article": "le",
+    "french_name": "Mexique",
+    "gender": "masculine"
+  },
+  "Moldova": {
+    "article": "la",
+    "french_name": "Moldavie",
+    "gender": "feminine"
+  },
+  "Mongolia": {
+    "article": "la",
+    "french_name": "Mongolie",
+    "gender": "feminine"
+  },
+  "Montenegro": {
+    "article": "le",
+    "french_name": "Monténégro",
+    "gender": "masculine"
+  },
+  "Morocco": {
+    "article": "le",
+    "french_name": "Maroc",
+    "gender": "masculine"
+  },
+  "Mozambique": {
+    "article": "le",
+    "french_name": "Mozambique",
+    "gender": "masculine"
+  },
+  "Myanmar": {
+    "article": "la",
+    "french_name": "Birmanie",
+    "gender": "feminine"
+  },
+  "N. Cyprus": {
+    "article": "la",
+    "french_name": "Chypre du Nord",
+    "gender": "feminine"
+  },
+  "Namibia": {
+    "article": "la",
+    "french_name": "Namibie",
+    "gender": "feminine"
+  },
+  "Nepal": {
+    "article": "le",
+    "french_name": "Népal",
+    "gender": "masculine"
+  },
+  "Netherlands": {
+    "article": "les",
+    "french_name": "Pays-Bas",
+    "gender": "plural"
+  },
+  "New Caledonia": {
+    "article": "la",
+    "french_name": "Nouvelle-Calédonie",
+    "gender": "feminine"
+  },
+  "New Zealand": {
+    "article": "la",
+    "french_name": "Nouvelle-Zélande",
+    "gender": "feminine"
+  },
+  "Nicaragua": {
+    "article": "le",
+    "french_name": "Nicaragua",
+    "gender": "masculine"
+  },
+  "Niger": {
+    "article": "le",
+    "french_name": "Niger",
+    "gender": "masculine"
+  },
+  "Nigeria": {
+    "article": "le",
+    "french_name": "Nigeria",
+    "gender": "masculine"
+  },
+  "North Korea": {
+    "article": "la",
+    "french_name": "Corée du Nord",
+    "gender": "feminine"
+  },
+  "North Macedonia": {
+    "article": "la",
+    "french_name": "Macédoine du Nord",
+    "gender": "feminine"
+  },
+  "Norway": {
+    "article": "la",
+    "french_name": "Norvège",
+    "gender": "feminine"
+  },
+  "Oman": {
+    "article": "",
+    "french_name": "Oman",
+    "gender": "masculine"
+  },
+  "Pakistan": {
+    "article": "le",
+    "french_name": "Pakistan",
+    "gender": "masculine"
+  },
+  "Palestine": {
+    "article": "la",
+    "french_name": "Palestine",
+    "gender": "feminine"
+  },
+  "Panama": {
+    "article": "le",
+    "french_name": "Panama",
+    "gender": "masculine"
+  },
+  "Papua New Guinea": {
+    "article": "la",
+    "french_name": "Papouasie-Nouvelle-Guinée",
+    "gender": "feminine"
+  },
+  "Paraguay": {
+    "article": "le",
+    "french_name": "Paraguay",
+    "gender": "masculine"
+  },
+  "Peru": {
+    "article": "le",
+    "french_name": "Pérou",
+    "gender": "masculine"
+  },
+  "Philippines": {
+    "article": "les",
+    "french_name": "Philippines",
+    "gender": "plural"
+  },
+  "Poland": {
+    "article": "la",
+    "french_name": "Pologne",
+    "gender": "feminine"
+  },
+  "Portugal": {
+    "article": "le",
+    "french_name": "Portugal",
+    "gender": "masculine"
+  },
+  "Puerto Rico": {
+    "article": "le",
+    "french_name": "Porto Rico",
+    "gender": "masculine"
+  },
+  "Qatar": {
+    "article": "le",
+    "french_name": "Qatar",
+    "gender": "masculine"
+  },
+  "Romania": {
+    "article": "la",
+    "french_name": "Roumanie",
+    "gender": "feminine"
+  },
+  "Russia": {
+    "article": "la",
+    "french_name": "Russie",
+    "gender": "feminine"
+  },
+  "Rwanda": {
+    "article": "le",
+    "french_name": "Rwanda",
+    "gender": "masculine"
+  },
+  "S. Sudan": {
+    "article": "le",
+    "french_name": "Soudan du Sud",
+    "gender": "masculine"
+  },
+  "Saudi Arabia": {
+    "article": "l'",
+    "french_name": "Arabie saoudite",
+    "gender": "feminine"
+  },
+  "Senegal": {
+    "article": "le",
+    "french_name": "Sénégal",
+    "gender": "masculine"
+  },
+  "Serbia": {
+    "article": "la",
+    "french_name": "Serbie",
+    "gender": "feminine"
+  },
+  "Sierra Leone": {
+    "article": "la",
+    "french_name": "Sierra Leone",
+    "gender": "feminine"
+  },
+  "Slovakia": {
+    "article": "la",
+    "french_name": "Slovaquie",
+    "gender": "feminine"
+  },
+  "Slovenia": {
+    "article": "la",
+    "french_name": "Slovénie",
+    "gender": "feminine"
+  },
+  "Solomon Is.": {
+    "article": "les",
+    "french_name": "Îles Salomon",
+    "gender": "plural"
+  },
+  "Somalia": {
+    "article": "la",
+    "french_name": "Somalie",
+    "gender": "feminine"
+  },
+  "Somaliland": {
+    "article": "le",
+    "french_name": "Somaliland",
+    "gender": "masculine"
+  },
+  "South Africa": {
+    "article": "l'",
+    "french_name": "Afrique du Sud",
+    "gender": "feminine"
+  },
+  "South Korea": {
+    "article": "la",
+    "french_name": "Corée du Sud",
+    "gender": "feminine"
+  },
+  "Spain": {
+    "article": "l'",
+    "french_name": "Espagne",
+    "gender": "feminine"
+  },
+  "Sri Lanka": {
+    "article": "le",
+    "french_name": "Sri Lanka",
+    "gender": "masculine"
+  },
+  "Sudan": {
+    "article": "le",
+    "french_name": "Soudan",
+    "gender": "masculine"
+  },
+  "Suriname": {
+    "article": "le",
+    "french_name": "Suriname",
+    "gender": "masculine"
+  },
+  "Sweden": {
+    "article": "la",
+    "french_name": "Suède",
+    "gender": "feminine"
+  },
+  "Switzerland": {
+    "article": "la",
+    "french_name": "Suisse",
+    "gender": "feminine"
+  },
+  "Syria": {
+    "article": "la",
+    "french_name": "Syrie",
+    "gender": "feminine"
+  },
+  "Taiwan": {
+    "article": "",
+    "french_name": "Taïwan",
+    "gender": "masculine"
+  },
+  "Tajikistan": {
+    "article": "le",
+    "french_name": "Tadjikistan",
+    "gender": "masculine"
+  },
+  "Tanzania": {
+    "article": "la",
+    "french_name": "Tanzanie",
+    "gender": "feminine"
+  },
+  "Thailand": {
+    "article": "la",
+    "french_name": "Thaïlande",
+    "gender": "feminine"
+  },
+  "Timor-Leste": {
+    "article": "le",
+    "french_name": "Timor oriental",
+    "gender": "masculine"
+  },
+  "Togo": {
+    "article": "le",
+    "french_name": "Togo",
+    "gender": "masculine"
+  },
+  "Trinidad and Tobago": {
+    "article": "",
+    "french_name": "Trinité-et-Tobago",
+    "gender": "masculine"
+  },
+  "Tunisia": {
+    "article": "la",
+    "french_name": "Tunisie",
+    "gender": "feminine"
+  },
+  "Turkey": {
+    "article": "la",
+    "french_name": "Turquie",
+    "gender": "feminine"
+  },
+  "Turkmenistan": {
+    "article": "le",
+    "french_name": "Turkménistan",
+    "gender": "masculine"
+  },
+  "Uganda": {
+    "article": "l'",
+    "french_name": "Ouganda",
+    "gender": "masculine"
+  },
+  "Ukraine": {
+    "article": "l'",
+    "french_name": "Ukraine",
+    "gender": "feminine"
+  },
+  "United Arab Emirates": {
+    "article": "les",
+    "french_name": "Émirats arabes unis",
+    "gender": "plural"
+  },
+  "United Kingdom": {
+    "article": "le",
+    "french_name": "Royaume-Uni",
+    "gender": "masculine"
+  },
+  "United States of America": {
+    "article": "les",
+    "french_name": "États-Unis",
+    "gender": "plural"
+  },
+  "Uruguay": {
+    "article": "l'",
+    "french_name": "Uruguay",
+    "gender": "masculine"
+  },
+  "Uzbekistan": {
+    "article": "l'",
+    "french_name": "Ouzbékistan",
+    "gender": "masculine"
+  },
+  "Vanuatu": {
+    "article": "le",
+    "french_name": "Vanuatu",
+    "gender": "masculine"
+  },
+  "Venezuela": {
+    "article": "le",
+    "french_name": "Venezuela",
+    "gender": "masculine"
+  },
+  "Vietnam": {
+    "article": "le",
+    "french_name": "Vietnam",
+    "gender": "masculine"
+  },
+  "W. Sahara": {
+    "article": "le",
+    "french_name": "Sahara occidental",
+    "gender": "masculine"
+  },
+  "Yemen": {
+    "article": "le",
+    "french_name": "Yémen",
+    "gender": "masculine"
+  },
+  "Zambia": {
+    "article": "la",
+    "french_name": "Zambie",
+    "gender": "feminine"
+  },
+  "Zimbabwe": {
+    "article": "le",
+    "french_name": "Zimbabwe",
+    "gender": "masculine"
+  },
+  "eSwatini": {
+    "article": "l'",
+    "french_name": "Eswatini",
+    "gender": "masculine"
+  }
+}

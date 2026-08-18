@@ -1,0 +1,12 @@
+# Build tooling and source data -- not part of the published site.
+# The live site only needs index.html, puzzles.json,
+# french_country_grammar.json, and CNAME.
+*.py
+CLAUDE.md
+LATER.md
+chart_room_mock.html
+graph.json
+ne_110m_admin_0_countries.geojson
+french_country_grammar_REVIEW.json
+.DS_Store
+.claude/
