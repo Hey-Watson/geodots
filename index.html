@@ -115,6 +115,17 @@
   .sub { font-size: 13px; color: var(--ink-dim); margin: 0 0 16px; }
   .notice { font-size: 13px; color: var(--brass-bright); margin: 0 0 16px; font-style: italic; }
 
+  .streak-strip { display: flex; align-items: center; gap: 10px; margin: 2px 0 16px; }
+  .streak-strip.hidden { display: none; }
+  #streakStars { display: block; flex-shrink: 0; }
+  .streak-star { fill: var(--ground-deep); stroke: var(--line); stroke-width: 1; }
+  .streak-star.lit {
+    fill: var(--brass-bright); stroke: var(--brass-bright);
+    filter: drop-shadow(0 0 3px rgba(201, 168, 118, 0.7));
+  }
+  .streak-line { stroke: var(--brass); stroke-width: 1; opacity: 0.6; }
+  #streakText { font-size: 13px; color: var(--ink-dim); }
+
   .badge {
     display: inline-block; padding: 1px 9px; margin: 0 1px;
     border-radius: 9px; font-size: 11px; font-weight: 600; letter-spacing: 0.03em;
@@ -331,7 +342,14 @@
     </span>
   </div>
   <h1 id="title">Chart the region</h1>
+  <p class="sub" id="tagline"></p>
   <p class="sub" id="subtitle"></p>
+
+  <div class="streak-strip hidden" id="streakStrip">
+    <svg id="streakStars" viewBox="0 0 240 50" width="108" height="23" aria-hidden="true"></svg>
+    <span id="streakText"></span>
+  </div>
+
   <p class="notice hidden" id="alreadySolvedNote"></p>
   <p class="notice" id="fallback-note"></p>
   <p class="notice hidden" id="notReadyNote"></p>
@@ -409,6 +427,8 @@
       subBrandPrefix: 'by ',
       subBrandName: 'Hey Watson!',
       heading: 'Chart the region',
+      tagline: 'Assign each place to the correct dot.',
+      streakSuffix: '-day streak',
       puzzleLabel: 'Puzzle #',
       difficultyLabel: 'Difficulty: ',
       difficulty: { EASY: 'EASY', MEDIUM: 'MEDIUM', HARD: 'HARD' },
@@ -432,7 +452,7 @@
       replay: 'Replay',
       confirmReset: "Reset today's puzzle? This clears your check count and solved status.",
       infoAriaLabel: 'How to play',
-      info: "Each dot is a real place, positioned where it actually sits on the map, but its name is hidden. The lines between dots are real borders. Read the clues below, then assign each name from the list to the dot you think it belongs to. Check your answer as many times as you like. There's no penalty for guessing wrong. A new puzzle arrives every day, so come back tomorrow for the next one.",
+      info: "Each dot is a real place, positioned where it actually sits on the map, but its name is hidden. The lines between dots are real borders. Read the clues below, then assign each name from the list to the dot you think it belongs to. Check your answer as many times as you like. There's no penalty for guessing wrong. A new puzzle arrives every day, so come back tomorrow for the next one. Play on the same device each day to keep your streaks going.",
       notReady: "Today's puzzle is still being prepared. Come back soon.",
       alreadySolved: "You've already solved today's puzzle — come back tomorrow for the next one, or hit Replay to play again.",
       alreadySolvedArchive: "You've already solved this one. Browse more in Previous Geodots, or hit Replay to play again.",
@@ -449,6 +469,9 @@
       subBrandPrefix: 'par ',
       subBrandName: 'Hey Watson !',
       heading: 'Cartographiez la région',
+      tagline: 'Associez chaque lieu au point correspondant.',
+      streakPrefix: 'Série de ',
+      streakUnit: n => (n === 1 ? ' jour' : ' jours'),
       puzzleLabel: 'Puzzle nº',
       difficultyLabel: 'Difficulté : ',
       difficulty: { EASY: 'FACILE', MEDIUM: 'MOYEN', HARD: 'DIFFICILE' },
@@ -472,7 +495,7 @@
       replay: 'Rejouer',
       confirmReset: "Réinitialiser le puzzle du jour ? Cela efface votre nombre d'essais et votre statut de résolution.",
       infoAriaLabel: 'Comment jouer',
-      info: "Chaque point représente un lieu réel, positionné à son emplacement exact sur la carte, mais son nom est caché. Les lignes entre les points sont de vraies frontières. Lisez les indices ci-dessous, puis associez chaque nom de la liste au point auquel vous pensez qu'il correspond. Vérifiez votre réponse autant de fois que vous le souhaitez. Il n'y a aucune pénalité en cas d'erreur. Un nouveau puzzle est publié chaque jour. Revenez demain pour le suivant.",
+      info: "Chaque point représente un lieu réel, positionné à son emplacement exact sur la carte, mais son nom est caché. Les lignes entre les points sont de vraies frontières. Lisez les indices ci-dessous, puis associez chaque nom de la liste au point auquel vous pensez qu'il correspond. Vérifiez votre réponse autant de fois que vous le souhaitez. Il n'y a aucune pénalité en cas d'erreur. Un nouveau puzzle est publié chaque jour. Revenez demain pour le suivant. Jouez sur le même appareil chaque jour pour maintenir vos séries.",
       notReady: 'Le puzzle du jour est encore en préparation. Revenez bientôt.',
       alreadySolved: "Vous avez déjà résolu le puzzle d'aujourd'hui — revenez demain pour le suivant, ou cliquez sur Rejouer pour recommencer.",
       alreadySolvedArchive: "Vous avez déjà résolu celui-ci. Parcourez les précédents dans 'Geodots précédents' ou cliquez sur 'Rejouer' pour recommencer.",
@@ -606,7 +629,12 @@
     // startedAt: epoch ms when the hidden timer began, set once and never
     // reset by a reload -- only "Play again" clears it.
     // elapsedSeconds: frozen at the moment of the first successful solve.
-    return { checks: 0, solved: false, startedAt: null, elapsedSeconds: null };
+    // solvedDate: the calendar day (YYYY-MM-DD, respecting simulateDate)
+    // the solve actually happened on -- used by the streak feature to tell
+    // "solved on this puzzle's own live day" apart from "solved later via
+    // the archive". Older saved progress predates this field and merges in
+    // as null, which correctly never counts toward a streak.
+    return { checks: 0, solved: false, startedAt: null, elapsedSeconds: null, solvedDate: null };
   }
 
   function storageKey(idx) {
@@ -680,6 +708,108 @@
 
   function daysBetween(a, b) {
     return Math.round((b - a) / 86400000);
+  }
+
+  // Inverse of localDateFromIso -- a local Date back to "YYYY-MM-DD",
+  // used by the streak walk below to step backward day by day.
+  function isoFromLocalDate(d) {
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    return d.getFullYear() + '-' + mm + '-' + dd;
+  }
+
+  // Consecutive-day streak, counting backward from today. A day only
+  // counts if that day's own puzzle was solved with solvedDate equal to
+  // that same day -- solving it later via the archive does not count,
+  // since solvedDate would then be some later date instead. A calendar
+  // day with no puzzle at all (pack not generated that far yet) is
+  // skipped rather than breaking the streak. Today itself is never
+  // required -- the persistent streak reflects the last *completed* day,
+  // and today's own solve (if any) is added on top, which is what makes
+  // the newest star light up at the moment of solving rather than only
+  // on the next day's reload.
+  function computeStreak() {
+    const dateToIndex = {};
+    puzzlesData.forEach((p, i) => { dateToIndex[p.date] = i; });
+
+    function ownDaySolved(iso) {
+      const idx = dateToIndex[iso];
+      if (idx === undefined) return null; // no puzzle exists for this date
+      const prog = loadProgress(idx);
+      return !!(prog.solved && prog.solvedDate === iso);
+    }
+
+    let streak = 0;
+    const cursor = localDateFromIso(todayIsoCached);
+    cursor.setDate(cursor.getDate() - 1); // start from yesterday
+    while (isoFromLocalDate(cursor) >= LAUNCH_DATE) {
+      const iso = isoFromLocalDate(cursor);
+      const status = ownDaySolved(iso);
+      if (status === null) {
+        cursor.setDate(cursor.getDate() - 1);
+        continue;
+      }
+      if (status === false) break;
+      streak++;
+      cursor.setDate(cursor.getDate() - 1);
+    }
+
+    if (ownDaySolved(todayIsoCached) === true) streak++;
+
+    return streak;
+  }
+
+  // Fixed wave/arc template -- always these same 7 positions, never
+  // randomized or recomputed from the streak length itself. Only how many
+  // of them are "lit" (and thus how many connecting lines are drawn)
+  // changes.
+  const STREAK_POINTS = [
+    [15, 35], [50, 25], [85, 17.7], [120, 15], [155, 17.7], [190, 25], [225, 35],
+  ];
+
+  function renderStreak() {
+    const strip = document.getElementById('streakStrip');
+    const streak = computeStreak();
+    if (streak < 2) {
+      strip.classList.add('hidden');
+      return;
+    }
+    strip.classList.remove('hidden');
+
+    const litCount = Math.min(streak, 7);
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.getElementById('streakStars');
+    svg.innerHTML = '';
+
+    for (let i = 0; i < litCount - 1; i++) {
+      const line = document.createElementNS(NS, 'line');
+      line.setAttribute('x1', STREAK_POINTS[i][0]);
+      line.setAttribute('y1', STREAK_POINTS[i][1]);
+      line.setAttribute('x2', STREAK_POINTS[i + 1][0]);
+      line.setAttribute('y2', STREAK_POINTS[i + 1][1]);
+      line.setAttribute('class', 'streak-line');
+      svg.appendChild(line);
+    }
+    STREAK_POINTS.forEach(([x, y], i) => {
+      const lit = i < litCount;
+      const c = document.createElementNS(NS, 'circle');
+      c.setAttribute('cx', x);
+      c.setAttribute('cy', y);
+      c.setAttribute('r', lit ? 4 : 2.5);
+      c.setAttribute('class', 'streak-star' + (lit ? ' lit' : ''));
+      svg.appendChild(c);
+    });
+
+    const textEl = document.getElementById('streakText');
+    textEl.textContent = '';
+    if (lang === 'fr') {
+      textEl.append(t('streakPrefix'));
+      textEl.append(numSpan(String(streak)));
+      textEl.append(t('streakUnit')(streak));
+    } else {
+      textEl.append(numSpan(String(streak)));
+      textEl.append(t('streakSuffix'));
+    }
   }
 
   // DISPLAY ONLY. Internal date handling (LAUNCH_DATE, puzzles.json's
@@ -873,6 +1003,7 @@
   function render() {
     document.title = t('pageTitle');
     document.getElementById('title').textContent = t('heading');
+    document.getElementById('tagline').textContent = t('tagline');
 
     // "Geodots" stays plain everywhere else in the page (title, meta
     // description, share line). The header eyebrow used to additionally
@@ -1041,6 +1172,11 @@
     const resultEl = document.getElementById('result');
     const shareDiv = document.getElementById('share');
     const alreadySolvedNote = document.getElementById('alreadySolvedNote');
+    // Persistent on every visit, and this is also the solve-moment reward:
+    // checkAnswer() saves solvedDate then calls renderStatus(), so the
+    // newest star lights up as part of the same status update, not a
+    // separate step.
+    renderStreak();
     document.getElementById('checkBtn').classList.toggle('hidden', progress.solved);
     document.getElementById('resetBtn').classList.toggle('hidden', progress.solved);
     if (progress.solved) {
@@ -1270,6 +1406,7 @@
         progress.solved = true;
         const startedAt = progress.startedAt != null ? progress.startedAt : Date.now();
         progress.elapsedSeconds = Math.max(0, Math.round((Date.now() - startedAt) / 1000));
+        progress.solvedDate = todayIsoCached;
       } else {
         lastCorrectCount = correctCount;
       }
