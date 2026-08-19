@@ -170,10 +170,11 @@
   #share {
     margin-top: 14px; padding: 12px 14px;
     background: rgba(201, 168, 118, 0.22); border: 1px solid var(--brass-bright);
-    border-radius: 2px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    border-radius: 2px; display: flex; flex-direction: column; gap: 12px;
     box-shadow: 0 0 14px rgba(201, 168, 118, 0.4);
   }
   #share.hidden { display: none; }
+  #share .controls { gap: 12px; }
   #shareLine { font-size: 14px; color: var(--brass-bright); font-weight: 600; }
   #copyStatus { font-size: 12px; color: var(--ink-dim); }
 
@@ -348,9 +349,11 @@
 
       <div id="share" class="hidden">
         <span id="shareLine"></span>
-        <button class="secondary hidden" id="shareBtn">Share</button>
-        <button class="secondary" id="copyBtn">Copy result</button>
-        <span id="copyStatus"></span>
+        <div class="controls">
+          <button class="secondary" id="copyBtn">Copy result</button>
+          <button class="secondary hidden" id="shareBtn">Share</button>
+          <span id="copyStatus"></span>
+        </div>
       </div>
     </div>
 
