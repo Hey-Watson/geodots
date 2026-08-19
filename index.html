@@ -178,6 +178,17 @@
   #shareLine { font-size: 14px; color: var(--brass-bright); font-weight: 600; }
   #copyStatus { font-size: 12px; color: var(--ink-dim); }
 
+  .share-icons {
+    display: flex; align-items: center; gap: 4px;
+    padding-left: 10px; border-left: 1px solid var(--line);
+  }
+  .share-icon {
+    display: flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    color: var(--ink-dim); text-decoration: none;
+  }
+  .share-icon:hover { color: var(--brass-bright); background: rgba(201, 168, 118, 0.12); }
+
   .footer-link {
     display: block; width: 100%; margin-top: 36px; padding: 4px;
     font-family: 'Source Serif 4', serif; font-size: 12px; color: var(--ink-dim);
@@ -352,6 +363,20 @@
         <div class="controls">
           <button class="secondary" id="copyBtn">Copy result</button>
           <button class="secondary hidden" id="shareBtn">Share</button>
+          <div class="share-icons">
+            <a class="share-icon" id="shareWhatsapp" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-4.1A7.9 7.9 0 1 1 8.3 19L4 20Z"/><path d="M8.3 8.6c.2-.5.5-.5.7-.5h.5c.2 0 .4 0 .6.4.2.5.7 1.6.7 1.8.1.1.1.3 0 .4-.1.2-.1.3-.3.4-.1.2-.3.3-.4.5-.2.1-.3.3-.1.6.1.2.6 1 1.4 1.6.9.8 1.6 1 1.9 1.2.2.1.4.1.5-.1.2-.2.6-.7.8-1 .2-.2.3-.2.5-.1.2.1 1.4.6 1.6.7.2.1.4.2.4.3 0 .2 0 .8-.3 1.3-.2.5-1.2 1-1.7 1-.5.1-1 .1-3.4-1-2.9-1.2-4.6-4.1-4.8-4.3-.1-.2-1-1.3-1-2.5 0-1.2.6-1.8.8-2Z" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a class="share-icon" id="shareTwitter" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 4l16 16M20 4L4 20"/></svg>
+            </a>
+            <a class="share-icon" id="shareEmail" aria-label="Email">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="1.5"/><path d="M4.5 6.5l7.5 6.5 7.5-6.5"/></svg>
+            </a>
+            <a class="share-icon" id="shareFacebook" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 21v-7.5h2.4l.4-2.8h-2.8v-1.8c0-.8.2-1.4 1.4-1.4h1.5V5.1c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.6v2.1H9.3v2.8h2.4V21"/></svg>
+            </a>
+          </div>
           <span id="copyStatus"></span>
         </div>
       </div>
@@ -965,6 +990,21 @@
     el.append(' — playgeodots.com');
   }
 
+  // Share-intent links for one-click desktop sharing (no Web Share API
+  // needed, works in every browser). WhatsApp/X/email reuse the same
+  // share text as "Copy result"; Facebook's sharer only ever accepts a
+  // URL -- it builds its own preview card from the page's own
+  // og:title/og:description/og:image tags, it can't be handed pre-filled
+  // post text.
+  function renderShareIcons() {
+    const text = encodeURIComponent(shareText());
+    const url = encodeURIComponent('https://playgeodots.com');
+    document.getElementById('shareWhatsapp').href = 'https://wa.me/?text=' + text;
+    document.getElementById('shareTwitter').href = 'https://twitter.com/intent/tweet?text=' + text;
+    document.getElementById('shareEmail').href = 'mailto:?subject=Geodots&body=' + text;
+    document.getElementById('shareFacebook').href = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+  }
+
   // Reflects `progress` (and, briefly, the outcome of the last press) in
   // three states: nothing yet, "Not solved yet" (optionally with a
   // correct-count once the player has tried enough times), or "Solved!".
@@ -977,6 +1017,7 @@
       resultEl.textContent = t('solved');
       resultEl.className = 'status good';
       renderShareLine();
+      renderShareIcons();
       shareDiv.classList.remove('hidden');
     } else if (lastCheckFailed) {
       // First 3 failed checks stay plain; the count only appears once the
