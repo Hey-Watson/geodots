@@ -332,6 +332,7 @@
   </div>
   <h1 id="title">Chart the region</h1>
   <p class="sub" id="subtitle"></p>
+  <p class="notice hidden" id="alreadySolvedNote"></p>
   <p class="notice" id="fallback-note"></p>
   <p class="notice hidden" id="notReadyNote"></p>
 
@@ -433,6 +434,8 @@
       infoAriaLabel: 'How to play',
       info: "Each dot is a real place, positioned where it actually sits on the map, but its name is hidden. The lines between dots are real borders. Read the clues below, then assign each name from the list to the dot you think it belongs to. Check your answer as many times as you like. There's no penalty for guessing wrong. A new puzzle arrives every day, so come back tomorrow for the next one.",
       notReady: "Today's puzzle is still being prepared. Come back soon.",
+      alreadySolved: "You've already solved today's puzzle — come back tomorrow for the next one, or hit Replay to play again.",
+      alreadySolvedArchive: "You've already solved this one. Browse more in Previous Geodots, or hit Replay to play again.",
       archiveLabel: 'Previous Geodots',
       backToToday: 'Back to today',
       archiveSolved: 'Solved',
@@ -471,6 +474,8 @@
       infoAriaLabel: 'Comment jouer',
       info: "Chaque point représente un lieu réel, positionné à son emplacement exact sur la carte, mais son nom est caché. Les lignes entre les points sont de vraies frontières. Lisez les indices ci-dessous, puis associez chaque nom de la liste au point auquel vous pensez qu'il correspond. Vérifiez votre réponse autant de fois que vous le souhaitez. Il n'y a aucune pénalité en cas d'erreur. Un nouveau puzzle est publié chaque jour. Revenez demain pour le suivant.",
       notReady: 'Le puzzle du jour est encore en préparation. Revenez bientôt.',
+      alreadySolved: "Vous avez déjà résolu le puzzle d'aujourd'hui — revenez demain pour le suivant, ou cliquez sur Rejouer pour recommencer.",
+      alreadySolvedArchive: "Vous avez déjà résolu celui-ci. Parcourez les précédents dans 'Geodots précédents' ou cliquez sur 'Rejouer' pour recommencer.",
       archiveLabel: 'Geodots précédents',
       backToToday: "Retour à aujourd'hui",
       archiveSolved: 'Résolu',
@@ -770,7 +775,16 @@
     names = puzzle.nodes.map(n => n.name);
     trayNames = names.concat(puzzle.decoys || []);
     shuffle(trayNames);
-    assignment = {};
+    // A solved puzzle only ever had its status/checks/time saved, never
+    // the board itself -- reconstruct it here from the puzzle's own
+    // answer key so a reload shows the revealed, locked board rather
+    // than an unplayed-looking one next to a "Solved!" banner.
+    if (progress.solved) {
+      assignment = {};
+      names.forEach((nm, i) => { assignment[i] = nm; });
+    } else {
+      assignment = {};
+    }
     selectedNode = null;
     lastCheckFailed = false;
     render();
@@ -1019,12 +1033,17 @@
   function renderStatus() {
     const resultEl = document.getElementById('result');
     const shareDiv = document.getElementById('share');
+    const alreadySolvedNote = document.getElementById('alreadySolvedNote');
+    document.getElementById('checkBtn').classList.toggle('hidden', progress.solved);
+    document.getElementById('resetBtn').classList.toggle('hidden', progress.solved);
     if (progress.solved) {
       resultEl.textContent = t('solved');
       resultEl.className = 'status good';
       renderShareLine();
       renderShareIcons();
       shareDiv.classList.remove('hidden');
+      alreadySolvedNote.textContent = viewingArchived ? t('alreadySolvedArchive') : t('alreadySolved');
+      alreadySolvedNote.classList.remove('hidden');
     } else if (lastCheckFailed) {
       // First 3 failed checks stay plain; the count only appears once the
       // player has been at it a while. Uses the existing checks counter --
@@ -1035,10 +1054,12 @@
         : t('notSolvedYet');
       resultEl.className = 'status bad';
       shareDiv.classList.add('hidden');
+      alreadySolvedNote.classList.add('hidden');
     } else {
       resultEl.textContent = '';
       resultEl.className = 'status';
       shareDiv.classList.add('hidden');
+      alreadySolvedNote.classList.add('hidden');
     }
   }
 
@@ -1117,8 +1138,16 @@
       circle.setAttribute('fill', style.fill);
       circle.setAttribute('stroke', style.stroke);
       circle.setAttribute('stroke-width', style.circleWidth);
-      circle.style.cursor = 'pointer';
-      circle.addEventListener('click', () => onNodeClick(i));
+      // Once solved, the board is a locked, revealed answer -- Replay is
+      // the only way back into an interactive state, so nodes stop
+      // responding to clicks entirely rather than letting a tap re-open
+      // an already-complete board.
+      if (progress.solved) {
+        circle.style.cursor = 'default';
+      } else {
+        circle.style.cursor = 'pointer';
+        circle.addEventListener('click', () => onNodeClick(i));
+      }
       g.appendChild(circle);
 
       [[-1, 0, 1, 0], [0, -1, 0, 1]].forEach(([x1f, y1f, x2f, y2f]) => {
@@ -1172,7 +1201,10 @@
     const used = new Set(Object.values(assignment));
     trayNames.forEach(nm => {
       const chip = document.createElement('button');
-      const isUsed = used.has(nm);
+      // Once solved, every chip is locked regardless of whether it happens
+      // to be "used" -- decoys included, since the used-set alone wouldn't
+      // cover names that were never assigned to a node.
+      const isUsed = progress.solved || used.has(nm);
       chip.className = 'chip' + (isUsed ? ' used' : '');
       chip.textContent = frName(nm);
       chip.disabled = isUsed;
