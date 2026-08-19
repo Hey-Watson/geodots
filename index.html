@@ -226,10 +226,6 @@
   }
   .site-credit a { color: var(--ink-dim); text-decoration: underline; }
   .site-credit a:hover { color: var(--brass-bright); }
-  .coffee-link-star {
-    width: 7px; height: 7px; display: inline-block;
-    fill: currentColor; vertical-align: -1px; margin-right: 1px;
-  }
 
   .hidden { display: none; }
 
@@ -1068,23 +1064,7 @@
     coffeeLink.href = 'https://buymeacoffee.com/geodots';
     coffeeLink.target = '_blank';
     coffeeLink.rel = 'noopener';
-    // Small star-dot glyph, same simple filled-circle language as the
-    // background star field (#stars-bg .stars) -- not a coffee-cup icon.
-    // fill="currentColor" so it inherits the link's own text color
-    // (ink-dim normally, brass-bright on hover) instead of a separate one.
-    const starIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    starIcon.setAttribute('viewBox', '0 0 8 8');
-    starIcon.setAttribute('width', '7');
-    starIcon.setAttribute('height', '7');
-    starIcon.setAttribute('class', 'coffee-link-star');
-    starIcon.setAttribute('aria-hidden', 'true');
-    const starDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-    starDot.setAttribute('cx', '4');
-    starDot.setAttribute('cy', '4');
-    starDot.setAttribute('r', '4');
-    starIcon.appendChild(starDot);
-    coffeeLink.appendChild(starIcon);
-    coffeeLink.append(' ' + t('coffeeLink'));
+    coffeeLink.textContent = t('coffeeLink');
     siteCredit.append(coffeeLink);
 
     document.getElementById('infoBtn').setAttribute('aria-label', t('infoAriaLabel'));
