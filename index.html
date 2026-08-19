@@ -13,6 +13,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Geodots — a daily geography deduction puzzle. Unlabeled countries, real borders, one true answer.">
+<meta property="og:title" content="Geodots — a daily geography deduction puzzle">
+<meta property="og:description" content="Unlabelled countries, real borders, one true answer.">
+<meta property="og:image" content="https://playgeodots.com/og-image.png">
+<meta property="og:url" content="https://playgeodots.com">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Geodots — a daily geography deduction puzzle">
+<meta name="twitter:description" content="Unlabelled countries, real borders, one true answer.">
+<meta name="twitter:image" content="https://playgeodots.com/og-image.png">
 <title>Geodots — Daily Geography Deduction Puzzle</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/x-icon" href="favicon.svg">
@@ -339,6 +348,7 @@
 
       <div id="share" class="hidden">
         <span id="shareLine"></span>
+        <button class="secondary hidden" id="shareBtn">Share</button>
         <button class="secondary" id="copyBtn">Copy result</button>
         <span id="copyStatus"></span>
       </div>
@@ -387,6 +397,7 @@
       solved: 'Solved!',
       checkWord: n => (n === 1 ? 'check' : 'checks'),
       copyResult: 'Copy result',
+      shareBtn: 'Share',
       copied: 'Copied!',
       copyFailed: "Couldn't copy — select and copy the text manually.",
       replay: 'Replay',
@@ -424,6 +435,7 @@
       solved: 'Résolu !',
       checkWord: n => (n === 1 ? 'essai' : 'essais'),
       copyResult: 'Copier le résultat',
+      shareBtn: 'Partager',
       copied: 'Copié !',
       copyFailed: 'Impossible de copier — sélectionnez et copiez le texte manuellement.',
       replay: 'Rejouer',
@@ -882,6 +894,7 @@
     document.getElementById('checkBtn').textContent = t('checkAnswer');
     document.getElementById('resetBtn').textContent = t('reset');
     document.getElementById('copyBtn').textContent = t('copyResult');
+    document.getElementById('shareBtn').textContent = t('shareBtn');
     document.getElementById('fullResetBtn').textContent = t('replay');
 
     if (puzzle) {
@@ -919,6 +932,7 @@
       ? 'Geodots #' + (puzzleIndex + 1) + ' résolu en ' + n + ' ' + t('checkWord')(n)
       : 'Solved Geodots #' + (puzzleIndex + 1) + ' in ' + n + ' ' + t('checkWord')(n);
     if (timeStr) text += ', ' + timeStr;
+    text += '\nhttps://playgeodots.com';
     return text;
   }
 
@@ -945,6 +959,7 @@
       el.append(', ');
       el.append(numSpan(formatElapsed(progress.elapsedSeconds)));
     }
+    el.append(' — playgeodots.com');
   }
 
   // Reflects `progress` (and, briefly, the outcome of the last press) in
@@ -1206,9 +1221,22 @@
     });
   }
 
+  // Web Share API opens the device's native share sheet (texting, AirDrop,
+  // etc.) -- only on browsers that support it, mainly mobile. The button
+  // stays hidden everywhere else (checked once at load, below), so desktop
+  // visitors just see "Copy result" as before; nothing to fall back to at
+  // click time since the button isn't there to click.
+  function shareResult() {
+    navigator.share({ text: shareText() }).catch(() => {});
+  }
+
   document.getElementById('checkBtn').addEventListener('click', checkAnswer);
   document.getElementById('resetBtn').addEventListener('click', resetPuzzle);
   document.getElementById('copyBtn').addEventListener('click', copyResult);
+  document.getElementById('shareBtn').addEventListener('click', shareResult);
+  if (navigator.share) {
+    document.getElementById('shareBtn').classList.remove('hidden');
+  }
   document.getElementById('fullResetBtn').addEventListener('click', fullReset);
 
   // Info popover: click (not hover, so it works on touch) toggles it; a
