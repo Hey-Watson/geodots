@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Geodots — a daily geography deduction puzzle. Unlabeled countries, real borders, one true answer.">
 <title>Geodots — Daily Geography Deduction Puzzle</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/x-icon" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Serif+4:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -389,6 +391,7 @@
       archiveNotSolved: 'Not solved',
       creditPrefix: 'By ',
       creditSuffix: ' © 2026',
+      coffeeLink: 'Buy me a coffee',
     },
     fr: {
       pageTitle: 'Geodots — Devinette Géographique Quotidienne',
@@ -425,6 +428,7 @@
       archiveNotSolved: 'Non résolu',
       creditPrefix: 'Par ',
       creditSuffix: ' © 2026',
+      coffeeLink: "M'offrir un café",
     },
   };
 
@@ -840,6 +844,13 @@
     creditLink.textContent = 'googdeljr';
     siteCredit.append(creditLink);
     siteCredit.append(t('creditSuffix'));
+    siteCredit.append(' · ');
+    const coffeeLink = document.createElement('a');
+    coffeeLink.href = 'https://buymeacoffee.com/googdeljr';
+    coffeeLink.target = '_blank';
+    coffeeLink.rel = 'noopener';
+    coffeeLink.textContent = t('coffeeLink');
+    siteCredit.append(coffeeLink);
 
     document.getElementById('infoBtn').setAttribute('aria-label', t('infoAriaLabel'));
     document.getElementById('infoPopover').textContent = t('info');
