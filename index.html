@@ -140,6 +140,17 @@
   }
   svg { width: 100%; height: auto; display: block; }
 
+  /* Country silhouettes, revealed on solve (see COUNTRY_SILHOUETTES /
+     country_silhouettes.json) -- faint fill, thin stroke, sitting behind
+     the edges and nodes. The transition is what makes the JS-driven
+     opacity toggle (0 -> 1 on the next frame) actually read as a fade
+     rather than a snap. */
+  .country-silhouette { transition: opacity 700ms ease; }
+  .country-silhouette path {
+    fill: var(--verdigris); fill-opacity: 0.16;
+    stroke: var(--verdigris); stroke-width: 0.75; stroke-opacity: 0.35;
+  }
+
   .clues { margin-top: 20px; }
   .clues p.label {
     font-family: 'Source Serif 4', serif; font-size: 11px;
@@ -620,6 +631,7 @@
   // more inventory exists later in the file.
   let puzzlesData = [];
   let GRAMMAR = {}; // name -> {french_name, gender, article}, from french_country_grammar.json
+  let COUNTRY_SILHOUETTES = {}; // name -> [[lon,lat], ...] simplified ring, from country_silhouettes.json
   let pageStatus = 'live'; // 'before-launch' | 'not-ready' | 'live'
   let todayIndex = null;
   let maxReachableIndex = -1;
@@ -974,12 +986,14 @@
   });
 
   async function init() {
-    const [puzzlesRes, grammarRes] = await Promise.all([
+    const [puzzlesRes, grammarRes, silhouettesRes] = await Promise.all([
       fetch('puzzles.json'),
       fetch('french_country_grammar.json'),
+      fetch('country_silhouettes.json'),
     ]);
     puzzlesData = await puzzlesRes.json();
     GRAMMAR = await grammarRes.json();
+    COUNTRY_SILHOUETTES = await silhouettesRes.json();
     const iso = effectiveTodayIso();
     todayIsoCached = iso;
     const daysSinceLaunch = daysBetween(localDateFromIso(LAUNCH_DATE), localDateFromIso(iso));
@@ -1236,6 +1250,33 @@
 
     const NS = 'http://www.w3.org/2000/svg';
 
+    // Solved-state-only, and only actually alters anything when a
+    // country's full polygon (e.g. Russia) extends well beyond the small
+    // node-based frame above -- otherwise this is a no-op and the viewBox
+    // stays exactly "0 0 W H", byte-identical to before. Node pixel
+    // positions in `pos` above are never touched -- same scale/offX/offY,
+    // same numbers. This only decides how much of that same coordinate
+    // space the SVG actually shows, by growing the viewBox outward to
+    // include every silhouette point that would otherwise fall outside
+    // it and get silently clipped.
+    const showSilhouettes = progress.solved && puzzle.nodes.every(n => COUNTRY_SILHOUETTES[n.name]);
+    let viewMinX = 0, viewMinY = 0, viewMaxX = W, viewMaxY = H;
+    if (showSilhouettes) {
+      puzzle.nodes.forEach(n => {
+        COUNTRY_SILHOUETTES[n.name].forEach(([lon, lat]) => {
+          const x = offX + (lon - minLon) * scale;
+          const y = offY + (maxLat - lat) * scale;
+          if (x < viewMinX) viewMinX = x;
+          if (x > viewMaxX) viewMaxX = x;
+          if (y < viewMinY) viewMinY = y;
+          if (y > viewMaxY) viewMaxY = y;
+        });
+      });
+      const pad = 15;
+      viewMinX -= pad; viewMinY -= pad; viewMaxX += pad; viewMaxY += pad;
+    }
+    svg.setAttribute('viewBox', [viewMinX, viewMinY, viewMaxX - viewMinX, viewMaxY - viewMinY].join(' '));
+
     // Faint lat/long graticule behind everything, same proportions as the
     // reference mock's 480x300 chart.
     const grat = document.createElementNS(NS, 'g');
@@ -1255,6 +1296,43 @@
       grat.appendChild(ln);
     });
     svg.appendChild(grat);
+
+    // Faint country outlines, solved-state only, sitting behind the
+    // edges/nodes drawn below. Looked up from COUNTRY_SILHOUETTES
+    // (fetched once at startup from country_silhouettes.json, built by
+    // build_country_silhouettes.py for every country that appears as a
+    // node anywhere in the pack). showSilhouettes (computed above,
+    // alongside the viewBox sizing that depends on the same lookup) is
+    // true only when every node in THIS puzzle has a matching entry --
+    // true for every real puzzle by construction, but kept as a guard so
+    // a missing/partial fetch just means no silhouette rather than a
+    // broken one, and decoys (never in puzzle.nodes) can never trigger
+    // this. Reuses minLon/maxLat/scale/offX/offY computed above from the
+    // node positions -- not a separate transform, the literal same
+    // numbers that placed the nodes -- so a country's outline necessarily
+    // lands exactly around its own node.
+    if (showSilhouettes) {
+      const silG = document.createElementNS(NS, 'g');
+      silG.setAttribute('class', 'country-silhouette');
+      silG.style.opacity = '0';
+      puzzle.nodes.forEach(n => {
+        const ring = COUNTRY_SILHOUETTES[n.name];
+        const d = ring.map(([lon, lat], i) => {
+          const x = offX + (lon - minLon) * scale;
+          const y = offY + (maxLat - lat) * scale;
+          return (i === 0 ? 'M' : 'L') + x.toFixed(2) + ',' + y.toFixed(2);
+        }).join(' ') + ' Z';
+        const path = document.createElementNS(NS, 'path');
+        path.setAttribute('d', d);
+        silG.appendChild(path);
+      });
+      svg.appendChild(silG);
+      // Fade in on the next frame -- part of the same "Solved!" state
+      // change, not a separate reveal. Runs every time renderGraph()
+      // redraws while solved (including a plain reload), which is a
+      // deliberate simplification for this proof of concept.
+      requestAnimationFrame(() => { silG.style.opacity = '1'; });
+    }
 
     // Edges, one shared-style group (matches the mock's approach).
     const edgeG = document.createElementNS(NS, 'g');
@@ -1407,6 +1485,10 @@
         const startedAt = progress.startedAt != null ? progress.startedAt : Date.now();
         progress.elapsedSeconds = Math.max(0, Math.round((Date.now() - startedAt) / 1000));
         progress.solvedDate = todayIsoCached;
+        renderGraph(); // repaint now that progress.solved is true -- this is
+                        // what triggers the country-silhouette fade-in at
+                        // the exact moment of solving, not on the next
+                        // unrelated re-render.
       } else {
         lastCorrectCount = correctCount;
       }
