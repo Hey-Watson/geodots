@@ -580,6 +580,12 @@
   let assignment = {};  // nodeIndex -> assigned name
   let selectedNode = null;
   let progress = freshProgress(); // persisted per puzzle, see loadProgress()
+  // Snapshot of progress.solved taken the moment a puzzle is loaded, before
+  // any interaction this session -- distinct from the live progress.solved,
+  // which flips true the instant a fresh solve succeeds. Only this flag
+  // should gate the "you've already solved this" notice; the live flag
+  // still drives everything else (board locking, Solved! status, etc).
+  let wasAlreadySolvedOnLoad = false;
   let lastCheckFailed = false; // true right after an unsuccessful "Check answer" press
   let lastCorrectCount = 0;    // correct-so-far, recomputed on each failed check (not persisted)
 
@@ -771,6 +777,7 @@
     puzzleIndex = index;
     viewingArchived = pageStatus === 'live' && index !== todayIndex;
     progress = loadProgress(puzzleIndex);
+    wasAlreadySolvedOnLoad = progress.solved;
     ensureTimerStarted();
     names = puzzle.nodes.map(n => n.name);
     trayNames = names.concat(puzzle.decoys || []);
@@ -1042,8 +1049,12 @@
       renderShareLine();
       renderShareIcons();
       shareDiv.classList.remove('hidden');
-      alreadySolvedNote.textContent = viewingArchived ? t('alreadySolvedArchive') : t('alreadySolved');
-      alreadySolvedNote.classList.remove('hidden');
+      if (wasAlreadySolvedOnLoad) {
+        alreadySolvedNote.textContent = viewingArchived ? t('alreadySolvedArchive') : t('alreadySolved');
+        alreadySolvedNote.classList.remove('hidden');
+      } else {
+        alreadySolvedNote.classList.add('hidden');
+      }
     } else if (lastCheckFailed) {
       // First 3 failed checks stay plain; the count only appears once the
       // player has been at it a while. Uses the existing checks counter --
@@ -1285,6 +1296,7 @@
       localStorage.removeItem(storageKey(puzzleIndex));
     } catch (e) { /* storage unavailable -- nothing to clear */ }
     progress = freshProgress();
+    wasAlreadySolvedOnLoad = false; // replaying is a fresh solve, not a return visit
     ensureTimerStarted(); // restart the hidden timer immediately, as if freshly loaded
     assignment = {};
     selectedNode = null;
