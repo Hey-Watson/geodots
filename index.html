@@ -226,6 +226,10 @@
   }
   .site-credit a { color: var(--ink-dim); text-decoration: underline; }
   .site-credit a:hover { color: var(--brass-bright); }
+  .coffee-link-star {
+    width: 7px; height: 7px; display: inline-block;
+    fill: currentColor; vertical-align: -1px; margin-right: 1px;
+  }
 
   .hidden { display: none; }
 
@@ -473,7 +477,7 @@
       archiveNotSolved: 'Not solved',
       creditPrefix: 'By ',
       creditSuffix: ' © 2026',
-      coffeeLink: 'Buy me a coffee',
+      coffeeLink: 'Support Geodots',
     },
     fr: {
       pageTitle: 'Geodots — Devinette Géographique Quotidienne',
@@ -516,7 +520,7 @@
       archiveNotSolved: 'Non résolu',
       creditPrefix: 'Par ',
       creditSuffix: ' © 2026',
-      coffeeLink: "M'offrir un café",
+      coffeeLink: 'Soutenir Geodots',
     },
   };
 
@@ -1061,10 +1065,26 @@
     siteCredit.append(t('creditSuffix'));
     siteCredit.append(' · ');
     const coffeeLink = document.createElement('a');
-    coffeeLink.href = 'https://buymeacoffee.com/googdeljr';
+    coffeeLink.href = 'https://buymeacoffee.com/geodots';
     coffeeLink.target = '_blank';
     coffeeLink.rel = 'noopener';
-    coffeeLink.textContent = t('coffeeLink');
+    // Small star-dot glyph, same simple filled-circle language as the
+    // background star field (#stars-bg .stars) -- not a coffee-cup icon.
+    // fill="currentColor" so it inherits the link's own text color
+    // (ink-dim normally, brass-bright on hover) instead of a separate one.
+    const starIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    starIcon.setAttribute('viewBox', '0 0 8 8');
+    starIcon.setAttribute('width', '7');
+    starIcon.setAttribute('height', '7');
+    starIcon.setAttribute('class', 'coffee-link-star');
+    starIcon.setAttribute('aria-hidden', 'true');
+    const starDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    starDot.setAttribute('cx', '4');
+    starDot.setAttribute('cy', '4');
+    starDot.setAttribute('r', '4');
+    starIcon.appendChild(starDot);
+    coffeeLink.appendChild(starIcon);
+    coffeeLink.append(' ' + t('coffeeLink'));
     siteCredit.append(coffeeLink);
 
     document.getElementById('infoBtn').setAttribute('aria-label', t('infoAriaLabel'));
