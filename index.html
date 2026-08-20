@@ -151,6 +151,19 @@
     stroke: var(--verdigris); stroke-width: 0.75; stroke-opacity: 0.35;
   }
 
+  /* Gap-filler countries (see GAP_FILLERS / gap_fillers.json) -- not part
+     of the puzzle itself, just filling in a hole the reveal would
+     otherwise leave. Deliberately more muted than .country-silhouette:
+     the desaturated --line color instead of --verdigris, and noticeably
+     lower opacity, so the puzzle's own countries always read as the
+     "real" ones. No label/node/click-handler ever exists for these --
+     nothing but a <path> gets created, so there's nothing to disable. */
+  .gap-filler-silhouette { transition: opacity 700ms ease; }
+  .gap-filler-silhouette path {
+    fill: var(--line); fill-opacity: 0.14;
+    stroke: var(--line); stroke-width: 0.75; stroke-opacity: 0.3;
+  }
+
   .clues { margin-top: 20px; }
   .clues p.label {
     font-family: 'Source Serif 4', serif; font-size: 11px;
@@ -632,6 +645,7 @@
   let puzzlesData = [];
   let GRAMMAR = {}; // name -> {french_name, gender, article}, from french_country_grammar.json
   let COUNTRY_SILHOUETTES = {}; // name -> [[lon,lat], ...] simplified ring, from country_silhouettes.json
+  let GAP_FILLERS = []; // GAP_FILLERS[puzzleIndex] -> country names, from gap_fillers.json
   let pageStatus = 'live'; // 'before-launch' | 'not-ready' | 'live'
   let todayIndex = null;
   let maxReachableIndex = -1;
@@ -986,14 +1000,16 @@
   });
 
   async function init() {
-    const [puzzlesRes, grammarRes, silhouettesRes] = await Promise.all([
+    const [puzzlesRes, grammarRes, silhouettesRes, gapFillersRes] = await Promise.all([
       fetch('puzzles.json'),
       fetch('french_country_grammar.json'),
       fetch('country_silhouettes.json'),
+      fetch('gap_fillers.json'),
     ]);
     puzzlesData = await puzzlesRes.json();
     GRAMMAR = await grammarRes.json();
     COUNTRY_SILHOUETTES = await silhouettesRes.json();
+    GAP_FILLERS = await gapFillersRes.json();
     const iso = effectiveTodayIso();
     todayIsoCached = iso;
     const daysSinceLaunch = daysBetween(localDateFromIso(LAUNCH_DATE), localDateFromIso(iso));
@@ -1257,13 +1273,26 @@
     // positions in `pos` above are never touched -- same scale/offX/offY,
     // same numbers. This only decides how much of that same coordinate
     // space the SVG actually shows, by growing the viewBox outward to
-    // include every silhouette point that would otherwise fall outside
-    // it and get silently clipped.
+    // include every silhouette point (the puzzle's own countries AND any
+    // gap fillers, see below) that would otherwise fall outside it and
+    // get silently clipped.
     const showSilhouettes = progress.solved && puzzle.nodes.every(n => COUNTRY_SILHOUETTES[n.name]);
+    // Gap fillers: countries not in this puzzle that would otherwise show
+    // up as a visible hole in the revealed map (2+ borders onto the
+    // puzzle's own countries, or a known enclave like Lesotho/San
+    // Marino/Vatican City -- see audit_silhouette_gaps.py, whose
+    // check_puzzle() this list was precomputed with by
+    // build_gap_fillers.py). Filtered against COUNTRY_SILHOUETTES the
+    // same defensive way as the puzzle's own countries -- a gap filler
+    // with no geometry just doesn't render, rather than breaking anything.
+    const gapFillerNames = showSilhouettes
+      ? (GAP_FILLERS[puzzleIndex] || []).filter(name => COUNTRY_SILHOUETTES[name])
+      : [];
     let viewMinX = 0, viewMinY = 0, viewMaxX = W, viewMaxY = H;
     if (showSilhouettes) {
-      puzzle.nodes.forEach(n => {
-        COUNTRY_SILHOUETTES[n.name].forEach(([lon, lat]) => {
+      const allSilhouetteNames = puzzle.nodes.map(n => n.name).concat(gapFillerNames);
+      allSilhouetteNames.forEach(name => {
+        COUNTRY_SILHOUETTES[name].forEach(([lon, lat]) => {
           const x = offX + (lon - minLon) * scale;
           const y = offY + (maxLat - lat) * scale;
           if (x < viewMinX) viewMinX = x;
@@ -1296,6 +1325,32 @@
       grat.appendChild(ln);
     });
     svg.appendChild(grat);
+
+    // Gap-filler silhouettes, painted first so the puzzle's own countries
+    // (drawn next, below) sit on top of them at any shared border. No
+    // label, no node circle, no click handler ever gets attached to
+    // these -- they're built from nothing but a <path>, so there is
+    // nothing on them to interact with. Visually more muted than the
+    // real countries via .gap-filler-silhouette's own (lower) opacity,
+    // not the .country-silhouette styling.
+    if (gapFillerNames.length) {
+      const gapG = document.createElementNS(NS, 'g');
+      gapG.setAttribute('class', 'gap-filler-silhouette');
+      gapG.style.opacity = '0';
+      gapFillerNames.forEach(name => {
+        const ring = COUNTRY_SILHOUETTES[name];
+        const d = ring.map(([lon, lat], i) => {
+          const x = offX + (lon - minLon) * scale;
+          const y = offY + (maxLat - lat) * scale;
+          return (i === 0 ? 'M' : 'L') + x.toFixed(2) + ',' + y.toFixed(2);
+        }).join(' ') + ' Z';
+        const path = document.createElementNS(NS, 'path');
+        path.setAttribute('d', d);
+        gapG.appendChild(path);
+      });
+      svg.appendChild(gapG);
+      requestAnimationFrame(() => { gapG.style.opacity = '1'; });
+    }
 
     // Faint country outlines, solved-state only, sitting behind the
     // edges/nodes drawn below. Looked up from COUNTRY_SILHOUETTES
