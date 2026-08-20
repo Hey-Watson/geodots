@@ -115,19 +115,22 @@
   .sub { font-size: 13px; color: var(--ink-dim); margin: 0 0 16px; }
   .notice { font-size: 13px; color: var(--brass-bright); margin: 0 0 16px; font-style: italic; }
 
-  .streak-strip { display: flex; align-items: center; gap: 8px; margin: 2px 0 16px; }
+  .streak-strip { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin: 2px 0 16px; }
   .streak-strip.hidden { display: none; }
-  /* Explicit size, not left to the page's generic svg{width:100%} rule
-     (meant for the puzzle board) -- without this the star field silently
-     stretched to fill its flex container, which is what made it read as
-     large as an actual board node instead of a quiet inline indicator. */
-  #streakStars { display: block; flex-shrink: 0; width: 62px; height: 15px; }
-  .streak-star { fill: var(--ground-deep); stroke: var(--line); stroke-width: 0.6; }
+  /* Explicit sizing, not left to the page's generic svg{width:100%} rule
+     (meant for the puzzle board) -- that rule is what previously
+     stretched this to fill its flex container at an oversized, undefined
+     size. Width is capped/responsive (not a fixed small box) so the
+     7-point wave spans a real portion of the row instead of reading as a
+     dense little cluster; height:auto follows the viewBox's own aspect
+     ratio, so the arc's proportions stay correct at any width. */
+  #streakStars { display: block; flex-shrink: 0; width: min(70%, 300px); height: auto; }
+  .streak-star { fill: var(--ground-deep); stroke: var(--line); stroke-width: 1; }
   .streak-star.lit {
     fill: var(--brass-bright); stroke: var(--brass-bright);
     filter: drop-shadow(0 0 2px rgba(201, 168, 118, 0.7));
   }
-  .streak-line { stroke: var(--brass); stroke-width: 0.6; opacity: 0.6; }
+  .streak-line { stroke: var(--brass); stroke-width: 1.2; opacity: 0.6; }
   #streakText { font-size: 13px; color: var(--ink-dim); }
 
   .badge {
@@ -374,7 +377,7 @@
   <p class="sub" id="subtitle"></p>
 
   <div class="streak-strip hidden" id="streakStrip">
-    <svg id="streakStars" viewBox="0 0 62 15" width="62" height="15" aria-hidden="true"></svg>
+    <svg id="streakStars" viewBox="0 0 300 40" aria-hidden="true"></svg>
     <span id="streakText"></span>
   </div>
 
@@ -794,7 +797,7 @@
   // of them are "lit" (and thus how many connecting lines are drawn)
   // changes.
   const STREAK_POINTS = [
-    [4, 12], [13, 10], [22, 7.7], [31, 7], [40, 7.7], [49, 10], [58, 12],
+    [15, 32], [60, 27], [105, 22.5], [150, 20], [195, 22.5], [240, 27], [285, 32],
   ];
 
   function renderStreak() {
@@ -825,7 +828,7 @@
       const c = document.createElementNS(NS, 'circle');
       c.setAttribute('cx', x);
       c.setAttribute('cy', y);
-      c.setAttribute('r', lit ? 2.6 : 1.6);
+      c.setAttribute('r', lit ? 3.5 : 2);
       c.setAttribute('class', 'streak-star' + (lit ? ' lit' : ''));
       svg.appendChild(c);
     });
