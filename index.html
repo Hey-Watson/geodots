@@ -1299,71 +1299,125 @@
     // How far a gap filler alone (e.g. China sitting next to a small
     // Southeast Asia or Central Asia cluster) is allowed to push the
     // viewBox outward, as a fraction of however big the puzzle's OWN
-    // countries already needed it to be. The puzzle's own countries (the
-    // Russia-as-a-node case from before) are never subject to this cap --
-    // only sizing driven purely by gap fillers is. Tune this one number
-    // to make gap fillers more or less willing to expand the frame.
+    // countries already needed it to be. Tune this one number to make
+    // gap fillers (and, see below, an outlier own country when it's
+    // compounding with a gap filler) more or less willing to expand the
+    // frame.
     const GAP_FILLER_MAX_GROWTH = 0.45;
+
+    // Union of raw [x,y] point sets into a [minX, minY, maxX, maxY] box.
+    // Stays in "raw" (unfloored) coordinate space -- nothing here is
+    // unioned with the base W x H frame. Flooring happens exactly once,
+    // right before use, in floorToFrame below -- flooring earlier than
+    // that inflates any 45%-of-footprint cap far more than intended (a
+    // bug caught and fixed in the very first version of this mechanism).
+    function bboxOfSets(sets) {
+      let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+      sets.forEach(pts => pts.forEach(([x, y]) => {
+        if (x < minX) minX = x;
+        if (x > maxX) maxX = x;
+        if (y < minY) minY = y;
+        if (y > maxY) maxY = y;
+      }));
+      return [minX, minY, maxX, maxY];
+    }
+    function floorToFrame(box) {
+      return [Math.min(0, box[0]), Math.min(0, box[1]), Math.max(W, box[2]), Math.max(H, box[3])];
+    }
+    // How far extBox extends refBox in each direction, clamped to 45% of
+    // capBasisW/H (the reference footprint's own raw size, not refBox's
+    // size -- refBox may already be floored to the frame).
+    function capExtension(refBox, capBasisW, capBasisH, extBox) {
+      const maxGrowX = capBasisW * GAP_FILLER_MAX_GROWTH;
+      const maxGrowY = capBasisH * GAP_FILLER_MAX_GROWTH;
+      const needL = Math.max(0, refBox[0] - extBox[0]);
+      const needR = Math.max(0, extBox[2] - refBox[2]);
+      const needT = Math.max(0, refBox[1] - extBox[1]);
+      const needB = Math.max(0, extBox[3] - refBox[3]);
+      const hits = needL > maxGrowX + 1e-6 || needR > maxGrowX + 1e-6 ||
+                   needT > maxGrowY + 1e-6 || needB > maxGrowY + 1e-6;
+      return {
+        hits,
+        box: [
+          refBox[0] - Math.min(needL, maxGrowX),
+          refBox[1] - Math.min(needT, maxGrowY),
+          refBox[2] + Math.min(needR, maxGrowX),
+          refBox[3] + Math.min(needB, maxGrowY),
+        ],
+      };
+    }
 
     let viewMinX = 0, viewMinY = 0, viewMaxX = W, viewMaxY = H;
     if (showSilhouettes) {
-      // Pass 1: the puzzle's OWN countries only -- this box must always
-      // show their full extent, uncapped, exactly as before (union with
-      // the base W x H frame, same as always).
-      //
-      // The cap in pass 2 needs a size to be "45% of", and it must be the
-      // countries' OWN true footprint, not this floored box -- most
-      // puzzles' own silhouettes don't naturally reach all the way out to
-      // the base frame's edges, so flooring first and measuring after
-      // would make the cap far too generous (measured: 480 wide even
-      // though the 6 SE Asia countries only actually span ~213). rawMinX
-      // etc. below track the UNFLOORED extent for that reason -- it's
-      // only ever smaller than or equal to the floored box.
-      let rawMinX = Infinity, rawMinY = Infinity, rawMaxX = -Infinity, rawMaxY = -Infinity;
-      puzzle.nodes.forEach(n => {
-        COUNTRY_SILHOUETTES[n.name].forEach(([lon, lat]) => {
-          const x = offX + (lon - minLon) * scale;
-          const y = offY + (maxLat - lat) * scale;
-          if (x < rawMinX) rawMinX = x;
-          if (x > rawMaxX) rawMaxX = x;
-          if (y < rawMinY) rawMinY = y;
-          if (y > rawMaxY) rawMaxY = y;
-          if (x < viewMinX) viewMinX = x;
-          if (x > viewMaxX) viewMaxX = x;
-          if (y < viewMinY) viewMinY = y;
-          if (y > viewMaxY) viewMaxY = y;
-        });
-      });
-      const ownWidth = rawMaxX - rawMinX;
-      const ownHeight = rawMaxY - rawMinY;
-      const maxGrowX = ownWidth * GAP_FILLER_MAX_GROWTH;
-      const maxGrowY = ownHeight * GAP_FILLER_MAX_GROWTH;
+      const ownPoints = puzzle.nodes.map(n => ({
+        name: n.name,
+        pts: COUNTRY_SILHOUETTES[n.name].map(([lon, lat]) => [
+          offX + (lon - minLon) * scale,
+          offY + (maxLat - lat) * scale,
+        ]),
+      }));
+      const gapExtBox = gapFillerNames.length
+        ? bboxOfSets(gapFillerNames.map(name => COUNTRY_SILHOUETTES[name].map(([lon, lat]) => [
+            offX + (lon - minLon) * scale, offY + (maxLat - lat) * scale,
+          ])))
+        : null;
 
-      // Pass 2: gap fillers may extend that box further, but only up to
-      // the capped amount in each direction -- a gap filler's silhouette
-      // still gets drawn in full (it's just a <path>, cheap either way),
-      // the excess is simply left outside the viewBox where SVG already
-      // clips it by default (no explicit clip-path needed).
-      let gapMinX = viewMinX, gapMinY = viewMinY, gapMaxX = viewMaxX, gapMaxY = viewMaxY;
-      gapFillerNames.forEach(name => {
-        COUNTRY_SILHOUETTES[name].forEach(([lon, lat]) => {
-          const x = offX + (lon - minLon) * scale;
-          const y = offY + (maxLat - lat) * scale;
-          if (x < gapMinX) gapMinX = x;
-          if (x > gapMaxX) gapMaxX = x;
-          if (y < gapMinY) gapMinY = y;
-          if (y > gapMaxY) gapMaxY = y;
+      // Phase 1: the puzzle's OWN countries, raw (unfloored) footprint.
+      // Test -- without committing to it yet -- whether any gap filler
+      // would need to exceed the 45% cap to fully show against this box.
+      let rawOwnBox = bboxOfSets(ownPoints.map(o => o.pts));
+      let compounding = false;
+      if (gapExtBox) {
+        const trialRef = floorToFrame(rawOwnBox);
+        const trial = capExtension(trialRef, rawOwnBox[2] - rawOwnBox[0], rawOwnBox[3] - rawOwnBox[1], gapExtBox);
+        compounding = trial.hits;
+      }
+
+      // Phase 2: only when Phase 1 found a gap filler actually straining
+      // against the cap (e.g. Russia in Central Asia) do we even look at
+      // the puzzle's own countries for an outlier -- a puzzle like
+      // Eastern Europe, where no gap filler ever needs more room than
+      // the cap allows, is completely untouched by this block. When it
+      // does run, find the single own country contributing most beyond
+      // what its puzzle-mates alone would need (e.g. China, dwarfing
+      // Kyrgyzstan/Tajikistan/etc.), and cap THAT country's own
+      // contribution to the frame using the exact same 45%-of-footprint
+      // mechanism already used for gap fillers -- just measured against
+      // its own puzzle-mates' footprint instead of the whole puzzle's.
+      // If no own country is meaningfully oversized relative to its
+      // peers (e.g. Southeast Asia's six comparably-sized countries,
+      // where China is only ever a gap filler), this is a no-op and
+      // rawOwnBox is left exactly as Phase 1 computed it.
+      if (compounding && ownPoints.length > 1) {
+        let worst = null;
+        ownPoints.forEach((o, i) => {
+          const peerBox = bboxOfSets(ownPoints.filter((_, j) => j !== i).map(p => p.pts));
+          const ownAloneBox = bboxOfSets([o.pts]);
+          const growX = Math.max(0, peerBox[0] - ownAloneBox[0], ownAloneBox[2] - peerBox[2]);
+          if (!worst || growX > worst.growX) {
+            worst = { growX, peerBox, ownAloneBox };
+          }
         });
-      });
-      // Clamp each direction's extension to [0, maxGrow*] -- 0 so a gap
-      // filler that doesn't actually reach past the own-box on some side
-      // can never shrink it back inward (a naive Math.min without this
-      // floor would do exactly that whenever the "extension needed" comes
-      // out negative).
-      viewMinX -= Math.max(0, Math.min(viewMinX - gapMinX, maxGrowX));
-      viewMaxX += Math.max(0, Math.min(gapMaxX - viewMaxX, maxGrowX));
-      viewMinY -= Math.max(0, Math.min(viewMinY - gapMinY, maxGrowY));
-      viewMaxY += Math.max(0, Math.min(gapMaxY - viewMaxY, maxGrowY));
+        if (worst && worst.growX > 0) {
+          const peerW = worst.peerBox[2] - worst.peerBox[0];
+          const peerH = worst.peerBox[3] - worst.peerBox[1];
+          const capped = capExtension(worst.peerBox, peerW, peerH, worst.ownAloneBox);
+          rawOwnBox = capped.box;
+        }
+      }
+
+      // Phase 3: floor the (possibly outlier-capped) own footprint to
+      // the base frame -- exactly once -- then let gap fillers extend it,
+      // capped at 45% of that same footprint. Identical mechanism and
+      // numbers as before when Phase 2 didn't change anything.
+      const ownBoxFloored = floorToFrame(rawOwnBox);
+      let finalBox = ownBoxFloored;
+      if (gapExtBox) {
+        finalBox = capExtension(ownBoxFloored, rawOwnBox[2] - rawOwnBox[0], rawOwnBox[3] - rawOwnBox[1], gapExtBox).box;
+      }
+
+      viewMinX = finalBox[0]; viewMinY = finalBox[1];
+      viewMaxX = finalBox[2]; viewMaxY = finalBox[3];
 
       const pad = 15;
       viewMinX -= pad; viewMinY -= pad; viewMaxX += pad; viewMaxY += pad;
