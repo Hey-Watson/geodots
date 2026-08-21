@@ -663,123 +663,91 @@
     "difficulty": "EASY",
     "nodes": [
       {
-        "name": "Djibouti",
+        "name": "Algeria",
         "position": [
-          42.41228242457338,
-          11.8552845
+          0.5262735538355487,
+          27.916216499999997
         ]
       },
       {
-        "name": "Eritrea",
+        "name": "Côte d'Ivoire",
         "position": [
-          38.295763745061734,
-          15.1975385
+          -5.6826110531641,
+          7.5406255
         ]
       },
       {
-        "name": "Ethiopia",
+        "name": "Guinea",
         "position": [
-          38.72639118584681,
-          9.36203
+          -9.657523736704057,
+          9.950943500000001
         ]
       },
       {
-        "name": "Kenya",
+        "name": "Guinea-Bissau",
         "position": [
-          37.51297205252195,
-          0.312407
+          -15.036935137360143,
+          11.884985499999999
         ]
       },
       {
-        "name": "Somalia",
+        "name": "Liberia",
         "position": [
-          46.7941796825168,
-          5.170365
+          -9.710184281570925,
+          6.3302985
         ]
       },
       {
-        "name": "Somaliland",
+        "name": "Mali",
         "position": [
-          46.034650691081545,
-          9.75699
-        ]
-      },
-      {
-        "name": "Tanzania",
-        "position": [
-          34.14207067870728,
-          -6.207829500000001
-        ]
-      },
-      {
-        "name": "Zambia",
-        "position": [
-          25.369727205483482,
-          -13.080002
+          -0.7009447099266355,
+          17.9547955
         ]
       }
     ],
     "edges": [
       [
-        "Djibouti",
-        "Eritrea"
+        "Algeria",
+        "Mali"
       ],
       [
-        "Djibouti",
-        "Ethiopia"
+        "Côte d'Ivoire",
+        "Guinea"
       ],
       [
-        "Djibouti",
-        "Somaliland"
+        "Côte d'Ivoire",
+        "Liberia"
       ],
       [
-        "Eritrea",
-        "Ethiopia"
+        "Côte d'Ivoire",
+        "Mali"
       ],
       [
-        "Ethiopia",
-        "Kenya"
+        "Guinea",
+        "Guinea-Bissau"
       ],
       [
-        "Ethiopia",
-        "Somalia"
+        "Guinea",
+        "Liberia"
       ],
       [
-        "Ethiopia",
-        "Somaliland"
-      ],
-      [
-        "Kenya",
-        "Somalia"
-      ],
-      [
-        "Kenya",
-        "Tanzania"
-      ],
-      [
-        "Somalia",
-        "Somaliland"
-      ],
-      [
-        "Tanzania",
-        "Zambia"
+        "Guinea",
+        "Mali"
       ]
     ],
     "clues": [
-      "Tanzania borders only Kenya and Zambia",
-      "Ethiopia borders Somalia",
-      "Kenya borders Somalia",
-      "Kenya does not border Somaliland",
-      "Eritrea borders only Djibouti and Ethiopia"
+      "Algeria does not border Guinea",
+      "Côte d'Ivoire does not border Guinea-Bissau",
+      "Liberia borders only Côte d'Ivoire and Guinea",
+      "Guinea-Bissau does not border Mali"
     ],
     "date": "2026-08-25",
-    "region": "Eastern Africa",
+    "region": "Western Africa",
     "clues_fr": [
-      "La Tanzanie n'est limitrophe que du Kenya et de la Zambie.",
-      "L'Éthiopie et la Somalie sont limitrophes.",
-      "Le Kenya partage une frontière avec la Somalie.",
-      "Le Kenya et le Somaliland ne sont pas limitrophes.",
-      "L'Érythrée n'est limitrophe que de Djibouti et de l'Éthiopie."
+      "L'Algérie et la Guinée ne sont pas limitrophes.",
+      "La Côte d'Ivoire ne partage pas de frontière avec la Guinée-Bissau.",
+      "Le Liberia n'est limitrophe que de la Côte d'Ivoire et de la Guinée.",
+      "La Guinée-Bissau ne partage pas de frontière avec le Mali."
     ]
   },
   {
@@ -2848,38 +2816,45 @@
     "difficulty": "EASY",
     "nodes": [
       {
-        "name": "Djibouti",
+        "name": "Benin",
         "position": [
-          42.41228242457338,
-          11.8552845
+          2.2853249252024064,
+          9.236115999999999
         ]
       },
       {
-        "name": "Eritrea",
+        "name": "Burkina Faso",
         "position": [
-          38.295763745061734,
-          15.1975385
+          -1.275629162240045,
+          12.241398
         ]
       },
       {
-        "name": "Ethiopia",
+        "name": "Cameroon",
         "position": [
-          38.72639118584681,
-          9.36203
+          13.491597921033106,
+          7.2262
         ]
       },
       {
-        "name": "Libya",
+        "name": "Central African Rep.",
         "position": [
-          17.25892425,
-          26.303265500000002
+          20.478740083438915,
+          6.7629595
         ]
       },
       {
-        "name": "Somaliland",
+        "name": "Niger",
         "position": [
-          46.034650691081545,
-          9.75699
+          9.774100880356354,
+          17.390088499999997
+        ]
+      },
+      {
+        "name": "Nigeria",
+        "position": [
+          7.8318782606688355,
+          8.927685499999999
         ]
       },
       {
@@ -2888,55 +2863,76 @@
           29.615603211023824,
           15.277565
         ]
+      },
+      {
+        "name": "Togo",
+        "position": [
+          1.1192625385164365,
+          8.494844
+        ]
       }
     ],
     "edges": [
       [
-        "Djibouti",
-        "Eritrea"
+        "Benin",
+        "Burkina Faso"
       ],
       [
-        "Djibouti",
-        "Ethiopia"
+        "Benin",
+        "Niger"
       ],
       [
-        "Djibouti",
-        "Somaliland"
+        "Benin",
+        "Nigeria"
       ],
       [
-        "Eritrea",
-        "Ethiopia"
+        "Benin",
+        "Togo"
       ],
       [
-        "Eritrea",
+        "Burkina Faso",
+        "Niger"
+      ],
+      [
+        "Burkina Faso",
+        "Togo"
+      ],
+      [
+        "Cameroon",
+        "Central African Rep."
+      ],
+      [
+        "Cameroon",
+        "Niger"
+      ],
+      [
+        "Cameroon",
+        "Nigeria"
+      ],
+      [
+        "Central African Rep.",
         "Sudan"
       ],
       [
-        "Ethiopia",
-        "Somaliland"
-      ],
-      [
-        "Ethiopia",
-        "Sudan"
-      ],
-      [
-        "Libya",
-        "Sudan"
+        "Niger",
+        "Nigeria"
       ]
     ],
     "clues": [
-      "Djibouti borders Eritrea",
-      "Eritrea borders Ethiopia",
-      "Ethiopia borders Sudan",
-      "Somaliland borders only Djibouti and Ethiopia"
+      "Togo borders only Benin and Burkina Faso",
+      "Central African Rep. borders only Cameroon and Sudan",
+      "Burkina Faso does not border Nigeria",
+      "Nigeria does not border Sudan",
+      "Niger does not border Sudan"
     ],
     "date": "2026-09-14",
-    "region": "Eastern Africa",
+    "region": "Western Africa",
     "clues_fr": [
-      "Djibouti est limitrophe de l'Érythrée.",
-      "L'Érythrée partage une frontière avec l'Éthiopie.",
-      "L'Éthiopie partage une frontière avec le Soudan.",
-      "Le Somaliland n'est limitrophe que de Djibouti et de l'Éthiopie."
+      "Le Togo n'est limitrophe que du Bénin et du Burkina Faso.",
+      "La République centrafricaine n'est limitrophe que du Cameroun et du Soudan.",
+      "Le Burkina Faso n'est pas limitrophe du Nigeria.",
+      "Le Nigeria ne partage pas de frontière avec le Soudan.",
+      "Le Niger ne partage pas de frontière avec le Soudan."
     ]
   },
   {
@@ -3143,104 +3139,114 @@
     "difficulty": "EASY",
     "nodes": [
       {
-        "name": "Egypt",
+        "name": "Albania",
         "position": [
-          29.369537116289596,
-          26.895485
+          19.9675900776865,
+          41.247896
         ]
       },
       {
-        "name": "Eritrea",
+        "name": "Bosnia and Herz.",
         "position": [
-          38.295763745061734,
-          15.1975385
+          18.115159863686415,
+          43.853095999999994
         ]
       },
       {
-        "name": "Ethiopia",
+        "name": "Bulgaria",
         "position": [
-          38.72639118584681,
-          9.36203
+          25.138533279202548,
+          42.739419999999996
         ]
       },
       {
-        "name": "Kenya",
+        "name": "Greece",
         "position": [
-          37.51297205252195,
-          0.312407
+          21.806331463138974,
+          39.080456999999996
         ]
       },
       {
-        "name": "S. Sudan",
+        "name": "Kosovo",
         "position": [
-          28.970074432703957,
-          8.027146
+          20.91366557164779,
+          42.513925
         ]
       },
       {
-        "name": "Somaliland",
+        "name": "Montenegro",
         "position": [
-          46.034650691081545,
-          9.75699
+          19.396216204979822,
+          42.7504985
         ]
       },
       {
-        "name": "Sudan",
+        "name": "North Macedonia",
         "position": [
-          29.615603211023824,
-          15.277565
+          21.720350432373735,
+          41.6810995
         ]
       }
     ],
     "edges": [
       [
-        "Egypt",
-        "Sudan"
+        "Albania",
+        "Greece"
       ],
       [
-        "Eritrea",
-        "Ethiopia"
+        "Albania",
+        "Kosovo"
       ],
       [
-        "Eritrea",
-        "Sudan"
+        "Albania",
+        "Montenegro"
       ],
       [
-        "Ethiopia",
-        "Kenya"
+        "Albania",
+        "North Macedonia"
       ],
       [
-        "Ethiopia",
-        "S. Sudan"
+        "Bosnia and Herz.",
+        "Montenegro"
       ],
       [
-        "Ethiopia",
-        "Somaliland"
+        "Bulgaria",
+        "Greece"
       ],
       [
-        "Ethiopia",
-        "Sudan"
+        "Bulgaria",
+        "North Macedonia"
       ],
       [
-        "Kenya",
-        "S. Sudan"
+        "Greece",
+        "North Macedonia"
       ],
       [
-        "S. Sudan",
-        "Sudan"
+        "Kosovo",
+        "Montenegro"
+      ],
+      [
+        "Kosovo",
+        "North Macedonia"
       ]
     ],
     "clues": [
-      "Egypt borders Sudan",
-      "Kenya borders only Ethiopia and S. Sudan",
-      "Eritrea borders only Ethiopia and Sudan"
+      "Bosnia and Herz. borders 1 of the others",
+      "Albania does not border Bulgaria",
+      "Bosnia and Herz. borders Montenegro",
+      "Bulgaria does not border Kosovo",
+      "Greece does not border Kosovo",
+      "Greece does not border Montenegro"
     ],
     "date": "2026-09-17",
-    "region": "Eastern Africa",
+    "region": "Southern Europe",
     "clues_fr": [
-      "L'Égypte est limitrophe du Soudan.",
-      "Le Kenya n'est limitrophe que de l'Éthiopie et du Soudan du Sud.",
-      "L'Érythrée n'est limitrophe que de l'Éthiopie et du Soudan."
+      "La Bosnie-Herzégovine partage une frontière avec 1 des autres lieux.",
+      "L'Albanie ne partage pas de frontière avec la Bulgarie.",
+      "La Bosnie-Herzégovine est limitrophe du Monténégro.",
+      "La Bulgarie ne partage pas de frontière avec le Kosovo.",
+      "La Grèce ne partage pas de frontière avec le Kosovo.",
+      "La Grèce et le Monténégro ne sont pas limitrophes."
     ]
   },
   {
@@ -3248,117 +3254,123 @@
     "difficulty": "HARD",
     "nodes": [
       {
-        "name": "Burundi",
+        "name": "Bulgaria",
         "position": [
-          29.957121293416,
-          -3.463945
+          25.138533279202548,
+          42.739419999999996
         ]
       },
       {
-        "name": "Djibouti",
+        "name": "Croatia",
         "position": [
-          42.41228242457338,
-          11.8552845
+          15.583559096689727,
+          44.544813500000004
         ]
       },
       {
-        "name": "Kenya",
+        "name": "Hungary",
         "position": [
-          37.51297205252195,
-          0.312407
+          19.103248635963975,
+          47.2452045
         ]
       },
       {
-        "name": "S. Sudan",
+        "name": "Kosovo",
         "position": [
-          28.970074432703957,
-          8.027146
+          20.91366557164779,
+          42.513925
         ]
       },
       {
-        "name": "Somalia",
+        "name": "Montenegro",
         "position": [
-          46.7941796825168,
-          5.170365
+          19.396216204979822,
+          42.7504985
         ]
       },
       {
-        "name": "Somaliland",
+        "name": "Serbia",
         "position": [
-          46.034650691081545,
-          9.75699
+          21.013475351815377,
+          44.1366965
         ]
       },
       {
-        "name": "Tanzania",
+        "name": "Slovenia",
         "position": [
-          34.14207067870728,
-          -6.207829500000001
+          14.732281045424251,
+          46.127443
         ]
       }
     ],
     "edges": [
       [
-        "Burundi",
-        "Tanzania"
+        "Bulgaria",
+        "Serbia"
       ],
       [
-        "Djibouti",
-        "Somaliland"
+        "Croatia",
+        "Hungary"
       ],
       [
-        "Kenya",
-        "S. Sudan"
+        "Croatia",
+        "Montenegro"
       ],
       [
-        "Kenya",
-        "Somalia"
+        "Croatia",
+        "Serbia"
       ],
       [
-        "Kenya",
-        "Tanzania"
+        "Croatia",
+        "Slovenia"
       ],
       [
-        "Somalia",
-        "Somaliland"
+        "Hungary",
+        "Serbia"
+      ],
+      [
+        "Hungary",
+        "Slovenia"
+      ],
+      [
+        "Kosovo",
+        "Montenegro"
+      ],
+      [
+        "Kosovo",
+        "Serbia"
+      ],
+      [
+        "Montenegro",
+        "Serbia"
       ]
     ],
     "clues": [
-      "Somaliland borders 2 of the others",
-      "Ethiopia does not border Kenya",
-      "S. Sudan does not border Somaliland",
-      "Zambia does not border Somaliland",
-      "Ethiopia does not border Somaliland",
-      "Zambia does not border Kenya",
-      "Rwanda does not border Somaliland",
-      "Rwanda does not border Kenya",
-      "Tanzania borders only Burundi and Kenya",
-      "Kenya does not border Somaliland",
-      "Somalia borders 2 of the others",
-      "Kenya borders 3 of the others",
-      "Djibouti does not border Ethiopia"
+      "Hungary borders Serbia",
+      "Kosovo borders only Montenegro and Serbia",
+      "Slovenia borders only Croatia and Hungary",
+      "Austria does not border Serbia",
+      "Bosnia and Herz. does not border Serbia",
+      "Croatia borders 4 of the others",
+      "Italy does not border Serbia",
+      "Bulgaria does not border Austria"
     ],
     "decoys": [
-      "Ethiopia",
-      "Rwanda",
-      "Zambia"
+      "Austria",
+      "Bosnia and Herz.",
+      "Italy"
     ],
     "date": "2026-09-18",
-    "region": "Eastern Africa",
+    "region": "Southern Europe",
     "clues_fr": [
-      "Le Somaliland est limitrophe de 2 des autres lieux.",
-      "L'Éthiopie n'est pas limitrophe du Kenya.",
-      "Le Soudan du Sud ne partage pas de frontière avec le Somaliland.",
-      "La Zambie ne partage pas de frontière avec le Somaliland.",
-      "L'Éthiopie et le Somaliland ne sont pas limitrophes.",
-      "La Zambie et le Kenya ne sont pas limitrophes.",
-      "Le Rwanda et le Somaliland ne sont pas limitrophes.",
-      "Le Rwanda n'est pas limitrophe du Kenya.",
-      "La Tanzanie n'est limitrophe que du Burundi et du Kenya.",
-      "Le Kenya et le Somaliland ne sont pas limitrophes.",
-      "La Somalie partage une frontière avec 2 des autres lieux.",
-      "Le Kenya partage une frontière avec 3 des autres lieux.",
-      "Djibouti n'est pas limitrophe de l'Éthiopie."
+      "La Hongrie et la Serbie sont limitrophes.",
+      "Le Kosovo n'est limitrophe que du Monténégro et de la Serbie.",
+      "La Slovénie n'est limitrophe que de la Croatie et de la Hongrie.",
+      "L'Autriche et la Serbie ne sont pas limitrophes.",
+      "La Bosnie-Herzégovine n'est pas limitrophe de la Serbie.",
+      "La Croatie partage une frontière avec 4 des autres lieux.",
+      "L'Italie et la Serbie ne sont pas limitrophes.",
+      "La Bulgarie n'est pas limitrophe de l'Autriche."
     ]
   },
   {
@@ -6264,110 +6276,104 @@
     "difficulty": "EASY",
     "nodes": [
       {
-        "name": "Djibouti",
+        "name": "Burkina Faso",
         "position": [
-          42.41228242457338,
-          11.8552845
+          -1.275629162240045,
+          12.241398
         ]
       },
       {
-        "name": "Ethiopia",
+        "name": "Gambia",
         "position": [
-          38.72639118584681,
-          9.36203
+          -16.041873844511713,
+          13.4016245
         ]
       },
       {
-        "name": "Kenya",
+        "name": "Guinea",
         "position": [
-          37.51297205252195,
-          0.312407
+          -9.657523736704057,
+          9.950943500000001
         ]
       },
       {
-        "name": "S. Sudan",
+        "name": "Guinea-Bissau",
         "position": [
-          28.970074432703957,
-          8.027146
+          -15.036935137360143,
+          11.884985499999999
         ]
       },
       {
-        "name": "Somalia",
+        "name": "Mali",
         "position": [
-          46.7941796825168,
-          5.170365
+          -0.7009447099266355,
+          17.9547955
         ]
       },
       {
-        "name": "Somaliland",
+        "name": "Mauritania",
         "position": [
-          46.034650691081545,
-          9.75699
+          -11.492962895049338,
+          21.163411500000002
         ]
       },
       {
-        "name": "Tanzania",
+        "name": "Senegal",
         "position": [
-          34.14207067870728,
-          -6.207829500000001
+          -14.72919092443719,
+          14.495175
         ]
       }
     ],
     "edges": [
       [
-        "Djibouti",
-        "Ethiopia"
+        "Burkina Faso",
+        "Mali"
       ],
       [
-        "Djibouti",
-        "Somaliland"
+        "Gambia",
+        "Senegal"
       ],
       [
-        "Ethiopia",
-        "Kenya"
+        "Guinea",
+        "Guinea-Bissau"
       ],
       [
-        "Ethiopia",
-        "S. Sudan"
+        "Guinea",
+        "Mali"
       ],
       [
-        "Ethiopia",
-        "Somalia"
+        "Guinea",
+        "Senegal"
       ],
       [
-        "Ethiopia",
-        "Somaliland"
+        "Guinea-Bissau",
+        "Senegal"
       ],
       [
-        "Kenya",
-        "S. Sudan"
+        "Mali",
+        "Mauritania"
       ],
       [
-        "Kenya",
-        "Somalia"
+        "Mali",
+        "Senegal"
       ],
       [
-        "Kenya",
-        "Tanzania"
-      ],
-      [
-        "Somalia",
-        "Somaliland"
+        "Mauritania",
+        "Senegal"
       ]
     ],
     "clues": [
-      "Ethiopia does not border Tanzania",
-      "Djibouti borders only Ethiopia and Somaliland",
-      "Kenya borders Tanzania",
-      "S. Sudan borders only Ethiopia and Kenya"
+      "Guinea-Bissau borders only Guinea and Senegal",
+      "Mauritania borders only Mali and Senegal",
+      "Burkina Faso borders Mali"
     ],
     "date": "2026-10-15",
-    "region": "Eastern Africa",
+    "region": "Western Africa",
     "clues_fr": [
-      "L'Éthiopie et la Tanzanie ne sont pas limitrophes.",
-      "Djibouti n'est limitrophe que de l'Éthiopie et du Somaliland.",
-      "Le Kenya est limitrophe de la Tanzanie.",
-      "Le Soudan du Sud n'est limitrophe que de l'Éthiopie et du Kenya."
+      "La Guinée-Bissau n'est limitrophe que de la Guinée et du Sénégal.",
+      "La Mauritanie n'est limitrophe que du Mali et du Sénégal.",
+      "Le Burkina Faso et le Mali sont limitrophes."
     ]
   },
   {
