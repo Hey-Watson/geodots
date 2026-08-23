@@ -120,11 +120,24 @@
   /* Explicit sizing, not left to the page's generic svg{width:100%} rule
      (meant for the puzzle board) -- that rule is what previously
      stretched this to fill its flex container at an oversized, undefined
-     size. Width is capped/responsive (not a fixed small box) so the
-     7-point wave spans a real portion of the row instead of reading as a
-     dense little cluster; height:auto follows the viewBox's own aspect
-     ratio, so the arc's proportions stay correct at any width. */
+     size. Below 480px this is min(70%, 300px), unchanged from the
+     original 7-point version -- narrow/mobile behavior is untouched.
+     Above 480px, .page has (almost) reached its own 520px max-width, and
+     70% of that (364px) is LESS than the 435px the 10-point wave now
+     needs at its original dot size/spacing -- .page's own hard cap means
+     no percentage-of-container formula can ever reach 435px here, so
+     that tier switches to a flat 435px instead of scaling off a
+     percentage. That's wide enough that "10-day streak" no longer fits
+     on the same line as the dots (.page tops out at 520px, and
+     435 + the 12px gap already leaves under 90px) -- the row wraps to a
+     second line there, which flex-wrap already handles; the alternative
+     was shrinking the dots below their original size, which was
+     explicitly ruled out. height:auto follows the viewBox's own aspect
+     ratio either way. */
   #streakStars { display: block; flex-shrink: 0; width: min(70%, 300px); height: auto; }
+  @media (min-width: 480px) {
+    #streakStars { width: 435px; }
+  }
   .streak-star { fill: var(--ground-deep); stroke: var(--line); stroke-width: 1; }
   .streak-star.lit {
     fill: var(--brass-bright); stroke: var(--brass-bright);
@@ -383,7 +396,7 @@
   <p class="sub" id="subtitle"></p>
 
   <div class="streak-strip hidden" id="streakStrip">
-    <svg id="streakStars" viewBox="0 0 300 40" aria-hidden="true"></svg>
+    <svg id="streakStars" viewBox="0 0 435 40" aria-hidden="true"></svg>
     <span id="streakText"></span>
   </div>
 
@@ -801,13 +814,16 @@
   // Fixed wave/arc template -- always these same 10 positions, never
   // randomized or recomputed from the streak length itself. Only how many
   // of them are "lit" (and thus how many connecting lines are drawn)
-  // changes. Evenly spaced across the same 300-wide viewBox the 7-point
-  // version used (there was room to spare -- see the reference
-  // screenshot), same wave amplitude/shape, just more points along it.
+  // changes. Same 45-unit spacing and 20-32 y-range (same dot size, same
+  // gaps, same wave amplitude/shape) as the original 7-point version --
+  // the extra 3 points extend the strip outward at that identical
+  // spacing rather than compressing 10 points into the old 300-wide
+  // viewBox, which is why the viewBox and #streakStars's width cap above
+  // both grew from 300 to 435 to match.
   const STREAK_LAP = 10;
   const STREAK_POINTS = [
-    [15, 32], [45, 27.9], [75, 24.3], [105, 21.6], [135, 20.2],
-    [165, 20.2], [195, 21.6], [225, 24.3], [255, 27.9], [285, 32],
+    [15, 32], [60, 27.9], [105, 24.3], [150, 21.6], [195, 20.2],
+    [240, 20.2], [285, 21.6], [330, 24.3], [375, 27.9], [420, 32],
   ];
 
   function renderStreak() {
