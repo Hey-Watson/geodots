@@ -130,6 +130,12 @@
     fill: var(--brass-bright); stroke: var(--brass-bright);
     filter: drop-shadow(0 0 2px rgba(201, 168, 118, 0.7));
   }
+  /* Slightly brighter glow on every lit star at the exact moment a
+     10-day lap completes (streak is a multiple of 10) -- a small,
+     one-render flourish, not an ongoing state. */
+  .streak-star.lit.lap-complete {
+    filter: drop-shadow(0 0 4px rgba(201, 168, 118, 0.95));
+  }
   .streak-line { stroke: var(--brass); stroke-width: 1.2; opacity: 0.6; }
   #streakText { font-size: 13px; color: var(--ink-dim); }
 
@@ -792,12 +798,16 @@
     return streak;
   }
 
-  // Fixed wave/arc template -- always these same 7 positions, never
+  // Fixed wave/arc template -- always these same 10 positions, never
   // randomized or recomputed from the streak length itself. Only how many
   // of them are "lit" (and thus how many connecting lines are drawn)
-  // changes.
+  // changes. Evenly spaced across the same 300-wide viewBox the 7-point
+  // version used (there was room to spare -- see the reference
+  // screenshot), same wave amplitude/shape, just more points along it.
+  const STREAK_LAP = 10;
   const STREAK_POINTS = [
-    [15, 32], [60, 27], [105, 22.5], [150, 20], [195, 22.5], [240, 27], [285, 32],
+    [15, 32], [45, 27.9], [75, 24.3], [105, 21.6], [135, 20.2],
+    [165, 20.2], [195, 21.6], [225, 24.3], [255, 27.9], [285, 32],
   ];
 
   function renderStreak() {
@@ -809,7 +819,14 @@
     }
     strip.classList.remove('hidden');
 
-    const litCount = Math.min(streak, 7);
+    // The constellation is a repeating 10-day lap, not a lifetime cap --
+    // streak 10 completes a lap (all 10 lit), streak 11 starts a new one
+    // (1 lit), streak 20 completes the second lap, and so on. The
+    // visibility check above still uses the real streak, not this lap
+    // position, so the strip never disappears when a lap boundary is
+    // crossed.
+    const litCount = ((streak - 1) % STREAK_LAP) + 1;
+    const lapComplete = streak % STREAK_LAP === 0;
     const NS = 'http://www.w3.org/2000/svg';
     const svg = document.getElementById('streakStars');
     svg.innerHTML = '';
@@ -829,7 +846,7 @@
       c.setAttribute('cx', x);
       c.setAttribute('cy', y);
       c.setAttribute('r', lit ? 3.5 : 2);
-      c.setAttribute('class', 'streak-star' + (lit ? ' lit' : ''));
+      c.setAttribute('class', 'streak-star' + (lit ? ' lit' : '') + (lit && lapComplete ? ' lap-complete' : ''));
       svg.appendChild(c);
     });
 
