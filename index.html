@@ -165,6 +165,14 @@
     border: 1px solid var(--line); border-radius: 2px; padding: 8px;
   }
   svg { width: 100%; height: auto; display: block; }
+  /* Without this, a touch-drag meant to pan the board also scrolls the
+     page underneath it (the browser's default touch behavior for any
+     element it doesn't otherwise recognize as a scroll/drag target). */
+  /* Also prevents the browser's native text-selection drag behavior from
+     kicking in when a pan drag happens to pass over a node/silhouette
+     label -- without this, dragging across text visibly highlights it,
+     which reads as broken even though panning itself works fine. */
+  #graph { touch-action: none; user-select: none; -webkit-user-select: none; }
 
   /* Country silhouettes, revealed on solve (see COUNTRY_SILHOUETTES /
      country_silhouettes.json) -- faint fill, thin stroke, sitting behind
@@ -225,13 +233,18 @@
   }
   button.secondary:hover { color: var(--ink); border-color: var(--brass); }
 
-  /* Board zoom: a small, secondary-weight control pinned inside the
-     chart's own corner rather than a third row of full-size buttons --
-     it's a minor view adjustment, not a primary action, so it reads at
-     a visibly smaller scale than Check answer/Reset. Buttons only, no
-     drag-to-pan or touch gestures, by design (see renderGraph's zoom
-     comment for why). */
-  .zoom-controls { position: absolute; top: 8px; right: 8px; display: flex; gap: 4px; }
+  /* Board zoom: a small, secondary-weight control in a row below the
+     chart -- not overlaid inside it, so it can never sit on top of
+     board content (the earlier corner-overlay design was replaced once
+     panning meant the player could bring any part of the puzzle under
+     any corner of the frame). A minor view adjustment, not a primary
+     action, so it reads at a visibly smaller scale than Check
+     answer/Reset. Panning itself is real drag now (mouse or touch,
+     directly on the board) -- see renderGraph's zoom/pan comment and
+     the onGraphPointer* handlers for how it's disambiguated from
+     tap-to-select. */
+  .board-controls { display: flex; justify-content: flex-end; margin-top: 8px; }
+  .zoom-controls { display: flex; gap: 4px; }
   .zoom-btn {
     font-family: 'IBM Plex Mono', monospace; font-size: 15px; line-height: 1;
     width: 26px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center;
@@ -427,6 +440,8 @@
   <div id="puzzleContent">
     <div class="chart">
       <svg id="graph" viewBox="0 0 480 300"></svg>
+    </div>
+    <div class="board-controls">
       <div class="zoom-controls">
         <button class="zoom-btn" id="zoomOutBtn" type="button">&minus;</button>
         <button class="zoom-btn" id="zoomInBtn" type="button">+</button>
@@ -683,6 +698,18 @@
   // the plain board Reset, which keeps the same puzzle).
   const ZOOM_MIN = 0.6, ZOOM_MAX = 2.5, ZOOM_STEP = 1.25;
   let zoomLevel = 1;
+  // Board pan: an x/y offset applied after zoom, in the same SVG
+  // coordinate units as the viewBox (see the pan block at the end of
+  // renderGraph()). Driven by drag (see onGraphPointerMove below), which
+  // converts screen-pixel drag distance into this same coordinate space.
+  // Clamped every render to keep the panned+zoomed window inside the
+  // puzzle's actual content box -- see renderGraph(); panBounds below is
+  // that same render's clamp range, currently just kept for reference
+  // (nothing reads it outside renderGraph now that there are no pan
+  // buttons to disable, but it costs nothing to leave computed there).
+  // Reset to (0,0) at the exact same points zoomLevel resets to 1.
+  let panX = 0, panY = 0;
+  let panBounds = { minPanX: 0, maxPanX: 0, minPanY: 0, maxPanY: 0 };
   let progress = freshProgress(); // persisted per puzzle, see loadProgress()
   // Snapshot of progress.solved taken the moment a puzzle is loaded, before
   // any interaction this session -- distinct from the live progress.solved,
@@ -1021,6 +1048,7 @@
     }
     selectedNode = null;
     zoomLevel = 1;
+    panX = 0; panY = 0;
     lastCheckFailed = false;
     render();
   }
@@ -1317,15 +1345,16 @@
     }
   }
 
-  // Buttons only -- no drag-to-pan, no touch/gesture zoom. Adding either
-  // would need to disambiguate a drag/pinch from the existing tap-node /
-  // tap-name interaction, which is exactly the complexity this feature
-  // is deliberately avoiding. zoomLevel is clamped so a player can zoom
-  // out only a little past 1x (the board's already-sized frame) and in
-  // only far enough to still show the whole node cluster in context.
+  // Zoom stays buttons-only -- no pinch/gesture zoom. Pan, below, is
+  // real drag now (mouse or touch), disambiguated from tap-to-select by
+  // START POSITION alone: a gesture beginning on a node's own clickable
+  // hit area (the circle, cursor:pointer, only present when the board
+  // isn't locked-solved) is left completely alone for the browser's
+  // normal click handling; a gesture beginning anywhere else on the
+  // board starts a pan. No movement-distance threshold anywhere.
   function setZoom(next) {
     zoomLevel = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, next));
-    renderGraph();
+    renderGraph(); // also re-clamps panX/panY, since zooming changes the pan range
     updateZoomButtons();
   }
   function zoomIn() { setZoom(zoomLevel * ZOOM_STEP); }
@@ -1336,6 +1365,56 @@
     if (!inBtn || !outBtn) return;
     inBtn.disabled = zoomLevel >= ZOOM_MAX - 1e-9;
     outBtn.disabled = zoomLevel <= ZOOM_MIN + 1e-9;
+  }
+
+  // True iff `target` is a node's own clickable circle -- the exact
+  // element the existing tap-to-select click handler is attached to
+  // (see renderGraph: cursor is only set to 'pointer', and the click
+  // listener only attached, when the board isn't locked-solved). This
+  // is the one check that decides drag vs. tap: starting here never
+  // begins a pan, regardless of how far the pointer moves afterward.
+  function isNodeHit(target) {
+    return !!target && target.tagName === 'circle' && target.style.cursor === 'pointer';
+  }
+
+  let dragging = false;
+  let dragStartClientX = 0, dragStartClientY = 0;
+  let dragStartPanX = 0, dragStartPanY = 0;
+
+  function onGraphPointerDown(e) {
+    if (!puzzle || isNodeHit(e.target)) return; // leave tap-to-select alone
+    dragging = true;
+    dragStartClientX = e.clientX;
+    dragStartClientY = e.clientY;
+    dragStartPanX = panX;
+    dragStartPanY = panY;
+    const svg = document.getElementById('graph');
+    try { svg.setPointerCapture(e.pointerId); } catch (err) { /* older browsers -- drag still works via document-level listeners below */ }
+  }
+
+  function onGraphPointerMove(e) {
+    if (!dragging) return;
+    const svg = document.getElementById('graph');
+    const rect = svg.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return; // not currently visible
+    const vb = svg.viewBox.baseVal;
+    // Screen-pixel drag distance converted to SVG units via the current
+    // viewBox-to-screen scale -- dragging the cursor right should bring
+    // content on the LEFT into view, i.e. move the viewBox window left,
+    // so panX moves opposite the drag direction (the usual "grab the
+    // map and slide it" feel).
+    const scaleX = vb.width / rect.width;
+    const scaleY = vb.height / rect.height;
+    panX = dragStartPanX - (e.clientX - dragStartClientX) * scaleX;
+    panY = dragStartPanY - (e.clientY - dragStartClientY) * scaleY;
+    renderGraph(); // clamps panX/panY against the content box, same as before
+  }
+
+  function onGraphPointerUp(e) {
+    if (!dragging) return;
+    dragging = false;
+    const svg = document.getElementById('graph');
+    try { svg.releasePointerCapture(e.pointerId); } catch (err) { /* already released/unsupported */ }
   }
 
   function renderGraph() {
@@ -1414,12 +1493,16 @@
       viewMinX -= pad; viewMinY -= pad; viewMaxX += pad; viewMaxY += pad;
     }
 
-    // Board zoom, applied last -- a multiplier on top of whichever box
-    // the logic above produced (fixed W x H, or the dynamic silhouette-
-    // expanded one), centered on THAT box's own center point rather than
-    // a fixed origin. This is why zoom needs no separate pan state: the
-    // content the player cares about (the node cluster / revealed
-    // silhouettes) is already centered in the box being zoomed.
+    // The box as computed so far -- fixed W x H, or the dynamic
+    // silhouette-expanded one -- is the puzzle's actual content extent.
+    // Zoom and pan both need it: zoom centers on it, pan is clamped to
+    // stay inside it.
+    const baseMinX = viewMinX, baseMinY = viewMinY, baseMaxX = viewMaxX, baseMaxY = viewMaxY;
+
+    // Board zoom, applied first -- a multiplier on top of the content
+    // box above, centered on THAT box's own center point rather than a
+    // fixed origin, so zooming alone (before any panning) always keeps
+    // the content centered.
     if (zoomLevel !== 1) {
       const cx = (viewMinX + viewMaxX) / 2;
       const cy = (viewMinY + viewMaxY) / 2;
@@ -1428,6 +1511,23 @@
       viewMinX = cx - zoomedW / 2; viewMaxX = cx + zoomedW / 2;
       viewMinY = cy - zoomedH / 2; viewMaxY = cy + zoomedH / 2;
     }
+
+    // Board pan, applied on top of the zoomed box -- a plain x/y
+    // translation, clamped so the panned+zoomed window can never move
+    // outside the content box above. When zoomed out to 1x or below,
+    // the zoomed box is already >= the content box in both dimensions,
+    // so both bounds collapse to 0 and panning becomes a no-op --
+    // panning only ever does anything once zoomed in past 1x.
+    const minPanX = Math.min(0, baseMinX - viewMinX);
+    const maxPanX = Math.max(0, baseMaxX - viewMaxX);
+    const minPanY = Math.min(0, baseMinY - viewMinY);
+    const maxPanY = Math.max(0, baseMaxY - viewMaxY);
+    panX = Math.max(minPanX, Math.min(maxPanX, panX));
+    panY = Math.max(minPanY, Math.min(maxPanY, panY));
+    panBounds = { minPanX, maxPanX, minPanY, maxPanY };
+    viewMinX += panX; viewMaxX += panX;
+    viewMinY += panY; viewMaxY += panY;
+
     svg.setAttribute('viewBox', [viewMinX, viewMinY, viewMaxX - viewMinX, viewMaxY - viewMinY].join(' '));
 
     // Faint lat/long graticule behind everything, same proportions as the
@@ -1699,6 +1799,7 @@
     assignment = {};
     selectedNode = null;
     zoomLevel = 1;
+    panX = 0; panY = 0;
     lastCheckFailed = false;
     document.getElementById('hint').textContent = '';
     render();
@@ -1733,6 +1834,15 @@
   document.getElementById('fullResetBtn').addEventListener('click', fullReset);
   document.getElementById('zoomInBtn').addEventListener('click', zoomIn);
   document.getElementById('zoomOutBtn').addEventListener('click', zoomOut);
+  // Drag-to-pan: attached once, directly on the board's own SVG, rather
+  // than re-attached inside renderGraph() (which rebuilds the node/edge/
+  // silhouette elements every render but never touches the <svg> element
+  // itself, so a listener here survives every re-render undisturbed).
+  const graphSvg = document.getElementById('graph');
+  graphSvg.addEventListener('pointerdown', onGraphPointerDown);
+  graphSvg.addEventListener('pointermove', onGraphPointerMove);
+  graphSvg.addEventListener('pointerup', onGraphPointerUp);
+  graphSvg.addEventListener('pointercancel', onGraphPointerUp);
 
   // Info popover: click (not hover, so it works on touch) toggles it; a
   // click anywhere outside the icon/popover closes it.
