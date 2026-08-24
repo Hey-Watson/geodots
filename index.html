@@ -315,7 +315,14 @@
      same muted/underlined treatment as the plain-text links next to it
      (no icon, unlike the header's circular "i"), but it's a <button>
      (not an <a>) since it opens a popover rather than navigating. */
-  .footer-info-wrap { position: relative; display: inline-flex; vertical-align: baseline; }
+  /* Cancels the 10px margin-left the shared .info-wrap class carries for
+     the header's icon spacing -- this element also needs .info-wrap for
+     its popover positioning/toggle logic, but reusing that class here
+     was quietly adding an extra 10px on top of the JS-appended " · "
+     separator already providing the gap, making this separator visibly
+     wider than the one before it (measured via getBoundingClientRect:
+     19.3px here vs 9.3px for the matching " · " elsewhere). */
+  .footer-info-wrap { position: relative; display: inline-flex; vertical-align: baseline; margin-left: 0; }
   .footer-info-trigger {
     font-family: inherit; font-size: inherit; color: var(--ink-dim);
     text-decoration: underline; background: none; border: none; padding: 0;
@@ -530,8 +537,7 @@
   </div>
 
   <div class="site-credit">
-    <span id="siteCredit"></span>
-    <span class="info-wrap footer-info-wrap">
+    <span id="siteCredit"></span><span class="info-wrap footer-info-wrap">
       <button id="aboutMapsBtn" class="footer-info-trigger" type="button" aria-haspopup="true" aria-expanded="false"></button>
       <div id="aboutMapsPopover" class="popover hidden" role="dialog"></div>
     </span>
@@ -605,7 +611,7 @@
       puzzleLabel: 'Puzzle nº',
       difficultyLabel: 'Difficulté : ',
       difficulty: { EASY: 'FACILE', MEDIUM: 'MOYEN', HARD: 'DIFFICILE' },
-      decoyNote: '  (quelques noms proposés sont des leurres qui ne correspondent à aucun nœud)',
+      decoyNote: '  (certains noms proposés sont des leurres et ne correspondent à aucun point)',
       launchPrefix: 'Le recueil démarre le ',
       launchMiddle: ' -- aujourd’hui (',
       launchSuffix: ') est avant cette date, donc le premier puzzle est affiché en aperçu.',
@@ -625,7 +631,7 @@
       replay: 'Rejouer',
       confirmReset: "Réinitialiser le puzzle du jour ? Cela efface votre nombre d'essais et votre statut de résolution.",
       infoAriaLabel: 'Comment jouer',
-      info: "Chaque point représente un lieu réel, positionné à son emplacement exact sur la carte, mais son nom est caché. Les lignes entre les points sont de vraies frontières. Lisez les indices ci-dessous, puis associez chaque nom de la liste au point auquel vous pensez qu'il correspond. Vérifiez votre réponse autant de fois que vous le souhaitez. Il n'y a aucune pénalité en cas d'erreur. Un nouveau puzzle est publié chaque jour. Revenez demain pour le suivant. Jouez sur le même appareil chaque jour pour maintenir vos séries.",
+      info: "Chaque point correspond à un lieu réel, positionné à son emplacement exact sur la carte, mais son nom est masqué. Les lignes entre les points représentent de vraies frontières. Lisez les indices ci-dessous, puis associez chaque nom de la liste au point qui lui correspond. Vérifiez vos réponses autant de fois que vous le souhaitez : il n'y a aucune pénalité en cas d'erreur. Un nouveau puzzle est proposé chaque jour, alors revenez demain pour le suivant. Pour conserver vos séries, jouez sur le même appareil chaque jour.",
       notReady: 'Le puzzle du jour est encore en préparation. Revenez bientôt.',
       alreadySolved: "Vous avez déjà résolu le puzzle d'aujourd'hui. Revenez demain pour le suivant, ou cliquez sur Rejouer pour recommencer.",
       alreadySolvedArchive: "Vous avez déjà résolu celui-ci. Parcourez les précédents dans 'Geodots précédents' ou cliquez sur 'Rejouer' pour recommencer.",
@@ -639,7 +645,7 @@
       zoomIn: 'Zoom avant',
       zoomOut: 'Zoom arrière',
       aboutMaps: 'À propos des cartes',
-      aboutMapsInfo: "Geodots s'appuie sur Natural Earth, un jeu de données cartographiques public et gratuit, principalement à l'échelle 1:110 000 000. Un petit nombre de territoires absents de ce fichier proviennent de la version plus détaillée de Natural Earth, à l'échelle 1:10 000 000. La présence d'un lieu reflète la façon dont le jeu de données le désigne, pas une prise de position politique. Il s'agit d'un instantané fixe, pas d'un flux en direct. Les changements de frontières réels ne sont pas reflétés automatiquement.",
+      aboutMapsInfo: "Geodots tire ses frontières et positions de Natural Earth, une base de données cartographiques libre de droits. Les données utilisées sont principalement à l'échelle 1:110 000 000, complétées pour quelques territoires manquants par la version plus détaillée de Natural Earth à l'échelle 1:10 000 000. L'inclusion d'un lieu reflète son étiquetage dans la base de données, et non une prise de position sur son statut politique. Il s'agit d'une capture instantanée figée, et non d'un flux en temps réel : les changements de frontières dans le monde réel ne sont pas mis à jour automatiquement.",
     },
   };
 
