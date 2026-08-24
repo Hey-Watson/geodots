@@ -224,6 +224,22 @@
     border: 1px solid var(--line); border-radius: 2px; cursor: pointer;
   }
   button.secondary:hover { color: var(--ink); border-color: var(--brass); }
+
+  /* Board zoom: a small, secondary-weight control pinned inside the
+     chart's own corner rather than a third row of full-size buttons --
+     it's a minor view adjustment, not a primary action, so it reads at
+     a visibly smaller scale than Check answer/Reset. Buttons only, no
+     drag-to-pan or touch gestures, by design (see renderGraph's zoom
+     comment for why). */
+  .zoom-controls { position: absolute; top: 8px; right: 8px; display: flex; gap: 4px; }
+  .zoom-btn {
+    font-family: 'IBM Plex Mono', monospace; font-size: 15px; line-height: 1;
+    width: 26px; height: 26px; padding: 0; display: flex; align-items: center; justify-content: center;
+    background: var(--ground); color: var(--ink-dim);
+    border: 1px solid var(--line); border-radius: 2px; cursor: pointer;
+  }
+  .zoom-btn:hover:not(:disabled) { color: var(--ink); border-color: var(--brass); }
+  .zoom-btn:disabled { opacity: 0.35; cursor: default; }
   .status { font-family: 'Source Serif 4', serif; font-size: 13px; color: var(--ink-dim); }
   .status.good { color: var(--brass-bright); font-weight: 600; }
   .status.bad { color: var(--danger); }
@@ -411,6 +427,10 @@
   <div id="puzzleContent">
     <div class="chart">
       <svg id="graph" viewBox="0 0 480 300"></svg>
+      <div class="zoom-controls">
+        <button class="zoom-btn" id="zoomOutBtn" type="button">&minus;</button>
+        <button class="zoom-btn" id="zoomInBtn" type="button">+</button>
+      </div>
     </div>
 
     <div class="clues">
@@ -513,6 +533,8 @@
       creditPrefix: 'By ',
       creditSuffix: ' © 2026',
       coffeeLink: 'Support Geodots',
+      zoomIn: 'Zoom in',
+      zoomOut: 'Zoom out',
     },
     fr: {
       pageTitle: 'Geodots, Devinette Géographique Quotidienne',
@@ -556,6 +578,8 @@
       creditPrefix: 'Par ',
       creditSuffix: ' © 2026',
       coffeeLink: 'Soutenir Geodots',
+      zoomIn: 'Zoom avant',
+      zoomOut: 'Zoom arrière',
     },
   };
 
@@ -652,6 +676,13 @@
   let trayNames = [];   // real names + decoys (if any), shuffled together
   let assignment = {};  // nodeIndex -> assigned name
   let selectedNode = null;
+  // Board zoom: a plain multiplier applied on top of whichever viewBox
+  // renderGraph() would otherwise compute (fixed unsolved box, or the
+  // dynamic silhouette-expanded one) -- see the zoom block at the end of
+  // renderGraph(). Reset to 1 on every puzzle load and on Replay (not on
+  // the plain board Reset, which keeps the same puzzle).
+  const ZOOM_MIN = 0.6, ZOOM_MAX = 2.5, ZOOM_STEP = 1.25;
+  let zoomLevel = 1;
   let progress = freshProgress(); // persisted per puzzle, see loadProgress()
   // Snapshot of progress.solved taken the moment a puzzle is loaded, before
   // any interaction this session -- distinct from the live progress.solved,
@@ -989,6 +1020,7 @@
       assignment = {};
     }
     selectedNode = null;
+    zoomLevel = 1;
     lastCheckFailed = false;
     render();
   }
@@ -1146,6 +1178,10 @@
     document.getElementById('copyBtn').textContent = t('copyResult');
     document.getElementById('shareBtn').textContent = t('shareBtn');
     document.getElementById('fullResetBtn').textContent = t('replay');
+    document.getElementById('zoomInBtn').setAttribute('aria-label', t('zoomIn'));
+    document.getElementById('zoomInBtn').title = t('zoomIn');
+    document.getElementById('zoomOutBtn').setAttribute('aria-label', t('zoomOut'));
+    document.getElementById('zoomOutBtn').title = t('zoomOut');
 
     if (puzzle) {
       renderGraph();
@@ -1153,6 +1189,7 @@
       renderTray();
       renderStatus();
     }
+    updateZoomButtons();
     renderArchive();
   }
 
@@ -1280,6 +1317,27 @@
     }
   }
 
+  // Buttons only -- no drag-to-pan, no touch/gesture zoom. Adding either
+  // would need to disambiguate a drag/pinch from the existing tap-node /
+  // tap-name interaction, which is exactly the complexity this feature
+  // is deliberately avoiding. zoomLevel is clamped so a player can zoom
+  // out only a little past 1x (the board's already-sized frame) and in
+  // only far enough to still show the whole node cluster in context.
+  function setZoom(next) {
+    zoomLevel = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, next));
+    renderGraph();
+    updateZoomButtons();
+  }
+  function zoomIn() { setZoom(zoomLevel * ZOOM_STEP); }
+  function zoomOut() { setZoom(zoomLevel / ZOOM_STEP); }
+  function updateZoomButtons() {
+    const inBtn = document.getElementById('zoomInBtn');
+    const outBtn = document.getElementById('zoomOutBtn');
+    if (!inBtn || !outBtn) return;
+    inBtn.disabled = zoomLevel >= ZOOM_MAX - 1e-9;
+    outBtn.disabled = zoomLevel <= ZOOM_MIN + 1e-9;
+  }
+
   function renderGraph() {
     const svg = document.getElementById('graph');
     svg.innerHTML = '';
@@ -1354,6 +1412,21 @@
 
       const pad = 15;
       viewMinX -= pad; viewMinY -= pad; viewMaxX += pad; viewMaxY += pad;
+    }
+
+    // Board zoom, applied last -- a multiplier on top of whichever box
+    // the logic above produced (fixed W x H, or the dynamic silhouette-
+    // expanded one), centered on THAT box's own center point rather than
+    // a fixed origin. This is why zoom needs no separate pan state: the
+    // content the player cares about (the node cluster / revealed
+    // silhouettes) is already centered in the box being zoomed.
+    if (zoomLevel !== 1) {
+      const cx = (viewMinX + viewMaxX) / 2;
+      const cy = (viewMinY + viewMaxY) / 2;
+      const zoomedW = (viewMaxX - viewMinX) / zoomLevel;
+      const zoomedH = (viewMaxY - viewMinY) / zoomLevel;
+      viewMinX = cx - zoomedW / 2; viewMaxX = cx + zoomedW / 2;
+      viewMinY = cy - zoomedH / 2; viewMaxY = cy + zoomedH / 2;
     }
     svg.setAttribute('viewBox', [viewMinX, viewMinY, viewMaxX - viewMinX, viewMaxY - viewMinY].join(' '));
 
@@ -1625,6 +1698,7 @@
     ensureTimerStarted(); // restart the hidden timer immediately, as if freshly loaded
     assignment = {};
     selectedNode = null;
+    zoomLevel = 1;
     lastCheckFailed = false;
     document.getElementById('hint').textContent = '';
     render();
@@ -1657,6 +1731,8 @@
     document.getElementById('shareBtn').classList.remove('hidden');
   }
   document.getElementById('fullResetBtn').addEventListener('click', fullReset);
+  document.getElementById('zoomInBtn').addEventListener('click', zoomIn);
+  document.getElementById('zoomOutBtn').addEventListener('click', zoomOut);
 
   // Info popover: click (not hover, so it works on touch) toggles it; a
   // click anywhere outside the icon/popover closes it.
