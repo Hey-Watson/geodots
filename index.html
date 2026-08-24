@@ -294,6 +294,22 @@
   }
   .site-credit a { color: var(--ink-dim); text-decoration: underline; }
   .site-credit a:hover { color: var(--brass-bright); }
+  /* The "About the maps" trigger sits inline in the footer credit line --
+     same muted/underlined treatment as the plain-text links next to it
+     (no icon, unlike the header's circular "i"), but it's a <button>
+     (not an <a>) since it opens a popover rather than navigating. */
+  .footer-info-wrap { position: relative; display: inline-flex; vertical-align: baseline; }
+  .footer-info-trigger {
+    font-family: inherit; font-size: inherit; color: var(--ink-dim);
+    text-decoration: underline; background: none; border: none; padding: 0;
+    cursor: pointer;
+  }
+  .footer-info-trigger:hover, .footer-info-trigger.active { color: var(--brass-bright); }
+  /* This popover opens above its trigger (top:auto; bottom:22px) rather
+     than below like the header's -- the footer sits at the bottom of the
+     page, so opening downward would push the popover off-screen. Same
+     .popover box styling either way. */
+  .footer-info-wrap .popover { top: auto; bottom: 22px; right: auto; left: 50%; transform: translateX(-50%); }
 
   .hidden { display: none; }
 
@@ -494,7 +510,13 @@
     <div id="archiveList" class="archive-grid"></div>
   </div>
 
-  <p class="site-credit" id="siteCredit"></p>
+  <div class="site-credit">
+    <span id="siteCredit"></span>
+    <span class="info-wrap footer-info-wrap">
+      <button id="aboutMapsBtn" class="footer-info-trigger" type="button" aria-haspopup="true" aria-expanded="false"></button>
+      <div id="aboutMapsPopover" class="popover hidden" role="dialog"></div>
+    </span>
+  </div>
 
 </div>
 
@@ -550,6 +572,8 @@
       coffeeLink: 'Support Geodots',
       zoomIn: 'Zoom in',
       zoomOut: 'Zoom out',
+      aboutMaps: 'About the maps',
+      aboutMapsInfo: "Geodots draws its borders and positions from Natural Earth, a free, public-domain map dataset, primarily at 1:110,000,000 scale. A small number of territories missing from that file were added from Natural Earth's more detailed 1:10,000,000 release. A place's inclusion reflects how the dataset itself labels it, not a position on political status. This is a fixed snapshot, not a live feed. Real-world border changes aren't reflected automatically.",
     },
     fr: {
       pageTitle: 'Geodots, Devinette Géographique Quotidienne',
@@ -595,6 +619,8 @@
       coffeeLink: 'Soutenir Geodots',
       zoomIn: 'Zoom avant',
       zoomOut: 'Zoom arrière',
+      aboutMaps: 'À propos des cartes',
+      aboutMapsInfo: "Geodots s'appuie sur Natural Earth, un jeu de données cartographiques public et gratuit, principalement à l'échelle 1:110 000 000. Un petit nombre de territoires absents de ce fichier proviennent de la version plus détaillée de Natural Earth, à l'échelle 1:10 000 000. La présence d'un lieu reflète la façon dont le jeu de données le désigne, pas une prise de position politique. Il s'agit d'un instantané fixe, pas d'un flux en direct. Les changements de frontières réels ne sont pas reflétés automatiquement.",
     },
   };
 
@@ -1182,9 +1208,12 @@
     coffeeLink.rel = 'noopener';
     coffeeLink.textContent = t('coffeeLink');
     siteCredit.append(coffeeLink);
+    siteCredit.append(' · ');
 
     document.getElementById('infoBtn').setAttribute('aria-label', t('infoAriaLabel'));
     document.getElementById('infoPopover').textContent = t('info');
+    document.getElementById('aboutMapsBtn').textContent = t('aboutMaps');
+    document.getElementById('aboutMapsPopover').textContent = t('aboutMapsInfo');
 
     const subtitle = document.getElementById('subtitle');
     subtitle.textContent = '';
@@ -1844,19 +1873,35 @@
   graphSvg.addEventListener('pointerup', onGraphPointerUp);
   graphSvg.addEventListener('pointercancel', onGraphPointerUp);
 
-  // Info popover: click (not hover, so it works on touch) toggles it; a
-  // click anywhere outside the icon/popover closes it.
-  function setInfoOpen(open) {
-    document.getElementById('infoPopover').classList.toggle('hidden', !open);
-    document.getElementById('infoBtn').classList.toggle('active', open);
-    document.getElementById('infoBtn').setAttribute('aria-expanded', String(open));
+  // Popovers (header "i" info icon, footer "About the maps" link): click
+  // (not hover, so it works on touch) toggles the popover; a click
+  // anywhere outside its own trigger/box closes it; opening one closes
+  // the other, so at most one is ever open. Same toggle/dismiss logic for
+  // both -- just a different trigger id, popover id, and close-the-other
+  // callback each time.
+  function makePopoverToggle(btnId, popoverId) {
+    return function setOpen(open) {
+      document.getElementById(popoverId).classList.toggle('hidden', !open);
+      document.getElementById(btnId).classList.toggle('active', open);
+      document.getElementById(btnId).setAttribute('aria-expanded', String(open));
+    };
   }
+  const setInfoOpen = makePopoverToggle('infoBtn', 'infoPopover');
+  const setAboutMapsOpen = makePopoverToggle('aboutMapsBtn', 'aboutMapsPopover');
+
   document.getElementById('infoBtn').addEventListener('click', e => {
     e.stopPropagation();
+    setAboutMapsOpen(false);
     setInfoOpen(document.getElementById('infoPopover').classList.contains('hidden'));
   });
+  document.getElementById('aboutMapsBtn').addEventListener('click', e => {
+    e.stopPropagation();
+    setInfoOpen(false);
+    setAboutMapsOpen(document.getElementById('aboutMapsPopover').classList.contains('hidden'));
+  });
   document.addEventListener('click', e => {
-    if (!document.querySelector('.info-wrap').contains(e.target)) setInfoOpen(false);
+    if (!document.getElementById('infoBtn').closest('.info-wrap').contains(e.target)) setInfoOpen(false);
+    if (!document.getElementById('aboutMapsBtn').closest('.info-wrap').contains(e.target)) setAboutMapsOpen(false);
   });
 
   init();
