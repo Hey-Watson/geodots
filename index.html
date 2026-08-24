@@ -370,6 +370,14 @@
   .archive-dot.solved.medium { background: var(--brass-bright); }
   .archive-dot.solved.hard { background: var(--danger); }
   .archive-dot:hover { filter: brightness(1.3); }
+  /* Currently-viewed indicator: a ring outside the dot's own border,
+     independent of the difficulty color and the solved/unsolved fill --
+     outline (not border/box-shadow) so it never changes the dot's own
+     size or shifts grid layout, and outline-offset keeps a visible gap
+     so it reads as a distinct ring rather than just a thicker border,
+     even on a medium-difficulty dot where the border/fill already use
+     this same brass-bright color. */
+  .archive-dot.selected { outline: 2px solid var(--brass-bright); outline-offset: 2px; }
 </style>
 </head>
 <body>
@@ -634,7 +642,7 @@
       info: "Chaque point correspond à un lieu réel, positionné à son emplacement exact sur la carte, mais son nom est masqué. Les lignes entre les points représentent de vraies frontières. Lisez les indices ci-dessous, puis associez chaque nom de la liste au point qui lui correspond. Vérifiez vos réponses autant de fois que vous le souhaitez : il n'y a aucune pénalité en cas d'erreur. Un nouveau puzzle est proposé chaque jour, alors revenez demain pour le suivant. Pour conserver vos séries, jouez sur le même appareil chaque jour.",
       notReady: 'Le puzzle du jour est encore en préparation. Revenez bientôt.',
       alreadySolved: "Vous avez déjà résolu le puzzle d'aujourd'hui. Revenez demain pour le suivant, ou cliquez sur Rejouer pour recommencer.",
-      alreadySolvedArchive: "Vous avez déjà résolu celui-ci. Parcourez les précédents dans 'Geodots précédents' ou cliquez sur 'Rejouer' pour recommencer.",
+      alreadySolvedArchive: "Vous avez déjà résolu ce puzzle. Parcourez les Geodots précédents ou cliquez sur Rejouer pour recommencer.",
       archiveLabel: 'Geodots précédents',
       backToToday: "Retour à aujourd'hui",
       archiveSolved: 'Résolu',
@@ -1121,7 +1129,8 @@
       const solved = loadProgress(i).solved;
       const dot = document.createElement('button');
       dot.type = 'button';
-      dot.className = 'archive-dot ' + p.difficulty.toLowerCase() + (solved ? ' solved' : '');
+      dot.className = 'archive-dot ' + p.difficulty.toLowerCase() + (solved ? ' solved' : '') +
+        (i === puzzleIndex ? ' selected' : '');
       dot.textContent = String(i + 1);
       const region = p.region ? regionName(p.region) : '';
       const status = solved ? t('archiveSolved') : t('archiveNotSolved');
