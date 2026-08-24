@@ -43,9 +43,15 @@
     display: flex; justify-content: center; padding: 32px 16px;
   }
   .page {
-    max-width: 520px; width: 100%;
+    max-width: 720px; width: 100%;
     position: relative; z-index: 1; background: var(--ground);
   }
+  /* PREVIEW ONLY, not committed: hybrid width. .page is wide (720px) for
+     the header/board/archive/footer, but the clues/tray/controls/share
+     section reads better at the original narrower 520px -- this wraps
+     just that middle section and centers it independently within the
+     wider outer page. */
+  .inner-narrow { max-width: 520px; margin: 0 auto; }
 
   /* Atmospheric star field, fixed behind everything. Only ever visible in
      the empty margin around the card: .page carries its own opaque
@@ -220,6 +226,17 @@
   #hint { color: var(--brass-bright); font-size: 12.5px; min-height: 1.2em; margin: 2px 0 10px; font-style: italic; }
 
   .controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+  /* 45px, matched by direct measurement (getBoundingClientRect) against
+     the actual rendered gap between the Places tray and the "Clues"
+     heading -- not the 20px p.label margin-top alone, because the empty
+     #hint div sits between the tray and that heading and quietly
+     reserves its own height (min-height:1.2em plus its own margin) even
+     when it has no text in it, making the real visible Places-to-Clues
+     gap noticeably bigger than 20px. Scoped to just the clue list's own
+     button row (a ul directly followed by .controls), not the share
+     panel's internal Copy/Share row, which sits inside its own bordered
+     box with different spacing needs. */
+  .clues ul + .controls { margin-top: 45px; }
   button.primary {
     font-family: 'Source Serif 4', serif; font-size: 13px; letter-spacing: 0.03em;
     padding: 9px 18px; background: var(--brass); color: var(--ground-deep);
@@ -464,13 +481,14 @@
       </div>
     </div>
 
+    <div class="inner-narrow">
     <div class="clues">
-      <p class="label" id="cluesLabel">Clues</p>
-      <ul id="clueList"></ul>
-
       <p class="label" id="countriesLabel">Countries</p>
       <div class="tray" id="chips"></div>
       <div id="hint"></div>
+
+      <p class="label" id="cluesLabel">Clues</p>
+      <ul id="clueList"></ul>
 
       <div class="controls">
         <button class="primary" id="checkBtn">Check answer</button>
@@ -503,6 +521,7 @@
     </div>
 
     <button class="footer-link" id="fullResetBtn">Replay</button>
+    </div>
   </div>
 
   <div id="archiveSection" class="hidden">
