@@ -338,11 +338,21 @@
   .hidden { display: none; }
 
   .archive-back-link {
-    display: inline-block; margin: 0 0 16px;
+    display: inline-flex; align-items: center; gap: 4px; margin: 0 0 16px;
     font-family: 'Source Serif 4', serif; font-size: 12.5px; color: var(--brass-bright);
     text-decoration: underline; cursor: pointer;
   }
   .archive-back-link:hover { color: var(--ink); }
+  /* Same thin line-icon language as the share-panel icons (stroke, not
+     fill; 1.6 stroke-width; currentColor, so it always matches the
+     link's own brass/hover color automatically). Small and quiet on
+     purpose -- a single chevron, not a boxed button -- consistent with
+     how understated Replay and the other secondary links already are. */
+  /* Explicit size, not left to the page's generic svg{width:100%} rule
+     (meant for the puzzle board) -- that rule has stretched other small
+     icons on this page before (the streak stars, the zoom buttons) and
+     would do the same here without this override. */
+  .archive-back-link svg { flex-shrink: 0; width: 11px; height: 11px; }
 
   #archiveSection { margin-top: 20px; }
   #archiveSection p.label { margin: 20px 0 10px; }
@@ -1112,6 +1122,28 @@
     render();
   }
 
+  // Small left-pointing chevron for the "Back to today" link -- same
+  // thin-line style as the share-panel icons (stroke only, 1.6 width,
+  // currentColor so it always matches the link's own color, including
+  // on hover), built fresh each render since backLink's other content
+  // (the translated text) is also rebuilt from scratch each time.
+  function backArrowIcon() {
+    const NS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('width', '11');
+    svg.setAttribute('height', '11');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', '1.6');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    const path = document.createElementNS(NS, 'path');
+    path.setAttribute('d', 'M15 5l-7 7 7 7');
+    svg.appendChild(path);
+    return svg;
+  }
+
   function renderArchive() {
     const section = document.getElementById('archiveSection');
     const list = document.getElementById('archiveList');
@@ -1147,7 +1179,9 @@
     const backLink = document.getElementById('backToTodayLink');
     const showBack = viewingArchived && pageStatus === 'live';
     notice.classList.toggle('hidden', !showBack);
-    backLink.textContent = t('backToToday');
+    backLink.textContent = '';
+    backLink.append(backArrowIcon());
+    backLink.append(t('backToToday'));
     // Keyed off whether a puzzle is actually loaded, not pageStatus alone --
     // browsing into an archived puzzle from the not-ready view must still
     // reveal the board, even though "today" itself has nothing live.
