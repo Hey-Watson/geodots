@@ -23,8 +23,9 @@
 <meta name="twitter:description" content="Unlabelled countries, real borders, one true answer.">
 <meta name="twitter:image" content="https://playgeodots.com/og-image.png">
 <title>Geodots, Daily Geography Deduction Puzzle</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="icon" type="image/x-icon" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Serif+4:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -77,8 +78,19 @@
   .eyebrow {
     font-family: 'Source Serif 4', serif; font-size: 11px;
     color: var(--brass-bright); letter-spacing: 0.12em; text-transform: uppercase;
-    display: flex; justify-content: space-between; margin-bottom: 6px;
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;
   }
+  /* Explicit height, not left to the page's generic svg{width:100%} rule
+     (that rule targets the puzzle board's own <svg>, but this is a
+     plain <img> so it's not actually affected -- still sized explicitly
+     here rather than relying on the file's own pixel dimensions, same
+     reasoning as every other small icon on this page). Sized to read
+     clearly as a wordmark (the constellation icon has fine detail that
+     disappears if scaled down to match the 11px eyebrow text next to
+     it) while staying a clear "eyebrow", not competing with the "Chart
+     the region" heading below it. width:auto preserves the source
+     image's own aspect ratio. */
+  .wordmark { display: block; height: 22px; width: auto; }
   .eyebrow em { text-transform: none; }
   .eyebrow .sub-brand-link {
     text-transform: none; font-style: italic; color: inherit;
@@ -469,7 +481,7 @@
 <div class="page">
 
   <div class="eyebrow">
-    <span id="eyebrowLeft"></span>
+    <span id="eyebrowLeft"><img src="geodots-wordmark.png" alt="Geodots" class="wordmark"></span>
     <span class="eyebrow-right">
       <span id="eyebrowRight"></span>
       <span class="info-wrap">
@@ -1229,13 +1241,15 @@
     document.getElementById('title').textContent = t('heading');
     document.getElementById('tagline').textContent = t('tagline');
 
-    // "Geodots" stays plain everywhere else in the page (title, meta
-    // description, share line). The header eyebrow used to additionally
-    // show the italic sub-brand, e.g. "Geodots by Hey Watson!" -- that's
-    // switched off below (kept, not deleted, in case it comes back).
-    const eyebrowLeft = document.getElementById('eyebrowLeft');
-    eyebrowLeft.textContent = '';
-    eyebrowLeft.append('Geodots');
+    // "Geodots" stays plain text everywhere else on the page (title, meta
+    // description, share line) -- only the header eyebrow uses the image
+    // wordmark, and that's static markup (see #eyebrowLeft in the HTML),
+    // not rebuilt here, so there's nothing to do on this element per
+    // render. The eyebrow used to additionally show an italic sub-brand,
+    // e.g. "Geodots by Hey Watson!" -- kept as dead code below in case it
+    // comes back, but it appended into #eyebrowLeft, which now holds the
+    // logo image instead of plain text, so it would need a different
+    // home before being re-enabled.
     // const subBrandPrefix = document.createElement('em');
     // subBrandPrefix.textContent = t('subBrandPrefix');
     // eyebrowLeft.append(subBrandPrefix);
