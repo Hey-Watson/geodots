@@ -78,19 +78,24 @@
   .eyebrow {
     font-family: 'Source Serif 4', serif; font-size: 11px;
     color: var(--brass-bright); letter-spacing: 0.12em; text-transform: uppercase;
-    display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; row-gap: 4px; margin-bottom: 6px;
   }
   /* Explicit height, not left to the page's generic svg{width:100%} rule
      (that rule targets the puzzle board's own <svg>, but this is a
      plain <img> so it's not actually affected -- still sized explicitly
      here rather than relying on the file's own pixel dimensions, same
-     reasoning as every other small icon on this page). Sized to read
-     clearly as a wordmark (the constellation icon has fine detail that
-     disappears if scaled down to match the 11px eyebrow text next to
-     it) while staying a clear "eyebrow", not competing with the "Chart
-     the region" heading below it. width:auto preserves the source
-     image's own aspect ratio. */
-  .wordmark { display: block; height: 22px; width: auto; }
+     reasoning as every other small icon on this page). geodots-wordmark.png
+     was cropped tight to its visible ink (it originally carried huge,
+     asymmetric transparent padding -- 22.7% top / 36.6% bottom -- which
+     is what was making the logo look vertically misaligned against the
+     row's text: the padded box was centered by align-items:center, but
+     the ink inside it wasn't centered within its own box, so it visually
+     floated above where the text sat). 18px on the now-cropped file
+     reproduces the same on-screen ink size the previous "44px" (of a
+     mostly-empty box) actually rendered at, just correctly centered.
+     width:auto preserves the file's own (now-tight) aspect ratio. */
+  .wordmark { display: block; height: 18px; width: auto; }
   .eyebrow em { text-transform: none; }
   .eyebrow .sub-brand-link {
     text-transform: none; font-style: italic; color: inherit;
@@ -106,7 +111,14 @@
   .lang-opt.active { color: var(--brass-bright); font-weight: 600; cursor: default; }
   .lang-opt:hover:not(.active) { color: var(--ink); }
 
-  .eyebrow-right { display: inline-flex; align-items: center; }
+  /* flex-shrink: 0, and .eyebrow above has flex-wrap: wrap -- on a narrow
+     screen where this whole group doesn't fit next to the logo on one
+     line, that lets it drop to its own line under the logo as one piece,
+     rather than the browser's normal text flow breaking in the middle of
+     the group's own content (e.g. "EN" staying up top while "/ FR" drops
+     alone) -- confirmed that was happening with a long region name like
+     "Southeast Asia" before this rule was added. */
+  .eyebrow-right { display: inline-flex; align-items: center; flex-shrink: 0; }
   .info-wrap { position: relative; display: inline-flex; margin-left: 10px; }
   .info-icon {
     width: 15px; height: 15px; border-radius: 50%; padding: 0;
@@ -1245,21 +1257,7 @@
     // description, share line) -- only the header eyebrow uses the image
     // wordmark, and that's static markup (see #eyebrowLeft in the HTML),
     // not rebuilt here, so there's nothing to do on this element per
-    // render. The eyebrow used to additionally show an italic sub-brand,
-    // e.g. "Geodots by Hey Watson!" -- kept as dead code below in case it
-    // comes back, but it appended into #eyebrowLeft, which now holds the
-    // logo image instead of plain text, so it would need a different
-    // home before being re-enabled.
-    // const subBrandPrefix = document.createElement('em');
-    // subBrandPrefix.textContent = t('subBrandPrefix');
-    // eyebrowLeft.append(subBrandPrefix);
-    // const subBrandLink = document.createElement('a');
-    // subBrandLink.href = 'https://hey-watson.com';
-    // subBrandLink.target = '_blank';
-    // subBrandLink.rel = 'noopener';
-    // subBrandLink.className = 'sub-brand-link';
-    // subBrandLink.textContent = t('subBrandName');
-    // eyebrowLeft.append(subBrandLink);
+    // render.
 
     // `puzzle` is null in the 'not-ready' state (no live puzzle exists yet)
     // -- everything puzzle-specific below is guarded accordingly, and the
