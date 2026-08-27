@@ -96,6 +96,11 @@
      mostly-empty box) actually rendered at, just correctly centered.
      width:auto preserves the file's own (now-tight) aspect ratio. */
   .wordmark { display: block; height: 18px; width: auto; }
+  /* Wraps the logo image so it links back to today's puzzle (same
+     behavior as #backToTodayLink) -- inline-block so the anchor's own
+     box hugs the image tightly instead of taking the anchor's default
+     inline line-height, which would otherwise nudge .eyebrow's height. */
+  #logoLink { display: inline-block; }
   .eyebrow em { text-transform: none; }
   .eyebrow .sub-brand-link {
     text-transform: none; font-style: italic; color: inherit;
@@ -493,7 +498,7 @@
 <div class="page">
 
   <div class="eyebrow">
-    <span id="eyebrowLeft"><img src="geodots-wordmark.png" alt="Geodots" class="wordmark"></span>
+    <span id="eyebrowLeft"><a href="#" id="logoLink"><img src="geodots-wordmark.png" alt="Geodots" class="wordmark"></a></span>
     <span class="eyebrow-right">
       <span id="eyebrowRight"></span>
       <span class="info-wrap">
@@ -1213,6 +1218,11 @@
   }
 
   document.getElementById('backToTodayLink').addEventListener('click', e => {
+    e.preventDefault();
+    if (pageStatus === 'live') loadPuzzleAt(todayIndex);
+  });
+
+  document.getElementById('logoLink').addEventListener('click', e => {
     e.preventDefault();
     if (pageStatus === 'live') loadPuzzleAt(todayIndex);
   });
