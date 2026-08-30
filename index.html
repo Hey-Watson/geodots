@@ -312,6 +312,7 @@
   #share.hidden { display: none; }
   #share .controls { gap: 12px; }
   #shareLine { font-size: 14px; color: var(--brass-bright); font-weight: 600; }
+  #bestTimes { font-size: 12.5px; color: var(--ink-dim); margin: 0; }
   #copyStatus { font-size: 12px; color: var(--ink-dim); }
 
   .share-icons {
@@ -552,6 +553,7 @@
 
       <div id="share" class="hidden">
         <span id="shareLine"></span>
+        <p id="bestTimes" class="hidden"></p>
         <div class="controls">
           <button class="secondary" id="copyBtn">Copy result</button>
           <button class="secondary hidden" id="shareBtn">Share</button>
@@ -626,6 +628,7 @@
       checkWord: n => (n === 1 ? 'check' : 'checks'),
       copyResult: 'Copy result',
       shareBtn: 'Share',
+      bestTimesLabel: 'Your best times: ',
       copied: 'Copied!',
       copyFailed: "Couldn't copy. Select and copy the text manually.",
       replay: 'Replay',
@@ -673,6 +676,7 @@
       checkWord: n => (n === 1 ? 'essai' : 'essais'),
       copyResult: 'Copier le résultat',
       shareBtn: 'Partager',
+      bestTimesLabel: 'Vos meilleurs temps : ',
       copied: 'Copié !',
       copyFailed: 'Impossible de copier. Sélectionnez et copiez le texte manuellement.',
       replay: 'Rejouer',
@@ -861,6 +865,40 @@
     try {
       localStorage.setItem(storageKey(puzzleIndex), JSON.stringify(progress));
     } catch (e) { /* storage unavailable (e.g. private browsing) -- progress just won't persist */ }
+  }
+
+  // Local-only top-3 fastest solve times per puzzle, keyed the same way as
+  // storageKey() but never wiped by fullReset() (separate localStorage key)
+  // -- so replaying the same puzzle via "Replay" keeps accumulating
+  // candidates into the same top-3 list instead of losing history each
+  // time. Purely per-browser: there's no account system, so this can never
+  // be a real cross-player leaderboard, just "your own fastest here."
+  function bestTimesKey(idx) {
+    return 'borderPuzzleBestTimes:' + idx;
+  }
+
+  function loadBestTimes(idx) {
+    try {
+      const raw = localStorage.getItem(bestTimesKey(idx));
+      if (raw) {
+        const arr = JSON.parse(raw);
+        if (Array.isArray(arr)) return arr.filter(n => typeof n === 'number');
+      }
+    } catch (e) { /* corrupt or inaccessible storage -- treat as no record yet */ }
+    return [];
+  }
+
+  // Called exactly once per genuine solve (from checkAnswer()'s solvedNow
+  // branch), never from a re-render -- so revisiting an already-solved
+  // puzzle doesn't silently re-add its time to the list.
+  function recordBestTime(idx, seconds) {
+    const times = loadBestTimes(idx);
+    times.push(seconds);
+    times.sort((a, b) => a - b);
+    const top3 = times.slice(0, 3);
+    try {
+      localStorage.setItem(bestTimesKey(idx), JSON.stringify(top3));
+    } catch (e) { /* storage unavailable -- this solve's time just won't persist */ }
   }
 
   // Starts the hidden timer the first time this puzzle is ever loaded (or
@@ -1396,6 +1434,29 @@
     el.append(' ✦ playgeodots.com');
   }
 
+  // Shows this browser's own top-3 fastest solves of THIS puzzle (see
+  // recordBestTime() above for why it's per-browser, not a real
+  // leaderboard). Hidden entirely if there's no recorded time yet --
+  // shouldn't normally happen once solved (recordBestTime runs at the
+  // moment of solving), except for a puzzle solved in an older version of
+  // the site from before this feature existed, whose time was never
+  // captured and isn't retroactively reconstructed.
+  function renderBestTimes() {
+    const el = document.getElementById('bestTimes');
+    const times = loadBestTimes(puzzleIndex);
+    el.textContent = '';
+    if (times.length === 0) {
+      el.classList.add('hidden');
+      return;
+    }
+    el.classList.remove('hidden');
+    el.append(t('bestTimesLabel'));
+    times.forEach((seconds, i) => {
+      if (i > 0) el.append(' · ');
+      el.append(numSpan(formatElapsed(seconds)));
+    });
+  }
+
   // Share-intent links for one-click desktop sharing (no Web Share API
   // needed, works in every browser). WhatsApp/X/email reuse the same
   // share text as "Copy result"; Facebook's sharer only ever accepts a
@@ -1438,6 +1499,7 @@
       resultEl.className = 'status good';
       renderShareLine();
       renderShareIcons();
+      renderBestTimes();
       shareDiv.classList.remove('hidden');
       if (wasAlreadySolvedOnLoad) {
         alreadySolvedNote.textContent = viewingArchived ? t('alreadySolvedArchive') : t('alreadySolved');
@@ -1883,6 +1945,7 @@
         const startedAt = progress.startedAt != null ? progress.startedAt : Date.now();
         progress.elapsedSeconds = Math.max(0, Math.round((Date.now() - startedAt) / 1000));
         progress.solvedDate = todayIsoCached;
+        recordBestTime(puzzleIndex, progress.elapsedSeconds);
         renderGraph(); // repaint now that progress.solved is true -- this is
                         // what triggers the country-silhouette fade-in at
                         // the exact moment of solving, not on the next
