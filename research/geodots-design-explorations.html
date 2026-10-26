@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Geodots | Design explorations</title>
+<meta name="description" content="Three interactive Geodots design explorations using the same authentic geography puzzle.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Source+Serif+4:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root { font-family: 'Source Serif 4',Georgia,serif; --bg:#eae8e3; --text:#1e2a30; --mute:#617076; --border:#caccc6; --top:#f7f6f2; }
+* { box-sizing:border-box; }
+body { background:var(--bg);color:var(--text);margin:0; }
+button { cursor:pointer; font:inherit; }
+button:focus-visible, a:focus-visible { outline:3px solid #bf8e3c; outline-offset:3px; }
+button:disabled { cursor:default; opacity:.55; }
+.lab-top { background:var(--top); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:20; box-shadow:0 2px 12px rgba(18,27,35,.06); }
+.lab-inner { max-width:1500px; margin:auto; padding:15px 26px; display:flex;flex-direction:column; gap:14px; }
+.lab-header { display:flex;align-items:center;justify-content:space-between;gap:18px; }
+.kicker { font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:#526267;font-weight:700; }
+.lab-header h1 { font:600 clamp(21px,2.3vw,28px)/1.12 'Fraunces',Georgia,serif;margin:3px 0 0;letter-spacing:-.025em; }
+.lab-header .lab-description { max-width:480px;font-size:13px;color:#536267;line-height:1.45; }
+.lab-tools { display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap; }
+.segment { display:flex;align-items:center;flex-wrap:wrap;gap:5px; }
+.segment .seglabel { font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#728080;margin-right:6px; }
+.segment button { padding:8px 12px;min-height:36px;background:transparent;border:1px solid transparent;color:#43565c;border-radius:5px;font-size:12px;line-height:1.1; }
+.segment button.active { background:#1c3440;color:#f8f7f1;box-shadow:0 2px 6px rgba(22,50,60,.12); }
+.segment button:hover:not(.active) { background:#e7e8e3; }
+#liveStatus { padding:0 12px;min-height:24px;display:flex;align-items:center;font-size:11px;color:#526267; }
+main.lab { max-width:1560px;margin:auto;padding:25px clamp(12px,3vw,36px) 60px; }
+.scene-heading { display:flex;justify-content:space-between;gap:20px;align-items:flex-end;flex-wrap:wrap;margin:0 0 16px; }
+.scene-heading h2 { font:600 clamp(23px,3vw,35px) 'Fraunces',serif;letter-spacing:-.02em;margin:0; }
+.scene-heading p { font-size:14px;max-width:700px;color:#5c696c;margin:5px 0 0;line-height:1.5; }
+.scene-counter { font:500 11px 'IBM Plex Mono',monospace;color:#657378;white-space:nowrap; }
+.preview-host { background:#d5d9d7; padding:clamp(10px,2vw,22px);border:1px solid #c6ceca; border-radius:13px;display:flex;justify-content:center;align-items:flex-start;transition:background .2s; }
+.preview-host.mobile { background:#c5cbca; }
+.preview { container-type:inline-size; width:min(100%,1260px);margin:auto;box-shadow:0 24px 55px rgba(7,33,42,.17);transition:width .25s; }
+.preview-host.mobile .preview { width:min(100%,392px); }
+.prototype { display:none;position:relative;overflow:hidden; min-height:680px; }
+.prototype.active { display:block; }
+.prototype .scene-body { min-height:660px;position:relative; }
+.prototype .game-board { width:100%;height:auto;display:block;overflow:visible; }
+.prototype .board-element { cursor:pointer; }
+.prototype .board-element circle { transition:fill .2s,stroke-width .2s,filter .2s; }
+.prototype .board-element:hover circle.main-node { stroke-width:3; }
+.prototype .board-element.selected circle.main-node { stroke-width:3.5; }
+.prototype .node-tag {font-family:'Source Serif 4',serif; font-weight:700;pointer-events:none; }
+.prototype .map-label {font-family:'Source Serif 4',serif;font-weight:600;pointer-events:none; }
+.prototype .map-numeric {font:500 10px 'IBM Plex Mono',monospace;pointer-events:none; }
+.prototype .token {min-height:34px;font-size:13px;line-height:1.2;border-radius:3px;padding:7px 11px;white-space:nowrap;transition:transform .12s,border-color .12s; }
+.prototype .token:hover:not(:disabled) {transform:translateY(-1px);}
+.prototype .token.used {opacity:.35;text-decoration:line-through; }
+.prototype .token-row {display:flex;gap:7px;flex-wrap:wrap; }
+.prototype .clue-list {list-style:none;padding:0;margin:0; }
+.prototype .clue-list li {line-height:1.47; }
+.prototype .clue-list li::before {content:'✦';font-size:8px;margin-right:8px;opacity:.75; }
+.prototype .action-primary {border:0;border-radius:3px;padding:11px 18px;font-size:13px;font-weight:700;line-height:1.2;min-height:43px; }
+.prototype .action-secondary {background:transparent;border:1px solid currentColor;border-radius:3px;padding:10px 14px;min-height:43px;font-size:13px; }
+.prototype .action-primary:hover {filter:brightness(1.12);}
+.prototype .buttons {display:flex;gap:10px;align-items:center;flex-wrap:wrap; }
+.prototype .puzzle-msg {font-size:13px;margin:8px 0 0;min-height:19px;line-height:1.35; }
+.prototype .legend-number {font-family:'IBM Plex Mono',monospace; }
+.geosymbol { width:27px; height:27px;flex-shrink:0; }
+/* A: THE CHART ROOM */
+.concept-a {--navy:#1b2a38;--deep:#15232f;--brass:#b08d57;--bright:#c9a876;--light:#e8dfc8;--muted:#afa78f;--sage:#8baa86;color:var(--light);background:var(--navy); }
+.concept-a .scene-body { background:radial-gradient(ellipse at 10% 12%,rgba(213,181,104,.04),transparent 35%),radial-gradient(ellipse at 92% 10%,rgba(255,255,255,.025),transparent 18%),var(--navy); }
+.concept-a .topline {padding:26px 36px 19px;border-bottom:1px solid rgba(201,168,118,.26);display:flex;align-items:center;justify-content:space-between;gap:16px; }
+.concept-a .brandline {display:flex;align-items:center;gap:12px;font-size:15px;letter-spacing:.3em;font-weight:700;color:#e3c28c; }
+.concept-a .brandline svg {stroke:#c9a876;}
+.concept-a .topmeta {font-size:11px;letter-spacing:.13em;color:var(--muted);text-transform:uppercase; }
+.concept-a .mainpad {padding:32px 36px 30px;}
+.concept-a .micro {font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--bright); }
+.concept-a h2 {font:600 clamp(32px,4.8vw,50px)/1.07 'Fraunces',serif;letter-spacing:-.045em;margin:9px 0 9px; }
+.concept-a .deck {font-size:15px;color:#afa999;margin:0 0 24px; }
+.concept-a .a-grid {display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.85fr);gap:30px; }
+.concept-a .map-panel {border:1px solid rgba(201,168,118,.35);padding:12px 14px 15px;background:#142430;position:relative; }
+.concept-a .panel-top {display:flex;justify-content:space-between;align-items:center;gap:12px;padding:3px 3px 9px;border-bottom:1px solid rgba(201,168,118,.19);font-size:12px;color:#c9a876; }
+.concept-a .panel-top .num {font:500 11px 'IBM Plex Mono',monospace;color:#afa78f;}
+.concept-a .map-caption {font-size:11px;color:#a8a18e;display:flex;justify-content:space-between;gap:8px;margin:6px 3px 0; }
+.concept-a .rightpanel {padding:7px 0 0; }
+.concept-a .sectioncap {font-size:11px;letter-spacing:.13em;color:var(--bright);padding-bottom:9px;border-bottom:1px solid rgba(201,168,118,.26);text-transform:uppercase;margin:0 0 14px; }
+.concept-a .token {color:var(--light);background:transparent;border:1px solid #a48253; }
+.concept-a .clue-list {margin:8px 0 22px; }
+.concept-a .clue-list li {font-size:14px;padding:8px 0;color:#e0d7be; }
+.concept-a .action-primary {background:#b08d57;color:#172532; }
+.concept-a .action-secondary {color:#b3a68f;border-color:#6f685b; }
+.concept-a .puzzle-msg {color:#d9b976;}
+.concept-a .atlas-strip {border-top:1px solid rgba(201,168,118,.21);padding:19px 36px 25px;display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap; }
+.concept-a .atlas-strip strong {display:block;font:600 19px 'Fraunces',serif; }
+.concept-a .atlas-strip small {display:block;font-size:12px;color:#a9a18e;margin-top:5px; }
+.concept-a .series-dots {display:flex;gap:6px;align-items:center; }
+.concept-a .series-dots i {height:18px;width:18px;border-radius:50%;border:1px solid #9c865f;display:flex;align-items:center;justify-content:center;font:400 9px 'IBM Plex Mono',monospace;color:#b5a078;font-style:normal; }
+.concept-a .series-dots i.on {background:#7e9b87;color:#11232b;border-color:#7e9b87; }
+/* B: THE CARTOGRAPHER'S DESK */
+.concept-b {color:#423a2a;background:#c4b999;}
+.concept-b .scene-body {padding:22px;background:radial-gradient(circle at 27% 18%,rgba(255,255,255,.48),transparent 47%),repeating-linear-gradient(115deg,transparent 0 29px,rgba(99,84,53,.012) 30px 31px),#c8bfa5; }
+.concept-b .paper {background:#eee4c8;border:1px solid #8f8267;box-shadow:0 9px 24px rgba(55,45,22,.2),inset 0 0 64px rgba(99,73,26,.07);padding:28px 33px 26px;min-height:620px;position:relative; }
+.concept-b .paper::after {content:'';pointer-events:none;position:absolute;inset:10px;border:1px solid rgba(108,90,52,.15); }
+.concept-b .b-head {display:flex;justify-content:space-between;gap:12px;align-items:center;border-bottom:2px double #ab9570;padding-bottom:18px;position:relative;z-index:1; }
+.concept-b .b-name {font:700 25px/.95 'Fraunces',serif;letter-spacing:.11em;text-transform:uppercase;color:#4a4331; }
+.concept-b .b-tag {font-size:9px;letter-spacing:.22em;margin-top:7px;color:#866b42; }
+.concept-b .b-seal {width:55px;height:55px;border:1px solid #947a4a;border-radius:50%;position:relative;display:flex;align-items:center;justify-content:center;font:500 9px 'IBM Plex Mono',monospace;color:#735c35; }
+.concept-b .b-seal::before {content:'';position:absolute;inset:4px;border:1px dashed #ab966f;border-radius:50%;}
+.concept-b .b-intro {text-align:center;margin:27px 0 27px; }
+.concept-b .b-folio {font:500 10px 'IBM Plex Mono',monospace;letter-spacing:.16em;color:#7e6640; }
+.concept-b h2 {font:600 clamp(31px,5vw,49px)/1 'Fraunces',serif;margin:9px 0 9px;letter-spacing:-.03em; }
+.concept-b .b-intro p {font-style:italic;font-size:15px;color:#74654d;margin:0; }
+.concept-b .b-grid {display:grid;grid-template-columns:minmax(0,1.13fr) minmax(250px,.85fr);gap:24px;position:relative;z-index:1; }
+.concept-b .map-paper {padding:16px 12px 13px;border:1px solid #aa9471;background:#e1d4b5;box-shadow:inset 0 0 40px rgba(108,81,42,.09);position:relative; }
+.concept-b .map-paper .corner-label {position:absolute;top:13px;left:16px;font:500 10px 'IBM Plex Mono',monospace;color:#846947; }
+.concept-b .map-footer {text-align:center;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#806948;border-top:1px solid #b6a484;padding-top:10px;margin:2px 7px 0; }
+.concept-b .ledger {border-left:1px solid #b7a683;padding-left:24px; }
+.concept-b .ledger h3 {font:600 22px 'Fraunces',serif;margin:0 0 7px; }
+.concept-b .ledger .intro {font-size:13px;font-style:italic;color:#796b55;margin:0 0 14px; }
+.concept-b .sectioncap {font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#80643b;border-bottom:1px solid #b9a688;padding-bottom:8px;margin:0 0 12px; }
+.concept-b .token {border:1px solid #a38b60;background:#f0e8d4;color:#5f523b; }
+.concept-b .clue-list {counter-reset:clue;margin:12px 0 20px; }
+.concept-b .clue-list li {font-size:14px;padding:8px 0;border-bottom:1px dashed #cab999;color:#554a38; }
+.concept-b .clue-list li::before {content:'I';font:500 10px 'IBM Plex Mono',monospace;border:1px solid #94784b;padding:3px 5px;color:#816337; margin-right:8px; }
+.concept-b .clue-list li:nth-child(2)::before {content:'II';}
+.concept-b .clue-list li:nth-child(3)::before {content:'III';}
+.concept-b .action-primary {background:#5e6549;color:#f6eed7;box-shadow:2px 3px 0 #a39b7e; }
+.concept-b .action-secondary {color:#6f604b;border-color:#ab9674; }
+.concept-b .puzzle-msg {color:#73623e; }
+.concept-b .b-bottom {margin-top:24px;padding-top:15px;border-top:1px solid #b5a386;display:flex;justify-content:space-between;gap:18px;font-size:12px;color:#78664d;position:relative;z-index:1; }
+.concept-b .b-bottom strong {font:500 11px 'IBM Plex Mono',monospace; }
+/* C: THE LIVING ATLAS */
+.concept-c {color:#ecf1e7;background:#0b1f25;}
+.concept-c .scene-body {background:radial-gradient(ellipse at 80% 10%,rgba(57,106,111,.2),transparent 47%),#0b1f25; }
+.concept-c .c-head {display:flex;justify-content:space-between;align-items:center;padding:22px 32px;border-bottom:1px solid #224149;gap:15px; }
+.concept-c .c-brand {font:600 19px 'Fraunces',serif;letter-spacing:.12em;color:#f3dba9; }
+.concept-c .c-brand small {display:block;letter-spacing:.18em;font:400 10px 'Source Serif 4',serif;color:#92a9a8;margin-top:4px;text-transform:uppercase;}
+.concept-c .c-pill {font-size:11px;color:#e0cea3;border:1px solid #57736b;border-radius:100px;padding:8px 13px;letter-spacing:.04em; }
+.concept-c .c-layout {display:grid;grid-template-columns:210px minmax(0,1fr);min-height:640px; }
+.concept-c .c-sidebar {background:#0f262c;border-right:1px solid #2a474d;padding:26px 20px; }
+.concept-c .c-sidebar h3 {font-size:11px;letter-spacing:.12em;color:#a6b6ad;text-transform:uppercase;margin:0 0 20px; }
+.concept-c .c-region {display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:13px;padding:12px 6px;color:#a6b8b7;border-bottom:1px solid #294148; }
+.concept-c .c-region.selected {color:#f4d9a0;border-left:2px solid #d7bd83;padding-left:12px;background:#1c363b; }
+.concept-c .c-region .region-count {font:500 10px 'IBM Plex Mono',monospace;color:#81a8a0; }
+.concept-c .c-journey {margin-top:33px;padding:16px;border:1px solid #35565b;background:#152e34; }
+.concept-c .c-journey .small {font-size:10px;color:#b2c1ae;letter-spacing:.12em;text-transform:uppercase; }
+.concept-c .c-journey .big {font:500 32px 'Fraunces',serif;margin:8px 0;color:#f6dfb1; }
+.concept-c .track {height:5px;background:#305057;border-radius:9px;overflow:hidden;margin:10px 0; }
+.concept-c .track span {display:block;background:#abcfaa;height:100%;width:var(--progress,0%); }
+.concept-c .c-journey .foot {font-size:11px;color:#8eaaa4; }
+.concept-c .c-main {padding:29px 32px 32px; }
+.concept-c .c-topmeta {font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#aac7bc; }
+.concept-c h2 {font:600 clamp(29px,4vw,42px)/1.1 'Fraunces',serif;margin:9px 0;letter-spacing:-.035em; }
+.concept-c .c-sub {font-size:14px;color:#aabdb5;margin:0 0 23px; }
+.concept-c .c-play {display:grid;grid-template-columns:minmax(0,1fr) minmax(225px,.8fr);gap:20px; }
+.concept-c .c-map-panel {background:radial-gradient(ellipse at 54% 62%,#213f43,#0c262d);border:1px solid #3b5c60;border-radius:9px;overflow:hidden; }
+.concept-c .c-map-head {padding:13px 16px;border-bottom:1px solid #35565b;display:flex;justify-content:space-between;gap:12px;color:#d0d7b7;font-size:12px; }
+.concept-c .c-map-foot {padding:8px 16px 15px;color:#89b0a7;font-size:11px;display:flex;gap:12px;justify-content:space-between;}
+.concept-c .c-instrument {background:#102c32;border:1px solid #345258;border-radius:8px;padding:20px 17px; }
+.concept-c .sectioncap {font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#b9cdaa;padding-bottom:11px;border-bottom:1px solid #33545a;margin:0 0 11px; }
+.concept-c .token {background:#204046;color:#e1ecd9;border:1px solid #62827e;border-radius:5px; }
+.concept-c .clue-list {margin:10px 0 24px;}
+.concept-c .clue-list li {font-size:13px;color:#dfebe0;padding:8px 0;border-bottom:1px solid rgba(123,157,149,.16); }
+.concept-c .clue-list li::before {content:'◇';font-size:13px;color:#aacbae; }
+.concept-c .action-primary {background:#c0d4ad;color:#163038;border-radius:5px; }
+.concept-c .action-secondary {color:#b2c6b4;border:1px solid #67817b;border-radius:5px; }
+.concept-c .puzzle-msg {color:#c0d4ad; }
+.concept-c .c-footer {margin-top:24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:17px 19px;border:1px solid #3b5b5a;border-radius:8px;background:#142e33; }
+.concept-c .c-footer strong {font:600 18px 'Fraunces',serif; }
+.concept-c .c-footer small {display:block;color:#9bb3a9;font-size:12px;margin-top:4px; }
+.concept-c .milestone {font-size:12px;color:#cce2ba; }
+/* All concepts as narrow card: container responds to simulated device width */
+@container (max-width:700px) {
+  .concept-a .topline { padding:18px 18px 15px; }
+  .concept-a .brandline {letter-spacing:.18em;font-size:13px;}
+  .concept-a .topmeta {font-size:9px;text-align:right;}
+  .concept-a .mainpad {padding:22px 19px 24px;}
+  .concept-a h2 {font-size:35px;}
+  .concept-a .a-grid {grid-template-columns:1fr;gap:25px;}
+  .concept-a .map-panel {padding:9px;}
+  .concept-a .rightpanel {padding:0;}
+  .concept-a .atlas-strip {padding:18px;}
+  .concept-b .scene-body {padding:10px;}
+  .concept-b .paper {padding:19px 17px 18px;min-height:640px;}
+  .concept-b .b-head {padding-bottom:13px;}
+  .concept-b .b-name {font-size:20px;}
+  .concept-b .b-seal {width:42px;height:42px;}
+  .concept-b .b-intro {margin:22px 0;}
+  .concept-b h2 {font-size:34px;}
+  .concept-b .b-grid {grid-template-columns:1fr;gap:26px;}
+  .concept-b .ledger {border-left:0;border-top:1px solid #b7a683;padding:18px 0 0;}
+  .concept-b .b-bottom {flex-direction:column;gap:6px;}
+  .concept-c .c-head {padding:17px 19px;}
+  .concept-c .c-layout {grid-template-columns:1fr;}
+  .concept-c .c-sidebar {padding:11px 15px;display:flex;flex-wrap:wrap;gap:9px;align-items:center;border-right:0;border-bottom:1px solid #35545c;}
+  .concept-c .c-sidebar h3,.concept-c .c-region:not(.selected),.concept-c .c-journey {display:none;}
+  .concept-c .c-region.selected {border:0;padding:8px 11px;font-size:11px;}
+  .concept-c .c-main {padding:24px 17px;}
+  .concept-c h2 {font-size:33px;}
+  .concept-c .c-play {grid-template-columns:1fr;gap:17px;}
+  .concept-c .c-instrument {padding:17px;}
+  .concept-c .c-footer {margin-top:17px;}
+}
+/* Review notes */
+.review-notes {display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:17px; }
+.review-note {padding:17px 18px;background:#f7f6f2;border:1px solid #dadbd7;border-radius:8px; }
+.review-note h3 {font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#53706b;margin:0 0 7px;}
+.review-note p {font-size:13px;line-height:1.5;margin:0;color:#4f5e61; }
+.lab-foot {margin-top:18px;font-size:12px;color:#647173;line-height:1.5;text-align:center; }
+@media(max-width:780px){
+ .lab-inner {padding:13px 14px;}
+ .lab-header {display:block;}
+ .lab-header .lab-description {margin:8px 0 0;}
+ .lab-tools{gap:8px;}
+ .segment .seglabel{display:none;}
+ .segment button{padding:8px 10px;}
+ .review-notes{grid-template-columns:1fr;}
+ .preview-host {padding:9px;}
+ main.lab {padding:20px 9px 40px;}
+}
+@media(prefers-reduced-motion:reduce){.preview,.token {transition:none!important;}}
+</style>
+</head>
+<body>
+<header class="lab-top">
+ <div class="lab-inner">
+  <div class="lab-header"><div><div class="kicker">Geodots / Vision Lab / Exploration 01</div><h1>Three directions. One real puzzle.</h1></div><p class="lab-description">Compare the same Southeast Asia challenge in three different product experiences. Switch device size and reveal the solved state. You can also assign names to dots to test the interaction.</p></div>
+  <nav class="lab-tools" aria-label="Design exploration controls">
+   <div class="segment" role="group" aria-label="Design direction"><span class="seglabel">Direction</span><button data-variant="a" class="active" aria-pressed="true">01 / Chart Room</button><button data-variant="b" aria-pressed="false">02 / Cartographer</button><button data-variant="c" aria-pressed="false">03 / Living Atlas</button></div>
+   <div class="segment" role="group" aria-label="Device width"><span class="seglabel">Viewport</span><button data-device="desktop" class="active" aria-pressed="true">Desktop</button><button data-device="mobile" aria-pressed="false">Mobile</button></div>
+   <div class="segment" role="group" aria-label="Puzzle state"><span class="seglabel">State</span><button data-state="unsolved" class="active" aria-pressed="true">Unsolved</button><button data-state="solved" aria-pressed="false">Solved</button></div>
+  </nav>
+ </div>
+</header>
+<main class="lab">
+  <div class="scene-heading"><div><h2 id="conceptTitle">01. The Refined Chart Room</h2><p id="conceptDesc">A more precise and polished version of Geodots, preserving the game-first experience and established antique-atlas identity.</p></div><div class="scene-counter">PUZZLE 01 / SERIES 01</div></div>
+  <div id="previewHost" class="preview-host"><div id="preview" class="preview">
+   <section id="concept-a" class="prototype concept-a active" aria-label="The refined chart room"><div class="scene-body">
+    <header class="topline"><div class="brandline"><svg class="geosymbol" viewBox="0 0 28 28" fill="none" stroke-width="1.3" aria-hidden="true"><circle cx="13" cy="14" r="8"/><circle cx="13" cy="14" r="3"/><path d="M13 1v26M0 14h26"/><circle cx="23" cy="5" r="2.3" fill="currentColor" stroke="none"/></svg> GEODOTS</div><div class="topmeta">SERIES ONE <span style="color:#c9a876">·</span> 60 CHARTS</div></header>
+    <div class="mainpad"><div class="micro">Daily deduction, now yours to explore</div><h2>Chart the region.</h2><p class="deck">Real places. Real borders. Find where each belongs.</p>
+     <div class="a-grid"><div class="map-panel"><div class="panel-top"><span>South-eastern Asia <span style="opacity:.55">/</span> <span class="legend-number">#01</span></span><span class="num">EASY</span></div><div data-board="a"></div><div class="map-caption"><span>North is up. Borders are real.</span><span>MAP 01 / 60</span></div></div>
+      <aside class="rightpanel"><p class="sectioncap">01 / Places</p><div class="token-row" data-tokens="a"></div><p class="sectioncap" style="margin-top:27px">02 / Read the clues</p><ul class="clue-list" data-clues="a"></ul><div class="buttons"><button class="action-primary" data-action="check">Check answer</button><button class="action-secondary" data-action="reset">Reset</button></div><p class="puzzle-msg" data-message="a" role="status"></p></aside>
+     </div>
+    </div>
+    <footer class="atlas-strip"><div><strong>Explore the collection</strong><small>Sixty charts, one world to uncover.</small></div><div class="series-dots"><i class="on">01</i><i>02</i><i>03</i><i>04</i><i>05</i><i>06</i></div></footer>
+   </div></section>
+   <section id="concept-b" class="prototype concept-b" aria-label="The cartographer's desk"><div class="scene-body"><div class="paper">
+    <header class="b-head"><div><div class="b-name">GEODOTS</div><div class="b-tag">CHART THE WORLD</div></div><div class="b-seal">G / 01</div></header>
+    <div class="b-intro"><div class="b-folio">ATLAS JOURNAL · FOLIO 001 OF 060</div><h2>The cartographer's<br>challenge.</h2><p>Six unnamed places. One true arrangement.</p></div>
+    <div class="b-grid"><div class="map-paper"><div class="corner-label">PLATE I · SOUTH-EASTERN ASIA</div><div data-board="b"></div><div class="map-footer">Observe the positions · Trace the borders · Make your deductions</div></div>
+     <aside class="ledger"><h3>Field notes</h3><p class="intro">Match the names to the marked places.</p><div class="sectioncap">Possible locations</div><div class="token-row" data-tokens="b"></div><div class="sectioncap" style="margin-top:24px">Evidence</div><ul class="clue-list" data-clues="b"></ul><div class="buttons"><button class="action-primary" data-action="check">Verify chart</button><button class="action-secondary" data-action="reset">Start over</button></div><p class="puzzle-msg" data-message="b" role="status"></p></aside>
+    </div><footer class="b-bottom"><div>Collection: <strong>THE FIRST SIXTY</strong></div><div>FIELD RECORD: <strong data-progress="b">0 / 60 COMPLETE</strong></div></footer>
+   </div></div></section>
+   <section id="concept-c" class="prototype concept-c" aria-label="The living atlas"><div class="scene-body"><header class="c-head"><div class="c-brand">GEODOTS<small>The world, one deduction at a time</small></div><div class="c-pill">SERIES ONE <span class="legend-number">· 60 PUZZLES</span></div></header>
+    <div class="c-layout"><aside class="c-sidebar"><h3>Atlas regions</h3><div class="c-region selected"><span>South-eastern Asia</span><span class="region-count">02</span></div><div class="c-region"><span>South America</span><span class="region-count">10</span></div><div class="c-region"><span>Western Africa</span><span class="region-count">06</span></div><div class="c-region"><span>Central America</span><span class="region-count">08</span></div><div class="c-region"><span>Western Asia</span><span class="region-count">07</span></div><div class="c-journey"><div class="small">Your atlas</div><div class="big" data-progress="c">0 / 60</div><div class="track"><span id="atlasTrack"></span></div><div class="foot">Every solved chart adds a place to your journey.</div></div></aside>
+     <div class="c-main"><div class="c-topmeta">Expedition 01 / South-eastern Asia</div><h2>Connect the world.</h2><p class="c-sub">Read the borders. Place the countries. Discover the region.</p><div class="c-play">
+      <div class="c-map-panel"><div class="c-map-head"><span>Uncharted network</span><span class="legend-number">01 / 60</span></div><div data-board="c"></div><div class="c-map-foot"><span>Geography deduction</span><span>6 locations</span></div></div>
+      <aside class="c-instrument"><div class="sectioncap">01 · Assign locations</div><div class="token-row" data-tokens="c"></div><div class="sectioncap" style="margin-top:24px">02 · Your evidence</div><ul class="clue-list" data-clues="c"></ul><div class="buttons"><button class="action-primary" data-action="check">Verify solution</button><button class="action-secondary" data-action="reset">Clear</button></div><p class="puzzle-msg" data-message="c" role="status"></p></aside>
+     </div><footer class="c-footer"><div><strong>Build your atlas</strong><small>Complete the first expedition, then explore another region.</small></div><span class="milestone" data-milestone>0 charts discovered</span></footer>
+     </div></div>
+   </div></section>
+  </div></div>
+  <div class="review-notes" aria-live="polite"><div class="review-note"><h3>Design intent</h3><p id="noteIntent">Refine the visual hierarchy without changing the familiar game.</p></div><div class="review-note"><h3>Strongest quality</h3><p id="noteStrength">Quick to understand and immediately playable, especially for existing players.</p></div><div class="review-note"><h3>Trade-off to evaluate</h3><p id="noteRisk">May feel like a refinement rather than a major step forward.</p></div></div>
+  <p class="lab-foot">Design exploration only. Uses actual Geodots Puzzle #1: its six countries, real node positions, existing border connections, clues and simplified Natural Earth silhouettes. No account data is saved, and the public game is unchanged.</p>
+</main>
+<script>
+'use strict';
+// Canonical data taken from Geodots puzzle #1. Silhouettes are simplified from
+// the existing Natural Earth geometry strictly for this visual study.
+const puzzle={
+  region:'South-eastern Asia',difficulty:'EASY',
+  nodes:[['Cambodia',104.99873167081543,12.865726500000001],['Laos',102.08216886306829,18.175027999999998],['Malaysia',102.07211185299448,3.832919],['Myanmar',95.87301216020606,18.9967865],['Thailand',101.66324428479209,13.037021],['Vietnam',107.77693434146269,15.99414]],
+  edges:[['Cambodia','Laos'],['Cambodia','Thailand'],['Cambodia','Vietnam'],['Laos','Myanmar'],['Laos','Thailand'],['Laos','Vietnam'],['Malaysia','Thailand'],['Myanmar','Thailand']],
+  clues:['Malaysia borders Thailand','Vietnam borders only Cambodia and Laos','Myanmar borders only Laos and Thailand']
+};
+const outlines={
+'Cambodia':[[102.58,12.19],[102.35,13.39],[102.99,14.23],[104.28,14.42],[106.04,13.88],[106.5,14.57],[107.38,14.2],[107.61,13.54],[107.49,12.34],[105.81,11.57],[106.25,10.96],[103.5,10.63],[102.58,12.19]],
+'Laos':[[107.38,14.2],[106.5,14.57],[106.04,13.88],[105.22,14.27],[105.59,15.57],[103.96,18.24],[102.11,18.11],[101.06,17.51],[101.28,19.46],[100.61,19.51],[100.12,20.42],[101.18,21.44],[101.8,21.17],[101.65,22.32],[102.17,22.46],[103.2,20.77],[104.44,20.76],[104.82,19.89],[103.9,19.27],[105.09,18.67],[107.31,15.91],[107.38,14.2]],
+'Malaysia':[[100.09,6.46],[101.08,6.2],[101.15,5.69],[102.14,6.22],[102.96,5.52],[103.38,4.86],[103.5,2.79],[104.23,1.29],[103.52,1.23],[101.39,2.76],[100.2,5.31],[100.09,6.46]],
+'Myanmar':[[100.12,20.42],[98.25,19.71],[97.38,18.45],[98.9,16.18],[98.19,15.12],[99.1,13.83],[99.59,11.89],[98.55,9.93],[98.51,13.12],[97.16,16.93],[95.37,15.71],[94.19,16.04],[94.53,17.28],[94.32,18.21],[93.54,19.37],[93.66,19.73],[92.37,20.67],[92.3,21.48],[92.65,21.32],[92.67,22.04],[93.17,22.28],[93.33,24.08],[94.11,23.85],[95.12,26.57],[96.42,27.26],[97.13,27.08],[97.33,28.26],[97.91,28.34],[98.68,27.51],[98.67,25.92],[97.72,25.08],[97.6,23.9],[98.66,24.06],[98.9,23.14],[99.53,22.95],[99.24,22.12],[100.42,21.56],[101.15,21.85],[101.18,21.44],[100.12,20.42]],
+'Thailand':[[105.22,14.27],[102.99,14.23],[102.35,13.39],[102.58,12.19],[100.83,12.63],[100.98,13.41],[100.1,13.41],[99.22,9.24],[99.87,9.21],[100.46,7.43],[102.14,6.22],[101.15,5.69],[101.08,6.2],[100.09,6.46],[98.5,8.38],[98.34,7.79],[98.15,8.35],[99.59,11.89],[99.1,13.83],[98.19,15.12],[98.9,16.18],[97.38,18.45],[98.25,19.71],[100.12,20.42],[100.61,19.51],[101.28,19.46],[101.06,17.51],[102.11,18.11],[103,17.96],[103.2,18.31],[103.96,18.24],[104.72,17.43],[104.78,16.44],[105.59,15.57],[105.22,14.27]],
+'Vietnam':[[104.33,10.49],[106.25,10.96],[105.81,11.57],[107.49,12.34],[107.56,15.2],[105.09,18.67],[103.9,19.27],[104.82,19.89],[104.44,20.76],[103.2,20.77],[102.17,22.46],[104.48,22.82],[105.33,23.35],[106.73,22.79],[106.57,22.22],[107.04,21.81],[108.05,21.55],[106.72,20.7],[105.66,19.06],[108.88,15.28],[109.34,13.43],[109.2,11.67],[105.16,8.6],[104.8,9.24],[105.08,9.92],[104.33,10.49]]
+};
+const themes={
+ a:{bg:'#15232f',grid:'#4e6470',lines:'#b08d57',ring:'#c9a876',ringFilled:'#719581',dot:'#c9a876',text:'#e7dec8',land:'#6b8f71',landStroke:'#92b4a2',labelBg:'#15232f',axis:'#79858b'},
+ b:{bg:'#e1d4b5',grid:'#ab9674',lines:'#856846',ring:'#875f37',ringFilled:'#5e6549',dot:'#6f6044',text:'#594833',land:'#71826a',landStroke:'#6f8a63',labelBg:'#e7dbbd',axis:'#9e8a65'},
+ c:{bg:'#102b30',grid:'#4e7a7c',lines:'#82a99d',ring:'#a9d1ac',ringFilled:'#b4d6aa',dot:'#b4d6aa',text:'#e3f0df',land:'#8eb3a6',landStroke:'#a3d3b8',labelBg:'#123039',axis:'#759f98'}
+};
+const directions={
+ a:{title:'01. The Refined Chart Room',desc:'A more precise and polished version of Geodots, preserving the game-first experience and the established antique-atlas identity.',intent:'Elevate the current visual language and organise the puzzle, clues and completion states more clearly.',strength:'Familiar, direct, easy to understand and relatively lightweight to implement.',risk:'The safest path may not feel as transformative as the other two directions.'},
+ b:{title:"02. The Cartographer's Desk",desc:'A tactile discovery experience inspired by field journals, chartmaking instruments and historical survey notes.',intent:'Make each puzzle feel like a physical expedition, with evidence recorded on a beautiful chart.',strength:'Distinctive atmosphere, visual character and memorable post-solve rewards.',risk:'Extra texture and ornamentation could compete with puzzle clarity, especially on mobile.'},
+ c:{title:'03. The Living Atlas',desc:'A contemporary exploration experience where puzzles gradually become a personal world atlas.',intent:'Unite the gameplay with a sense of geographic discovery and long-term progress.',strength:'Clear potential for engagement, collections, achievements and future game modes.',risk:'More interface complexity; the atlas must never make the core puzzle harder to reach.'}
+};
+const state={variant:'a',device:'desktop',previewSolved:false,won:false,selectedNode:null,assignment:{},message:''};
+const escapeHtml=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
+function displaySolved(){return state.previewSolved||state.won;}
+function project(solved){
+ let all=solved?Object.values(outlines).flat():puzzle.nodes.map(n=>[n[1],n[2]]);
+ let lons=all.map(p=>p[0]),lats=all.map(p=>p[1]);
+ let minLon=Math.min(...lons),maxLon=Math.max(...lons),minLat=Math.min(...lats),maxLat=Math.max(...lats);
+ const W=560,H=340,marginX=68,marginY=44,scale=Math.min((W-2*marginX)/Math.max(.001,maxLon-minLon),(H-2*marginY)/Math.max(.001,maxLat-minLat));
+ const tx=marginX+(W-2*marginX-(maxLon-minLon)*scale)/2;
+ const ty=marginY+(H-2*marginY-(maxLat-minLat)*scale)/2;
+ return (lon,lat)=>[tx+(lon-minLon)*scale,ty+(maxLat-lat)*scale];
+}
+function svgBoard(v){
+ const t=themes[v],solved=displaySolved(),pr=project(solved),positions=Object.fromEntries(puzzle.nodes.map(n=>[n[0],pr(n[1],n[2])]));
+ let content=`<svg class="game-board" viewBox="0 0 560 340" role="img" aria-label="Interactive map with six geographic nodes and their real border network. Click a node, then select a place name.">`;
+ // Chart-style graticule and margins
+ for(let i=0;i<8;i++){let x=40+i*68;content+=`<line x1="${x}" y1="19" x2="${x}" y2="322" stroke="${t.grid}" stroke-opacity=".2" stroke-width=".7"/>`}
+ for(let i=0;i<5;i++){let y=35+i*66;content+=`<line x1="19" y1="${y}" x2="541" y2="${y}" stroke="${t.grid}" stroke-opacity=".2" stroke-width=".7"/>`}
+ content+=`<circle cx="280" cy="167" r="151" fill="none" stroke="${t.grid}" stroke-width=".5" stroke-opacity=".24" stroke-dasharray="4 8"/>`;
+ content+=`<text x="27" y="30" fill="${t.axis}" class="map-numeric">N</text><path d="M31 35 V52 M27 44 L31 35 L35 44" fill="none" stroke="${t.axis}" stroke-width="1.3"/>`;
+ if(solved){for(const [name,shape] of Object.entries(outlines)){const d=shape.map((p,i)=>{const[x,y]=pr(...p);return (i?'L':'M')+x.toFixed(1)+','+y.toFixed(1)}).join(' ')+' Z';content+=`<path d="${d}" fill="${t.land}" fill-opacity=".19" stroke="${t.landStroke}" stroke-width="1.15" stroke-opacity=".62" stroke-linejoin="round"/>`;}}
+ for(const [a,b] of puzzle.edges){const [x1,y1]=positions[a],[x2,y2]=positions[b];content+=`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${t.lines}" stroke-width="${solved?1.65:1.8}" stroke-opacity="${solved?.64:.82}"/>`;}
+ puzzle.nodes.forEach(([name],i)=>{
+  const [x,y]=positions[name],assigned=state.assignment[i],selected=state.selectedNode===i&&!solved,full=solved?name:assigned;
+  content+=`<g class="board-element ${selected?'selected':''}" data-node="${i}" role="button" tabindex="0" aria-label="Node ${i+1}${full?', '+escapeHtml(full):', unnamed'}" style="cursor:${solved?'default':'pointer'}">`;
+  content+=`<circle class="main-node" cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${solved?8:15}" fill="${solved?t.ringFilled:assigned?t.ringFilled:t.bg}" stroke="${selected?t.text:t.ring}" stroke-width="${selected?3:2}"/>`;
+  if(!solved){content+=`<path d="M${(x-5).toFixed(1)},${y.toFixed(1)}h10 M${x.toFixed(1)},${(y-5).toFixed(1)}v10" stroke="${assigned?t.bg:t.ring}" stroke-width="1" opacity=".8"/>`;
+     if(assigned){let label=escapeHtml(assigned);let w=Math.min(146, Math.max(51,label.length*6.5+18));let lx=Math.max(w/2+5,Math.min(560-w/2-5,x));let ly=y<68?y+30:y-23;content+=`<rect x="${(lx-w/2).toFixed(1)}" y="${(ly-11).toFixed(1)}" width="${w}" height="21" rx="3" fill="${t.labelBg}" stroke="${t.ring}" stroke-opacity=".6"/><text x="${lx.toFixed(1)}" y="${(ly+3).toFixed(1)}" class="map-label" fill="${t.text}" font-size="12" text-anchor="middle">${label}</text>`;}
+  } else {const w=Math.min(117,Math.max(44,name.length*6.2+15));
+   const labelOffsets={Myanmar:[-110,-18],Laos:[-24,-39],Vietnam:[23,-13],Thailand:[-110,30],Cambodia:[25,26],Malaysia:[22,24]};
+   const [dx,dy]=labelOffsets[name]||[20,-13];
+   let lx=Math.max(4,Math.min(556-w,x+dx)),ly=Math.max(23,Math.min(324,y+dy));
+   content+=`<rect x="${lx.toFixed(1)}" y="${(ly-13).toFixed(1)}" width="${w.toFixed(1)}" height="22" rx="3" fill="${t.labelBg}" fill-opacity=".94" stroke="${t.landStroke}" stroke-opacity=".3"/><text x="${(lx+5).toFixed(1)}" y="${(ly+2).toFixed(1)}" class="map-label" font-size="12" fill="${t.text}">${escapeHtml(name)}</text>`;}
+  content+='</g>';
+ });
+ content+=`<text x="537" y="324" text-anchor="end" class="map-numeric" fill="${t.axis}">${solved?'CHARTED':'UNCHARTED'}</text></svg>`;
+ return content;
+}
+function render(){
+ const d=directions[state.variant];
+ document.getElementById('conceptTitle').textContent=d.title;
+ document.getElementById('conceptDesc').textContent=d.desc;
+ document.getElementById('noteIntent').textContent=d.intent;
+ document.getElementById('noteStrength').textContent=d.strength;
+ document.getElementById('noteRisk').textContent=d.risk;
+ document.querySelectorAll('.prototype').forEach(el=>el.classList.toggle('active',el.id==='concept-'+state.variant));
+ document.getElementById('previewHost').classList.toggle('mobile',state.device==='mobile');
+ document.querySelectorAll('[data-variant]').forEach(b=>{let on=b.dataset.variant===state.variant;b.classList.toggle('active',on);b.setAttribute('aria-pressed',on)});
+ document.querySelectorAll('[data-device]').forEach(b=>{let on=b.dataset.device===state.device;b.classList.toggle('active',on);b.setAttribute('aria-pressed',on)});
+ document.querySelectorAll('[data-state]').forEach(b=>{let on=b.dataset.state===(displaySolved()?'solved':'unsolved');b.classList.toggle('active',on);b.setAttribute('aria-pressed',on)});
+ for(const v of ['a','b','c']){
+  document.querySelector(`[data-board="${v}"]`).innerHTML=svgBoard(v);
+  let used=new Set(Object.values(state.assignment));
+  const names=puzzle.nodes.map(n=>n[0]).sort((a,b)=>a.localeCompare(b));
+  document.querySelector(`[data-tokens="${v}"]`).innerHTML=names.map(n=>`<button class="token ${used.has(n)?'used':''}" data-name="${escapeHtml(n)}" ${used.has(n)||displaySolved()?'disabled':''}>${escapeHtml(n)}</button>`).join('');
+  document.querySelector(`[data-clues="${v}"]`).innerHTML=puzzle.clues.map(s=>`<li>${escapeHtml(s)}.</li>`).join('');
+  document.querySelector(`[data-message="${v}"]`).textContent=displaySolved()?'Puzzle solved. The geography is revealed.':state.message||'Select a dot, then choose a place.';
+  document.querySelectorAll(`#concept-${v} [data-action="check"]`).forEach(b=>{b.disabled=displaySolved();b.textContent=displaySolved()?'Chart complete':v==='a'?'Check answer':v==='b'?'Verify chart':'Verify solution';});
+  document.querySelectorAll(`#concept-${v} [data-action="reset"]`).forEach(b=>b.textContent=displaySolved()?'Replay chart':v==='a'?'Reset':v==='b'?'Start over':'Clear');
+  document.querySelectorAll(`#concept-${v} [data-progress]`).forEach(el=>el.textContent=v==='b'?(displaySolved()?'1 / 60 COMPLETE':'0 / 60 COMPLETE'):(displaySolved()?'1 / 60':'0 / 60'));
+ }
+ document.getElementById('atlasTrack').style.setProperty('--progress',displaySolved()?'1.67%':'0%');
+ document.querySelector('[data-milestone]').textContent=displaySolved()?'1 chart discovered':'0 charts discovered';
+}
+function reset(){state.assignment={};state.selectedNode=null;state.previewSolved=false;state.won=false;state.message='';render()}
+function check(){const names=puzzle.nodes.map(n=>n[0]);const used=Object.keys(state.assignment).length;if(used<names.length){state.message=`${used} of ${names.length} places assigned. Keep exploring.`;render();return;}const right=names.every((n,i)=>state.assignment[i]===n);if(right){state.won=true;state.message='';render();}else{state.message='Not quite right. Study the borders and try again.';render();}}
+document.addEventListener('click',e=>{
+ const b=e.target.closest('button');if(b?.dataset.variant){state.variant=b.dataset.variant;render();return;}
+ if(b?.dataset.device){state.device=b.dataset.device;render();return;}
+ if(b?.dataset.state){state.previewSolved=b.dataset.state==='solved';if(!state.previewSolved)state.won=false;render();return;}
+ if(!e.target.closest('.prototype.active'))return;
+ const node=e.target.closest('[data-node]');if(node&&!displaySolved()){const i=+node.dataset.node;if(state.assignment[i])delete state.assignment[i];state.selectedNode=i;state.message='Now choose a place from the list.';render();return;}
+ const chip=e.target.closest('[data-name]');if(chip&&!displaySolved()){if(state.selectedNode===null){state.message='Choose a dot on the chart first.';render();return;}state.assignment[state.selectedNode]=chip.dataset.name;state.selectedNode=null;state.message='Location placed. Continue charting.';render();return;}
+ if(b?.dataset.action==='reset'){reset();return;}
+ if(b?.dataset.action==='check'&&!displaySolved()){check();return;}
+});
+document.addEventListener('keydown',e=>{const node=e.target.closest('[data-node]');if(node&&(e.key==='Enter'||e.key===' ')){e.preventDefault();node.click()}});
+render();
+</script>
+</body>
+</html>
