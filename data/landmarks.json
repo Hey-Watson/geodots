@@ -1,0 +1,786 @@
+[
+  {
+    "id": "angkor-wat",
+    "puzzleIds": [
+      "s1-001"
+    ],
+    "title": {
+      "en": "Angkor Wat",
+      "fr": "Angkor Wat"
+    },
+    "fact": {
+      "en": "Angkor Wat was built in the twelfth century under Suryavarman II and dedicated to Vishnu. It later became a Buddhist pilgrimage site, adding another chapter to the religious life of the temple.",
+      "fr": "Angkor Wat a été construit au XIIe siècle sous Suryavarman II et dédié à Vishnou. Il est ensuite devenu un lieu de pèlerinage bouddhiste, ajoutant un nouveau chapitre à la vie religieuse du temple."
+    },
+    "acceptedCountries": [
+      "Cambodia"
+    ],
+    "referencePoint": [
+      103.86666666666666,
+      13.4125
+    ],
+    "referenceVersion": "source-2026-10-26",
+    "referenceKind": "temple-reference-point",
+    "bounds": [
+      92,
+      0,
+      111,
+      25
+    ],
+    "source": "https://www.wikidata.org/wiki/Q43473",
+    "factSource": "https://apsaraauthority.gov.kh/2021/06/14/angkor-wat/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "editorialStatus": "French wording pending native editorial approval",
+    "art": "assets/token-angkor-wat-320.webp",
+    "expeditionId": "opening",
+    "artStatus": "approved-original",
+    "referenceScope": "Temple complex, not the whole multi-component Angkor World Heritage property. Use Getty archaeological-site point as a candidate anchor; obtain and review an APSARA temple-complex footprint before using an area target."
+  },
+  {
+    "id": "luang-prabang",
+    "puzzleIds": [
+      "s1-005"
+    ],
+    "title": {
+      "en": "Luang Prabang",
+      "fr": "Luang Prabang"
+    },
+    "fact": {
+      "en": "Luang Prabang brings together traditional Lao architecture and buildings shaped by European colonial influence. Its preserved townscape shows how those traditions met, creating a distinctive urban setting in the mountains of northern Laos.",
+      "fr": "Luang Prabang associe l’architecture traditionnelle lao à des bâtiments marqués par l’influence coloniale européenne. Son paysage urbain préservé montre la rencontre de ces traditions, dans le cadre montagneux du nord du Laos."
+    },
+    "acceptedCountries": [
+      "Laos"
+    ],
+    "referencePoint": [
+      102.13332999999999,
+      19.88889
+    ],
+    "referenceVersion": "source-2026-10-26",
+    "referenceKind": "unesco-property-reference-point",
+    "bounds": [
+      92,
+      4,
+      111,
+      28
+    ],
+    "source": "https://whc.unesco.org/en/list/479/maps/",
+    "factSource": "https://whc.unesco.org/en/list/479/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "editorialStatus": "French wording pending native editorial approval",
+    "art": "assets/token-luang-prabang-320.webp",
+    "expeditionId": "opening",
+    "artStatus": "approved-original",
+    "referenceScope": "The historic town property, with the inscribed 2013 boundary modification reviewed against the local heritage authority. Prefer a reviewed polygon to treating one town reference coordinate as every correct location."
+  },
+  {
+    "id": "samarkand",
+    "puzzleIds": [
+      "s1-003"
+    ],
+    "title": {
+      "en": "Samarkand",
+      "fr": "Samarcande"
+    },
+    "fact": {
+      "en": "Samarkand was both a Silk Road crossroads and a centre of learning. Its surviving monuments include the madrasas of the Registan and the remains of Ulugh Beg’s observatory.",
+      "fr": "Samarcande fut à la fois un carrefour de la route de la soie et un centre de savoir. Parmi ses monuments conservés figurent les médersas du Régistan et les vestiges de l’observatoire d’Ulugh Beg."
+    },
+    "acceptedCountries": [
+      "Uzbekistan"
+    ],
+    "referencePoint": [
+      66.96666666666667,
+      39.65
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      54.96666666666667,
+      29.65,
+      78.96666666666667,
+      49.65
+    ],
+    "source": "https://whc.unesco.org/en/list/603/maps/",
+    "factSource": "https://whc.unesco.org/en/list/603/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-samarkand-320.webp",
+    "expeditionId": "silk-road",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "Historic Samarkand, comprising the five listed components; do not reduce the whole city to a Registan doorway."
+  },
+  {
+    "id": "gobekli-tepe",
+    "puzzleIds": [
+      "s1-056"
+    ],
+    "title": {
+      "en": "Göbekli Tepe",
+      "fr": "Göbekli Tepe"
+    },
+    "fact": {
+      "en": "Long before pottery was used here, people raised monumental T-shaped stone pillars at Göbekli Tepe. Carved wild animals still appear on their surfaces.",
+      "fr": "Bien avant l’usage de la poterie sur ce site, des communautés ont dressé à Göbekli Tepe de monumentaux piliers de pierre en forme de T. Des animaux sauvages sculptés ornent encore leurs surfaces."
+    },
+    "acceptedCountries": [
+      "Turkey"
+    ],
+    "referencePoint": [
+      38.92236388888889,
+      37.223241944444446
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      26.92236388888889,
+      27.223241944444446,
+      50.92236388888889,
+      47.223241944444446
+    ],
+    "source": "https://whc.unesco.org/en/list/1572/maps/",
+    "factSource": "https://whc.unesco.org/en/list/1572/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-gobekli-tepe-320.webp",
+    "expeditionId": "silk-road",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The named archaeological site, not all Taş Tepeler sites or the whole province."
+  },
+  {
+    "id": "petra",
+    "puzzleIds": [
+      "s1-012"
+    ],
+    "title": {
+      "en": "Petra",
+      "fr": "Pétra"
+    },
+    "fact": {
+      "en": "Petra’s Nabataean builders worked both above and within the rock. Their channels and cisterns also captured water in the surrounding desert landscape.",
+      "fr": "À Pétra, les bâtisseurs nabatéens ont construit des édifices et taillé la roche. Leurs canaux et leurs citernes permettaient aussi de recueillir l’eau dans ce paysage désertique."
+    },
+    "acceptedCountries": [
+      "Jordan"
+    ],
+    "referencePoint": [
+      35.443329999999996,
+      30.33056
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      23.443329999999996,
+      20.33056,
+      47.443329999999996,
+      40.33056
+    ],
+    "source": "https://whc.unesco.org/en/list/326/maps/",
+    "factSource": "https://whc.unesco.org/en/list/326/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-petra-320.webp",
+    "expeditionId": "eastern-mediterranean",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "Petra archaeological site; the Treasury is a proposed token motif, not a silently narrower pin target."
+  },
+  {
+    "id": "bahla-fort",
+    "puzzleIds": [
+      "s1-033"
+    ],
+    "title": {
+      "en": "Bahla Fort",
+      "fr": "Fort de Bahla"
+    },
+    "fact": {
+      "en": "Bahla’s fort combines stone foundations with walls and towers of earthen brick. Around it, an oasis supported a settlement protected by its own enclosing wall.",
+      "fr": "Le fort de Bahla associe des fondations de pierre à des murs et des tours en briques de terre. Autour de lui, une oasis abritait une ville protégée par sa propre enceinte."
+    },
+    "acceptedCountries": [
+      "Oman"
+    ],
+    "referencePoint": [
+      57.301111111111105,
+      22.964169444444444
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      45.301111111111105,
+      12.964169444444444,
+      69.30111111111111,
+      32.964169444444444
+    ],
+    "source": "https://whc.unesco.org/en/list/433/maps/",
+    "factSource": "https://whc.unesco.org/en/list/433/",
+    "contentVersion": 2,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-bahla-fort-320.webp",
+    "expeditionId": "eastern-mediterranean",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The fort itself for the named discovery; preserve the wider UNESCO oasis-property reference only as contextual geography until a fort footprint is reviewed."
+  },
+  {
+    "id": "tassili-najjer",
+    "puzzleIds": [
+      "s1-022"
+    ],
+    "title": {
+      "en": "Tassili n’Ajjer",
+      "fr": "Tassili n’Ajjer"
+    },
+    "fact": {
+      "en": "Tassili n’Ajjer’s sandstone has been shaped into natural arches and towers. Its rock art also records animals and human life from a Sahara very different from today’s desert.",
+      "fr": "Au Tassili n’Ajjer, le grès a été façonné en arches et en tours naturelles. L’art rupestre y témoigne aussi de la faune et de la vie humaine dans un Sahara bien différent du désert actuel."
+    },
+    "acceptedCountries": [
+      "Algeria"
+    ],
+    "referencePoint": [
+      9.0,
+      25.5
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      -3.0,
+      15.5,
+      21.0,
+      35.5
+    ],
+    "source": "https://whc.unesco.org/en/list/179/maps/",
+    "factSource": "https://whc.unesco.org/en/list/179/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-tassili-najjer-320.webp",
+    "expeditionId": "sahara-sahel",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The UNESCO-listed Tassili landscape, not the much larger modern cultural-park administrative area or one unnamed rock-art panel."
+  },
+  {
+    "id": "koutammakou",
+    "puzzleIds": [
+      "s1-053"
+    ],
+    "title": {
+      "en": "Koutammakou, Land of the Batammariba",
+      "fr": "Koutammakou, pays des Batammariba"
+    },
+    "fact": {
+      "en": "The Batammariba’s earthen tower-houses belong to a living cultural landscape that crosses today’s Togo–Benin border. Their architecture is closely connected with the surrounding fields and community life.",
+      "fr": "Les maisons-tours en terre des Batammariba s’inscrivent dans un paysage culturel vivant qui s’étend de part et d’autre de la frontière entre le Togo et le Bénin. Leur architecture est étroitement liée aux champs et à la vie communautaire."
+    },
+    "acceptedCountries": [
+      "Togo",
+      "Benin"
+    ],
+    "referencePoint": [
+      1.1333333333333333,
+      10.066666666666666
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      -10.866666666666667,
+      0.06666666666666643,
+      13.133333333333333,
+      20.066666666666666
+    ],
+    "source": "https://whc.unesco.org/en/list/1140/maps/",
+    "factSource": "https://whc.unesco.org/en/list/1140/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-koutammakou-320.webp",
+    "expeditionId": "sahara-sahel",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The inscribed transboundary cultural landscape including the 2023 Benin extension; one collection discovery across both components."
+  },
+  {
+    "id": "sukur",
+    "puzzleIds": [
+      "s1-011"
+    ],
+    "title": {
+      "en": "Sukur Cultural Landscape",
+      "fr": "Paysage culturel de Sukur"
+    },
+    "fact": {
+      "en": "At Sukur, terraced fields and stone-paved paths climb towards the Hidi’s hilltop palace. Remains of iron-smelting furnaces recall another important part of the community’s history.",
+      "fr": "À Sukur, des champs en terrasses et des chemins pavés de pierre montent vers le palais du Hidi, au sommet de la colline. Les vestiges de fours de réduction du fer rappellent un autre aspect important de l’histoire de cette communauté."
+    },
+    "acceptedCountries": [
+      "Nigeria"
+    ],
+    "referencePoint": [
+      13.57194,
+      10.740559999999999
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      1.5719399999999997,
+      0.7405599999999986,
+      25.571939999999998,
+      20.74056
+    ],
+    "source": "https://whc.unesco.org/en/list/938/maps/",
+    "factSource": "https://whc.unesco.org/en/list/938/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-sukur-320.webp",
+    "expeditionId": "congo-guinea",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The Nigerian cultural landscape, including the palace and terraced settlement, not the entire cross-border Mandara Mountains."
+  },
+  {
+    "id": "lope-okanda",
+    "puzzleIds": [
+      "s1-057"
+    ],
+    "title": {
+      "en": "Lopé-Okanda",
+      "fr": "Lopé-Okanda"
+    },
+    "fact": {
+      "en": "At Lopé, open savannah meets dense tropical forest. This unusual mosaic lets researchers observe mandrills as they cross between habitats.",
+      "fr": "À la Lopé, la savane ouverte côtoie une forêt tropicale dense. Cette mosaïque inhabituelle permet aux chercheurs d’observer les mandrills lorsqu’ils passent d’un milieu à l’autre."
+    },
+    "acceptedCountries": [
+      "Gabon"
+    ],
+    "referencePoint": [
+      11.5,
+      -0.5
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      -0.5,
+      -10.5,
+      23.5,
+      9.5
+    ],
+    "source": "https://whc.unesco.org/en/list/1147/maps/",
+    "factSource": "https://whc.unesco.org/en/list/1147/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-lope-okanda-320.webp",
+    "expeditionId": "congo-guinea",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The UNESCO Lopé-Okanda landscape and its three components; educational fact concerns the northern forest–savanna habitat, not every component."
+  },
+  {
+    "id": "victoria-falls",
+    "puzzleIds": [
+      "s1-014"
+    ],
+    "title": {
+      "en": "Mosi-oa-Tunya / Victoria Falls",
+      "fr": "Mosi-oa-Tunya / chutes Victoria"
+    },
+    "fact": {
+      "en": "The Zambezi plunges into basalt gorges between Zambia and Zimbabwe. UNESCO describes a river more than two kilometres wide here; this is the river’s width, not a measurement of the waterfall crest. Spray rises above the gorge.",
+      "fr": "Le Zambèze plonge dans des gorges de basalte entre la Zambie et le Zimbabwe. L’UNESCO décrit ici un fleuve de plus de deux kilomètres de largeur : il s’agit du fleuve, et non de la longueur du front des chutes. Les embruns s’élèvent au-dessus de la gorge."
+    },
+    "acceptedCountries": [
+      "Zambia",
+      "Zimbabwe"
+    ],
+    "referencePoint": [
+      25.85539,
+      -17.92453
+    ],
+    "referenceVersion": "source-2026-10-26",
+    "referenceKind": "unesco-property-reference-point",
+    "bounds": [
+      17,
+      -25,
+      38,
+      -7
+    ],
+    "source": "https://whc.unesco.org/en/list/509/maps/",
+    "factSource": "https://whc.unesco.org/en/list/509/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "editorialStatus": "French wording pending native editorial approval",
+    "art": "assets/token-victoria-falls-320.webp",
+    "expeditionId": "lakes-south",
+    "artStatus": "approved-original",
+    "referenceScope": "A reviewed waterfall crest/curtain line or narrow area spanning both countries, with geodesic shortest distance. Do not use the whole transboundary national-park property or a point from Victoria Falls city."
+  },
+  {
+    "id": "kilwa-kisiwani",
+    "puzzleIds": [
+      "s1-034"
+    ],
+    "title": {
+      "en": "Kilwa Kisiwani",
+      "fr": "Kilwa Kisiwani"
+    },
+    "fact": {
+      "en": "Kilwa Kisiwani connected the Swahili coast with Indian Ocean trade. Coral-stone ruins survive from a port whose merchants exchanged goods with Arabia, India and China.",
+      "fr": "Kilwa Kisiwani reliait la côte swahilie aux échanges de l’océan Indien. Ses ruines en pierre corallienne témoignent d’un port dont les marchands commerçaient avec l’Arabie, l’Inde et la Chine."
+    },
+    "acceptedCountries": [
+      "Tanzania"
+    ],
+    "referencePoint": [
+      39.522777777777776,
+      -8.957777777777777
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      27.522777777777776,
+      -18.95777777777778,
+      51.522777777777776,
+      1.0422222222222235
+    ],
+    "source": "https://whc.unesco.org/en/list/144/maps/",
+    "factSource": "https://whc.unesco.org/en/list/144/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-kilwa-kisiwani-320.webp",
+    "expeditionId": "lakes-south",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "Kilwa Kisiwani component 144-001 only, not its separate UNESCO companion island Songo Mnara."
+  },
+  {
+    "id": "mostar-old-bridge",
+    "puzzleIds": [
+      "s1-004"
+    ],
+    "title": {
+      "en": "Old Bridge of Mostar",
+      "fr": "Vieux pont de Mostar"
+    },
+    "fact": {
+      "en": "Mostar’s Old Bridge was rebuilt after its destruction in the 1990s. The reconstruction became a symbol of cooperation across communities and countries.",
+      "fr": "Le Vieux pont de Mostar a été reconstruit après sa destruction dans les années 1990. Cette reconstruction est devenue un symbole de coopération entre communautés et entre pays."
+    },
+    "acceptedCountries": [
+      "Bosnia and Herzegovina"
+    ],
+    "referencePoint": [
+      17.815,
+      43.33730555555556
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      5.815000000000001,
+      33.33730555555556,
+      29.815,
+      53.33730555555556
+    ],
+    "source": "https://whc.unesco.org/en/list/946/maps/",
+    "factSource": "https://whc.unesco.org/en/list/946/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-mostar-old-bridge-320.webp",
+    "expeditionId": "balkans",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The Old Bridge structure over the Neretva; UNESCO Old Bridge Area is contextual, not a reviewed bridge-centre survey."
+  },
+  {
+    "id": "srebarna",
+    "puzzleIds": [
+      "s1-040"
+    ],
+    "title": {
+      "en": "Srebarna Nature Reserve",
+      "fr": "Réserve naturelle de Srébarna"
+    },
+    "fact": {
+      "en": "Srebarna is a freshwater lake beside the Danube, where Dalmatian pelicans breed. Its reeds and shallow waters provide refuge for many other birds too.",
+      "fr": "À Srébarna, un lac d’eau douce voisin du Danube accueille la nidification des pélicans frisés. Ses roselières et ses eaux peu profondes offrent aussi un refuge à de nombreux autres oiseaux."
+    },
+    "acceptedCountries": [
+      "Bulgaria"
+    ],
+    "referencePoint": [
+      27.07806,
+      44.11444
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      15.07806,
+      34.11444,
+      39.07806,
+      54.11444
+    ],
+    "source": "https://whc.unesco.org/en/list/219/maps/",
+    "factSource": "https://whc.unesco.org/en/list/219/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-srebarna-320.webp",
+    "expeditionId": "balkans",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The Bulgarian reserve/lake, not the entire Danube or the Romanian riverbank."
+  },
+  {
+    "id": "mont-saint-michel",
+    "puzzleIds": [
+      "s1-036"
+    ],
+    "title": {
+      "en": "Mont-Saint-Michel",
+      "fr": "Mont-Saint-Michel"
+    },
+    "fact": {
+      "en": "Mont-Saint-Michel’s abbey rises above a rocky tidal islet. During the strongest tides, seawater surrounds the rock again.",
+      "fr": "L’abbaye du Mont-Saint-Michel domine un îlot rocheux soumis aux marées. Lors des plus fortes marées, la mer entoure de nouveau le rocher."
+    },
+    "acceptedCountries": [
+      "France"
+    ],
+    "referencePoint": [
+      -1.5105583333333332,
+      48.635558333333336
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      -13.510558333333334,
+      38.635558333333336,
+      10.489441666666666,
+      58.635558333333336
+    ],
+    "source": "https://whc.unesco.org/en/list/80/maps/",
+    "factSource": "https://whc.unesco.org/en/list/80/",
+    "contentVersion": 2,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-mont-saint-michel-320.webp",
+    "expeditionId": "europe-crossroads",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The mount and abbey, not the whole bay or the separately listed Moidrey windmill component."
+  },
+  {
+    "id": "bialowieza",
+    "puzzleIds": [
+      "s1-044"
+    ],
+    "title": {
+      "en": "Białowieża Forest",
+      "fr": "Forêt de Białowieża"
+    },
+    "fact": {
+      "en": "Białowieża’s ancient forest crosses the Poland–Belarus border. It is a refuge for the European bison, which became the emblem of its conservation.",
+      "fr": "La forêt ancienne de Białowieża s’étend de part et d’autre de la frontière entre la Pologne et la Biélorussie. Elle abrite le bison d’Europe, devenu l’emblème de sa protection."
+    },
+    "acceptedCountries": [
+      "Poland",
+      "Belarus"
+    ],
+    "referencePoint": [
+      23.981111111111108,
+      52.7275
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      11.981111111111108,
+      42.7275,
+      35.981111111111105,
+      62.7275
+    ],
+    "source": "https://whc.unesco.org/en/list/33/maps/",
+    "factSource": "https://whc.unesco.org/en/list/33/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-bialowieza-320.webp",
+    "expeditionId": "europe-crossroads",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The transboundary UNESCO forest property on both sides, not just the Polish national-park visitor centre."
+  },
+  {
+    "id": "tikal",
+    "puzzleIds": [
+      "s1-016"
+    ],
+    "title": {
+      "en": "Tikal",
+      "fr": "Tikal"
+    },
+    "fact": {
+      "en": "Tikal’s temples and ceremonial plazas stand within the tropical forest of Petén. The protected site preserves both Maya archaeology and the surrounding living forest.",
+      "fr": "Les temples et les places cérémonielles de Tikal se dressent dans la forêt tropicale du Petén. Le site protégé préserve à la fois le patrimoine archéologique maya et la forêt environnante."
+    },
+    "acceptedCountries": [
+      "Guatemala"
+    ],
+    "referencePoint": [
+      -89.61666666666666,
+      17.216666666666665
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      -101.61666666666666,
+      7.216666666666665,
+      -77.61666666666666,
+      27.216666666666665
+    ],
+    "source": "https://whc.unesco.org/en/list/64/maps/",
+    "factSource": "https://whc.unesco.org/en/list/64/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-tikal-320.webp",
+    "expeditionId": "north-central-america",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The archaeological city for the title Tikal; national-park reference retained as context, not a precise Temple I coordinate."
+  },
+  {
+    "id": "carlsbad-caverns",
+    "puzzleIds": [
+      "s1-035"
+    ],
+    "title": {
+      "en": "Carlsbad Caverns National Park",
+      "fr": "Parc national des grottes de Carlsbad"
+    },
+    "fact": {
+      "en": "Sulfuric acid helped dissolve the limestone chambers of Carlsbad Cavern. Later, mineral-rich droplets formed many of the decorations seen inside the cave.",
+      "fr": "L’acide sulfurique a contribué à creuser les salles calcaires de la grotte de Carlsbad. Par la suite, des gouttes chargées de minéraux ont formé nombre des concrétions visibles dans la grotte."
+    },
+    "acceptedCountries": [
+      "United States of America"
+    ],
+    "referencePoint": [
+      -104.53809722222222,
+      32.13747222222222
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "heritage-property reference; not approved target geometry",
+    "bounds": [
+      -116.53809722222222,
+      22.13747222222222,
+      -92.53809722222222,
+      42.13747222222222
+    ],
+    "source": "https://whc.unesco.org/en/list/721/maps/",
+    "factSource": "https://whc.unesco.org/en/list/721/",
+    "contentVersion": 2,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-carlsbad-caverns-320.webp",
+    "expeditionId": "north-central-america",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The named national park, using Carlsbad Cavern as the clearly identified educational and token example; not a fictional surface outline of every underground chamber."
+  },
+  {
+    "id": "machu-picchu",
+    "puzzleIds": [
+      "s1-006"
+    ],
+    "title": {
+      "en": "Machu Picchu",
+      "fr": "Machu Picchu"
+    },
+    "fact": {
+      "en": "Machu Picchu stands where the Peruvian Andes meet the Amazon basin. Its walls and terraces fit the steep mountain setting, linking the ingenuity of Inca construction with a surrounding landscape rich in natural diversity.",
+      "fr": "Le Machu Picchu se dresse à la rencontre des Andes péruviennes et du bassin amazonien. Ses murs et ses terrasses épousent les pentes de la montagne, associant l’ingéniosité des bâtisseurs incas à un milieu naturel très diversifié."
+    },
+    "acceptedCountries": [
+      "Peru"
+    ],
+    "referencePoint": [
+      -72.53344305555555,
+      -13.184933888888889
+    ],
+    "referenceVersion": "source-2026-10-26",
+    "referenceKind": "unesco-property-reference-point",
+    "bounds": [
+      -83,
+      -22,
+      -60,
+      1
+    ],
+    "source": "https://whc.unesco.org/en/list/274/maps/",
+    "factSource": "https://whc.unesco.org/en/list/274/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "editorialStatus": "French wording pending native editorial approval",
+    "art": "assets/token-machu-picchu-320.webp",
+    "expeditionId": "south-america",
+    "artStatus": "approved-original",
+    "referenceScope": "Choose whether the challenge names the Inca citadel (llaqta) or the entire Historic Sanctuary. Recommend the citadel footprint for this title and engraving; acquire a reviewed national-authority extent before activation."
+  },
+  {
+    "id": "iguazu-falls",
+    "puzzleIds": [
+      "s1-043"
+    ],
+    "title": {
+      "en": "Iguazú / Iguaçu Falls",
+      "fr": "Chutes d’Iguazú / Iguaçu"
+    },
+    "fact": {
+      "en": "The Iguazú / Iguaçu waterfalls spread across a basaltic river edge shared by Argentina and Brazil. Their many cascades form a broad arc rather than a single isolated drop.",
+      "fr": "Les chutes d’Iguazú / Iguaçu se déploient sur un rebord basaltique à la frontière entre l’Argentine et le Brésil. Leurs nombreuses cascades dessinent un vaste arc plutôt qu’une seule chute isolée."
+    },
+    "acceptedCountries": [
+      "Argentina",
+      "Brazil"
+    ],
+    "referencePoint": [
+      -54.43694444444444,
+      -25.695555555555554
+    ],
+    "referenceVersion": "source-2026-10-27",
+    "referenceKind": "geological-feature reference; not a surveyed waterfall crest",
+    "bounds": [
+      -66.43694444444444,
+      -35.69555555555556,
+      -42.43694444444444,
+      -15.695555555555554
+    ],
+    "source": "https://iugs-geoheritage.org/geoheritage_sites/iguazu-iguacu-waterfalls/",
+    "factSource": "https://whc.unesco.org/en/list/303/",
+    "contentVersion": 1,
+    "precisionApproved": false,
+    "precisionMeters": null,
+    "art": "assets/token-iguazu-falls-320.webp",
+    "expeditionId": "south-america",
+    "editorialStatus": "French wording pending native editorial approval",
+    "artStatus": "private-candidate-pending-visual-approval",
+    "referenceScope": "The waterfall front on the Iguazú/Iguaçu River, approximately 2.7 km across under the cited geological description; not either national-park centroid or the nearby triple-frontier cities."
+  }
+]

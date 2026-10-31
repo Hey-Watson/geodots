@@ -1,0 +1,205 @@
+{
+  "reference": "Owner-approved connected four-shore chapter",
+  "sources": [
+    {
+      "id": "uw-jamaica",
+      "reference": "/Users/googdel/.codex/visualizations/2026/10/26/01a17a20-bd0e-7a40-bc8d-e3049b84da57/Geodots_Uncharted_Chapter_Preview_2026-10-29/shores/jamaica.html",
+      "referenceSHA256": "54468d3dccf696bd3d932fb270ebcb2ea9bc3aea2bc4f3433aa7c48a0b109220",
+      "coast": "GSHHG 2.3.7 full physical land/ocean coast",
+      "traceProfile": "coastline-240"
+    },
+    {
+      "id": "uw-madagascar",
+      "reference": "/Users/googdel/.codex/visualizations/2026/10/26/01a17a20-bd0e-7a40-bc8d-e3049b84da57/Geodots_Uncharted_Chapter_Preview_2026-10-29/shores/madagascar.html",
+      "referenceSHA256": "8a1ad9c98859e9afbe59efc332ab63eb736ca84d9e8009a498e79553cb1466c1",
+      "coast": "Approved V4 supplied coastline",
+      "traceProfile": "madagascar-v4"
+    },
+    {
+      "id": "uw-sri-lanka",
+      "reference": "/Users/googdel/.codex/visualizations/2026/10/26/01a17a20-bd0e-7a40-bc8d-e3049b84da57/Geodots_Uncharted_Chapter_Preview_2026-10-29/shores/sri-lanka.html",
+      "referenceSHA256": "3dc11f31d0a7b42a054fb337a5260c4cdc2a92059e6e55c2accb03a227e98b3a",
+      "coast": "GSHHG 2.3.7 full physical land/ocean coast",
+      "traceProfile": "coastline-240"
+    },
+    {
+      "id": "uw-moorea",
+      "reference": "/Users/googdel/.codex/visualizations/2026/10/26/01a17a20-bd0e-7a40-bc8d-e3049b84da57/Geodots_Uncharted_Chapter_Preview_2026-10-29/shores/moorea.html",
+      "referenceSHA256": "90dcedb8a35391e0de95666ecbf5358c00194d5d44197daaacd2b513a4108e35",
+      "coast": "GSHHG 2.3.7 full physical land/ocean coast",
+      "traceProfile": "coastline-240"
+    }
+  ],
+  "world": "Natural Earth 10m physical land, public domain; existing GSHHG Society Islands detail",
+  "GSHHG": "Version 2.3.7, Wessel and Smith, LGPLv3",
+  "preservation": "Original standalone files are external references and remain unchanged.",
+  "completionSources": {
+    "study": "/Users/googdel/.codex/visualizations/2026/10/26/01a17a20-bd0e-7a40-bc8d-e3049b84da57/Geodots_Uncharted_Silhouette_Review_2026-10-29/analysis/FINAL_ROSTER_AND_AUDIT.json",
+    "studySHA256": "16bf4a2a86a7d8ad81f2afaaefff660c62b759012b7d52f0af2f835c8739d386",
+    "GSHHGArchiveSHA256": "28600e8f7a08645aab43079326df6504212ec5ccb2b4bcf3b5f4f12ed60e82bc",
+    "naturalEarthArchiveSHA256": "e547d749445eaa0964aba76738090ec88f5e63c4585122170f98c67a7ea922dc",
+    "islands": [
+      {
+        "id": "uw-bali",
+        "sourceId": 114,
+        "bounds": [
+          114.42875,
+          -8.850444,
+          115.71213899999998,
+          -8.061278
+        ]
+      },
+      {
+        "id": "uw-viti-levu",
+        "sourceId": 80,
+        "bounds": [
+          177.24625,
+          -18.277111,
+          178.702917,
+          -17.310444
+        ]
+      },
+      {
+        "id": "uw-anjouan",
+        "sourceId": 573,
+        "bounds": [
+          44.202889,
+          -12.382944,
+          44.54125,
+          -12.064611
+        ]
+      },
+      {
+        "id": "uw-hokkaido",
+        "sourceId": 27,
+        "bounds": [
+          139.767056,
+          41.396222,
+          145.817972,
+          45.522889
+        ]
+      },
+      {
+        "id": "uw-luzon",
+        "sourceId": 23,
+        "bounds": [
+          119.747889,
+          12.535417,
+          124.19544399999998,
+          18.652917
+        ]
+      },
+      {
+        "id": "uw-tasmania",
+        "sourceId": 32,
+        "bounds": [
+          144.602944,
+          -43.645472,
+          148.36125,
+          -40.644556
+        ]
+      },
+      {
+        "id": "uw-martinique",
+        "sourceId": 295,
+        "bounds": [
+          -61.23522200000002,
+          14.39075,
+          -60.815860999999984,
+          14.876806
+        ]
+      },
+      {
+        "id": "uw-new-britain",
+        "sourceId": 45,
+        "bounds": [
+          148.30625,
+          -6.317944,
+          152.404639,
+          -4.134611
+        ]
+      },
+      {
+        "id": "uw-greenland",
+        "sourceId": 7,
+        "bounds": [
+          -73.06163900000001,
+          59.954556,
+          -12.142166999999972,
+          83.633389
+        ]
+      },
+      {
+        "id": "uw-hispaniola",
+        "sourceId": 29,
+        "bounds": [
+          -74.48294399999997,
+          17.60125,
+          -68.32541700000002,
+          19.9525
+        ]
+      },
+      {
+        "id": "uw-espiritu-santo",
+        "sourceId": 142,
+        "bounds": [
+          166.522083,
+          -15.677944,
+          167.247111,
+          -14.63625
+        ]
+      },
+      {
+        "id": "uw-south-island",
+        "sourceId": 18,
+        "bounds": [
+          166.425389,
+          -46.678806,
+          174.318778,
+          -40.49875
+        ]
+      },
+      {
+        "id": "uw-saint-helena",
+        "sourceId": 1294,
+        "bounds": [
+          -5.791249999999991,
+          -16.027111,
+          -5.6345830000000205,
+          -15.902889
+        ]
+      },
+      {
+        "id": "uw-guam",
+        "sourceId": 487,
+        "bounds": [
+          144.618386,
+          13.246238,
+          144.956622,
+          13.654365
+        ]
+      },
+      {
+        "id": "uw-honshu",
+        "sourceId": 13,
+        "bounds": [
+          130.862028,
+          33.435389,
+          142.070472,
+          41.546278
+        ]
+      },
+      {
+        "id": "uw-new-guinea",
+        "sourceId": 8,
+        "bounds": [
+          130.930444,
+          -10.704611,
+          150.877083,
+          -0.338556
+        ]
+      }
+    ],
+    "method": "Source-led twelve-centre perimeters; three documented geography corrections to provisional study traces, then cyclic starting-vertex shifts only; north-up azimuthal equidistant specimen with uniform scale; physical Mercator placement map. Existing detailed four-shore layer retained."
+  }
+}

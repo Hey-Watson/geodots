@@ -1,0 +1,40 @@
+/* Original companion artwork, quietly present in the cartographic surroundings. */
+.companion-presence{display:block;pointer-events:none;flex-shrink:0}
+.companion-presence img{display:block;width:100%;height:100%;object-fit:contain;mask-image:radial-gradient(ellipse at 50% 52%,#000 46%,#000c 61%,transparent 77%)}
+.play-title-line{display:flex;align-items:center;gap:16px}.play-title-line h1{margin:0}.play-heading .chart-companion{width:68px;height:68px;margin-block:-12px}
+.people-grid .person-card{background:radial-gradient(ellipse at 50% 25%,#2b434c66,transparent 64%),#142832;border-color:#697467;box-shadow:0 12px 30px #020c1222}
+.people-grid .person-card.selected{border-color:#d0b27b;box-shadow:inset 0 2px #c9a876,0 12px 30px #020c1233}
+.people-grid .person-card .hero{height:318px}.people-grid .person-card .hero img{max-height:308px}
+.people-grid .person-card .person-body{border-top:1px solid #b08d5733;margin-inline:20px;padding:19px 0 23px}
+.uncharted-root .uw-companion{width:96px;height:77px;margin:0 0 8px -7px}
+/* Narrative companions are printed illustrations, in the same plane as the Atlas pages. */
+.folio-companion-etching{color:#bca476;pointer-events:none}
+.story-companion-impression{opacity:.56}
+.companion-presence .folio-companion-study{display:block;width:100%;height:100%;overflow:visible}
+.companion-presence .folio-companion-study .folio-companion-etching{opacity:.64}
+.companion-revelation{margin:0;min-width:0}
+.companion-unity .folio-engraved-atlas .finale-world{transform:translate(154px,167px) scale(.68)}
+.folio-engraved-atlas .finale-place-names{opacity:.52;font-size:16px}
+.folio-engraved-atlas .finale-charted{fill-opacity:.3;stroke-opacity:.75}
+.folio-engraved-atlas .finale-unknown{fill-opacity:.45;stroke-opacity:.4}
+.folio-companion-margins{opacity:.71}
+.folio-companion-margins.is-resolved{opacity:.58}
+.folio-revelation-plate{color:#d1ad73;fill:currentColor;stroke:none;pointer-events:none}
+.folio-revelation-plate .folio-companion-etching{color:inherit}
+.folio-symbol-keywords text{font:italic 32px var(--body);fill:#d7b47b;stroke:none;letter-spacing:.3px}
+.perspective-divider{padding-inline:8px;color:#9a875f}
+.companion-engraved-world{pointer-events:none}
+.companion-unity{max-width:600px;margin:0 auto 5px;pointer-events:none}
+.companion-unity .finale-atlas-art{height:300px;width:100%;object-fit:contain}
+.finale-inscription:has(.companion-unity) .inscription-rose{width:64px;margin:0 auto 14px}
+@media(max-width:760px){
+ .play-title-line{gap:10px}.play-heading .chart-companion{width:46px;height:46px;margin-block:-7px}
+ .people-grid .person-card .hero{height:302px}.people-grid .person-card .hero img{max-height:294px}
+ .uncharted-root .uw-companion{width:80px;height:64px;margin-top:5px}
+ .companion-revelation{max-width:470px;margin:0 auto 15px}
+ .companion-revelation .finale-atlas-art{height:auto!important;width:100%}
+ .folio-symbol-keywords text{font-size:35px;letter-spacing:0}
+ .perspective-divider{padding-inline:4px}
+ .companion-unity .finale-atlas-art{height:240px}
+ .finale-inscription:has(.companion-unity) .inscription-rose{width:48px;margin-bottom:14px}
+}

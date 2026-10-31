@@ -1,0 +1,69 @@
+/* Reader-paced story folio. Existing game and bonus-chapter layouts are untouched. */
+body[data-surface=story] #main{padding-block:32px 42px;min-height:0}
+.story-reader{max-width:1220px;margin:auto}
+.story-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;border-bottom:1px solid #9b805b66;padding-bottom:19px}
+.story-heading h1{font:500 clamp(24px,2.7vw,37px)/1.25 var(--display);letter-spacing:.025em;color:var(--gold)}
+.story-skip{font-size:13px;color:var(--muted);padding-inline:2px;white-space:nowrap}
+.story-spread{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);align-items:center;gap:clamp(24px,4vw,64px);min-height:530px;padding-block:14px}
+.story-artwork{min-width:0;position:relative}
+.story-folio-art{display:block;width:100%;height:auto;overflow:visible}
+.story-book-cover{fill:#091923;stroke:#ba9a60;stroke-width:1.5}
+.story-book-page{fill:url(#story-paper);stroke:#b49b6f;stroke-width:1}
+.story-page-rule{fill:none;stroke:#91a198;stroke-opacity:.25;stroke-width:.8}
+.story-spine{fill:url(#story-spine);opacity:.45}
+.story-page-stack{stroke:#a39167;stroke-opacity:.45;stroke-width:1}
+.story-graticule{fill:none;stroke:#9eaaa1;stroke-opacity:.13;stroke-width:.7}
+.story-real-land{fill:#748f85;fill-opacity:.4;stroke:#cab689;stroke-width:.6;stroke-opacity:.65}
+.story-name-index{fill:none;stroke:#b1b7a5;stroke-opacity:.5;stroke-width:1}
+.story-authors{display:none;fill:var(--paper);font:500 30px var(--display)}
+.story-authors path{fill:none;stroke:#b99d69;stroke-width:1}
+.story-ten-folds{display:none;stroke:#c4aa73;stroke-width:1.5;opacity:.75}
+.art-authors .story-authors,.art-perspectives .story-authors,.art-decades .story-authors,.art-question .story-authors{display:block}
+.art-authors .story-name-index,.art-perspectives .story-name-index,.art-decades .story-name-index,.art-question .story-name-index,.art-inheritance .story-name-index{display:none}
+.art-authors .story-map{opacity:.48}.art-perspectives .story-real-land{fill-opacity:.25;stroke-opacity:.95}
+.art-decades .story-map{opacity:.2}.art-decades .story-authors{opacity:.35}.art-decades .story-page-stack{stroke-opacity:.85}
+.art-inheritance .story-map{opacity:.8}
+/* Five unfinished folios on each page; the companion occupies a separate outer margin. */
+.story-unfinished-expeditions{stroke:#c4aa73;stroke-width:1.25;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.story-folio-leaves{fill:#142a33;fill-opacity:.45;stroke-opacity:.65}
+.story-folio-face{fill:#19303a;fill-opacity:.5;stroke-opacity:.9}
+.story-folio-binding{fill:none;stroke-opacity:.55;stroke-width:.9}
+.story-folio-chart{fill:none;stroke:#95aaa0;stroke-opacity:.5;stroke-width:.9}
+.story-folio-unfinished{fill:none;stroke-opacity:.65;stroke-width:1}
+.art-inheritance .story-companion-impression{transform:translate(72px,-6px)}
+.art-borders .story-real-land{fill-opacity:.22;stroke-opacity:1;stroke:#e1c795}
+.art-today .story-real-land{fill:#a0b9a3;fill-opacity:.55;stroke-opacity:.95}
+.art-question .story-map{opacity:.28}.art-question .story-authors{opacity:.75}
+.story-reading-column{padding-block:18px;min-width:0}
+.story-passage{outline:none;min-height:255px;display:flex;align-items:center}
+.story-passage p{font:400 clamp(21px,1.9vw,25px)/1.65 var(--body);color:var(--paper);max-width:520px;text-wrap:pretty}
+.story-passage strong{font-weight:600;color:#e4c592}
+.story-question p{font-family:var(--display);font-size:clamp(25px,2.4vw,33px);line-height:1.45}
+.story-navigation{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:30px;padding-top:20px;border-top:1px solid #9b805b55}
+.story-navigation .primary{font-size:15px;padding-inline:21px}
+.story-navigation .primary span{margin-left:14px}
+.story-previous{font-size:13px;color:var(--muted);padding-inline:0}
+.story-reader:not(.story-still) .story-passage,.story-reader:not(.story-still) .story-folio-art{animation:story-settle .45s ease-out both}
+@keyframes story-settle{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.footer #storyButton{font-size:12px;min-height:44px;margin:0;color:var(--gold);max-width:none;flex-shrink:0;white-space:nowrap;text-align:left}
+.footer #offlineStatus{flex-basis:auto}
+@media(max-width:760px){
+ body[data-surface=story] #main{padding-block:24px 25px}
+ .story-heading{gap:10px;align-items:flex-start;padding-bottom:12px}
+ .story-heading h1{font-size:25px;max-width:235px;line-height:1.2}
+ .story-skip{font-size:12px;white-space:normal;max-width:104px;padding:0 0 0 8px;text-align:right}
+ .story-spread{grid-template-columns:1fr;gap:0;min-height:0;padding-top:6px}
+ .story-artwork{width:100%;max-width:420px;margin:auto}
+ .story-folio-art{height:215px;width:100%;object-fit:contain}
+ .story-reading-column{padding-top:3px}
+ .story-passage{min-height:0;display:block}
+ .story-passage p{font-size:20px;line-height:1.6;max-width:none}
+ .story-question p{font-size:27px;line-height:1.45}
+ .story-navigation{margin-top:24px;padding-top:15px;gap:12px}
+ .story-navigation .primary{font-size:14px;padding-inline:13px}.story-navigation .primary span{margin-left:6px}
+ .story-previous{font-size:12px;max-width:120px;text-align:left}
+ .footer-meta{flex-wrap:wrap;justify-content:flex-start;gap:5px 22px}
+ .footer #offlineStatus{flex-basis:100%;max-width:none;text-align:left}
+}
+@media(max-height:500px) and (min-width:761px){.story-spread{min-height:0}.story-passage{min-height:180px}.story-passage p{font-size:20px}.story-folio-art{max-height:350px}}
+@media(prefers-reduced-motion:reduce){.story-reader .story-passage,.story-reader .story-folio-art{animation:none!important;transform:none!important}}

@@ -1,0 +1,1 @@
+export const CONFIG=Object.freeze({practiceTokens:'allow',preview:false,phase:'1F',contentRevision:7,puzzlesURL:'data/puzzles.rev7.json',regionalPlanURL:'data/regional-plan.json',productionApproved:true,features:Object.freeze({unchartedWorld:true,sealedFolioTeaser:true,seriesOneFinale:true})});

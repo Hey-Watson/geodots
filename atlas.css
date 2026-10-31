@@ -1,0 +1,32 @@
+/* Atlas enhancement only. Puzzle charts, rewards and companion animations retain their established styles. */
+.atlas-layers,.atlas-navigation{display:flex;gap:7px;flex-wrap:wrap;margin:14px 0}
+.atlas-layers button,.atlas-navigation button,.atlas-earned-list button{min-height:44px;padding:9px 13px;border:1px solid #849582;color:#dfcfaa;font-size:13px;background:#182f38}
+.atlas-layers button[aria-pressed=true]{background:#3e6059;border-color:#d5b778;color:#fff1ce}
+.atlas-statistics{color:#e0d7bc;font-size:14px}
+.simulation-banner{padding:16px;border:1px solid #c1a26b;background:#334b46;color:#f0e3c5;font-size:14px;line-height:1.6}
+.atlas-earned-list{padding:8px 0 17px}.atlas-earned-list summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:#e0ca9d;font-size:14px}.atlas-earned-list details>div{display:flex;gap:7px;flex-wrap:wrap;padding:10px 0}.atlas-earned-list p{font-size:13px}
+body[data-surface=atlas] .atlas-log{position:static;inset:auto;border-top:0;box-shadow:none}
+#atlasMap{touch-action:none;min-height:300px;max-height:620px;aspect-ratio:1.8;cursor:grab}
+#atlasMap:active{cursor:grabbing}#atlasMap:focus-visible{outline:3px solid #f1c77f;outline-offset:-4px}
+#atlasMap .atlas-land.expedition-charted{fill:#5c8a7d;stroke:#d1b58099}
+#atlasMap .atlas-muted{opacity:.2}#atlasMap .atlas-land.in-focus{stroke:#c6c9a6;stroke-width:1}
+/* Screen-sized brass pins; pointer tips remain at the saved geographical anchors. */
+.atlas-landmark{cursor:pointer;outline:none}.marker-hit{fill:transparent;pointer-events:all}
+.marker-face,.marker-pointer,.marker-core{pointer-events:none}
+.marker-face,.marker-pointer{fill:#102b35;stroke:#ecc17a;stroke-width:2;stroke-linejoin:round}
+.marker-core{fill:#ecc17a}
+.atlas-landmark:focus-visible .marker-face{stroke:#fff1bf;stroke-width:3}
+#atlasMarkerEmphasis{pointer-events:none}#atlasMarkerEmphasis .marker-face{fill:#173946;stroke:#fff1bf;stroke-width:3}
+#atlasMarkerEmphasis .marker-pointer{stroke:#fff1bf}
+.atlas-marker-tooltip{position:absolute;z-index:2;max-width:min(260px,calc(100% - 16px));padding:7px 11px;background:#102b35;color:#fff0cd;border:1px solid #ecc17a;box-shadow:0 3px 12px #06131acc;border-radius:3px;font:14px/1.4 var(--body);text-align:center;pointer-events:none}
+.atlas-marker-tooltip[hidden]{display:none}
+.key-expedition:before{content:'';display:inline-block;width:13px;height:9px;margin-right:7px;background:#5c8a7d}
+@media(max-width:760px){#atlasMap{height:330px;aspect-ratio:auto;min-height:280px}.atlas-layers{display:grid;grid-template-columns:1fr 1fr}.atlas-layers button{font-size:12px;padding:8px}.atlas-navigation{gap:5px}.atlas-navigation button{min-width:44px;padding:8px}.atlas-statistics{font-size:12px}.atlas-log{position:static!important}}
+@media(prefers-reduced-motion:reduce){.atlas-landmark{transition:none;animation:none}}
+/* Keep the complete world visible on short landscape screens; travel framing
+   continues to use its existing measured height. */
+@media(max-height:500px) and (min-width:761px){body[data-surface=atlas] .atlas-world:not(.travel-frame) #atlasMap{height:calc(100svh - 120px);min-height:200px;aspect-ratio:auto}}
+/* Main Atlas: three meaningful views; quiet access to earned records. */
+.atlas-map-heading{justify-content:flex-end;padding-block:5px}
+.atlas-earned-list summary{font-size:13px;color:var(--muted)}
+@media(max-width:760px){.atlas-layers{display:flex;flex-wrap:wrap}.atlas-layers button{flex:1;min-width:95px}}

@@ -1,0 +1,548 @@
+{
+  "schema_version": 1,
+  "series_id": "series-one",
+  "production_baseline": "b35024591cbdca86e88c8ef181931bfc41e3b6ed",
+  "production_puzzles_blob_sha": "c6bc54a40f23ae34097468e22bb1395b57449a74",
+  "entries": [
+    {
+      "id": "s1-001",
+      "legacy_index": 0,
+      "date": "2026-08-19",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "eda8cfbfc41c74c8798d5fbf587bc1350d9948d54427aea413d53e562ddda0e7"
+    },
+    {
+      "id": "s1-002",
+      "legacy_index": 1,
+      "date": "2026-08-20",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "180bf8d06baea44da7957da4e7c894e21853f224acebe09cef4ac4810ce0687b"
+    },
+    {
+      "id": "s1-003",
+      "legacy_index": 2,
+      "date": "2026-08-21",
+      "difficulty": "MEDIUM",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "52db434c1c36d2f9cc05b77aa19300958d0f921428d73e9f73d526b809eb505d"
+    },
+    {
+      "id": "s1-004",
+      "legacy_index": 3,
+      "date": "2026-08-22",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "6b00a3f6258a621a5ee9c33f1e94c0076022ea1b258a09a3f72a7a3f9b34f6a3"
+    },
+    {
+      "id": "s1-005",
+      "legacy_index": 4,
+      "date": "2026-08-23",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "29b2dcac696e13d9ac313f2220b2e488545eb17a011c3af91782010ff4381c04"
+    },
+    {
+      "id": "s1-006",
+      "legacy_index": 5,
+      "date": "2026-08-24",
+      "difficulty": "MEDIUM",
+      "type": "decoy",
+      "nodes": 6,
+      "sha256": "0355f6d16d0fbcff56fd3e275b2de8b0d087cd509e6045812ac47e2bb754b1ff"
+    },
+    {
+      "id": "s1-007",
+      "legacy_index": 6,
+      "date": "2026-08-25",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "45fe99e76220fd10580f2f5ea15774db2ee91e8b6c99fa953b2583516e417c20"
+    },
+    {
+      "id": "s1-008",
+      "legacy_index": 7,
+      "date": "2026-08-26",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "0a5d45c7cf769c6e112435dc0f532906f48f12593bc1203475f760baf31e99de"
+    },
+    {
+      "id": "s1-009",
+      "legacy_index": 8,
+      "date": "2026-08-27",
+      "difficulty": "HARD",
+      "type": "decoy",
+      "nodes": 7,
+      "sha256": "99457f1af93adaa9b810c3346767042115c5f5a261a3d6bf0d762ca42047380f"
+    },
+    {
+      "id": "s1-010",
+      "legacy_index": 9,
+      "date": "2026-08-28",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "deb4ab96f0b7bc367db1a5791a9b18bcbf462e21873860a8a881b1851c182db3"
+    },
+    {
+      "id": "s1-011",
+      "legacy_index": 10,
+      "date": "2026-08-29",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 7,
+      "sha256": "2c303c0936eb480e1ea2c83079a905b0e85197b5640f8c46cccc9ae6d390f592"
+    },
+    {
+      "id": "s1-012",
+      "legacy_index": 11,
+      "date": "2026-08-30",
+      "difficulty": "MEDIUM",
+      "type": "decoy",
+      "nodes": 6,
+      "sha256": "d5137edb14a600555c9ec6ad0211d278affb27b6107ae0d7bcf57b5b57917c08"
+    },
+    {
+      "id": "s1-013",
+      "legacy_index": 12,
+      "date": "2026-08-31",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 7,
+      "sha256": "ce81924f291d083c7415b88f3d2d27806e8ea359391a3f1c244df4827177db8f"
+    },
+    {
+      "id": "s1-014",
+      "legacy_index": 13,
+      "date": "2026-09-01",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 7,
+      "sha256": "110714593101d5573d66829e23d91f2da4a3c40a90b945068b1c47f8d3f6d97f"
+    },
+    {
+      "id": "s1-015",
+      "legacy_index": 14,
+      "date": "2026-09-02",
+      "difficulty": "MEDIUM",
+      "type": "decoy",
+      "nodes": 6,
+      "sha256": "a1a0df054c32899d8d8599438e1a3c6dac54d12ae67c5c430c82aff9eed1fcb0"
+    },
+    {
+      "id": "s1-016",
+      "legacy_index": 15,
+      "date": "2026-09-03",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "9944f9bd07145abda7591eab84c57c6b28bfdafc89eefce89af9dd39cafad320"
+    },
+    {
+      "id": "s1-017",
+      "legacy_index": 16,
+      "date": "2026-09-04",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "61509d3b467c9d1297b65a562d6e28478a84a49397be779f336f6d9707e30e2e"
+    },
+    {
+      "id": "s1-018",
+      "legacy_index": 17,
+      "date": "2026-09-05",
+      "difficulty": "HARD",
+      "type": "decoy",
+      "nodes": 6,
+      "sha256": "dfbe064b36a8e3537b10d69b115dbfa07fb87719b1d2f5d5a3bf7dd8e06711b4"
+    },
+    {
+      "id": "s1-019",
+      "legacy_index": 18,
+      "date": "2026-09-06",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "5a645c40d8237a01661f4a89c810d0e51b36c06ea7a3c64e2c2215c382f2f6ca"
+    },
+    {
+      "id": "s1-020",
+      "legacy_index": 19,
+      "date": "2026-09-07",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "679b3c4e403e1b73210d49ed0d09d44eb1b27effc78cf076f171f0e9dab09951"
+    },
+    {
+      "id": "s1-021",
+      "legacy_index": 20,
+      "date": "2026-09-08",
+      "difficulty": "MEDIUM",
+      "type": "decoy",
+      "nodes": 7,
+      "sha256": "5e1e288244975425ddadfb843c2b854122198f0c4ea6bde0622e96f77a3d918c"
+    },
+    {
+      "id": "s1-022",
+      "legacy_index": 21,
+      "date": "2026-09-09",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 7,
+      "sha256": "3027bf6d0fd2dd2db3f7457c357845bcd6c5709e68ed60f8d019d1345fe7b070"
+    },
+    {
+      "id": "s1-023",
+      "legacy_index": 22,
+      "date": "2026-09-10",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "ed51fba5c045301696069e354572b7c092c35a6979143fcbb1c7d8a32b4fb7b2"
+    },
+    {
+      "id": "s1-024",
+      "legacy_index": 23,
+      "date": "2026-09-11",
+      "difficulty": "HARD",
+      "type": "decoy",
+      "nodes": 7,
+      "sha256": "8ecee4ae5e5a9a4ae1080b04d57d6475449ec650ab25bbc16611443945951dfc"
+    },
+    {
+      "id": "s1-025",
+      "legacy_index": 24,
+      "date": "2026-09-12",
+      "difficulty": "MEDIUM",
+      "type": "decoy",
+      "nodes": 7,
+      "sha256": "f81ee1b8308bca87e5c05a94b3aaec981d70d83d1947a73bca63cf8bacb7a1cf"
+    },
+    {
+      "id": "s1-026",
+      "legacy_index": 25,
+      "date": "2026-09-13",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "131d7e88dfc7db4d948d4246c46f6e6f389eb10302e0cb755c95345b249067ce"
+    },
+    {
+      "id": "s1-027",
+      "legacy_index": 26,
+      "date": "2026-09-14",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "0ff1a04108ed8e7c2e108f0fbce7b844c94b046c7333bebed1089eac07514857"
+    },
+    {
+      "id": "s1-028",
+      "legacy_index": 27,
+      "date": "2026-09-15",
+      "difficulty": "MEDIUM",
+      "type": "decoy",
+      "nodes": 6,
+      "sha256": "863fcc3deca57cfa3029ee612d885f6632c20448644709c030db30a0aacf76b4"
+    },
+    {
+      "id": "s1-029",
+      "legacy_index": 28,
+      "date": "2026-09-16",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "6ac018845f8b5adf297ba68f0990322cee6c7ca183b7ade122da561f23e17d86"
+    },
+    {
+      "id": "s1-030",
+      "legacy_index": 29,
+      "date": "2026-09-17",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 7,
+      "sha256": "cb8028e1abe4d29d4689e2a1929d1bae20775ac1ccb5f6ea8926d0cabd9a3bab"
+    },
+    {
+      "id": "s1-031",
+      "legacy_index": 30,
+      "date": "2026-09-18",
+      "difficulty": "HARD",
+      "type": "decoy",
+      "nodes": 7,
+      "sha256": "957674f5a98cd1be29b24775f2e9cee4886ced69148b40e7d3b8eae4aeec8000"
+    },
+    {
+      "id": "s1-032",
+      "legacy_index": 31,
+      "date": "2026-09-19",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "0c30bc09aa1f4b06629cf21a41530f4c7e694c0742ca9f067cc239b31d7fe275"
+    },
+    {
+      "id": "s1-033",
+      "legacy_index": 32,
+      "date": "2026-09-20",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 7,
+      "sha256": "1938153720346c048c0ae3abf3419748e5b5cb49e0e3b4f3a78276734353dc6a"
+    },
+    {
+      "id": "s1-034",
+      "legacy_index": 33,
+      "date": "2026-09-21",
+      "difficulty": "MEDIUM",
+      "type": "decoy",
+      "nodes": 6,
+      "sha256": "13aff4afc9710ce978d566452f8023c49f1776b4ade78ec26f7596cfde7cfe07"
+    },
+    {
+      "id": "s1-035",
+      "legacy_index": 34,
+      "date": "2026-09-22",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "02ea4dd9d5724091d041381a5dd68dccb23f3d74363c7797145decb6542edcce"
+    },
+    {
+      "id": "s1-036",
+      "legacy_index": 35,
+      "date": "2026-09-23",
+      "difficulty": "MEDIUM",
+      "type": "decoy",
+      "nodes": 6,
+      "sha256": "9a07b58b996b753e70d4d3637630624ab7907705c75603477586bb04ee7deb53"
+    },
+    {
+      "id": "s1-037",
+      "legacy_index": 36,
+      "date": "2026-09-24",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 7,
+      "sha256": "7f03656daae774611d5205f104218ec944ce0984946b6d1e56e75ce9d163501a"
+    },
+    {
+      "id": "s1-038",
+      "legacy_index": 37,
+      "date": "2026-09-25",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "417475ff4ddc9cc0377c6f528b77a2aa1fc74947e7e384e1e2a1c3b85285a0ce"
+    },
+    {
+      "id": "s1-039",
+      "legacy_index": 38,
+      "date": "2026-09-26",
+      "difficulty": "MEDIUM",
+      "type": "decoy",
+      "nodes": 6,
+      "sha256": "35559af590a1a6df7650f465a8b794a61e8b366b0910305729c45106f27c78d4"
+    },
+    {
+      "id": "s1-040",
+      "legacy_index": 39,
+      "date": "2026-09-27",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 7,
+      "sha256": "48844fd459b559d49afc35e78a5d38123c473b5daa2ec586994d2e34e60762d5"
+    },
+    {
+      "id": "s1-041",
+      "legacy_index": 40,
+      "date": "2026-09-28",
+      "difficulty": "MEDIUM",
+      "type": "decoy",
+      "nodes": 6,
+      "sha256": "1265cab28bf7e1fe9c2b9c9b95d9ea3646105b51bb06672d91774b260892d6b1"
+    },
+    {
+      "id": "s1-042",
+      "legacy_index": 41,
+      "date": "2026-09-29",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "3ff42981867614b30922b7cb8d03551ef560f6e52c03ef989c5590b8cd8c9d9c"
+    },
+    {
+      "id": "s1-043",
+      "legacy_index": 42,
+      "date": "2026-09-30",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 7,
+      "sha256": "55ab8ae15dbcd0ec4e67b1c5530d66d2eaaa0c9e8e4475e811156dc4968e905f"
+    },
+    {
+      "id": "s1-044",
+      "legacy_index": 43,
+      "date": "2026-10-01",
+      "difficulty": "HARD",
+      "type": "decoy",
+      "nodes": 7,
+      "sha256": "d5f6c453bc68238015c2bc05bfc24b9895869ce62843969c290890aa3cc06ffc"
+    },
+    {
+      "id": "s1-045",
+      "legacy_index": 44,
+      "date": "2026-10-02",
+      "difficulty": "HARD",
+      "type": "decoy",
+      "nodes": 7,
+      "sha256": "5b5b95a35e3c8c2ba2db12766d631ee920d0b6c8849c927011375daca75f47c7"
+    },
+    {
+      "id": "s1-046",
+      "legacy_index": 45,
+      "date": "2026-10-03",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "76d4c6c4aee6504a83a878bc1e663dba34a8cb19867ef8bd7ee3d6a6ff647c06"
+    },
+    {
+      "id": "s1-047",
+      "legacy_index": 46,
+      "date": "2026-10-04",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "f6d4ae05a8855c674e8bd8e98c4c45c384d1d2fbdded322ac6461e00637da1d9"
+    },
+    {
+      "id": "s1-048",
+      "legacy_index": 47,
+      "date": "2026-10-05",
+      "difficulty": "HARD",
+      "type": "decoy",
+      "nodes": 6,
+      "sha256": "5d49331cbd9af7cfc8a814ca622877d07c4d9443babe0c1ad21fa4f21de73f14"
+    },
+    {
+      "id": "s1-049",
+      "legacy_index": 48,
+      "date": "2026-10-06",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "7aa7decca9ceee63426cf6fedfad007615c7b05922caf7dd64d9df4524984922"
+    },
+    {
+      "id": "s1-050",
+      "legacy_index": 49,
+      "date": "2026-10-07",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "3dd8f80077caa3f05d0f9b78d7a22e283d7784098ae519dca104d787abb44fda"
+    },
+    {
+      "id": "s1-051",
+      "legacy_index": 50,
+      "date": "2026-10-08",
+      "difficulty": "HARD",
+      "type": "decoy",
+      "nodes": 7,
+      "sha256": "5894082de2960894cdc9d3f1d48e244dd05dc3b8297c613e4436e19808691d2d"
+    },
+    {
+      "id": "s1-052",
+      "legacy_index": 51,
+      "date": "2026-10-09",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "56817941ef08c97fdd67aafeace2fdfe611620b51fdff4b717bb4e471e852ca7"
+    },
+    {
+      "id": "s1-053",
+      "legacy_index": 52,
+      "date": "2026-10-10",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 7,
+      "sha256": "b7468b428618d715a282afeb4dc9d8580ffc3c8a413cfbdd3e706a19dfeed98b"
+    },
+    {
+      "id": "s1-054",
+      "legacy_index": 53,
+      "date": "2026-10-11",
+      "difficulty": "MEDIUM",
+      "type": "decoy",
+      "nodes": 6,
+      "sha256": "8527485bb56e5bbae2aecad090154952e0ff422493afb6a2ca58bb8d6b05068c"
+    },
+    {
+      "id": "s1-055",
+      "legacy_index": 54,
+      "date": "2026-10-12",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 7,
+      "sha256": "0f357499aef66909bc4a8bc22e250e744c7748606cfe8f9991af898b2a009be9"
+    },
+    {
+      "id": "s1-056",
+      "legacy_index": 55,
+      "date": "2026-10-13",
+      "difficulty": "HARD",
+      "type": "decoy",
+      "nodes": 7,
+      "sha256": "882e678db047a91f195c601d774fb28bffbfd0efdd457ab85588e4c2586d8d27"
+    },
+    {
+      "id": "s1-057",
+      "legacy_index": 56,
+      "date": "2026-10-14",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "dcd53231fa727bad07b5355187a27bdcc9d85302f7a54a1506b02188b2b1d513"
+    },
+    {
+      "id": "s1-058",
+      "legacy_index": 57,
+      "date": "2026-10-15",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 7,
+      "sha256": "dee160876900788ea02d0fb61a7fa997e370575523341c780615f4f97ef81678"
+    },
+    {
+      "id": "s1-059",
+      "legacy_index": 58,
+      "date": "2026-10-16",
+      "difficulty": "HARD",
+      "type": "plain",
+      "nodes": 8,
+      "sha256": "eff2e98681ef392143ac03f32b87bae4703c37b93de6b3b9941ed819b5a9f54f"
+    },
+    {
+      "id": "s1-060",
+      "legacy_index": 59,
+      "date": "2026-10-17",
+      "difficulty": "EASY",
+      "type": "plain",
+      "nodes": 6,
+      "sha256": "60a5c9c7ad3128b1ad74a0680f0932b51614c3ae6778667105408f2df5bd49f2"
+    }
+  ]
+}

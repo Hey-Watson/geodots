@@ -1,0 +1,3147 @@
+[
+  {
+    "id": "afg",
+    "iso3": "AFG",
+    "name": "Afghanistan",
+    "nameFr": "Afghanistan",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Afghanistan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia"
+  },
+  {
+    "id": "alb",
+    "iso3": "ALB",
+    "name": "Albania",
+    "nameFr": "Albanie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Albania",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "dza",
+    "iso3": "DZA",
+    "name": "Algeria",
+    "nameFr": "Algérie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Algeria",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa"
+  },
+  {
+    "id": "and",
+    "iso3": "AND",
+    "name": "Andorra",
+    "nameFr": "Andorre",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Andorra",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "ago",
+    "iso3": "AGO",
+    "name": "Angola",
+    "nameFr": "Angola",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Angola",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa"
+  },
+  {
+    "id": "atg",
+    "iso3": "ATG",
+    "name": "Antigua and Barbuda",
+    "nameFr": "Antigua-et-Barbuda",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Antigua and Barbuda",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "arg",
+    "iso3": "ARG",
+    "name": "Argentina",
+    "nameFr": "Argentine",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Argentina",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "arm",
+    "iso3": "ARM",
+    "name": "Armenia",
+    "nameFr": "Arménie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Armenia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "aus",
+    "iso3": "AUS",
+    "name": "Australia",
+    "nameFr": "Australie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Australia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Australia and New Zealand"
+  },
+  {
+    "id": "aut",
+    "iso3": "AUT",
+    "name": "Austria",
+    "nameFr": "Autriche",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Austria",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe"
+  },
+  {
+    "id": "aze",
+    "iso3": "AZE",
+    "name": "Azerbaijan",
+    "nameFr": "Azerbaïdjan",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Azerbaijan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "bhs",
+    "iso3": "BHS",
+    "name": "Bahamas",
+    "nameFr": "Bahamas",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Bahamas",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "bhr",
+    "iso3": "BHR",
+    "name": "Bahrain",
+    "nameFr": "Bahreïn",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Bahrain",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "bgd",
+    "iso3": "BGD",
+    "name": "Bangladesh",
+    "nameFr": "Bangladesh",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Bangladesh",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia"
+  },
+  {
+    "id": "brb",
+    "iso3": "BRB",
+    "name": "Barbados",
+    "nameFr": "Barbade",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Barbados",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "blr",
+    "iso3": "BLR",
+    "name": "Belarus",
+    "nameFr": "Biélorussie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Belarus",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe"
+  },
+  {
+    "id": "bel",
+    "iso3": "BEL",
+    "name": "Belgium",
+    "nameFr": "Belgique",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Belgium",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe"
+  },
+  {
+    "id": "blz",
+    "iso3": "BLZ",
+    "name": "Belize",
+    "nameFr": "Belize",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Belize",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Central America"
+  },
+  {
+    "id": "ben",
+    "iso3": "BEN",
+    "name": "Benin",
+    "nameFr": "Bénin",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Benin",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "btn",
+    "iso3": "BTN",
+    "name": "Bhutan",
+    "nameFr": "Bhoutan",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Bhutan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia"
+  },
+  {
+    "id": "bol",
+    "iso3": "BOL",
+    "name": "Bolivia",
+    "nameFr": "Bolivie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Bolivia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "bih",
+    "iso3": "BIH",
+    "name": "Bosnia and Herzegovina",
+    "nameFr": "Bosnie-Herzégovine",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Bosnia and Herzegovina",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "bwa",
+    "iso3": "BWA",
+    "name": "Botswana",
+    "nameFr": "Botswana",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Botswana",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Southern Africa"
+  },
+  {
+    "id": "bra",
+    "iso3": "BRA",
+    "name": "Brazil",
+    "nameFr": "Brésil",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Brazil",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "brn",
+    "iso3": "BRN",
+    "name": "Brunei",
+    "nameFr": "Brunei",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Brunei",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia"
+  },
+  {
+    "id": "bgr",
+    "iso3": "BGR",
+    "name": "Bulgaria",
+    "nameFr": "Bulgarie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Bulgaria",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe"
+  },
+  {
+    "id": "bfa",
+    "iso3": "BFA",
+    "name": "Burkina Faso",
+    "nameFr": "Burkina Faso",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Burkina Faso",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "bdi",
+    "iso3": "BDI",
+    "name": "Burundi",
+    "nameFr": "Burundi",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Burundi",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "cpv",
+    "iso3": "CPV",
+    "name": "Cabo Verde",
+    "nameFr": "Cabo Verde",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Cabo Verde",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "khm",
+    "iso3": "KHM",
+    "name": "Cambodia",
+    "nameFr": "Cambodge",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Cambodia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia"
+  },
+  {
+    "id": "cmr",
+    "iso3": "CMR",
+    "name": "Cameroon",
+    "nameFr": "Cameroun",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Cameroon",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa"
+  },
+  {
+    "id": "can",
+    "iso3": "CAN",
+    "name": "Canada",
+    "nameFr": "Canada",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Canada",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Northern America"
+  },
+  {
+    "id": "caf",
+    "iso3": "CAF",
+    "name": "Central African Republic",
+    "nameFr": "République centrafricaine",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Central African Republic",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa"
+  },
+  {
+    "id": "tcd",
+    "iso3": "TCD",
+    "name": "Chad",
+    "nameFr": "Tchad",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Chad",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa"
+  },
+  {
+    "id": "chl",
+    "iso3": "CHL",
+    "name": "Chile",
+    "nameFr": "Chili",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Chile",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "chn",
+    "iso3": "CHN",
+    "name": "China",
+    "nameFr": "Chine",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "China",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Eastern Asia"
+  },
+  {
+    "id": "col",
+    "iso3": "COL",
+    "name": "Colombia",
+    "nameFr": "Colombie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Colombia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "com",
+    "iso3": "COM",
+    "name": "Comoros",
+    "nameFr": "Comores",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Comoros",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "cog",
+    "iso3": "COG",
+    "name": "Republic of the Congo",
+    "nameFr": "République du Congo",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Republic of the Congo",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa"
+  },
+  {
+    "id": "cri",
+    "iso3": "CRI",
+    "name": "Costa Rica",
+    "nameFr": "Costa Rica",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Costa Rica",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Central America"
+  },
+  {
+    "id": "civ",
+    "iso3": "CIV",
+    "name": "Côte d'Ivoire",
+    "nameFr": "Côte d’Ivoire",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Côte d'Ivoire",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "hrv",
+    "iso3": "HRV",
+    "name": "Croatia",
+    "nameFr": "Croatie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Croatia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "cub",
+    "iso3": "CUB",
+    "name": "Cuba",
+    "nameFr": "Cuba",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Cuba",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "cyp",
+    "iso3": "CYP",
+    "name": "Cyprus",
+    "nameFr": "Chypre",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Cyprus",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "cze",
+    "iso3": "CZE",
+    "name": "Czechia",
+    "nameFr": "Tchéquie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Czechia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe"
+  },
+  {
+    "id": "prk",
+    "iso3": "PRK",
+    "name": "North Korea",
+    "nameFr": "Corée du Nord",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "North Korea",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Eastern Asia"
+  },
+  {
+    "id": "cod",
+    "iso3": "COD",
+    "name": "Democratic Republic of the Congo",
+    "nameFr": "République démocratique du Congo",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Democratic Republic of the Congo",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa"
+  },
+  {
+    "id": "dnk",
+    "iso3": "DNK",
+    "name": "Denmark",
+    "nameFr": "Danemark",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Denmark",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe"
+  },
+  {
+    "id": "dji",
+    "iso3": "DJI",
+    "name": "Djibouti",
+    "nameFr": "Djibouti",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Djibouti",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "dma",
+    "iso3": "DMA",
+    "name": "Dominica",
+    "nameFr": "Dominique",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Dominica",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "dom",
+    "iso3": "DOM",
+    "name": "Dominican Republic",
+    "nameFr": "République dominicaine",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Dominican Republic",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "ecu",
+    "iso3": "ECU",
+    "name": "Ecuador",
+    "nameFr": "Équateur",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Ecuador",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "egy",
+    "iso3": "EGY",
+    "name": "Egypt",
+    "nameFr": "Égypte",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Egypt",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa"
+  },
+  {
+    "id": "slv",
+    "iso3": "SLV",
+    "name": "El Salvador",
+    "nameFr": "Salvador",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "El Salvador",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Central America"
+  },
+  {
+    "id": "gnq",
+    "iso3": "GNQ",
+    "name": "Equatorial Guinea",
+    "nameFr": "Guinée équatoriale",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Equatorial Guinea",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa"
+  },
+  {
+    "id": "eri",
+    "iso3": "ERI",
+    "name": "Eritrea",
+    "nameFr": "Érythrée",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Eritrea",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "est",
+    "iso3": "EST",
+    "name": "Estonia",
+    "nameFr": "Estonie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Estonia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe"
+  },
+  {
+    "id": "swz",
+    "iso3": "SWZ",
+    "name": "Eswatini",
+    "nameFr": "Eswatini",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Eswatini",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Southern Africa"
+  },
+  {
+    "id": "eth",
+    "iso3": "ETH",
+    "name": "Ethiopia",
+    "nameFr": "Éthiopie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Ethiopia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "fji",
+    "iso3": "FJI",
+    "name": "Fiji",
+    "nameFr": "Fidji",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Fiji",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Melanesia"
+  },
+  {
+    "id": "fin",
+    "iso3": "FIN",
+    "name": "Finland",
+    "nameFr": "Finlande",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Finland",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe"
+  },
+  {
+    "id": "fra",
+    "iso3": "FRA",
+    "name": "France",
+    "nameFr": "France",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "France",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe"
+  },
+  {
+    "id": "gab",
+    "iso3": "GAB",
+    "name": "Gabon",
+    "nameFr": "Gabon",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Gabon",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa"
+  },
+  {
+    "id": "gmb",
+    "iso3": "GMB",
+    "name": "Gambia",
+    "nameFr": "Gambie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Gambia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "geo",
+    "iso3": "GEO",
+    "name": "Georgia",
+    "nameFr": "Géorgie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Georgia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "deu",
+    "iso3": "DEU",
+    "name": "Germany",
+    "nameFr": "Allemagne",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Germany",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe"
+  },
+  {
+    "id": "gha",
+    "iso3": "GHA",
+    "name": "Ghana",
+    "nameFr": "Ghana",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Ghana",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "grc",
+    "iso3": "GRC",
+    "name": "Greece",
+    "nameFr": "Grèce",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Greece",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "grd",
+    "iso3": "GRD",
+    "name": "Grenada",
+    "nameFr": "Grenade",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Grenada",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "gtm",
+    "iso3": "GTM",
+    "name": "Guatemala",
+    "nameFr": "Guatemala",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Guatemala",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Central America"
+  },
+  {
+    "id": "gin",
+    "iso3": "GIN",
+    "name": "Guinea",
+    "nameFr": "Guinée",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Guinea",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "gnb",
+    "iso3": "GNB",
+    "name": "Guinea-Bissau",
+    "nameFr": "Guinée-Bissau",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Guinea-Bissau",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "guy",
+    "iso3": "GUY",
+    "name": "Guyana",
+    "nameFr": "Guyana",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Guyana",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "hti",
+    "iso3": "HTI",
+    "name": "Haiti",
+    "nameFr": "Haïti",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Haiti",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "hnd",
+    "iso3": "HND",
+    "name": "Honduras",
+    "nameFr": "Honduras",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Honduras",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Central America"
+  },
+  {
+    "id": "hun",
+    "iso3": "HUN",
+    "name": "Hungary",
+    "nameFr": "Hongrie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Hungary",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe"
+  },
+  {
+    "id": "isl",
+    "iso3": "ISL",
+    "name": "Iceland",
+    "nameFr": "Islande",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Iceland",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe"
+  },
+  {
+    "id": "ind",
+    "iso3": "IND",
+    "name": "India",
+    "nameFr": "Inde",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "India",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia"
+  },
+  {
+    "id": "idn",
+    "iso3": "IDN",
+    "name": "Indonesia",
+    "nameFr": "Indonésie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Indonesia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia"
+  },
+  {
+    "id": "irn",
+    "iso3": "IRN",
+    "name": "Iran",
+    "nameFr": "Iran",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Iran",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia"
+  },
+  {
+    "id": "irq",
+    "iso3": "IRQ",
+    "name": "Iraq",
+    "nameFr": "Irak",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Iraq",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "irl",
+    "iso3": "IRL",
+    "name": "Ireland",
+    "nameFr": "Irlande",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Ireland",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe"
+  },
+  {
+    "id": "isr",
+    "iso3": "ISR",
+    "name": "Israel",
+    "nameFr": "Israël",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Israel",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "ita",
+    "iso3": "ITA",
+    "name": "Italy",
+    "nameFr": "Italie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Italy",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "jam",
+    "iso3": "JAM",
+    "name": "Jamaica",
+    "nameFr": "Jamaïque",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Jamaica",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "jpn",
+    "iso3": "JPN",
+    "name": "Japan",
+    "nameFr": "Japon",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Japan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Eastern Asia"
+  },
+  {
+    "id": "jor",
+    "iso3": "JOR",
+    "name": "Jordan",
+    "nameFr": "Jordanie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Jordan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "kaz",
+    "iso3": "KAZ",
+    "name": "Kazakhstan",
+    "nameFr": "Kazakhstan",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Kazakhstan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Central Asia"
+  },
+  {
+    "id": "ken",
+    "iso3": "KEN",
+    "name": "Kenya",
+    "nameFr": "Kenya",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Kenya",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "kir",
+    "iso3": "KIR",
+    "name": "Kiribati",
+    "nameFr": "Kiribati",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Kiribati",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Micronesia"
+  },
+  {
+    "id": "kwt",
+    "iso3": "KWT",
+    "name": "Kuwait",
+    "nameFr": "Koweït",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Kuwait",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "kgz",
+    "iso3": "KGZ",
+    "name": "Kyrgyzstan",
+    "nameFr": "Kirghizistan",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Kyrgyzstan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Central Asia"
+  },
+  {
+    "id": "lao",
+    "iso3": "LAO",
+    "name": "Laos",
+    "nameFr": "Laos",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Laos",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia"
+  },
+  {
+    "id": "lva",
+    "iso3": "LVA",
+    "name": "Latvia",
+    "nameFr": "Lettonie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Latvia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe"
+  },
+  {
+    "id": "lbn",
+    "iso3": "LBN",
+    "name": "Lebanon",
+    "nameFr": "Liban",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Lebanon",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "lso",
+    "iso3": "LSO",
+    "name": "Lesotho",
+    "nameFr": "Lesotho",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Lesotho",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Southern Africa"
+  },
+  {
+    "id": "lbr",
+    "iso3": "LBR",
+    "name": "Liberia",
+    "nameFr": "Liberia",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Liberia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "lby",
+    "iso3": "LBY",
+    "name": "Libya",
+    "nameFr": "Libye",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Libya",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa"
+  },
+  {
+    "id": "lie",
+    "iso3": "LIE",
+    "name": "Liechtenstein",
+    "nameFr": "Liechtenstein",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Liechtenstein",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe"
+  },
+  {
+    "id": "ltu",
+    "iso3": "LTU",
+    "name": "Lithuania",
+    "nameFr": "Lituanie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Lithuania",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe"
+  },
+  {
+    "id": "lux",
+    "iso3": "LUX",
+    "name": "Luxembourg",
+    "nameFr": "Luxembourg",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Luxembourg",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe"
+  },
+  {
+    "id": "mdg",
+    "iso3": "MDG",
+    "name": "Madagascar",
+    "nameFr": "Madagascar",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Madagascar",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "mwi",
+    "iso3": "MWI",
+    "name": "Malawi",
+    "nameFr": "Malawi",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Malawi",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "mys",
+    "iso3": "MYS",
+    "name": "Malaysia",
+    "nameFr": "Malaisie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Malaysia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia"
+  },
+  {
+    "id": "mdv",
+    "iso3": "MDV",
+    "name": "Maldives",
+    "nameFr": "Maldives",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Maldives",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia"
+  },
+  {
+    "id": "mli",
+    "iso3": "MLI",
+    "name": "Mali",
+    "nameFr": "Mali",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Mali",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "mlt",
+    "iso3": "MLT",
+    "name": "Malta",
+    "nameFr": "Malte",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Malta",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "mhl",
+    "iso3": "MHL",
+    "name": "Marshall Islands",
+    "nameFr": "Îles Marshall",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Marshall Islands",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Micronesia"
+  },
+  {
+    "id": "mrt",
+    "iso3": "MRT",
+    "name": "Mauritania",
+    "nameFr": "Mauritanie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Mauritania",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "mus",
+    "iso3": "MUS",
+    "name": "Mauritius",
+    "nameFr": "Maurice",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Mauritius",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "mex",
+    "iso3": "MEX",
+    "name": "Mexico",
+    "nameFr": "Mexique",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Mexico",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Central America"
+  },
+  {
+    "id": "fsm",
+    "iso3": "FSM",
+    "name": "Micronesia",
+    "nameFr": "États fédérés de Micronésie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Micronesia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Micronesia"
+  },
+  {
+    "id": "mda",
+    "iso3": "MDA",
+    "name": "Moldova",
+    "nameFr": "Moldavie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Moldova",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe"
+  },
+  {
+    "id": "mco",
+    "iso3": "MCO",
+    "name": "Monaco",
+    "nameFr": "Monaco",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Monaco",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe"
+  },
+  {
+    "id": "mng",
+    "iso3": "MNG",
+    "name": "Mongolia",
+    "nameFr": "Mongolie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Mongolia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Eastern Asia"
+  },
+  {
+    "id": "mne",
+    "iso3": "MNE",
+    "name": "Montenegro",
+    "nameFr": "Monténégro",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Montenegro",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "mar",
+    "iso3": "MAR",
+    "name": "Morocco",
+    "nameFr": "Maroc",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Morocco",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa"
+  },
+  {
+    "id": "moz",
+    "iso3": "MOZ",
+    "name": "Mozambique",
+    "nameFr": "Mozambique",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Mozambique",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "mmr",
+    "iso3": "MMR",
+    "name": "Myanmar",
+    "nameFr": "Myanmar",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Myanmar",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia"
+  },
+  {
+    "id": "nam",
+    "iso3": "NAM",
+    "name": "Namibia",
+    "nameFr": "Namibie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Namibia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Southern Africa"
+  },
+  {
+    "id": "nru",
+    "iso3": "NRU",
+    "name": "Nauru",
+    "nameFr": "Nauru",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Nauru",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Micronesia"
+  },
+  {
+    "id": "npl",
+    "iso3": "NPL",
+    "name": "Nepal",
+    "nameFr": "Népal",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Nepal",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia"
+  },
+  {
+    "id": "nld",
+    "iso3": "NLD",
+    "name": "Netherlands",
+    "nameFr": "Pays-Bas",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Netherlands",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe"
+  },
+  {
+    "id": "nzl",
+    "iso3": "NZL",
+    "name": "New Zealand",
+    "nameFr": "Nouvelle-Zélande",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "New Zealand",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Australia and New Zealand"
+  },
+  {
+    "id": "nic",
+    "iso3": "NIC",
+    "name": "Nicaragua",
+    "nameFr": "Nicaragua",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Nicaragua",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Central America"
+  },
+  {
+    "id": "ner",
+    "iso3": "NER",
+    "name": "Niger",
+    "nameFr": "Niger",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Niger",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "nga",
+    "iso3": "NGA",
+    "name": "Nigeria",
+    "nameFr": "Nigeria",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Nigeria",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "mkd",
+    "iso3": "MKD",
+    "name": "North Macedonia",
+    "nameFr": "Macédoine du Nord",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "North Macedonia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "nor",
+    "iso3": "NOR",
+    "name": "Norway",
+    "nameFr": "Norvège",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Norway",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe"
+  },
+  {
+    "id": "omn",
+    "iso3": "OMN",
+    "name": "Oman",
+    "nameFr": "Oman",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Oman",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "pak",
+    "iso3": "PAK",
+    "name": "Pakistan",
+    "nameFr": "Pakistan",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Pakistan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia"
+  },
+  {
+    "id": "plw",
+    "iso3": "PLW",
+    "name": "Palau",
+    "nameFr": "Palaos",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Palau",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Micronesia"
+  },
+  {
+    "id": "pan",
+    "iso3": "PAN",
+    "name": "Panama",
+    "nameFr": "Panama",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Panama",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Central America"
+  },
+  {
+    "id": "png",
+    "iso3": "PNG",
+    "name": "Papua New Guinea",
+    "nameFr": "Papouasie-Nouvelle-Guinée",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Papua New Guinea",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Melanesia"
+  },
+  {
+    "id": "pry",
+    "iso3": "PRY",
+    "name": "Paraguay",
+    "nameFr": "Paraguay",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Paraguay",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "per",
+    "iso3": "PER",
+    "name": "Peru",
+    "nameFr": "Pérou",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Peru",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "phl",
+    "iso3": "PHL",
+    "name": "Philippines",
+    "nameFr": "Philippines",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Philippines",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia"
+  },
+  {
+    "id": "pol",
+    "iso3": "POL",
+    "name": "Poland",
+    "nameFr": "Pologne",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Poland",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe"
+  },
+  {
+    "id": "prt",
+    "iso3": "PRT",
+    "name": "Portugal",
+    "nameFr": "Portugal",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Portugal",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "qat",
+    "iso3": "QAT",
+    "name": "Qatar",
+    "nameFr": "Qatar",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Qatar",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "kor",
+    "iso3": "KOR",
+    "name": "South Korea",
+    "nameFr": "Corée du Sud",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "South Korea",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Eastern Asia"
+  },
+  {
+    "id": "rou",
+    "iso3": "ROU",
+    "name": "Romania",
+    "nameFr": "Roumanie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Romania",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe"
+  },
+  {
+    "id": "rus",
+    "iso3": "RUS",
+    "name": "Russia",
+    "nameFr": "Russie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Russia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Central Asia"
+  },
+  {
+    "id": "rwa",
+    "iso3": "RWA",
+    "name": "Rwanda",
+    "nameFr": "Rwanda",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Rwanda",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "kna",
+    "iso3": "KNA",
+    "name": "Saint Kitts and Nevis",
+    "nameFr": "Saint-Christophe-et-Niévès",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Saint Kitts and Nevis",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "lca",
+    "iso3": "LCA",
+    "name": "Saint Lucia",
+    "nameFr": "Sainte-Lucie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Saint Lucia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "vct",
+    "iso3": "VCT",
+    "name": "Saint Vincent and the Grenadines",
+    "nameFr": "Saint-Vincent-et-les-Grenadines",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Saint Vincent and the Grenadines",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "wsm",
+    "iso3": "WSM",
+    "name": "Samoa",
+    "nameFr": "Samoa",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Samoa",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Polynesia"
+  },
+  {
+    "id": "smr",
+    "iso3": "SMR",
+    "name": "San Marino",
+    "nameFr": "Saint-Marin",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "San Marino",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "stp",
+    "iso3": "STP",
+    "name": "São Tomé and Principe",
+    "nameFr": "São Tomé-et-Principe",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "São Tomé and Principe",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Middle Africa"
+  },
+  {
+    "id": "sau",
+    "iso3": "SAU",
+    "name": "Saudi Arabia",
+    "nameFr": "Arabie saoudite",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Saudi Arabia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "sen",
+    "iso3": "SEN",
+    "name": "Senegal",
+    "nameFr": "Sénégal",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Senegal",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "srb",
+    "iso3": "SRB",
+    "name": "Serbia",
+    "nameFr": "Serbie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Serbia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "syc",
+    "iso3": "SYC",
+    "name": "Seychelles",
+    "nameFr": "Seychelles",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Seychelles",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "sle",
+    "iso3": "SLE",
+    "name": "Sierra Leone",
+    "nameFr": "Sierra Leone",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Sierra Leone",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "sgp",
+    "iso3": "SGP",
+    "name": "Singapore",
+    "nameFr": "Singapour",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Singapore",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia"
+  },
+  {
+    "id": "svk",
+    "iso3": "SVK",
+    "name": "Slovakia",
+    "nameFr": "Slovaquie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Slovakia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe"
+  },
+  {
+    "id": "svn",
+    "iso3": "SVN",
+    "name": "Slovenia",
+    "nameFr": "Slovénie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Slovenia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "slb",
+    "iso3": "SLB",
+    "name": "Solomon Islands",
+    "nameFr": "Îles Salomon",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Solomon Islands",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Melanesia"
+  },
+  {
+    "id": "som",
+    "iso3": "SOM",
+    "name": "Somalia",
+    "nameFr": "Somalie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Somalia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "zaf",
+    "iso3": "ZAF",
+    "name": "South Africa",
+    "nameFr": "Afrique du Sud",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "South Africa",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Southern Africa"
+  },
+  {
+    "id": "ssd",
+    "iso3": "SSD",
+    "name": "South Sudan",
+    "nameFr": "Soudan du Sud",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "South Sudan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "esp",
+    "iso3": "ESP",
+    "name": "Spain",
+    "nameFr": "Espagne",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Spain",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe"
+  },
+  {
+    "id": "lka",
+    "iso3": "LKA",
+    "name": "Sri Lanka",
+    "nameFr": "Sri Lanka",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Sri Lanka",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Southern Asia"
+  },
+  {
+    "id": "sdn",
+    "iso3": "SDN",
+    "name": "Sudan",
+    "nameFr": "Soudan",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Sudan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa"
+  },
+  {
+    "id": "sur",
+    "iso3": "SUR",
+    "name": "Suriname",
+    "nameFr": "Suriname",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Suriname",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "swe",
+    "iso3": "SWE",
+    "name": "Sweden",
+    "nameFr": "Suède",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Sweden",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe"
+  },
+  {
+    "id": "che",
+    "iso3": "CHE",
+    "name": "Switzerland",
+    "nameFr": "Suisse",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Switzerland",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Western Europe"
+  },
+  {
+    "id": "syr",
+    "iso3": "SYR",
+    "name": "Syria",
+    "nameFr": "Syrie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Syria",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "tjk",
+    "iso3": "TJK",
+    "name": "Tajikistan",
+    "nameFr": "Tadjikistan",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Tajikistan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Central Asia"
+  },
+  {
+    "id": "tza",
+    "iso3": "TZA",
+    "name": "Tanzania",
+    "nameFr": "Tanzanie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Tanzania",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "tha",
+    "iso3": "THA",
+    "name": "Thailand",
+    "nameFr": "Thaïlande",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Thailand",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia"
+  },
+  {
+    "id": "tls",
+    "iso3": "TLS",
+    "name": "Timor-Leste",
+    "nameFr": "Timor oriental",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Timor-Leste",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia"
+  },
+  {
+    "id": "tgo",
+    "iso3": "TGO",
+    "name": "Togo",
+    "nameFr": "Togo",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Togo",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Western Africa"
+  },
+  {
+    "id": "ton",
+    "iso3": "TON",
+    "name": "Tonga",
+    "nameFr": "Tonga",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Tonga",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Polynesia"
+  },
+  {
+    "id": "tto",
+    "iso3": "TTO",
+    "name": "Trinidad and Tobago",
+    "nameFr": "Trinité-et-Tobago",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Trinidad and Tobago",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Caribbean"
+  },
+  {
+    "id": "tun",
+    "iso3": "TUN",
+    "name": "Tunisia",
+    "nameFr": "Tunisie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Tunisia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa"
+  },
+  {
+    "id": "tur",
+    "iso3": "TUR",
+    "name": "Turkey",
+    "nameFr": "Turquie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Turkey",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "tkm",
+    "iso3": "TKM",
+    "name": "Turkmenistan",
+    "nameFr": "Turkménistan",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Turkmenistan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Central Asia"
+  },
+  {
+    "id": "tuv",
+    "iso3": "TUV",
+    "name": "Tuvalu",
+    "nameFr": "Tuvalu",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Tuvalu",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Polynesia"
+  },
+  {
+    "id": "uga",
+    "iso3": "UGA",
+    "name": "Uganda",
+    "nameFr": "Ouganda",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Uganda",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "ukr",
+    "iso3": "UKR",
+    "name": "Ukraine",
+    "nameFr": "Ukraine",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Ukraine",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Eastern Europe"
+  },
+  {
+    "id": "are",
+    "iso3": "ARE",
+    "name": "United Arab Emirates",
+    "nameFr": "Émirats arabes unis",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "United Arab Emirates",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "gbr",
+    "iso3": "GBR",
+    "name": "United Kingdom",
+    "nameFr": "Royaume-Uni",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "United Kingdom",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Europe",
+    "subregion": "Northern Europe"
+  },
+  {
+    "id": "usa",
+    "iso3": "USA",
+    "name": "United States of America",
+    "nameFr": "États-Unis d’Amérique",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "United States of America",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "Northern America"
+  },
+  {
+    "id": "ury",
+    "iso3": "URY",
+    "name": "Uruguay",
+    "nameFr": "Uruguay",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Uruguay",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "uzb",
+    "iso3": "UZB",
+    "name": "Uzbekistan",
+    "nameFr": "Ouzbékistan",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Uzbekistan",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Central Asia"
+  },
+  {
+    "id": "vut",
+    "iso3": "VUT",
+    "name": "Vanuatu",
+    "nameFr": "Vanuatu",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Vanuatu",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Oceania",
+    "subregion": "Melanesia"
+  },
+  {
+    "id": "ven",
+    "iso3": "VEN",
+    "name": "Venezuela",
+    "nameFr": "Venezuela",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Venezuela",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "vnm",
+    "iso3": "VNM",
+    "name": "Vietnam",
+    "nameFr": "Viêt Nam",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Vietnam",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "South-Eastern Asia"
+  },
+  {
+    "id": "yem",
+    "iso3": "YEM",
+    "name": "Yemen",
+    "nameFr": "Yémen",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Yemen",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Asia",
+    "subregion": "Western Asia"
+  },
+  {
+    "id": "zmb",
+    "iso3": "ZMB",
+    "name": "Zambia",
+    "nameFr": "Zambie",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Zambia",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "zwe",
+    "iso3": "ZWE",
+    "name": "Zimbabwe",
+    "nameFr": "Zimbabwe",
+    "eligible": true,
+    "kind": "UN-member country",
+    "sovereignState": "Zimbabwe",
+    "sourceIds": [
+      "un-members-en",
+      "un-members-fr",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Eastern Africa"
+  },
+  {
+    "id": "french-guiana",
+    "iso3": null,
+    "name": "French Guiana",
+    "nameFr": "Guyane française",
+    "eligible": true,
+    "kind": "owner-approved geographical territory",
+    "sovereignState": "France",
+    "independentState": false,
+    "sourceIds": [
+      "owner-country-policy",
+      "french-guiana-government",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Americas",
+    "subregion": "South America"
+  },
+  {
+    "id": "western-sahara",
+    "iso3": null,
+    "name": "Western Sahara",
+    "nameFr": "Sahara occidental",
+    "eligible": true,
+    "kind": "owner-approved geographical territory",
+    "sovereignState": null,
+    "independentState": false,
+    "sourceIds": [
+      "owner-country-policy",
+      "un-western-sahara",
+      "natural-earth-5.1.1"
+    ],
+    "region": "Africa",
+    "subregion": "Northern Africa"
+  },
+  {
+    "id": "kosovo",
+    "iso3": null,
+    "name": "Kosovo",
+    "nameFr": "Kosovo",
+    "eligible": true,
+    "kind": "owner-approved geographical territory",
+    "sovereignState": null,
+    "independentState": null,
+    "statusNeutral": true,
+    "sourceIds": [
+      "owner-targeted-amendment",
+      "lsib-11.4",
+      "natural-earth-5.1.1",
+      "kosovo-physical-geography"
+    ],
+    "region": "Europe",
+    "subregion": "Southern Europe",
+    "approvedPuzzleContexts": [
+      "s1-030"
+    ],
+    "contextPolicy": "No Serbia co-selection or decisive contested interpretation; physical links with Albania, Montenegro and North Macedonia only."
+  }
+]

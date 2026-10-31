@@ -1,0 +1,76 @@
+/* Finale-only visual language. No selectors affect the approved opening or game. */
+body[data-surface=restored] #main,body[data-surface=folio] #main,body[data-surface=epilogue] #main{padding-block:20px 45px}
+.finale-reader{max-width:1230px;margin:auto}.finale-toolbar{display:flex;justify-content:space-between;gap:16px;margin-bottom:16px}.finale-toolbar button{font-size:13px;padding-inline:0;color:var(--muted)}
+.finale-heading{padding:0 0 23px;border-bottom:1px solid #aa8a5555}.finale-heading h1{font-size:clamp(25px,2.8vw,38px);line-height:1.27;color:var(--gold);letter-spacing:.015em;max-width:1080px;text-wrap:balance}
+.finale-spread{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,1fr);align-items:center;gap:35px;min-height:540px}.finale-artwork{min-width:0}.finale-atlas-art{display:block;width:100%;height:auto;overflow:visible}.finale-reading-column{padding-block:27px;min-width:0}
+.finale-passage{outline:0}.finale-passage p{font-size:clamp(20px,1.7vw,24px);line-height:1.6;color:var(--paper);text-wrap:pretty}.finale-passage p+p{margin-top:20px}.finale-passage strong{font-weight:500;color:#e5c895}.finale-passage .finale-emphasis{font-family:var(--display);font-size:clamp(25px,2.3vw,33px);line-height:1.35}
+.finale-page-navigation{display:flex;justify-content:space-between;align-items:center;gap:15px;border-top:1px solid #b08d574d;margin-top:28px;padding-top:19px}.finale-page-navigation button{font-size:14px}.finale-previous{padding-inline:0;color:var(--muted)}
+.finale-cover{fill:url(#finale-cover);stroke:#b39560;stroke-width:1.7}.finale-pages{fill:url(#finale-paper);stroke:#bdab7f;stroke-width:1.2}.finale-page-rule{fill:none;stroke:#b6a16f;stroke-opacity:.4}.finale-spine{fill:none;stroke:#0a1721;stroke-width:9;opacity:.6}.finale-chart-leaves{fill:none;stroke:#c9ba96;stroke-width:.5;opacity:.12}.finale-charted{fill:#7d9f88;fill-opacity:.54;stroke:#d6c58d;stroke-width:.8}.finale-unknown{fill:#2d454b;stroke:#9ca698;stroke-width:.6;stroke-opacity:.65}.finale-graticule{fill:none;stroke:#bac7b4;stroke-width:.6;opacity:.19}.finale-index-lines{fill:none;stroke:#adbd9d;stroke-width:1;opacity:.6}.finale-closed-book,.finale-letter-object,.finale-author-marks{display:none}
+.finale-letter-object .letter-shadow{fill:#000;opacity:.26}.letter-fold{fill:#e8ddc4;stroke:#c4ab78;stroke-width:1.5}.letter-crease{fill:none;stroke:#b3a187;stroke-width:1.2}.letter-seal{fill:#24414a;stroke:#9a7e4b;stroke-width:1.5}.letter-seal-line{fill:none;stroke:#ccae70;stroke-width:1.5}
+.art-hidden .finale-letter-object,.art-choices .finale-letter-object{display:block}.art-hidden .finale-world,.art-choices .finale-world{opacity:.25}.art-hidden .finale-letter-object{transform:translate(35px,80px) rotate(-8deg);transform-origin:center}.art-choices .finale-letter-object{transform:translate(70px,90px) scale(.8);transform-origin:center}.art-hidden .finale-index-lines{opacity:.2}
+.art-letter .finale-open-book,.art-perspectives .finale-open-book,.art-reunion .finale-open-book,.art-names .finale-open-book,.art-revelation .finale-open-book,.art-signatures .finale-open-book{opacity:.42;transform:translate(-20px,15px) rotate(-4deg);transform-origin:center}.art-perspectives .finale-author-marks,.art-reunion .finale-author-marks,.art-signatures .finale-author-marks{display:block;fill:#dfc99b;font:italic 28px var(--display)}.finale-author-marks path{fill:none;stroke:#ab915f}.art-perspectives .finale-author-marks{opacity:.5}.art-reunion .finale-author-marks{opacity:1}.art-revelation .finale-world{opacity:.2}
+.finale-letter-reading{background:#e9dfcb;color:#26333a;padding:32px 34px;position:relative;border:1px solid #bca77c;box-shadow:5px 6px 0 #b59f7626}.finale-letter-reading:before{content:'';position:absolute;inset:10px;border:1px solid #8d806f33;pointer-events:none}.finale-letter-reading p{color:#26333a;font-size:clamp(19px,1.55vw,22px);line-height:1.6;font-style:italic}.finale-letter-reading strong{color:#223b3d;font-style:normal}.finale-letter-reading p.finale-signature-line{font-size:17px;margin-top:9px}.finale-letter-reading p.signature-16,.finale-letter-reading p.signature-18{font:italic 25px var(--display);margin-top:19px}.finale-letter-reading p.signature-17,.finale-letter-reading p.signature-19{font-size:13px;margin-top:0;letter-spacing:.06em}.scene-revelation .finale-letter-reading{padding-block:53px}.scene-revelation .finale-letter-reading .finale-emphasis{font-size:32px;line-height:1.38}.scene-revelation .finale-artwork{opacity:.75}
+.finale-two-choices{margin-top:12px}.finale-choice{display:flex;align-items:center;gap:17px;width:100%;text-align:left;border-bottom:1px solid #b08d5759;padding:20px 3px;min-height:113px}.finale-choice:hover{background:#b08d570c}.choice-engraving{width:58px;flex:0 0 58px}.choice-engraving>svg{width:100%;display:block;fill:none;stroke:#c9a876;stroke-width:1.5}.choice-copy strong{display:block;font:500 25px/1.25 var(--display);color:#e3c492}.choice-copy>span{display:block;color:var(--muted);font-size:16px;margin-top:7px}.choice-arrow{margin-left:auto;color:var(--gold)}.scene-choices .finale-passage>.finale-emphasis{font-size:22px;margin-top:23px}.scene-choices .finale-page-navigation{margin-top:12px}
+.finale-rose{width:100%;display:block;fill:none;stroke:#b89a61;stroke-width:1}.finale-rose text{font:10px var(--display);fill:#d5bd85;stroke:none}.finale-rose .rose-light{fill:#d6bd81;stroke-width:.5}.finale-rose .rose-dark{fill:#253a42;stroke-width:.7}.finale-rose .rose-faint{opacity:.3}.finale-cover-rose{fill:none;stroke:#ad925b}.finale-cover-rose .rose-light{fill:#b5a16b}.finale-cover-rose .rose-dark{fill:#192b36}.finale-cover-rose text{fill:#bdab7b;stroke:none;font-size:10px}
+.art-closed .finale-open-book{display:none}.art-closed .finale-closed-book{display:block}.art-closed .finale-letter-object{display:none}.art-horizon .finale-world,.art-beyond .finale-world{transform:translate(-55px,-12px) scale(1.12)}.art-horizon .finale-index-lines,.art-beyond .finale-index-lines{opacity:.15}.scene-reopened .finale-spread{min-height:435px}.finale-expedition-impressions{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:19px 25px;border-block:1px solid #a58a5655;padding-block:20px}.finale-expedition-impressions>div{display:flex;gap:12px;align-items:baseline;font-size:12px;color:var(--muted)}.finale-expedition-impressions>div>span:first-child{font:italic 19px var(--display);color:var(--gold);flex:0 0 20px}
+.finale-inscription{max-width:900px;text-align:center;margin:12px auto 0;padding:0 20px 20px;background:radial-gradient(ellipse at 50% 38%,#27453f55,transparent 65%)}.inscription-rose{width:142px;margin:0 auto 10px}.finale-inscription .finale-passage p{font:italic clamp(20px,2vw,25px)/1.5 var(--body)}.finale-inscription .finale-passage p:first-child{font:500 clamp(33px,4vw,52px)/1.2 var(--display);letter-spacing:.01em}.finale-inscription .finale-passage p:last-child{font:400 13px var(--body);letter-spacing:.19em;margin-top:34px;color:#d0b17b}.finale-inscription .finale-page-navigation{max-width:600px;margin:32px auto 0}.finale-explore-again{font-size:14px;color:var(--gold);margin-top:14px}.scene-inscription .finale-heading{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);padding:0;border:0}
+.finale-reader:not(.finale-still) .finale-passage{animation:finale-ink .4s ease-out both}.finale-reader:not(.finale-still) .art-closed{animation:finale-close .65s ease-out both}.finale-reader:not(.finale-still) .art-reopened{animation:finale-open .8s ease-out both}.finale-reader:not(.finale-still) .inscription-rose{animation:finale-ink .65s ease-out both}
+@keyframes finale-ink{from{opacity:.15;transform:translateY(5px)}to{opacity:1;transform:none}}@keyframes finale-close{from{opacity:.3;transform:scaleX(1.04)}to{opacity:1;transform:none}}@keyframes finale-open{from{opacity:.2;transform:perspective(900px) rotateX(12deg) scale(.97)}to{opacity:1;transform:none}}
+@media(max-width:760px){body[data-surface=restored] #main,body[data-surface=folio] #main,body[data-surface=epilogue] #main{padding-top:12px}.finale-toolbar{margin-bottom:10px}.finale-toolbar button{font-size:12px;max-width:48%;text-align:left}.finale-toolbar button+button{text-align:right}.finale-heading{padding-bottom:15px}.finale-heading h1{font-size:25px;line-height:1.27}.finale-spread{grid-template-columns:1fr;gap:0;min-height:0}.finale-artwork{max-width:470px;width:100%;margin:auto}.finale-atlas-art{height:186px;width:100%;object-fit:contain}.finale-reading-column{padding-top:9px;padding-bottom:12px}.finale-passage p{font-size:20px;line-height:1.55}.finale-passage p+p{margin-top:17px}.finale-page-navigation{margin-top:22px;padding-top:15px;gap:10px}.finale-page-navigation button{font-size:13px;padding-inline:12px}.finale-page-navigation .finale-previous{padding-left:0;text-align:left}.finale-letter-reading{padding:23px 24px}.finale-letter-reading p{font-size:19px;line-height:1.55}.finale-folio:not(.scene-hidden) .finale-atlas-art{height:114px}.scene-revelation .finale-letter-reading{padding-block:38px}.scene-revelation .finale-letter-reading .finale-emphasis{font-size:29px}.scene-choices .finale-artwork{display:none}.scene-choices .finale-reading-column{padding-top:22px}.finale-choice{gap:12px;padding-block:21px}.choice-engraving{width:49px;flex-basis:49px}.choice-copy strong{font-size:23px}.choice-copy>span{font-size:16px}.finale-expedition-impressions{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px 12px}.scene-reopened .finale-spread{min-height:0}.finale-inscription{padding-inline:0;padding-top:5px}.inscription-rose{width:127px;margin-bottom:18px}.finale-inscription .finale-passage p:first-child{font-size:35px}.finale-inscription .finale-passage p:last-child{font-size:12px;letter-spacing:.12em}.finale-inscription .finale-page-navigation{margin-top:30px}.finale-explore-again{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.finale-reader *{animation:none!important;transition:none!important}}
+
+.finale-place-names{font:16px var(--body);fill:#f2e2bd;paint-order:stroke;stroke:#17313a;stroke-width:2px;stroke-linejoin:round}
+.art-hidden .finale-place-names,.art-choices .finale-place-names,.art-perspectives .finale-place-names,.art-revelation .finale-place-names{opacity:0}
+@media(prefers-reduced-motion:no-preference){
+ .finale-reader:not(.finale-still) .art-closed .finale-open-book{display:block;transform-origin:50% 52%;animation:finale-fold-away .65s ease-in-out both}
+ .finale-reader:not(.finale-still) .art-closed .finale-closed-book{transform-origin:50% 52%;animation:finale-cover-settle .65s ease-in-out both}
+ .finale-reader:not(.finale-still) .art-reopened .finale-open-book{transform-origin:50% 52%;animation:finale-unfold .8s ease-out both}
+}
+@keyframes finale-fold-away{0%{opacity:1;transform:scaleX(1)}75%,100%{opacity:0;transform:scaleX(.04)}}
+@keyframes finale-cover-settle{0%,35%{opacity:0;transform:scaleX(.15)}100%{opacity:1;transform:scaleX(1)}}
+@keyframes finale-unfold{from{opacity:.25;transform:scaleX(.22)}to{opacity:1;transform:scaleX(1)}}
+
+/* Material finish is deliberately absent from the approved revelation. */
+.craft-atlas .crafted-book{filter:url(#craft-book-shadow)}
+.craft-atlas .craft-page-block{fill:#839185;fill-opacity:.3;stroke:#c5b78d;stroke-width:.7;stroke-opacity:.4}
+.craft-atlas .craft-page-left{fill:url(#craft-left-page)}.craft-atlas .craft-page-right{fill:url(#craft-right-page)}
+.craft-atlas .craft-gutter{fill:url(#craft-gutter)}.craft-atlas .craft-sewn-fold{fill:none;stroke:#7d948b;stroke-opacity:.22;stroke-width:1.2}
+.craft-atlas .craft-leaf-edges{fill:none;stroke:#c0b69b;stroke-opacity:.4;stroke-width:.7}
+.craft-atlas .craft-cover-binding{fill:url(#craft-cover-edge);stroke:#7a7d65;stroke-width:.7}
+.craft-atlas .craft-cover-gleam{fill:#789086;fill-opacity:.16}
+.scene-names .letter-desire{display:block;margin:22px 0 24px;font:500 clamp(24px,2vw,28px)/1.42 var(--display);font-style:normal;color:#224042;letter-spacing:-.012em;text-wrap:balance}
+.scene-horizon.finale-folio .finale-letter-reading{padding:40px 38px}
+.scene-horizon .letter-reflection{font-size:clamp(21px,1.8vw,25px);line-height:1.75}
+@media(max-width:760px){.scene-names .letter-desire{font-size:25px;margin-block:20px 22px}.scene-horizon.finale-folio .finale-letter-reading{padding:28px 26px}.scene-horizon .letter-reflection{font-size:21px;line-height:1.7}}
+
+/* Final Folio only: the lining and concealed edge belong to the actual Atlas cover. */
+.finale-folio.scene-hidden .folio-concealed-atlas .finale-closed-book,.folio-origin .finale-closed-book{display:block}
+.folio-concealed-atlas .finale-cover-rose{display:none}
+.folio-cover-lining{fill:#213c43;stroke:#9c966d;stroke-opacity:.48;stroke-width:1.2}
+.folio-binding-thread{fill:none;stroke:#9f916a;stroke-width:1;stroke-dasharray:2 8;opacity:.38}
+.folio-source-paper{fill:#e9dfcb;stroke:#c3af84;stroke-width:1}
+.folio-pocket-face{fill:#203940;stroke:#7c8d7e;stroke-opacity:.22;stroke-width:1}
+.folio-hidden-seam{fill:none;stroke:#c5b181;stroke-width:1.5;stroke-opacity:.7}
+.folio-paper-lip{fill:#f0e6d1;stroke:#d0c2a0;stroke-width:.6}
+.finale-folio.scene-letter .finale-artwork{position:relative}
+.folio-origin{pointer-events:none}
+.folio-empty-cover .folio-source-paper,.folio-empty-cover .folio-paper-lip{visibility:hidden}
+.finale-reader.folio-opening .finale-letter-reading{animation:none;transform-origin:0 0;z-index:2;will-change:transform,clip-path}
+.folio-paper-sheen{position:absolute;inset:0;pointer-events:none;border-top:1px solid #fff8;border-right:1px solid #a8997633;background:linear-gradient(180deg,transparent 46%,#77623b17 49.6%,#fff6 50%,#a48d6033 50.4%,transparent 54%);z-index:1}
+@media(prefers-reduced-motion:no-preference){.finale-folio:not(.finale-still).scene-hidden .folio-hidden-seam{animation:folio-seam-found 1100ms ease-out both}.finale-folio:not(.finale-still).scene-hidden .folio-paper-lip{animation:folio-edge-found 1100ms ease-out both}}
+@keyframes folio-seam-found{from{stroke-opacity:.12}to{stroke-opacity:.7}}
+@keyframes folio-edge-found{from{opacity:.35}to{opacity:1}}
+.folio-concealed-atlas .finale-cover{fill:url(#folio-origin-finale-cover)}
+.folio-concealed-atlas .crafted-book{filter:url(#folio-origin-craft-book-shadow)}
+.folio-concealed-atlas .craft-cover-binding{fill:url(#folio-origin-craft-cover-edge)}
+/* Settling must not restart the reader's generic entrance fade. */
+.finale-reader[data-folio-motion] .finale-letter-reading{animation:none}
+@media(max-width:760px){.finale-folio.scene-letter .folio-concealed-atlas{height:186px}}
+
+/* Responsive detail levels of the approved Shared Chart surveying impression. */
+.folio-paper-seal>.shared-chart-mobile,.folio-bound-seal>.shared-chart-mobile{display:none}
+@media(max-width:760px){.folio-paper-seal>.shared-chart-desktop,.folio-bound-seal>.shared-chart-desktop{display:none}.folio-paper-seal>.shared-chart-mobile,.folio-bound-seal>.shared-chart-mobile{display:block}}
+.folio-empty-cover .folio-bound-seal{visibility:hidden}
+.folio-paper-seal{position:absolute;left:47.25%;top:22.55%;width:34.5%;height:54.9%;pointer-events:none;z-index:2;transform-origin:50% 50%}
+.folio-paper-seal svg{display:block;width:100%;height:100%}
+@media(max-width:760px){.folio-paper-seal{left:42%;top:14.25%;width:45%;height:71.5%}}
