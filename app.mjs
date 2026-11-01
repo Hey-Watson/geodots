@@ -493,14 +493,14 @@ function bindMaps(){
  const svg=$('graphMap')??$('landmarkMap');if(!svg)return;
  const pointers=new Map();let start=null,panned=false,pinched=false,pinch=null;
  svg.addEventListener('pointerdown',e=>{
-  pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(!e.target.closest('[data-node]'))svg.setPointerCapture(e.pointerId);
+  pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});if(!e.target.closest('[data-node]')&&!(e.pointerType==='touch'&&svg.id==='graphMap'&&mobilePuzzleChart()))svg.setPointerCapture(e.pointerId);
   if(pointers.size===2){const [a,b]=[...pointers.values()];pinch={distance:Math.hypot(a.x-b.x,a.y-b.y),zoom:{...S.zoom}};pinched=true;return}
   start={x:e.clientX,y:e.clientY,zoom:{...S.zoom}};panned=false;pinched=false;
  });
  svg.addEventListener('pointermove',e=>{
   if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
   if(pointers.size===2&&pinch){const [a,b]=[...pointers.values()],distance=Math.hypot(a.x-b.x,a.y-b.y),factor=pinch.distance/distance,w=Math.max(180,Math.min(1800,pinch.zoom.w*factor)),h=w*580/900;S.zoom=S.view==='play'&&responsivePuzzle(puzzles[S.index])?scalePuzzleCamera(pinch.zoom,factor,puzzleFrame()):{x:pinch.zoom.x+(pinch.zoom.w-w)/2,y:pinch.zoom.y+(pinch.zoom.h-h)/2,w,h};svg.setAttribute('viewBox',Object.values(S.zoom).join(' '));updateMobileDots();return}
-  if(!start||pinched)return;const dx=e.clientX-start.x,dy=e.clientY-start.y;if(Math.hypot(dx,dy)>6)panned=true;if(panned){suppressClickUntil=performance.now()+500;svg.setPointerCapture(e.pointerId);const rect=svg.getBoundingClientRect();S.zoom={...start.zoom,x:start.zoom.x-dx*start.zoom.w/rect.width,y:start.zoom.y-dy*start.zoom.h/rect.height};svg.setAttribute('viewBox',Object.values(S.zoom).join(' '));updateMobileDots()}
+  if(!start||pinched)return;const dx=e.clientX-start.x,dy=e.clientY-start.y;if(e.pointerType==='touch'&&svg.id==='graphMap'&&mobilePuzzleChart()){if(Math.hypot(dx,dy)>6){panned=true;suppressClickUntil=performance.now()+500}return}if(Math.hypot(dx,dy)>6)panned=true;if(panned){suppressClickUntil=performance.now()+500;svg.setPointerCapture(e.pointerId);const rect=svg.getBoundingClientRect();S.zoom={...start.zoom,x:start.zoom.x-dx*start.zoom.w/rect.width,y:start.zoom.y-dy*start.zoom.h/rect.height};svg.setAttribute('viewBox',Object.values(S.zoom).join(' '));updateMobileDots()}
  });
  const release=e=>{
   const was=pointers.has(e.pointerId);pointers.delete(e.pointerId);if(!was)return;
