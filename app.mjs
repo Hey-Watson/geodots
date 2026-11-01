@@ -16,7 +16,7 @@ import {earnedAtlasLandmarks} from './core/atlas.mjs';
 import {atlasProjection,atlasLand,atlasState,atlasMarkerLayer,atlasControls,bindAtlasMap} from './atlas-view.mjs';
 const atlasSimulation=CONFIG.preview===true&&CONFIG.productionApproved===false&&location.pathname==='/atlas-simulation.html';
 let atlasComponents,atlasCoverage,suppressAtlasClickUntil=0;
-import {hasIntegratedViewport,standardViewport,resizePuzzleCamera,scalePuzzleCamera} from './core/integrated-viewport.mjs';
+import {hasIntegratedViewport,standardViewport,resizePuzzleCamera,scalePuzzleCamera,mobileDotPositions} from './core/integrated-viewport.mjs';
 import {validatePlan,regionFor,regionState as deriveRegionState} from './core/progression.mjs';
 const $=id=>document.getElementById(id), E=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const thresholds=[0,5,20,45],media=matchMedia('(prefers-reduced-motion: reduce)');
@@ -104,29 +104,64 @@ function header(){
  if($('storyButton')){$('storyButton').textContent=local('The Unfinished Atlas','L’Atlas inachevé');$('storyButton').disabled=!session;}$('previewLabel').textContent=isPrivatePreview(CONFIG)?t('preview'):'';$('previewLabel').closest('.preview-bar').hidden=!isPrivatePreview(CONFIG);$('footerMotto').textContent=t('motto');$('sourcesButton').textContent=t('sources');$('skipMotion').textContent=t('skipMotion');
  if(saveFailure){$('saveWarning').hidden=false;$('saveWarning').textContent=t('notSaved')}
 }
+const mobileChartMedia=matchMedia('(max-width:760px), (pointer:coarse) and (max-width:1000px) and (max-height:500px)');
+const mobilePuzzleChart=()=>S.view==='play'&&mobileChartMedia.matches;
+const responsivePuzzle=p=>hasIntegratedViewport(p)||mobilePuzzleChart();
 let integratedViewport=null,integratedResizeObserver=null;
-function puzzleFrame(p=puzzles?.[S.index]){return S.view==='play'&&hasIntegratedViewport(p)&&integratedViewport?integratedViewport:standardViewport()}
+function puzzleFrame(p=puzzles?.[S.index]){return S.view==='play'&&responsivePuzzle(p)&&integratedViewport?integratedViewport:standardViewport()}
 function fitIntegratedViewport(){
  integratedResizeObserver?.disconnect();
- if(S.view!=='play'||!hasIntegratedViewport(puzzles[S.index]))return;
+ if(S.view!=='play'||!responsivePuzzle(puzzles[S.index]))return;
  const surface=$('puzzleChart')?.querySelector('.chart-surface');if(!surface)return;
- const fit=()=>{const svg=$('graphMap');if(!svg||S.view!=='play'||!hasIntegratedViewport(puzzles[S.index]))return false;
+ const fit=()=>{const svg=$('graphMap');if(!svg||S.view!=='play'||!responsivePuzzle(puzzles[S.index]))return false;
   const rect=svg.getBoundingClientRect(),next={w:Math.round(rect.width),h:Math.round(rect.height)},old=integratedViewport??standardViewport();
   if(next.w<1||next.h<1||next.w===old.w&&next.h===old.h)return false;
   const focused=document.activeElement?.closest('.graph-node')?.dataset.node;
   S.zoom=resizePuzzleCamera(S.zoom,old,next);integratedViewport=next;svg.outerHTML=graphSVG();
   if(focused!==undefined)$('node-'+focused)?.focus({preventScroll:true});return true;
- };fit();integratedResizeObserver=new ResizeObserver(()=>{if(fit())bindMaps()});integratedResizeObserver.observe(surface);
+ };fit();updateMobileDots();integratedResizeObserver=new ResizeObserver(()=>{if(fit()){updateMobileDots();bindMaps()}});integratedResizeObserver.observe(surface);
 }
 function projectionForPuzzle(p){
  const points=p.nodes.map(n=>n.position),xs=points.map(p=>p[0]),ys=points.map(p=>p[1]);
  const loX=Math.min(...xs),hiX=Math.max(...xs),loY=Math.min(...ys),hiY=Math.max(...ys);
+ if(mobilePuzzleChart()){const frame=puzzleFrame(p);return fitProjection([loX,loY,hiX===loX?hiX+.001:hiX,hiY===loY?hiY+.001:hiY],frame.w,frame.h,32)}
  const dx=Math.max(hiX-loX,4),dy=Math.max(hiY-loY,4),sx=dx*.14,sy=dy*.11;
  const frame=puzzleFrame(p);return fitProjection([Math.max(-179.9,loX-sx),Math.max(-80,loY-sy),Math.min(179.9,hiX+sx),Math.min(80,hiY+sy)],frame.w,frame.h,hasIntegratedViewport(p)?28:75);
 }
 function pathRing(ring,projection){return ring.map((point,i)=>{try{const [x,y]=projection.forward(point);return `${i?'L':'M'}${x.toFixed(2)},${y.toFixed(2)}`}catch{return ''}}).join('')+'Z'}
 function paths(geom,projection){const parts=geom.type==='Polygon'?[geom.coordinates]:geom.type==='MultiPolygon'?geom.coordinates:[];return parts.map(rings=>rings.map(r=>pathRing(r,projection)).join('')).join('')}
-function grid(){let str='';for(let x=0;x<=900;x+=75)str+=`<path class="graticule" d="M${x} 0V580"/>`;for(let y=0;y<=580;y+=58)str+=`<path class="graticule" d="M0 ${y}H900"/>`;return `<g aria-hidden="true">${str}<text x="40" y="43" class="north">N</text><path d="M45 76V50m-5 7 5-7 5 7" fill="none" stroke="#bda06d"/></g>`}
+function grid(){if(mobilePuzzleChart()){const f=puzzleFrame();let paths='';for(let x=0;x<=f.w;x+=60)paths+=`<path class="graticule" d="M${x} 0V${f.h}"/>`;for(let y=0;y<=f.h;y+=60)paths+=`<path class="graticule" d="M0 ${y}H${f.w}"/>`;return `<g aria-hidden="true">${paths}<text x="12" y="18" class="north">N</text><path d="M16 34V23m-3 4 3-4 3 4" fill="none" stroke="#bda06d"/></g>`}let str='';for(let x=0;x<=900;x+=75)str+=`<path class="graticule" d="M${x} 0V580"/>`;for(let y=0;y<=580;y+=58)str+=`<path class="graticule" d="M0 ${y}H900"/>`;return `<g aria-hidden="true">${str}<text x="40" y="43" class="north">N</text><path d="M45 76V50m-5 7 5-7 5 7" fill="none" stroke="#bda06d"/></g>`}
+function updateMobileDots(){
+ if(!mobilePuzzleChart())return;const svg=$('graphMap');if(!svg)return;
+ const rect=svg.getBoundingClientRect(),matrix=svg.getScreenCTM();if(!matrix||rect.width<1||rect.height<1)return;
+ const scale=Math.hypot(matrix.a,matrix.b),unit=1/scale,groups=[...svg.querySelectorAll('.graph-node')];
+ const anchors=groups.map(g=>{const p=new DOMPoint(0,0).matrixTransform(g.getScreenCTM());return[p.x-rect.left,p.y-rect.top]});
+ const markers=mobileDotPositions(anchors,rect.width,rect.height);
+ groups.forEach((g,i)=>{
+  const dx=(markers[i][0]-anchors[i][0])*unit,dy=(markers[i][1]-anchors[i][1])*unit,shift=Math.hypot(dx,dy);
+  g.style.setProperty('--ring',`${18*unit}px`);g.style.setProperty('--hit',`${22*unit}px`);g.style.setProperty('--number',`${16*unit}px`);g.style.setProperty('--label',`${14*unit}px`);g.style.setProperty('--label-outline',`${4*unit}px`);
+  g.querySelector('.node-glyph').setAttribute('transform',`translate(${dx},${dy})`);
+  g.querySelector('.node-number').setAttribute('y',5.5*unit);
+  const line=g.querySelector('.node-callout');line.setAttribute('x2',dx);line.setAttribute('y2',dy);line.setAttribute('visibility',shift>.5?'visible':'hidden');
+  const anchor=g.querySelector('.node-anchor');anchor.setAttribute('r',2.5*unit);anchor.setAttribute('visibility',shift>.5?'visible':'hidden');
+ });
+ // Only player-assigned labels are positioned; no unassigned answer is introduced.
+ const occupied=markers.map(([x,y])=>({x:x-21,y:y-21,w:42,h:42}));
+ const overlap=(a,b)=>Math.max(0,Math.min(a.x+a.w,b.x+b.w)-Math.max(a.x,b.x))*Math.max(0,Math.min(a.y+a.h,b.y+b.h)-Math.max(a.y,b.y));
+ groups.forEach((g,i)=>{const label=g.querySelector('.node-label');if(!label)return;
+  const [ax,ay]=anchors[i],visible=ax>=0&&ax<=rect.width&&ay>=0&&ay<=rect.height;
+  label.setAttribute('visibility',visible?'visible':'hidden');g.querySelector('.node-label-leader').setAttribute('visibility',visible?'visible':'hidden');if(!visible)return;
+  const [mx,my]=markers[i],width=label.getComputedTextLength()*scale,height=18;
+  const candidates=[];for(const dy of [-32,32,-54,54,-76,76,-98,98])for(const dx of [0,-40,40,-80,80,-120,120]){
+   const x=Math.max(8+width/2,Math.min(rect.width-8-width/2,mx+dx)),y=Math.max(20,Math.min(rect.height-8,my+dy)),box={x:x-width/2,y:y-14,w:width,h:height};
+   candidates.push({x,y,box,score:occupied.reduce((sum,b)=>sum+overlap(box,b)*100,0)+Math.hypot(x-mx,y-my)});
+  }
+  const chosen=candidates.sort((a,b)=>a.score-b.score)[0];occupied.push(chosen.box);
+  label.setAttribute('x',(chosen.x-anchors[i][0])*unit);label.setAttribute('y',(chosen.y-anchors[i][1])*unit);
+  const line=g.querySelector('.node-label-leader'),tx=Math.max(chosen.box.x,Math.min(chosen.box.x+width,mx)),ty=Math.max(chosen.box.y,Math.min(chosen.box.y+height,my));
+  line.setAttribute('x1',(mx-anchors[i][0])*unit);line.setAttribute('y1',(my-anchors[i][1])*unit);line.setAttribute('x2',(tx-anchors[i][0])*unit);line.setAttribute('y2',(ty-anchors[i][1])*unit);
+ });
+}
 function graphSVG(){
  const p=puzzles[S.index],projection=projectionForPuzzle(p),points=p.nodes.map(n=>projection.forward(n.position));
  const solved=S.draft.solved;
@@ -135,6 +170,7 @@ function graphSVG(){
  const nodes=p.nodes.map((n,i)=>{
   const nearest=Math.min(...points.filter((_,j)=>j!==i).map(q=>Math.hypot(q[0]-points[i][0],q[1]-points[i][1])));const hit=Math.min(55,nearest*.46),ring=Math.min(hasIntegratedViewport(p)?18:23,nearest*(hasIntegratedViewport(p)?.36:.31));const assigned=solved?n.name:S.draft.assignments[i],links=p.edges.flatMap(e=>e.includes(n.name)?[p.nodes.findIndex(candidate=>candidate.name===e.find(v=>v!==n.name))+1]:[]);
   const label=`${t('node')} ${i+1}. ${assigned?name(assigned):t('unassigned')}. ${t('linkedTo')} ${links.join(', ')}`;
+  if(mobilePuzzleChart())return `<g class="graph-node ${S.selected===i?'selected':''} ${assigned?'assigned':''}" transform="translate(${points[i][0]},${points[i][1]})" role="button" tabindex="0" aria-label="${E(label)}" aria-pressed="${S.selected===i}" data-node="${i}" id="node-${i}"><line class="node-callout"/><line class="node-label-leader"/><circle class="node-anchor"/><g class="node-glyph"><circle class="node-hit"/><circle class="node-ring"/><text class="node-number" text-anchor="middle">${String(i+1).padStart(2,'0')}</text></g>${assigned?`<text class="node-label" text-anchor="middle">${E(name(assigned))}</text>`:''}</g>`;
   return `<g style="--hit:${hit}px;--ring:${ring}px;--number:${hasIntegratedViewport(p)?13:ring<18?12:18}px" class="graph-node ${S.selected===i?'selected':''} ${assigned?'assigned':''}" transform="translate(${points[i][0]},${points[i][1]})" role="button" tabindex="0" aria-label="${E(label)}" aria-pressed="${S.selected===i}" data-node="${i}" id="node-${i}"><circle class="node-hit" r="29"/><circle class="node-ring" r="16"/><text class="node-number" text-anchor="middle" y="4">${String(i+1).padStart(2,'0')}</text>${assigned?`<text class="node-label" text-anchor="middle" y="-28">${E(name(assigned))}</text>`:''}</g>`;
  }).join('');
  return `<svg class="chart" id="graphMap" viewBox="${S.zoom.x} ${S.zoom.y} ${S.zoom.w} ${S.zoom.h}" aria-label="${E(t('chart'))}" role="group">${grid()}<g>${outline}</g><g>${edges}</g>${nodes}</svg>`;
@@ -393,7 +429,7 @@ async function handleAction(button){
  if(a==='coordinate-pin'){const lat=$('pinLatitude'),lon=$('pinLongitude');if(lat.value!==''&&lon.value!==''&&lat.reportValidity()&&lon.reportValidity()){setPin([Number(lon.value),Number(lat.value)]);$('countrySelect')?.focus({preventScroll:true})}return}
 }
 document.addEventListener('click',event=>{
- const button=event.target.closest('button,[data-node],[data-atlas-discoveries]');if(!button||button.disabled)return;if(button.dataset.node!==undefined&&event.detail!==0&&performance.now()<suppressClickUntil&&(!(S.view==='play'&&hasIntegratedViewport(puzzles[S.index]))||button.closest('#graphMap')))return;
+ const button=event.target.closest('button,[data-node],[data-atlas-discoveries]');if(!button||button.disabled)return;if(button.dataset.node!==undefined&&event.detail!==0&&performance.now()<suppressClickUntil&&(!(S.view==='play'&&responsivePuzzle(puzzles[S.index]))||button.closest('#graphMap')))return;
  const perform=async()=>{
   if(button.dataset.atlasDiscoveries){if(event.detail!==0&&performance.now()<suppressAtlasClickUntil)return;openAtlasDiscoveries(button.dataset.atlasDiscoveries.split(','));return}
   if(button.dataset.atlasMode){S.atlasMode=button.dataset.atlasMode;render();return}
@@ -447,8 +483,8 @@ document.addEventListener('keydown',event=>{
  if(event.target.id==='landmarkMap'&&!S.outcome){const keys={ArrowUp:'north',ArrowDown:'south',ArrowLeft:'west',ArrowRight:'east'};if(keys[event.key]){event.preventDefault();movePin(keys[event.key],event.shiftKey);return}if(event.key==='+'||event.key==='-'){event.preventDefault();zoomMap(event.key==='+'?'in':'out')}}
 });
 function zoomMap(direction){
- if(S.view==='play'&&hasIntegratedViewport(puzzles[S.index])){const frame=puzzleFrame();S.zoom=direction==='reset'?{x:0,y:0,...frame}:scalePuzzleCamera(S.zoom,direction==='in'?.8:1.25,frame)}else if(direction==='reset')S.zoom={x:0,y:0,w:900,h:580};else{const f=direction==='in'?.8:1.25,w=Math.max(180,Math.min(1800,S.zoom.w*f)),h=w*580/900;S.zoom={x:S.zoom.x+(S.zoom.w-w)/2,y:S.zoom.y+(S.zoom.h-h)/2,w,h}}
- const svg=$('graphMap')??$('landmarkMap');svg?.setAttribute('viewBox',`${S.zoom.x} ${S.zoom.y} ${S.zoom.w} ${S.zoom.h}`);
+ if(S.view==='play'&&responsivePuzzle(puzzles[S.index])){const frame=puzzleFrame();S.zoom=direction==='reset'?{x:0,y:0,...frame}:scalePuzzleCamera(S.zoom,direction==='in'?.8:1.25,frame)}else if(direction==='reset')S.zoom={x:0,y:0,w:900,h:580};else{const f=direction==='in'?.8:1.25,w=Math.max(180,Math.min(1800,S.zoom.w*f)),h=w*580/900;S.zoom={x:S.zoom.x+(S.zoom.w-w)/2,y:S.zoom.y+(S.zoom.h-h)/2,w,h}}
+ const svg=$('graphMap')??$('landmarkMap');svg?.setAttribute('viewBox',`${S.zoom.x} ${S.zoom.y} ${S.zoom.w} ${S.zoom.h}`);updateMobileDots();
 }
 function movePin(direction,fine=false){const l=landmarks.find(l=>l.id===S.landmark);if(!l||S.outcome)return;const p=fitProjection(l.bounds);let q=S.pin?p.forward(S.pin):[450,290],amount=(fine?1:8)*S.zoom.w/900;if(direction==='north')q[1]-=amount;if(direction==='south')q[1]+=amount;if(direction==='west')q[0]-=amount;if(direction==='east')q[0]+=amount;try{setPin(p.inverse(q));$('landmarkMap')?.focus({preventScroll:true})}catch{}}
 function persistDiscoveryDraft(){if(S.view!=='discovery'||S.outcome)return;const l=landmarks.find(l=>l.id===S.landmark);session.saveDiscoveryDraft(l,{attemptId:S.attemptId,pin:S.pin,guessCountry:S.guessCountry,mode:S.mode}).then(saveResult).then(result=>{if(!result.ok){syncDiscovery();if(S.view==='discovery')render()}})}
@@ -463,15 +499,15 @@ function bindMaps(){
  });
  svg.addEventListener('pointermove',e=>{
   if(!pointers.has(e.pointerId))return;pointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
-  if(pointers.size===2&&pinch){const [a,b]=[...pointers.values()],distance=Math.hypot(a.x-b.x,a.y-b.y),factor=pinch.distance/distance,w=Math.max(180,Math.min(1800,pinch.zoom.w*factor)),h=w*580/900;S.zoom=S.view==='play'&&hasIntegratedViewport(puzzles[S.index])?scalePuzzleCamera(pinch.zoom,factor,puzzleFrame()):{x:pinch.zoom.x+(pinch.zoom.w-w)/2,y:pinch.zoom.y+(pinch.zoom.h-h)/2,w,h};svg.setAttribute('viewBox',Object.values(S.zoom).join(' '));return}
-  if(!start||pinched)return;const dx=e.clientX-start.x,dy=e.clientY-start.y;if(Math.hypot(dx,dy)>6)panned=true;if(panned){suppressClickUntil=performance.now()+500;svg.setPointerCapture(e.pointerId);const rect=svg.getBoundingClientRect();S.zoom={...start.zoom,x:start.zoom.x-dx*start.zoom.w/rect.width,y:start.zoom.y-dy*start.zoom.h/rect.height};svg.setAttribute('viewBox',Object.values(S.zoom).join(' '))}
+  if(pointers.size===2&&pinch){const [a,b]=[...pointers.values()],distance=Math.hypot(a.x-b.x,a.y-b.y),factor=pinch.distance/distance,w=Math.max(180,Math.min(1800,pinch.zoom.w*factor)),h=w*580/900;S.zoom=S.view==='play'&&responsivePuzzle(puzzles[S.index])?scalePuzzleCamera(pinch.zoom,factor,puzzleFrame()):{x:pinch.zoom.x+(pinch.zoom.w-w)/2,y:pinch.zoom.y+(pinch.zoom.h-h)/2,w,h};svg.setAttribute('viewBox',Object.values(S.zoom).join(' '));updateMobileDots();return}
+  if(!start||pinched)return;const dx=e.clientX-start.x,dy=e.clientY-start.y;if(Math.hypot(dx,dy)>6)panned=true;if(panned){suppressClickUntil=performance.now()+500;svg.setPointerCapture(e.pointerId);const rect=svg.getBoundingClientRect();S.zoom={...start.zoom,x:start.zoom.x-dx*start.zoom.w/rect.width,y:start.zoom.y-dy*start.zoom.h/rect.height};svg.setAttribute('viewBox',Object.values(S.zoom).join(' '));updateMobileDots()}
  });
  const release=e=>{
   const was=pointers.has(e.pointerId);pointers.delete(e.pointerId);if(!was)return;
   if(start&&!panned&&!pinched&&S.view==='play'&&!S.draft.solved){
    // Resolve the actual coordinate, because mobile browsers may retarget a small
    // SVG hit to a neighbouring label. Numbered 44px controls remain available.
-   const nearest=[...svg.querySelectorAll('.graph-node')].map(g=>{const q=new DOMPoint(0,0).matrixTransform(g.getScreenCTM());return {index:Number(g.dataset.node),distance:Math.hypot(q.x-e.clientX,q.y-e.clientY)}}).sort((a,b)=>a.distance-b.distance)[0];
+   const nearest=[...svg.querySelectorAll('.graph-node')].map(g=>{const q=new DOMPoint(0,0).matrixTransform((mobilePuzzleChart()?g.querySelector('.node-glyph'):g).getScreenCTM());return {index:Number(g.dataset.node),distance:Math.hypot(q.x-e.clientX,q.y-e.clientY)}}).sort((a,b)=>a.distance-b.distance)[0];
    if(nearest?.distance<=22){suppressClickUntil=performance.now()+450;S.selected=nearest.index;render();notify(`${t('selected')} ${S.selected+1}`)}
   }
   if(start&&!panned&&!pinched&&S.view==='discovery'&&!S.outcome&&S.mode==='pin'){
@@ -481,6 +517,7 @@ function bindMaps(){
  };
  svg.addEventListener('pointerup',release);svg.addEventListener('pointercancel',()=>{pointers.clear();start=null;pinch=null});
 }
+mobileChartMedia.addEventListener('change',()=>{if(S.view==='play'){integratedViewport=null;S.zoom={x:0,y:0,w:900,h:580};render()}});
 media.addEventListener('change',()=>{stopMotion();header();finaleReader?.setPreferences({language:S.language,reduced:S.reduced||media.matches,companion:companionAppearance()})});document.addEventListener('visibilitychange',()=>{if(document.hidden){stopMotion();cancelDiscoveryTransition()}else if(S.view==='atlas')queueMicrotask(atlasExperience)});
 const channel=!atlasSimulation&&typeof BroadcastChannel==='function'?new BroadcastChannel('geodots-preview-v1'):null;
 channel?.addEventListener('message',async()=>{await refresh();syncDiscovery();if(S.view!=='play')render();else header()});
