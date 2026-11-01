@@ -252,3 +252,33 @@ dialog::backdrop{background:#071b23c9}
  #graphMap .node-anchor{fill:#e0bd85;stroke:#173943;stroke-width:1px;vector-effect:non-scaling-stroke;pointer-events:none}
  #graphMap .north{font-size:11px}
 }
+
+/* Mobile puzzle solving is one continuous document, with no sliding clue or country panels.
+   This overrides the historic compact-panel height and overflow constraints only on phones. */
+@media (max-width:760px), (pointer:coarse) and (max-width:1000px) and (max-height:500px) {
+  .continuous-play .workspace-notes .clue-list {
+    height:auto;max-height:none;overflow:visible;overscroll-behavior:auto;
+    scrollbar-width:none;padding-right:0;
+  }
+  .continuous-play .dot-selector {
+    display:grid;grid-template-columns:repeat(6,minmax(0,1fr));
+    gap:6px;overflow:visible;scrollbar-width:none;height:auto;max-height:none;width:100%;
+  }
+  .continuous-play .dot-selector button {
+    min-width:0;width:100%;min-height:44px;flex:none;
+  }
+  .continuous-play .names-pane .place-tray {
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;height:auto;min-height:0;max-height:none;overflow:visible;
+    overscroll-behavior:auto;margin:8px 0 15px;padding:2px 0;scrollbar-width:none;
+  }
+  .continuous-play .names-pane .place-tray button {
+    min-width:0;width:100%;height:auto;min-height:44px;
+    max-width:100%;white-space:normal;overflow-wrap:break-word;
+    justify-content:flex-start;text-align:left;line-height:1.35;
+  }
+  .continuous-play #puzzleChart .chart-surface #graphMap {
+    /* Native one-finger vertical page scrolling; taps remain available for point selection. */
+    touch-action:pan-y;
+  }
+}
