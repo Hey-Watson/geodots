@@ -74,3 +74,14 @@ body[data-surface=restored] #main,body[data-surface=folio] #main,body[data-surfa
 .folio-paper-seal{position:absolute;left:47.25%;top:22.55%;width:34.5%;height:54.9%;pointer-events:none;z-index:2;transform-origin:50% 50%}
 .folio-paper-seal svg{display:block;width:100%;height:100%}
 @media(max-width:760px){.folio-paper-seal{left:42%;top:14.25%;width:45%;height:71.5%}}
+
+/* Survey × Meridian — paint-only website skin. Layout, typography metrics and motion remain original. */
+.finale-heading,.finale-page-navigation,.finale-choice,.finale-expedition-impressions>div{border-color:#63898077}
+.finale-heading h1{color:var(--sm-brass)}
+.finale-passage p{color:var(--sm-cream)}.finale-passage strong{color:#ecd0a0}
+.finale-toolbar button,.finale-previous,.choice-copy>span{color:var(--sm-muted)}
+.finale-letter-reading{background:#e8ddc4;color:#19313a;border-color:#b9a47b;box-shadow:3px 5px 0 #ac986c22}
+.finale-letter-reading p{color:#19313a}.finale-letter-reading strong{color:#18333d}
+.finale-choice{border-radius:15px;background:linear-gradient(120deg,#29525844,#183b4322)}
+.finale-choice:hover{background:linear-gradient(120deg,#35645e66,#254b5444)}
+.choice-copy strong,.choice-arrow{color:var(--sm-brass)}

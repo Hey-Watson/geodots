@@ -67,3 +67,10 @@ body[data-surface=story] #main{padding-block:32px 42px;min-height:0}
 }
 @media(max-height:500px) and (min-width:761px){.story-spread{min-height:0}.story-passage{min-height:180px}.story-passage p{font-size:20px}.story-folio-art{max-height:350px}}
 @media(prefers-reduced-motion:reduce){.story-reader .story-passage,.story-reader .story-folio-art{animation:none!important;transform:none!important}}
+
+/* Survey × Meridian — paint-only website skin. Layout, typography metrics and motion remain original. */
+.story-heading,.story-navigation{border-color:#63898077}
+.story-heading h1{color:var(--sm-brass)}
+.story-passage p{color:var(--sm-cream)}
+.story-passage strong{color:#ecd0a0}
+.story-skip,.story-previous{color:var(--sm-muted)}

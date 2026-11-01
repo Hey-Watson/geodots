@@ -77,3 +77,36 @@
 @media(max-width:760px){.uncharted-root{padding-top:5px}.uncharted-root #placeScene .place-area{height:clamp(520px,72svh,730px)}.uncharted-root .uw-toolbar{gap:6px;font-size:12px}.uncharted-root .uw-toolbar button{padding:6px 10px}.uncharted-root .cell{padding:0;font-family:system-ui,sans-serif}}
 
 .uncharted-root .cell:disabled{opacity:1}
+
+/* Survey × Meridian — paint-only website skin. Layout, typography metrics and motion remain original. */
+.uncharted-root{--night:var(--sm-night);--navy:var(--sm-navy);--navy-mid:#224b54;--cream:var(--sm-cream);--brass:var(--sm-brass);--brass2:#cfa970;--sage:var(--sm-verdigris);--muted:var(--sm-muted)}
+.uncharted-root .pattern{background:#21464d;border-color:#72988a77;border-radius:13px}
+.uncharted-root .pattern .arrow{color:var(--sm-brass)}
+.uncharted-root .pattern .question{background:var(--sm-brass);color:var(--sm-ink)}
+.uncharted-root .pattern-help,.uncharted-root .progressline,.uncharted-root .uw-folio .story,.uncharted-root .uw-charted-tally{color:var(--sm-muted)}
+.uncharted-root .game-board{background:radial-gradient(ellipse,#346066,#14343f);border-color:#72988e99;border-radius:16px;box-shadow:0 12px 28px #031a2533}
+.uncharted-root .cell{background:#173c45d9;border-color:#72988e;color:var(--sm-cream);border-radius:8px}
+.uncharted-root .cell:hover:not(:disabled),.uncharted-root .cell:focus-visible{background:#305b63;border-color:#f0cf98}
+.uncharted-root .cell.used{background:#d3b27a;border-color:#f3d7a6;color:transparent}
+.uncharted-root .cell.chosen:hover{background:#e3c28c;border-color:#fff0cd}
+.uncharted-root .edge-number{fill:#102b34;stroke:#d3b27a}
+.uncharted-root .stroke-trace{stroke:#f0d4a1}
+.uncharted-root .full-shape{fill:#80ad9e;stroke:#edd29c}
+.uncharted-root .game-board.morphing{background:radial-gradient(ellipse,#346066,#14343f)}
+.uncharted-root .primary{background:var(--sm-action);color:var(--sm-ink);border-color:#e9c992;border-radius:13px;box-shadow:inset 0 1px #fff2d055,0 5px 14px #04182024}
+.uncharted-root .primary:hover{background:linear-gradient(120deg,#f5dcb2,#dfbc87)}
+.uncharted-root .quiet-help,.uncharted-root .map-msg,.uncharted-root .uw-toolbar button,.uncharted-root .uw-island-position{color:var(--sm-muted)}
+.uncharted-root #placeScene .world-overview{background:linear-gradient(135deg,#21474f,#14343f);border-color:#72988e99;box-shadow:0 12px 28px #031a2533}
+.uncharted-root .overview-specimen{background:#183c45;border-color:#819e8d;box-shadow:inset 0 0 24px #80ad9e16}
+.uncharted-root #overviewSvg{background:#173943;border-color:#72988e99}
+.uncharted-root #overviewSvg .overview-land,.uncharted-root #placeScene #worldSvg .land{fill:#6f9398;stroke:#bad0bd}
+.uncharted-root .overview-controls select{background:#173c45;color:var(--sm-cream);border-color:#759a95;border-radius:10px}
+.uncharted-root #placeScene .place-area{background:#14343f;border-color:#72988e99;border-radius:16px;box-shadow:0 12px 28px #031a2533,inset 0 0 44px #091d2766}
+.uncharted-root #placeScene #worldSvg{background:var(--sm-ocean)}
+.uncharted-root #placeScene .island-specimen{background:radial-gradient(ellipse,#305a60eb,#153943f5 78%);border-color:#c6bd93;box-shadow:0 10px 24px #031a2555,inset 0 0 16px #80ad9e22}
+.uncharted-root #placeScene .map-tools,.uncharted-root #placeScene .map-help{background:#173c45ed;border-color:#75998d;border-radius:12px;color:var(--sm-cream)}
+.uncharted-root .map-tools button{background:#173c45;color:var(--sm-cream);border-radius:9px}
+.uncharted-root .map-tools button:hover,.uncharted-root #placeScene .map-help:hover{background:#305b63}
+.uncharted-root .uw-toolbar button,.uncharted-root .chapter-nav button{background:var(--sm-surface);border-color:#75998d;border-radius:13px}
+.uncharted-root .unresolved-scene .primary{border-radius:13px}
+.uncharted-root .result p{color:var(--sm-muted)}
