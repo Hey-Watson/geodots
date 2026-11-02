@@ -45,3 +45,14 @@ body[data-surface=atlas] .atlas-log{position:static;inset:auto;border-top:0;box-
 #atlasMarkerEmphasis .marker-pointer{stroke:#fff0cf}
 .atlas-marker-tooltip{background:#143640;color:#f2e4ca;border-color:#e0bd85;border-radius:8px;box-shadow:0 4px 14px #031a2588}
 .key-expedition:before{background:#598d81}
+
+/* Eligibility, permanent access and selected map focus are separate states. */
+.atlas-view-heading{font-size:13px;font-weight:600;color:var(--sm-cream);margin:0 0 9px}.atlas-view-description{font-size:13px;line-height:1.5;color:var(--sm-muted);margin:9px 0 14px;max-width:720px}
+.expedition-register{margin-top:34px}.expedition-history-note{max-width:720px;font-size:14px;line-height:1.5;color:var(--sm-muted);margin:-5px 0 22px}
+.expedition-choice{padding:21px;gap:0}.expedition-choice .expedition-select h3{font-size:25px;line-height:1.15;margin:14px 0 10px}.expedition-choice .expedition-select p{font-size:13px;margin:0}.expedition-choice .expedition-scope{margin:13px 0 18px;line-height:1.5}.expedition-choice .expedition-select[aria-pressed=true] h3{text-decoration:none}
+.expedition-choice.open{border:1px solid #85aea3;background:#21494c}.expedition-choice.eligible{border:1px solid #c7aa76;background:linear-gradient(145deg,#293f40,#19373d)}
+.expedition-choice.completed{border:1px solid #a1bca2;background:#2b4b45}.expedition-choice.sealed{border:1px dashed #668082;background:#132e38}
+.expedition-choice.is-selected{outline:2px solid #eee0bf;outline-offset:4px}
+.expedition-state{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;line-height:1.5;color:#c9e5db}.expedition-state.eligible{color:#f0d19e}.expedition-state.completed{color:#d8dec0}.expedition-state.sealed{color:#b6c6c4}.expedition-state>span{font-size:17px;line-height:1}.expedition-state .expedition-seal{width:15px;height:17px}
+.expedition-history{font-size:12px;color:#b5ccc4;margin:9px 0 0}.atlas-log>.expedition-state{display:flex;margin-top:10px}.expedition-choice button.primary,.expedition-choice button.secondary{white-space:normal}
+@media(max-width:760px){.expedition-choice{padding:20px}.expedition-choice .expedition-select h3{font-size:26px}.expedition-choices{gap:20px}.atlas-log>.expedition-state{grid-column:1/-1}}

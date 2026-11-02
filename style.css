@@ -282,3 +282,9 @@ dialog::backdrop{background:#071b23c9}
     touch-action:pan-y;
   }
 }
+
+/* Earned expedition choice: shared by the chart room and My Atlas. */
+.expedition-invitation{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:24px 0 30px;padding:25px 28px;border:1px solid #bba377;border-left:4px solid var(--sm-brass);border-radius:16px;background:linear-gradient(115deg,#294e50,#163940);box-shadow:0 12px 30px #031a2525}
+.expedition-invitation .eyebrow{color:#e3c794;letter-spacing:.13em}.expedition-invitation h2{font-size:clamp(26px,3vw,34px);line-height:1.15;margin:9px 0;color:var(--sm-cream)}
+.expedition-invitation p{max-width:590px;margin:0;color:#c9d8d0;font-size:15px;line-height:1.5}.expedition-invitation>.primary{flex-shrink:0;white-space:normal;max-width:270px}
+@media(max-width:760px){.expedition-invitation{align-items:stretch;flex-direction:column;gap:18px;padding:21px;margin:20px 0 24px}.expedition-invitation>.primary{max-width:none}.expedition-invitation h2{font-size:28px}}
